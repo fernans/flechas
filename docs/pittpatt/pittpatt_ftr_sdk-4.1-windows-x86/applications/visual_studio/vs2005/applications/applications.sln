@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "detection", "detection\detection.vcproj", "{EE88FE2E-E84F-4ADA-AAB7-2F80E09960B8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tracking-completed", "tracking-completed\tracking-completed.vcproj", "{41138FD4-301F-43AB-A40C-4B84A3DA0725}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tracking-current", "tracking-current\tracking-current.vcproj", "{C4AF0E1E-6A8A-4A7E-B7C9-D1A0B07394DD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "clustering-cluster_gallery", "clustering-cluster_gallery\clustering-cluster_gallery.vcproj", "{DA0341CE-7F2C-4A8C-930A-7DA539C75822}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recognition-across_tracks", "recognition-across_tracks\recognition-across_tracks.vcproj", "{283E3405-439D-4829-B0F3-65E50A1B864F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recognition-create_gallery", "recognition-create_gallery\recognition-create_gallery.vcproj", "{A10300B0-1DB9-4466-A124-DBA2DE2C2AAE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recognition-match_query_to_reference", "recognition-match_query_to_reference\recognition-match_query_to_reference.vcproj", "{3A1985FE-469A-4C5D-A8DB-044E494A132C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recognition-rank_matching_faces", "recognition-rank_matching_faces\recognition-rank_matching_faces.vcproj", "{4B2ABD3A-B46D-45AC-AF8E-67B2A690D77C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recognition-compare_gallery_templates", "recognition-compare_gallery_templates\recognition-compare_gallery_templates.vcproj", "{1A8E51E1-7FEB-4071-928A-0620D0C56F0E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recognition-compare_gallery_subjects", "recognition-compare_gallery_subjects\recognition-compare_gallery_subjects.vcproj", "{9B5BA60D-D90D-4623-A5F8-56D1C6397D00}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recognition-create_subject_gallery", "recognition-create_subject_gallery\recognition-create_subject_gallery.vcproj", "{B786704D-81E6-4D94-86F8-B90D6FED314D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE88FE2E-E84F-4ADA-AAB7-2F80E09960B8}.Release|Win32.ActiveCfg = Release|Win32
+		{EE88FE2E-E84F-4ADA-AAB7-2F80E09960B8}.Release|Win32.Build.0 = Release|Win32
+		{41138FD4-301F-43AB-A40C-4B84A3DA0725}.Release|Win32.ActiveCfg = Release|Win32
+		{41138FD4-301F-43AB-A40C-4B84A3DA0725}.Release|Win32.Build.0 = Release|Win32
+		{C4AF0E1E-6A8A-4A7E-B7C9-D1A0B07394DD}.Release|Win32.ActiveCfg = Release|Win32
+		{C4AF0E1E-6A8A-4A7E-B7C9-D1A0B07394DD}.Release|Win32.Build.0 = Release|Win32
+		{DA0341CE-7F2C-4A8C-930A-7DA539C75822}.Release|Win32.ActiveCfg = Release|Win32
+		{DA0341CE-7F2C-4A8C-930A-7DA539C75822}.Release|Win32.Build.0 = Release|Win32
+		{283E3405-439D-4829-B0F3-65E50A1B864F}.Release|Win32.ActiveCfg = Release|Win32
+		{283E3405-439D-4829-B0F3-65E50A1B864F}.Release|Win32.Build.0 = Release|Win32
+		{A10300B0-1DB9-4466-A124-DBA2DE2C2AAE}.Release|Win32.ActiveCfg = Release|Win32
+		{A10300B0-1DB9-4466-A124-DBA2DE2C2AAE}.Release|Win32.Build.0 = Release|Win32
+		{3A1985FE-469A-4C5D-A8DB-044E494A132C}.Release|Win32.ActiveCfg = Release|Win32
+		{3A1985FE-469A-4C5D-A8DB-044E494A132C}.Release|Win32.Build.0 = Release|Win32
+		{4B2ABD3A-B46D-45AC-AF8E-67B2A690D77C}.Release|Win32.ActiveCfg = Release|Win32
+		{4B2ABD3A-B46D-45AC-AF8E-67B2A690D77C}.Release|Win32.Build.0 = Release|Win32
+		{1A8E51E1-7FEB-4071-928A-0620D0C56F0E}.Release|Win32.ActiveCfg = Release|Win32
+		{1A8E51E1-7FEB-4071-928A-0620D0C56F0E}.Release|Win32.Build.0 = Release|Win32
+		{9B5BA60D-D90D-4623-A5F8-56D1C6397D00}.Release|Win32.ActiveCfg = Release|Win32
+		{9B5BA60D-D90D-4623-A5F8-56D1C6397D00}.Release|Win32.Build.0 = Release|Win32
+		{B786704D-81E6-4D94-86F8-B90D6FED314D}.Release|Win32.ActiveCfg = Release|Win32
+		{B786704D-81E6-4D94-86F8-B90D6FED314D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

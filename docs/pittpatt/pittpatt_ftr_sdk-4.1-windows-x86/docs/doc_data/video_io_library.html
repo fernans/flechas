@@ -1,0 +1,1125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Chapter 7. PittPatt Video I/O Library Documentation</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="up" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="prev" href="raw_image_io_library.html" title="Chapter 6. PittPatt Raw Image I/O Library Documentation">
+<link rel="next" href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">
+<style type="text/css">
+      /* Document Structure */
+
+div.book, div.chapter, div.article, div.sect1 {
+    width: auto;
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+div.sect1, div.toc {
+    margin-left: 10px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+div.sect2 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect2 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+div.sect3 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect3 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+
+/* Type Conventions (e.g. parameter vs. structelement) */
+
+.type, .function, .symbol, .structfield, .parameter, .structname {
+    font-family: courier, monospace;
+    font-size: 10pt;
+}
+
+.type, .function {
+    font-weight: bold;
+}
+
+/* Table of Contents */
+
+div.toc {
+  background-color: #DDDDDD;
+  padding: 0.5em 20px;
+  margin: 0em auto;
+}
+
+div.toc dl {
+  margin-left: 10px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dt {
+  line-height: 1.1em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 30px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+
+/* Function Formatting */
+
+.programlisting, .funcsynopsis table {
+    background-color: #DDDDDD;
+    font-family: courier, monospace;
+    font-size: 10pt;
+    padding: 8px 10px;
+}
+
+.funcsynopsis table td {
+    vertical-align: bottom;
+    white-space: normal;
+}
+
+.funcsynopsis + .variablelist dt {
+    font-weight: bold;
+    font-size: 11pt;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+.funcsynopsis + .variablelist dd {
+    margin-left: 20px;
+}
+
+.funcsynopsis + .variablelist dd p {
+    margin: 0.25em 0px;
+}
+
+/* Compilation Examples */
+
+div.variablelist {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+div.variablelist .term {
+    margin-left: 15px;
+}
+
+div.variablelist .programlisting {
+    margin-bottom: 2em;
+}
+
+
+/* Callout Boxes (e.g. note/warning) */
+
+div.warning {
+    background-color: #FFDDDD;
+}
+
+div.note {
+    background-color: #FFFFCC;
+}
+
+div.warning, div.note {
+    margin-top: 1.0em;
+    margin-bottom: 2.0em;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+div.warning h3, div.note h3 {
+    margin: 0.25em 0px;
+}
+
+div.warning p, div.note p {
+    margin: 0.25em 10px;
+}
+
+/* Image */
+
+div.mediaobject {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+div.caption {
+    font-weight: bold;
+}
+
+
+/* Table Layout */
+
+div.table {
+    margin: 1em auto;
+    padding: 1em;
+    border: 1px solid;
+    width: auto;
+}
+
+div.table p {
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+div.table table {
+    border-spacing: 0px 0px;
+    border-collapse: collapse;
+    margin: 0em auto;
+}
+
+div.table table th {
+    margin: 0px;
+    padding: 3px 15px;
+    font-size: small;
+    text-align: center;
+    border-bottom: medium solid;
+}
+
+div.table table td {
+    margin: 0px;
+    padding: 3px 15px;
+    text-align: center;
+    border-top: thin dotted;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover {
+    color: blue;
+}
+
+/* Copyright Formatting */
+
+p.copyright {
+    margin-top: 3px;
+    text-align: right;
+    font-size: x-small;
+}
+    </style>
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">Chapter 7. PittPatt Video I/O Library Documentation</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="raw_image_io_library.html">Prev</a> </td>
+<td width="60%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="20%" align="right"> <a accesskey="n" href="tuning_guide.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="chapter" lang="en">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="video_io_library"></a>Chapter 7. PittPatt Video I/O Library Documentation</h2></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1">1. <a href="video_io_library.html#video_io_introductory_topics">Introductory Topics</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="video_io_library.html#video_io_formats">Supported Formats</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="video_io_library.html#decoding_formats">Decoding</a></span></dt>
+<dt><span class="sect3"><a href="video_io_library.html#encoding_formats">Encoding</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="video_io_library.html#frame_indices">Frame Indices</a></span></dt>
+<dt><span class="sect2"><a href="video_io_library.html#bit_rate">Bit Rate</a></span></dt>
+<dt><span class="sect2"><a href="video_io_library.html#frame_rate">Frame Rate</a></span></dt>
+</dl></dd>
+<dt><span class="sect1">2. <a href="video_io_library.html#video_io_framework">Video I/O Framework</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="video_io_library.html#decoding_framework">Decoding</a></span></dt>
+<dt><span class="sect2"><a href="video_io_library.html#encoding_framework">Encoding</a></span></dt>
+</dl></dd>
+<dt><span class="sect1">3. <a href="video_io_library.html#video_io_types">Types Reference</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="video_io_library.html#basic_types">Basic Types</a></span></dt>
+<dd><dl><dt><span class="sect3"><a href="video_io_library.html#video_io_type">ppr_video_io_type</a></span></dt></dl></dd>
+<dt><span class="sect2"><a href="video_io_library.html#enumerated_types">Enumerated Types</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="video_io_library.html#video_io_logging_type">ppr_video_io_logging_type</a></span></dt>
+<dt><span class="sect3"><a href="video_io_library.html#video_io_boolean_type">ppr_video_io_boolean_type</a></span></dt>
+<dt><span class="sect3"><a href="video_io_library.html#video_io_error_type">ppr_video_io_error_type</a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="sect1">4. <a href="video_io_library.html#video_io_functions">Function Reference</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="video_io_library.html#initialization">Initialization Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="video_io_library.html#video_io_set_logging_type">ppr_video_io_set_logging_type</a></span></dt>
+<dt><span class="sect3"><a href="video_io_library.html#video_io_open">ppr_video_io_open</a></span></dt>
+<dt><span class="sect3"><a href="video_io_library.html#video_io_create">ppr_video_io_create</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="video_io_library.html#navigation">Navigation Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="video_io_library.html#video_io_is_frame_available">ppr_video_io_is_frame_available</a></span></dt>
+<dt><span class="sect3"><a href="video_io_library.html#video_io_get_frame_index">ppr_video_io_get_frame_index</a></span></dt>
+<dt><span class="sect3"><a href="video_io_library.html#video_io_step_forward">ppr_video_io_step_forward</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="video_io_library.html#frame_extraction_functions">Frame Extraction Functions</a></span></dt>
+<dd><dl><dt><span class="sect3"><a href="video_io_library.html#video_io_get_frame">ppr_video_io_get_frame</a></span></dt></dl></dd>
+<dt><span class="sect2"><a href="video_io_library.html#frame_encoding_functions">Frame Encoding Functions</a></span></dt>
+<dd><dl><dt><span class="sect3"><a href="video_io_library.html#video_io_add_frame">ppr_video_io_add_frame</a></span></dt></dl></dd>
+<dt><span class="sect2"><a href="video_io_library.html#miscellaneous_functions">Miscellaneous Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="video_io_library.html#video_io_get_frame_rate">ppr_video_io_get_frame_rate</a></span></dt>
+<dt><span class="sect3"><a href="video_io_library.html#video_io_error_message">ppr_video_io_error_message</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="video_io_library.html#finalize_functions">Finalize Functions</a></span></dt>
+<dd><dl><dt><span class="sect3"><a href="video_io_library.html#video_io_close">ppr_video_io_close</a></span></dt></dl></dd>
+</dl></dd>
+<dt><span class="sect1">5. <a href="video_io_library.html#video_io_thirdparty">Third Party Attributions</a></span></dt>
+</dl>
+</div>
+<p>
+  The PittPatt Video I/O Library provides a simple interface based on <a href="video_io_library.html#video_io_thirdparty" title="5. Third Party Attributions">FFmpeg</a>
+  for decoding frames from videos and encoding frames to create new videos.  Using the decoding interface, raw image
+  data can be extracted on a frame-by-frame basis for submission to other PittPatt SDKs.  The encoding interface can be
+  used to create videos that show results produced by other PittPatt SDKs.  Please note that this library does not
+  (currently) support any form of seeking in the videos.
+</p>
+<p>
+  It is important to also read the <a href="raw_image_library.html" title="Chapter 5. PittPatt Raw Image Library Documentation">PittPatt Raw Image Library Documentation</a>
+  because the PittPatt Video I/O Library depends on it, and it includes very important information about
+  <a href="raw_image_library.html#memory_management" title="Memory Management">Memory Management</a>.
+</p>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="video_io_introductory_topics"></a>1. Introductory Topics</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="video_io_formats"></a>Supported Formats</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="decoding_formats"></a>Decoding</h4></div></div></div>
+<p>
+    The PittPatt Video I/O Library supports decoding from a number of common video formats, including but not limited to:
+    </p>
+<div class="itemizedlist"><ul type="disc">
+<li>MPEG-1/MPEG-2 (.mpg)</li>
+<li>MPEG-4, including H.264 (.mp4)</li>
+<li>Flash Video (.flv)</li>
+</ul></div>
+<p>
+  </p>
+<p>
+    The library also partially supports decoding from a wider range of other formats listed below.  However, because of
+    variability in the encoding of these formats, the library is not guaranteed to work for every file in one of these
+    formats:
+    </p>
+<div class="itemizedlist"><ul type="disc">
+<li>AVI (.avi)</li>
+<li>QuickTime (.mov)</li>
+<li>Motion JPEG (.mjpeg)</li>
+<li>Matroska File Format (.mkv)</li>
+<li>Windows Media Format, older versions (.wmv, .asf)</li>
+<li>3rd Generation Mobile System Format (.3gp)</li>
+<li>Digital Video (.dv)</li>
+<li>DivX (.divx)</li>
+</ul></div>
+<p>
+  </p>
+<p>
+    Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+  </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="encoding_formats"></a>Encoding</h4></div></div></div>
+<p>
+    The library supports encoding using the following formats:
+    </p>
+<div class="itemizedlist"><ul type="disc">
+<li>MPEG-4 (.mp4)</li>
+<li>WMV2 (.avi)</li>
+</ul></div>
+<p>
+  </p>
+<p>
+    Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+  </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="frame_indices"></a>Frame Indices</h3></div></div></div>
+<p>
+  Video frame indexing starts at <span class="type">zero</span>.  Immediately after a video is opened for decoding by calling
+  <code class="function"><a href="video_io_library.html#video_io_open" title="ppr_video_io_open">ppr_video_io_open</a></code>, the current index is zero.  The frame at
+  index zero can then be acquired by calling
+  <code class="function"><a href="video_io_library.html#video_io_get_frame" title="ppr_video_io_get_frame">ppr_video_io_get_frame</a></code>.  There is no need to call
+  <code class="function"><a href="video_io_library.html#video_io_step_forward" title="ppr_video_io_step_forward">ppr_video_io_step_forward</a></code> before getting the frame
+  at index zero.  Each time the video is stepped forward, the frame index is incremented by one.  In other words, when
+  decoding a video, <code class="function"><a href="video_io_library.html#video_io_get_frame_index" title="ppr_video_io_get_frame_index">ppr_video_io_get_frame_index</a></code>
+  returns the index of the frame that is currently available.
+</p>
+<p>
+  Immediately after a video is created for encoding by calling
+  <code class="function"><a href="video_io_library.html#video_io_create" title="ppr_video_io_create">ppr_video_io_create</a></code>, the current frame index is
+  <span class="parameter">-1</span> because the video contains no frames.  Each call to
+  <code class="function"><a href="video_io_library.html#video_io_add_frame" title="ppr_video_io_add_frame">ppr_video_io_add_frame</a></code> increments the frame index by
+  one.  After the first frame is added, the current frame index is zero because the video contains exactly one frame.
+  In other words, when encoding a video
+  <code class="function"><a href="video_io_library.html#video_io_get_frame_index" title="ppr_video_io_get_frame_index">ppr_video_io_get_frame_index</a></code> returns the index
+  of the most recently added frame.
+</p>
+<p>
+  Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="bit_rate"></a>Bit Rate</h3></div></div></div>
+<p>
+  For encoding videos, a bit rate must be specified, which determines both the file size and quality of the resulting
+  encoding. If file size is important, experiment with various bit rates to find the best trade-off between size and
+  quality. For applications where file size is less important, use a conservative setting which will result in large
+  file sizes but full quality. As a starting point, 1000 kb/s is an appropriate bit rate for a typical 640x480 video.
+  For larger videos (e.g. high-definition video), the bit rate must be increased appropriately.
+</p>
+<p>
+  Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="frame_rate"></a>Frame Rate</h3></div></div></div>
+<p>
+  Video frame rates are expressed as two integer values (a numerator and a denominator).  Dividing the numerator by the
+  denominator gives the frame rate.  When creating a video for encoding, the
+  <code class="function"><a href="video_io_library.html#video_io_create" title="ppr_video_io_create">ppr_video_io_create</a></code> function must be passed integer
+  values for the numerator and denominator.  Although selecting the values by hand to match the desired frame rate is
+  possible, it is often the case that the desired frame rate for an output video is based on the frame rate of another
+  video.  Call <code class="function"><a href="video_io_library.html#video_io_get_frame_rate" title="ppr_video_io_get_frame_rate">ppr_video_io_get_frame_rate</a></code> to get
+  the frame rate of an existing video, expressed as a numerator and denominator.  Then use those values when creating a
+  video for encoding.
+</p>
+<p>
+  Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+</p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="video_io_framework"></a>2. Video I/O Framework</h2></div></div></div>
+<p>
+  A framework for using the PittPatt Video I/O Library is described below.  This framework provides an introduction to
+  the order in which functions should be called, with links to each function's detailed description.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="decoding_framework"></a>Decoding</h3></div></div></div>
+<div class="orderedlist"><ol type="1">
+<li>
+<span><strong class="command">Open</strong></span> a video for reading
+      <p>
+	Call <code class="function"><a href="video_io_library.html#video_io_open" title="ppr_video_io_open">ppr_video_io_open</a></code> to open the video to be
+	decoded.
+      </p>
+</li>
+<li>
+<span><strong class="command">Check</strong></span> to see if a frame is available
+      <p>
+	Call <code class="function"><a href="video_io_library.html#video_io_is_frame_available" title="ppr_video_io_is_frame_available">ppr_video_io_is_frame_available</a></code> to
+	see if there is a frame to be read.
+      </p>
+</li>
+<li>
+<span><strong class="command">Read</strong></span> a single frame from the video
+      <p>
+	If a frame is available, it can be read from the video using
+	<code class="function"><a href="video_io_library.html#video_io_get_frame" title="ppr_video_io_get_frame">ppr_video_io_get_frame</a></code>.  This returns a raw
+	image for the available frame.
+      </p>
+</li>
+<li>
+<span><strong class="command">Process</strong></span> the video frame
+      <p>
+	Perform whatever processing is required on the extracted video frame.
+      </p>
+</li>
+<li>
+<span><strong class="command">Free</strong></span> the video frame
+      <p>
+	When the frame is no longer needed, call
+	<code class="function"><a href="raw_image_library.html#raw_image_free" title="ppr_raw_image_free">ppr_raw_image_free</a></code> to avoid a memory leak.
+      </p>
+</li>
+<li>
+<span><strong class="command">Advance</strong></span> to the next frame in the video
+      <p>
+	Call <code class="function"><a href="video_io_library.html#video_io_step_forward" title="ppr_video_io_step_forward">ppr_video_io_step_forward</a></code> to advance the
+	video by one frame.
+      </p>
+</li>
+<li>
+<span><strong class="command">Repeat</strong></span> steps 2-6 until the desired portion of the video has been processed.
+      <p>
+	The <code class="function"><a href="video_io_library.html#video_io_is_frame_available" title="ppr_video_io_is_frame_available">ppr_video_io_is_frame_available</a></code>
+	function will return <span class="parameter"><a href="video_io_library.html#video_io_boolean_type" title="ppr_video_io_boolean_type">PPR_VIDEO_IO_FALSE</a></span>
+	when there are no more frames left in the video.
+      </p>
+</li>
+<li>
+<span><strong class="command">Close</strong></span> the video
+      <p>
+	Call <code class="function"><a href="video_io_library.html#video_io_close" title="ppr_video_io_close">ppr_video_io_close</a></code> when the video is no longer
+	needed.
+      </p>
+</li>
+</ol></div>
+<p>
+    Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+  </p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="encoding_framework"></a>Encoding</h3></div></div></div>
+<div class="orderedlist"><ol type="1">
+<li>
+<span><strong class="command">Create</strong></span> a video for writing
+      <p>
+	Call <code class="function"><a href="video_io_library.html#video_io_create" title="ppr_video_io_create">ppr_video_io_create</a></code> to create a video to be
+	encoded.
+      </p>
+</li>
+<li>
+<span><strong class="command">Add</strong></span> frames to the video
+      <p>
+	Call <code class="function"><a href="video_io_library.html#video_io_add_frame" title="ppr_video_io_add_frame">ppr_video_io_add_frame</a></code> repeatedly until all
+	frames have been added to the video.  There is no need to advance the video after adding a frame.
+      </p>
+</li>
+<li>
+<span><strong class="command">Close</strong></span> the video
+      <p>
+	Call <code class="function"><a href="video_io_library.html#video_io_close" title="ppr_video_io_close">ppr_video_io_close</a></code> after all frames have been
+	added to the video.  This finalizes the encoding process.
+      </p>
+</li>
+</ol></div>
+<p>
+    Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+  </p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="video_io_types"></a>3. Types Reference</h2></div></div></div>
+<p>
+  The types described in this section are declared in <code class="filename">pittpatt_video_io.h</code>.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="basic_types"></a>Basic Types</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="video_io_type"></a>ppr_video_io_type</h4></div></div></div>
+<a class="indexterm" name="id4742466"></a><pre class="programlisting">typedef struct ppr_video_struct* <span class="type">ppr_video_io_type</span>;</pre>
+<p>
+      The <span class="structname">ppr_video_io_type</span> represents a single video context used for either decoding or
+      encoding. This handle references private data that is maintained internally to the PittPatt Video I/O Library and is
+      the first argument to most functions.  A video decoding context is created by calling
+      <code class="function"><a href="video_io_library.html#video_io_open" title="ppr_video_io_open">ppr_video_io_open</a></code>.  A video encoding context is created
+      by calling <code class="function"><a href="video_io_library.html#video_io_create" title="ppr_video_io_create">ppr_video_io_create</a></code>.
+    </p>
+<p>
+      Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="enumerated_types"></a>Enumerated Types</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="video_io_logging_type"></a>ppr_video_io_logging_type</h4></div></div></div>
+<a class="indexterm" name="id4742549"></a><pre class="programlisting">typedef enum 
+{
+  PPR_VIDEO_IO_QUIET,
+  PPR_VIDEO_IO_VERBOSE
+} <span class="type">ppr_video_io_logging_type</span>;</pre>
+<p>
+      This type is used to indicate whether debugging data should be written to standard output.  Call
+      <code class="function"><a href="video_io_library.html#video_io_set_logging_type" title="ppr_video_io_set_logging_type">ppr_video_io_set_logging_type</a></code> to specify
+      the desired setting.  The default setting is <span class="parameter">PPR_VIDEO_IO_QUIET</span>.
+    </p>
+<p>
+      Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="video_io_boolean_type"></a>ppr_video_io_boolean_type</h4></div></div></div>
+<a class="indexterm" name="id4742614"></a><pre class="programlisting">typedef enum 
+{
+  PPR_VIDEO_IO_FALSE,
+  PPR_VIDEO_IO_TRUE
+} <span class="type">ppr_video_io_boolean_type</span>;</pre>
+<p>
+      This type provides a true/false value that is returned by the
+      <code class="function"><a href="video_io_library.html#video_io_is_frame_available" title="ppr_video_io_is_frame_available">ppr_video_io_is_frame_available</a></code> function.
+    </p>
+<p>
+      Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="video_io_error_type"></a>ppr_video_io_error_type</h4></div></div></div>
+<a class="indexterm" name="id4742671"></a><pre class="programlisting">typedef enum 
+{
+  PPR_VIDEO_IO_SUCCESS,
+  PPR_VIDEO_IO_FAILURE,
+  PPR_VIDEO_IO_INVALID_ARGUMENT,
+  PPR_VIDEO_IO_OUT_OF_MEMORY,
+  PPR_VIDEO_IO_UNSUPPORTED_FORMAT,
+  PPR_VIDEO_IO_UNSUPPORTED_CODEC,
+  PPR_VIDEO_IO_NO_MORE_FRAMES,
+  PPR_VIDEO_IO_DECODING_ERROR,
+  PPR_VIDEO_IO_SEEK_ERROR,
+  PPR_VIDEO_IO_FILE_NOT_FOUND,
+  PPR_VIDEO_IO_ENCODING_ERROR,
+  PPR_VIDEO_IO_REQUIRED_INPUT_VIDEO,
+  PPR_VIDEO_IO_REQUIRED_OUTPUT_VIDEO,
+} <span class="type">ppr_video_io_error_type</span>;</pre>
+<p>
+      This type represents all error codes that can be returned by the PittPatt Video I/O Library functions. A string
+      version of each error code can be obtained by calling
+      <code class="function"><a href="video_io_library.html#video_io_error_message" title="ppr_video_io_error_message">ppr_video_io_error_message</a></code>.
+    </p>
+<p>
+      Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+    </p>
+</div>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="video_io_functions"></a>4. Function Reference</h2></div></div></div>
+<p>
+  The functions described in this section are declared in <code class="filename">pittpatt_video_io.h</code>.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="initialization"></a>Initialization Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="video_io_set_logging_type"></a>ppr_video_io_set_logging_type</h4></div></div></div>
+<a class="indexterm" name="id4742768"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">ppr_video_io_error_type <b class="fsfunc">ppr_video_io_set_logging_type</b>(</code></td>
+<td>ppr_video_io_logging_type </td>
+<td>
+<var class="pdparam">logging_type</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="video_io_library.html#video_io_logging_type" title="ppr_video_io_logging_type">logging_type</a></span> - debug logging level</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="video_io_library.html#video_io_error_type" title="ppr_video_io_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      If logging is enabled with
+      <span class="parameter"><a href="video_io_library.html#video_io_logging_type" title="ppr_video_io_logging_type">PPR_VIDEO_IO_VERBOSE</a></span>, then debug information
+      is written to standard output.  If the default,
+      <span class="parameter"><a href="video_io_library.html#video_io_logging_type" title="ppr_video_io_logging_type">PPR_VIDEO_IO_QUIET</a></span>, is used then no debug
+      information is written.
+    </p>
+<p>
+      Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="video_io_open"></a>ppr_video_io_open</h4></div></div></div>
+<a class="indexterm" name="id4742910"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_video_io_error_type <b class="fsfunc">ppr_video_io_open</b>(</code></td>
+<td>ppr_video_io_type </td>
+<td>
+<var class="pdparam">*video</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*file_name</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="video_io_library.html#video_io_type" title="ppr_video_io_type">video</a></span> - pointer to a currently unused video context variable</p>
+<p><span class="parameter">file_name</span> - null-terminated string specifying the name of a video file</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="video_io_library.html#video_io_error_type" title="ppr_video_io_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Opens the video file specified by <span class="parameter">file_name</span> for reading.  When the video will no longer
+      be used, it must be closed by calling
+      <code class="function"><a href="video_io_library.html#video_io_close" title="ppr_video_io_close">ppr_video_io_close</a></code>.
+    </p>
+<p>
+      The first frame can be extracted immediately with
+      <code class="function"><a href="video_io_library.html#video_io_get_frame" title="ppr_video_io_get_frame">ppr_video_io_get_frame</a></code> after opening the video.
+      Stated another way, the
+      <code class="function"><a href="video_io_library.html#video_io_step_forward" title="ppr_video_io_step_forward">ppr_video_io_step_forward</a></code> function does not
+      need to be called before extracting the first frame.
+    </p>
+<p>
+      See also:
+      <a href="video_io_library.html#decoding_formats" title="Decoding">Decoding Formats</a>,
+      <a href="video_io_library.html#frame_indices" title="Frame Indices">Frame Indices</a>
+    </p>
+<p>
+      Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="video_io_create"></a>ppr_video_io_create</h4></div></div></div>
+<a class="indexterm" name="id4743104"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_video_io_error_type <b class="fsfunc">ppr_video_io_create</b>(</code></td>
+<td>ppr_video_io_type </td>
+<td>
+<var class="pdparam">*video</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*file_name</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">bit_rate_kbps</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">frame_rate_numerator</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">frame_rate_denominator</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="video_io_library.html#video_io_type" title="ppr_video_io_type">video</a></span> - pointer to a currently unused video context variable</p>
+<p><span class="parameter">file_name</span> - null-terminated string specifying the name of the video file to create</p>
+<p><span class="parameter">bit_rate_kbps</span> - bit rate (in kilobits per second) to use for the output video being created</p>
+<p><span class="parameter">frame_rate_numerator</span> - numerator value for setting the frame rate of the video being created</p>
+<p><span class="parameter">frame_rate_denominator</span> - denominator value for setting the frame rate of the video being created</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="video_io_library.html#video_io_error_type" title="ppr_video_io_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Creates a new video file with the provided <span class="parameter">file_name</span>.  Frames can then be added to the
+      video using <code class="function"><a href="video_io_library.html#video_io_add_frame" title="ppr_video_io_add_frame">ppr_video_io_add_frame</a></code>.  When all
+      frames have been added, the video must be finalized by calling
+      <code class="function"><a href="video_io_library.html#video_io_close" title="ppr_video_io_close">ppr_video_io_close</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="video_io_library.html#encoding_formats" title="Encoding">Encoding Formats</a>,
+      <a href="video_io_library.html#frame_indices" title="Frame Indices">Frame Indices</a>,
+      <a href="video_io_library.html#bit_rate" title="Bit Rate">Bit Rate</a>,
+      <a href="video_io_library.html#frame_rate" title="Frame Rate">Frame Rate</a>
+    </p>
+<p>
+      Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="navigation"></a>Navigation Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="video_io_is_frame_available"></a>ppr_video_io_is_frame_available</h4></div></div></div>
+<a class="indexterm" name="id4743356"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">ppr_video_io_boolean_type <b class="fsfunc">ppr_video_io_is_frame_available</b>(</code></td>
+<td>ppr_video_io_type </td>
+<td>
+<var class="pdparam">video</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="video_io_library.html#video_io_type" title="ppr_video_io_type">video</a></span> - a video opened for reading</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd>
+<p>
+	    </p>
+<p><span class="parameter"><a href="video_io_library.html#video_io_boolean_type" title="ppr_video_io_boolean_type">PPR_VIDEO_IO_FALSE</a></span></p>
+<p>
+	    </p>
+<p><span class="parameter"><a href="video_io_library.html#video_io_boolean_type" title="ppr_video_io_boolean_type">PPR_VIDEO_IO_TRUE</a></span></p>
+<p>
+	  </p>
+</dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Cannot be called on videos created for writing</p></dd>
+</dl></div>
+<p>
+      Indicates whether a frame is available to be extracted into an image buffer. This becomes false after either the
+      library failed to decode the next frame (an error occurred), or no more packets were found (the video ended).  If
+      this function is called on a video that was created for writing,
+      <span class="parameter"><a href="video_io_library.html#video_io_boolean_type" title="ppr_video_io_boolean_type">PPR_VIDEO_IO_FALSE</a></span> is returned.
+    </p>
+<p>
+      Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="video_io_get_frame_index"></a>ppr_video_io_get_frame_index</h4></div></div></div>
+<a class="indexterm" name="id4743504"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_video_io_error_type <b class="fsfunc">ppr_video_io_get_frame_index</b>(</code></td>
+<td>ppr_video_io_type </td>
+<td>
+<var class="pdparam">video</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*frame_index</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="video_io_library.html#video_io_type" title="ppr_video_io_type">video</a></span> - a video opened for reading</p>
+<p><span class="parameter">frame_index</span> - pointer to current frame index</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="video_io_library.html#video_io_error_type" title="ppr_video_io_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets the value of the current frame index.  The frame index is returned by setting the contents pointed to by the
+      <span class="parameter">frame_index</span> argument.
+    </p>
+<p>
+      See also: <a href="video_io_library.html#frame_indices" title="Frame Indices">Frame Indices</a>
+    </p>
+<p>
+      Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="video_io_step_forward"></a>ppr_video_io_step_forward</h4></div></div></div>
+<a class="indexterm" name="id4743656"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">ppr_video_io_error_type <b class="fsfunc">ppr_video_io_step_forward</b>(</code></td>
+<td>ppr_video_io_type </td>
+<td>
+<var class="pdparam">video</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="video_io_library.html#video_io_type" title="ppr_video_io_type">video</a></span> - a video opened for reading</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="video_io_library.html#video_io_error_type" title="ppr_video_io_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Cannot be called on videos created for writing</p></dd>
+</dl></div>
+<p>
+      Decodes the next frame and advances the current frame index by one.  The next time
+      <code class="function"><a href="video_io_library.html#video_io_get_frame" title="ppr_video_io_get_frame">ppr_video_io_get_frame</a></code> is called, it returns a
+      new frame.  If <code class="function"><a href="video_io_library.html#video_io_get_frame" title="ppr_video_io_get_frame">ppr_video_io_get_frame</a></code> is called
+      twice without stepping forward between calls, a duplicate frame is returned from the second call.
+    </p>
+<p>
+      See also: <a href="video_io_library.html#frame_indices" title="Frame Indices">Frame Indices</a>
+    </p>
+<p>
+      Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="frame_extraction_functions"></a>Frame Extraction Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="video_io_get_frame"></a>ppr_video_io_get_frame</h4></div></div></div>
+<a class="indexterm" name="id4743817"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_video_io_error_type <b class="fsfunc">ppr_video_io_get_frame</b>(</code></td>
+<td>ppr_video_io_type </td>
+<td>
+<var class="pdparam">video</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_raw_image_type </td>
+<td>
+<var class="pdparam">*frame</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="video_io_library.html#video_io_type" title="ppr_video_io_type">video</a></span> - a video opened for reading</p>
+<p><span class="parameter"><a href="raw_image_library.html#raw_image_type" title="ppr_raw_image_type">frame</a></span> - pointer to frame extracted from video</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="video_io_library.html#video_io_error_type" title="ppr_video_io_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Cannot be called on videos created for writing</p></dd>
+</dl></div>
+<p>
+      Extracts the current frame into a frame buffer. Any necessary color conversion is performed at this point. All
+      frames are extracted into a
+      <span class="parameter"><a href="raw_image_library.html#raw_image_color_space_type" title="ppr_raw_image_color_space_type">PPR_RAW_IMAGE_RGB24</a></span> formatted buffer.
+      The user must free the frame using
+      <code class="function"><a href="raw_image_library.html#raw_image_free" title="ppr_raw_image_free">ppr_raw_image_free</a></code>.
+    </p>
+<p>
+      See also: <a href="raw_image_library.html#color_spaces" title="Image Color Spaces">Color Spaces</a>
+    </p>
+<p>
+      Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="frame_encoding_functions"></a>Frame Encoding Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="video_io_add_frame"></a>ppr_video_io_add_frame</h4></div></div></div>
+<a class="indexterm" name="id4743997"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_video_io_error_type <b class="fsfunc">ppr_video_io_add_frame</b>(</code></td>
+<td>ppr_video_io_type </td>
+<td>
+<var class="pdparam">video</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_raw_image_type </td>
+<td>
+<var class="pdparam">frame</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="video_io_library.html#video_io_type" title="ppr_video_io_type">video</a></span> - a video created for writing</p>
+<p><span class="parameter"><a href="raw_image_library.html#raw_image_type" title="ppr_raw_image_type">frame</a></span> - frame to add to video</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="video_io_library.html#video_io_error_type" title="ppr_video_io_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Cannot be called on videos opened for reading</p></dd>
+</dl></div>
+<p>
+      Adds a frame to a video previously creating using
+      <code class="function"><a href="video_io_library.html#video_io_create" title="ppr_video_io_create">ppr_video_io_create</a></code>.  The provided image is copied
+      into the video, so the user must still call
+      <code class="function"><a href="raw_image_library.html#raw_image_free" title="ppr_raw_image_free">ppr_raw_image_free</a></code> on their copy of the image to avoid
+      a memory leak.
+    </p>
+<p>
+      Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="miscellaneous_functions"></a>Miscellaneous Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="video_io_get_frame_rate"></a>ppr_video_io_get_frame_rate</h4></div></div></div>
+<a class="indexterm" name="id4744167"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_video_io_error_type <b class="fsfunc">ppr_video_io_get_frame_rate</b>(</code></td>
+<td>ppr_video_io_type </td>
+<td>
+<var class="pdparam">video</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*frame_rate_numerator</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*frame_rate_denominator</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="video_io_library.html#video_io_type" title="ppr_video_io_type">video</a></span> - a video opened for reading</p>
+<p><span class="parameter">frame_rate_numerator</span> - pointer to the numerator value for specifying the frame rate of the video</p>
+<p><span class="parameter">frame_rate_denominator</span> - pointer to the denominator value for specifying the frame rate of the video</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="video_io_library.html#video_io_error_type" title="ppr_video_io_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets the frame rate of a video.  The frame rate can be computed by dividing the numerator by the denominator.
+    </p>
+<p>
+      See also: <a href="video_io_library.html#frame_rate" title="Frame Rate">Frame Rate</a>
+    </p>
+<p>
+      Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="video_io_error_message"></a>ppr_video_io_error_message</h4></div></div></div>
+<a class="indexterm" name="id4744331"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">char* <b class="fsfunc">ppr_video_io_error_message</b>(</code></td>
+<td>ppr_video_io_error_type </td>
+<td>
+<var class="pdparam">error</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="video_io_library.html#video_io_error_type" title="ppr_video_io_error_type">error</a></span> - an error code</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>pointer to statically allocated error message</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Returns a human readable error message for the given error code. 
+    </p>
+<p>
+      Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="finalize_functions"></a>Finalize Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="video_io_close"></a>ppr_video_io_close</h4></div></div></div>
+<a class="indexterm" name="id4744452"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">ppr_video_io_error_type <b class="fsfunc">ppr_video_io_close</b>(</code></td>
+<td>ppr_video_io_type </td>
+<td>
+<var class="pdparam">video</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="video_io_library.html#video_io_type" title="ppr_video_io_type">video</a></span> - video to close</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="video_io_library.html#video_io_error_type" title="ppr_video_io_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Closes a video previously opened with
+      <code class="function"><a href="video_io_library.html#video_io_open" title="ppr_video_io_open">ppr_video_io_open</a></code> or created with
+      <code class="function"><a href="video_io_library.html#video_io_create" title="ppr_video_io_create">ppr_video_io_create</a></code>.  All necessary finalization is
+      performed and memory is freed.
+    </p>
+<p>
+      Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+    </p>
+</div>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="video_io_thirdparty"></a>5. Third Party Attributions</h2></div></div></div>
+<p>
+  This software is based on parts of the the FFmpeg core libraries. These libraries, including libavformat, libavcodec,
+  and libavutil are distributed under the terms of the GNU Lesser General Public License (LGPL).
+</p>
+<p>
+  Please see the accompanying LICENSE file for details. For more information, see 
+  <a href="http://ffmpeg.mplayerhq.hu/index.html" target="_top">http://ffmpeg.mplayerhq.hu/index.html</a>.
+</p>
+<p>
+  Back to <a href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">top</a>.
+</p>
+</div>
+</div>
+<hr>
+<p class="copyright">© 2004-2010 Pittsburgh Pattern Recognition, Inc.</p>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="raw_image_io_library.html">Prev</a> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right"> <a accesskey="n" href="tuning_guide.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Chapter 6. PittPatt Raw Image I/O Library Documentation </td>
+<td width="20%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="40%" align="right" valign="top"> Chapter 8. FTR-SDK: Tuning Guide</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

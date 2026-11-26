@@ -1,0 +1,2312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Chapter 11. FTR-SDK: Tracking Reference</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="up" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="prev" href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">
+<link rel="next" href="recognition_reference.html" title="Chapter 12. FTR-SDK: Recognition Reference">
+<style type="text/css">
+      /* Document Structure */
+
+div.book, div.chapter, div.article, div.sect1 {
+    width: auto;
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+div.sect1, div.toc {
+    margin-left: 10px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+div.sect2 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect2 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+div.sect3 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect3 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+
+/* Type Conventions (e.g. parameter vs. structelement) */
+
+.type, .function, .symbol, .structfield, .parameter, .structname {
+    font-family: courier, monospace;
+    font-size: 10pt;
+}
+
+.type, .function {
+    font-weight: bold;
+}
+
+/* Table of Contents */
+
+div.toc {
+  background-color: #DDDDDD;
+  padding: 0.5em 20px;
+  margin: 0em auto;
+}
+
+div.toc dl {
+  margin-left: 10px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dt {
+  line-height: 1.1em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 30px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+
+/* Function Formatting */
+
+.programlisting, .funcsynopsis table {
+    background-color: #DDDDDD;
+    font-family: courier, monospace;
+    font-size: 10pt;
+    padding: 8px 10px;
+}
+
+.funcsynopsis table td {
+    vertical-align: bottom;
+    white-space: normal;
+}
+
+.funcsynopsis + .variablelist dt {
+    font-weight: bold;
+    font-size: 11pt;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+.funcsynopsis + .variablelist dd {
+    margin-left: 20px;
+}
+
+.funcsynopsis + .variablelist dd p {
+    margin: 0.25em 0px;
+}
+
+/* Compilation Examples */
+
+div.variablelist {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+div.variablelist .term {
+    margin-left: 15px;
+}
+
+div.variablelist .programlisting {
+    margin-bottom: 2em;
+}
+
+
+/* Callout Boxes (e.g. note/warning) */
+
+div.warning {
+    background-color: #FFDDDD;
+}
+
+div.note {
+    background-color: #FFFFCC;
+}
+
+div.warning, div.note {
+    margin-top: 1.0em;
+    margin-bottom: 2.0em;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+div.warning h3, div.note h3 {
+    margin: 0.25em 0px;
+}
+
+div.warning p, div.note p {
+    margin: 0.25em 10px;
+}
+
+/* Image */
+
+div.mediaobject {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+div.caption {
+    font-weight: bold;
+}
+
+
+/* Table Layout */
+
+div.table {
+    margin: 1em auto;
+    padding: 1em;
+    border: 1px solid;
+    width: auto;
+}
+
+div.table p {
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+div.table table {
+    border-spacing: 0px 0px;
+    border-collapse: collapse;
+    margin: 0em auto;
+}
+
+div.table table th {
+    margin: 0px;
+    padding: 3px 15px;
+    font-size: small;
+    text-align: center;
+    border-bottom: medium solid;
+}
+
+div.table table td {
+    margin: 0px;
+    padding: 3px 15px;
+    text-align: center;
+    border-top: thin dotted;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover {
+    color: blue;
+}
+
+/* Copyright Formatting */
+
+p.copyright {
+    margin-top: 3px;
+    text-align: right;
+    font-size: x-small;
+}
+    </style>
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">Chapter 11. FTR-SDK: Tracking Reference</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="detection_reference.html">Prev</a> </td>
+<td width="60%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="20%" align="right"> <a accesskey="n" href="recognition_reference.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="chapter" lang="en">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="tracking_reference"></a>Chapter 11. FTR-SDK: Tracking Reference</h2></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1">1. <a href="tracking_reference.html#tracking_constants">Constants Reference</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="tracking_reference.html#tracking_cutoff_constants">Tracking Cutoff Constants</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="tracking_reference.html#tracking_cutoff_min">PPR_TRACKING_CUTOFF_MIN</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#tracking_cutoff_max">PPR_TRACKING_CUTOFF_MAX</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="tracking_reference.html#tracking_miscellaneous_constants">Miscellaneous Constants</a></span></dt>
+<dd><dl><dt><span class="sect3"><a href="tracking_reference.html#max_num_visual_instances">PPR_MAX_NUM_VISUAL_INSTANCES</a></span></dt></dl></dd>
+</dl></dd>
+<dt><span class="sect1">2. <a href="tracking_reference.html#tracking_types">Types Reference</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="tracking_reference.html#structure_types">Structure Types</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="tracking_reference.html#tracked_object_type">ppr_tracked_object_type</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#tracked_object_list_type">ppr_tracked_object_list_type</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#flat_tracked_object_list_type">ppr_flat_tracked_object_list_type</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#track_summary_type">ppr_track_summary_type</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#visual_instance_type">ppr_visual_instance_type</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#completed_track_type">ppr_completed_track_type</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#completed_track_list_type">ppr_completed_track_list_type</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#flat_completed_track_list_type">ppr_flat_completed_track_list_type</a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="sect1">3. <a href="tracking_reference.html#tracking_functions">Function Reference</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="tracking_reference.html#tracking_initialize_and_configure_functions">Initialize and Configure Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="tracking_reference.html#enable_tracking">ppr_enable_tracking</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#set_tracking_cutoff">ppr_set_tracking_cutoff</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#enable_visual_attention">ppr_enable_visual_attention</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#set_num_visual_instances">ppr_set_num_visual_instances</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#enable_shot_boundary_detection">ppr_enable_shot_boundary_detection</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#set_shot_boundary_threshold">ppr_set_shot_boundary_threshold</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="tracking_reference.html#context_query_functions">Context Query Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="tracking_reference.html#is_tracking_enabled">ppr_is_tracking_enabled</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#get_tracking_cutoff">ppr_get_tracking_cutoff</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#is_visual_attention_enabled">ppr_is_visual_attention_enabled</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#get_num_visual_instances">ppr_get_num_visual_instances</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#is_shot_boundary_detection_enabled">ppr_is_shot_boundary_detection_enabled</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#get_shot_boundary_threshold">ppr_get_shot_boundary_threshold</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="tracking_reference.html#track_functions">Track Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="tracking_reference.html#track_objects">ppr_track_objects</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#detect_and_track_objects">ppr_detect_and_track_objects</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="tracking_reference.html#results_functions">Results Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="tracking_reference.html#get_current_frame_objects">ppr_get_current_frame_objects</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#get_completed_tracks">ppr_get_completed_tracks</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#finalize_current_tracks">ppr_finalize_current_tracks</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#discard_unreturned_completed_tracks">ppr_discard_unreturned_completed_tracks</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#get_dispersed_frontal_objects_from_track">ppr_get_dispersed_frontal_objects_from_track</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#reset_tracker">ppr_reset_tracker</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="tracking_reference.html#tracking_file_io_functions">File I/O Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="tracking_reference.html#write_tracked_object_list">ppr_write_tracked_object_list</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#read_tracked_object_list">ppr_read_tracked_object_list</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#write_completed_track_list">ppr_write_completed_track_list</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#read_completed_track_list">ppr_read_completed_track_list</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="tracking_reference.html#tracking_flatten_unflatten_functions">Flatten / Unflatten Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="tracking_reference.html#flatten_tracked_object_list">ppr_flatten_tracked_object_list</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#unflatten_tracked_object_list">ppr_unflatten_tracked_object_list</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#flatten_completed_track_list">ppr_flatten_completed_track_list</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#unflatten_completed_track_list">ppr_unflatten_completed_track_list</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="tracking_reference.html#free_functions">Free Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="tracking_reference.html#free_tracked_object_list">ppr_free_tracked_object_list</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#free_flat_tracked_object_list">ppr_free_flat_tracked_object_list</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#free_completed_track_list">ppr_free_completed_track_list</a></span></dt>
+<dt><span class="sect3"><a href="tracking_reference.html#free_flat_completed_track_list">ppr_free_flat_completed_track_list</a></span></dt>
+</dl></dd>
+</dl></dd>
+</dl>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tracking_constants"></a>1. Constants Reference</h2></div></div></div>
+<p>
+  The constants described in this section are defined in <code class="filename">pittpatt_tracking.h</code>.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="tracking_cutoff_constants"></a>Tracking Cutoff Constants</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="tracking_cutoff_min"></a>PPR_TRACKING_CUTOFF_MIN</h4></div></div></div>
+<a class="indexterm" name="id4759830"></a><pre class="programlisting">#define PPR_TRACKING_CUTOFF_MIN -5</pre>
+<p>
+      The <span class="parameter">PPR_TRACKING_CUTOFF_MIN</span> constant specifies the minimum allowable cutoff value that can
+      be passed to <code class="function"><a href="tracking_reference.html#set_tracking_cutoff" title="ppr_set_tracking_cutoff">ppr_set_tracking_cutoff</a></code>.  This is
+      the most permissive tracking cutoff.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#tracking_cutoff" title="Tracking Cutoff">Tracking Cutoff</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="tracking_cutoff_max"></a>PPR_TRACKING_CUTOFF_MAX</h4></div></div></div>
+<a class="indexterm" name="id4759899"></a><pre class="programlisting">#define PPR_TRACKING_CUTOFF_MAX 5</pre>
+<p>
+     The <span class="parameter">PPR_TRACKING_CUTOFF_MAX</span> constant specifies the maximum allowable cutoff value that can
+     be passed to <code class="function"><a href="tracking_reference.html#set_tracking_cutoff" title="ppr_set_tracking_cutoff">ppr_set_tracking_cutoff</a></code>.  This is the
+     most restrictive tracking cutoff.
+   </p>
+<p>
+     See also: <a href="tracking_users_guide.html#tracking_cutoff" title="Tracking Cutoff">Tracking Cutoff</a>
+   </p>
+<p>
+     Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+   </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="tracking_miscellaneous_constants"></a>Miscellaneous Constants</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="max_num_visual_instances"></a>PPR_MAX_NUM_VISUAL_INSTANCES</h4></div></div></div>
+<a class="indexterm" name="id4759977"></a><pre class="programlisting">#define PPR_MAX_NUM_VISUAL_INSTANCES 10</pre>
+<p>
+      The <span class="parameter">PPR_MAX_NUM_VISUAL_INSTANCES</span> constant specifies the maximum number of visual instances
+      that can be requested by calling
+      <code class="function"><a href="tracking_reference.html#set_num_visual_instances" title="ppr_set_num_visual_instances">ppr_set_num_visual_instances</a></code>.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#visual_instances" title="Visual Instances">Visual Instances</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tracking_types"></a>2. Types Reference</h2></div></div></div>
+<p>
+  The data types described in this section are declared in <code class="filename">pittpatt_tracking.h</code>.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="structure_types"></a>Structure Types</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="tracked_object_type"></a>ppr_tracked_object_type</h4></div></div></div>
+<a class="indexterm" name="id4760079"></a><pre class="programlisting">typedef struct
+{
+  int index;
+  double time_stamp;
+  int tracked_id;
+  int track_confidence;
+  ppr_object_type object;
+} <span class="type">ppr_tracked_object_type</span>;</pre>
+<p>
+      This structure represents a single object currently tracked by the SDK.  
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int index</span></span></dt>
+<dd><p>
+            Frame number to which this object instance corresponds.  Frames are numbered consecutively starting at
+            <span class="type">zero</span> with each new call to 
+            <code class="function"><a href="tracking_reference.html#track_objects" title="ppr_track_objects">ppr_track_objects</a></code> or
+            <code class="function"><a href="tracking_reference.html#detect_and_track_objects" title="ppr_detect_and_track_objects">ppr_detect_and_track_objects</a></code>.
+          </p></dd>
+<dt><span class="term"><span class="symbol">double time_stamp</span></span></dt>
+<dd><p>
+            Number of seconds elapsed between 12:00 am, January 1, 2006 and the time the associated frame was 
+            submitted to <code class="function"><a href="tracking_reference.html#track_objects" title="ppr_track_objects">ppr_track_objects</a></code> or
+            <code class="function"><a href="tracking_reference.html#detect_and_track_objects" title="ppr_detect_and_track_objects">ppr_detect_and_track_objects</a></code>.  This 
+            is an absolute time stamp that is computed from the system's internal clock.
+          </p></dd>
+<dt><span class="term"><span class="symbol">int tracked_id</span></span></dt>
+<dd><p>
+            A unique identifier assigned by the tracker to each object track.
+          </p></dd>
+<dt><span class="term"><span class="symbol">int track_confidence</span></span></dt>
+<dd><p>
+            Confidence of this object track.  Object tracks are categorized into four confidence levels, with 0 being
+            the lowest confidence, and 3 being the highest confidence.  As tracks evolve, the confidence level will
+            typically change.
+          </p></dd>
+<dt><span class="term"><span class="symbol"><a href="detection_reference.html#object_type" title="ppr_object_type">ppr_object_type</a> object</span></span></dt>
+<dd><p>
+            Additional data pertaining to the tracked object.
+          </p></dd>
+</dl></div>
+<p>
+      See also:
+      <a href="tracking_users_guide.html#tracking_results" title="Results">Results</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="tracked_object_list_type"></a>ppr_tracked_object_list_type</h4></div></div></div>
+<a class="indexterm" name="id4760280"></a><pre class="programlisting">typedef struct
+{
+  int num_tracked_objects;
+  ppr_tracked_object_type *tracked_objects;
+} <span class="type">ppr_tracked_object_list_type</span>;</pre>
+<p>
+      This structure provides an array of tracked objects and the number of objects in that array.
+    </p>
+<p>
+      The <span class="structname">ppr_tracked_object_list_type</span> is freed with a call to
+      <code class="function"><a href="tracking_reference.html#free_tracked_object_list" title="ppr_free_tracked_object_list">ppr_free_tracked_object_list</a></code>.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int num_tracked_objects</span></span></dt>
+<dd><p>
+            Number of tracked objects in the list.
+          </p></dd>
+<dt><span class="term">
+          <span class="symbol"><a href="tracking_reference.html#tracked_object_type" title="ppr_tracked_object_type">ppr_tracked_object_type</a> *tracked_objects</span>
+        </span></dt>
+<dd><p>
+            Array of tracked objects.
+          </p></dd>
+</dl></div>
+<p>
+      See also: <a href="tracking_users_guide.html#current_tracks" title="Current Tracks">Current Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="flat_tracked_object_list_type"></a>ppr_flat_tracked_object_list_type</h4></div></div></div>
+<a class="indexterm" name="id4760397"></a><pre class="programlisting">typedef struct
+{
+  size_t num_bytes;
+  void *data;
+} <span class="type">ppr_flat_tracked_object_list_type</span>;</pre>
+<p>
+      The <span class="structname">ppr_flat_tracked_object_list_type</span> stores the bytes that make up a flattened tracked
+      object list.  Flattened tracked object lists can be freed using
+      <code class="function"><a href="tracking_reference.html#free_flat_tracked_object_list" title="ppr_free_flat_tracked_object_list">ppr_free_flat_tracked_object_list</a></code>.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int num_bytes</span></span></dt>
+<dd><p>
+            Number of bytes in the data buffer.
+	  </p></dd>
+<dt><span class="term"><span class="symbol">void *data</span></span></dt>
+<dd><p>
+            Buffer containing flattened tracked object list.
+          </p></dd>
+</dl></div>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="tracking_users_guide.html#current_tracks" title="Current Tracks">Current Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="track_summary_type"></a>ppr_track_summary_type</h4></div></div></div>
+<a class="indexterm" name="id4760510"></a><pre class="programlisting">typedef struct
+{
+  int tracked_id;
+  int start_index;
+  int stop_index;
+  ppr_coordinate_type start_position;
+  ppr_coordinate_type stop_position;
+  ppr_dimensions_type min_dimensions;
+  ppr_dimensions_type max_dimensions;
+  ppr_dimensions_type avg_dimensions;
+  float min_confidence;
+  float max_confidence;
+  float avg_confidence;
+} <span class="type">ppr_track_summary_type</span>;</pre>
+<p>
+      This structure provides summary information for the current track.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int tracked_id</span></span></dt>
+<dd><p>Unique identifier assigned by the tracker to each object track.</p></dd>
+<dt><span class="term"><span class="symbol">int start_index</span></span></dt>
+<dd><p>
+            First frame in which the object was tracked.  Frames are numbered consecutively starting at 
+            <span class="type">zero</span>.
+          </p></dd>
+<dt><span class="term"><span class="symbol">int stop_index</span></span></dt>
+<dd><p>
+            Last frame in which the object was tracked.  Frames are numbered consecutively starting at 
+            <span class="type">zero</span>.
+          </p></dd>
+<dt><span class="term"><span class="symbol"><a href="detection_reference.html#coordinate_type" title="ppr_coordinate_type">ppr_coordinate_type</a> start_position</span></span></dt>
+<dd><p>Initial position of the tracked object.</p></dd>
+<dt><span class="term"><span class="symbol"><a href="detection_reference.html#coordinate_type" title="ppr_coordinate_type">ppr_coordinate_type</a> stop_position</span></span></dt>
+<dd><p>Last position of the tracked object.</p></dd>
+<dt><span class="term"><span class="symbol"><a href="detection_reference.html#dimensions_type" title="ppr_dimensions_type">ppr_dimensions_type</a> min_dimensions</span></span></dt>
+<dd><p>Smallest dimensions of the tracked object.</p></dd>
+<dt><span class="term"><span class="symbol"><a href="detection_reference.html#dimensions_type" title="ppr_dimensions_type">ppr_dimensions_type</a> max_dimensions</span></span></dt>
+<dd><p>Largest dimensions of the tracked object.</p></dd>
+<dt><span class="term"><span class="symbol"><a href="detection_reference.html#dimensions_type" title="ppr_dimensions_type">ppr_dimensions_type</a> avg_dimensions</span></span></dt>
+<dd><p>Average dimensions of the tracked object.</p></dd>
+<dt><span class="term"><span class="symbol">float min_confidence</span></span></dt>
+<dd><p>Smallest confidence for the tracked object.</p></dd>
+<dt><span class="term"><span class="symbol">float max_confidence</span></span></dt>
+<dd><p>Largest confidence for the tracked object.</p></dd>
+<dt><span class="term"><span class="symbol">float avg_confidence</span></span></dt>
+<dd><p>Average confidence for the tracked object.</p></dd>
+</dl></div>
+<p>
+      See also: <a href="tracking_users_guide.html#completed_tracks" title="Completed Tracks">Completed Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="visual_instance_type"></a>ppr_visual_instance_type</h4></div></div></div>
+<a class="indexterm" name="id4760776"></a><pre class="programlisting">typedef struct
+{
+  int index;
+  ppr_raw_image_type image;
+} <span class="type">ppr_visual_instance_type</span>;</pre>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int index</span></span></dt>
+<dd><p>
+            Frame index where the visual instance was taken from.  Frames are numbered consecutively starting at
+            <span class="type">zero</span>.
+          </p></dd>
+<dt><span class="term"><span class="symbol"><a href="raw_image_library.html#raw_image_type" title="ppr_raw_image_type">ppr_raw_image_type</a> image</span></span></dt>
+<dd><p>
+            Image of a single instance of an object within a track.
+          </p></dd>
+</dl></div>
+<p>
+      See also:
+      <a href="tracking_users_guide.html#visual_instances" title="Visual Instances">Visual Instances</a>,
+      <a href="detection_users_guide.html#image_types" title="Image Types">Image Types</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="completed_track_type"></a>ppr_completed_track_type</h4></div></div></div>
+<a class="indexterm" name="id4760878"></a><pre class="programlisting">typedef struct
+{
+  ppr_track_summary_type track_summary;
+  int num_tracked_objects;
+  ppr_tracked_object_type *tracked_objects;
+  int num_visual_instances;
+  ppr_visual_instance_type *visual_instances;
+} <span class="type">ppr_completed_track_type</span>;</pre>
+<p>
+      This structure describes a single completed track.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol"><a href="tracking_reference.html#track_summary_type" title="ppr_track_summary_type">ppr_track_summary_type</a> track_summary</span></span></dt>
+<dd><p>Summary information for this track.</p></dd>
+<dt><span class="term"><span class="symbol">int num_tracked_objects</span></span></dt>
+<dd><p>Number of objects in this completed track.</p></dd>
+<dt><span class="term">
+          <span class="symbol"><a href="tracking_reference.html#tracked_object_type" title="ppr_tracked_object_type">ppr_tracked_object_type</a> *tracked_objects</span>
+        </span></dt>
+<dd><p>Array of objects in this completed track.</p></dd>
+<dt><span class="term"><span class="symbol">int num_visual_instances</span></span></dt>
+<dd><p>Number of visual instances for this completed track.</p></dd>
+<dt><span class="term">
+          <span class="symbol"><a href="tracking_reference.html#visual_instance_type" title="ppr_visual_instance_type">ppr_visual_instance_type</a> *visual_instances</span>
+        </span></dt>
+<dd><p>Array of visual instances.</p></dd>
+</dl></div>
+<p>
+      See also: <a href="tracking_users_guide.html#completed_tracks" title="Completed Tracks">Completed Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="completed_track_list_type"></a>ppr_completed_track_list_type</h4></div></div></div>
+<a class="indexterm" name="id4761035"></a><pre class="programlisting">typedef struct
+{
+  int num_completed_tracks;
+  ppr_completed_track_type *completed_tracks;
+} <span class="type">ppr_completed_track_list_type</span>;</pre>
+<p>
+      This structure provides an array of completed tracks and the number of tracks in that array.
+    </p>
+<p>
+      The <span class="structname">ppr_completed_track_list_type</span> is freed with a call to
+      <code class="function"><a href="tracking_reference.html#free_completed_track_list" title="ppr_free_completed_track_list">ppr_free_completed_track_list</a></code>.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int num_completed_tracks</span></span></dt>
+<dd><p>
+            Number of completed tracks in the list.
+          </p></dd>
+<dt><span class="term">
+          <span class="symbol"><a href="tracking_reference.html#completed_track_type" title="ppr_completed_track_type">ppr_completed_track_type</a> *completed_tracks</span>
+        </span></dt>
+<dd><p>
+            Array of completed tracks.
+          </p></dd>
+</dl></div>
+<p>
+      See also: <a href="tracking_users_guide.html#completed_tracks" title="Completed Tracks">Completed Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="flat_completed_track_list_type"></a>ppr_flat_completed_track_list_type</h4></div></div></div>
+<a class="indexterm" name="id4761153"></a><pre class="programlisting">typedef struct
+{
+  size_t num_bytes;
+  void *data;
+} <span class="type">ppr_flat_completed_track_list_type</span>;</pre>
+<p>
+      The <span class="structname">ppr_flat_completed_track_list_type</span> stores the bytes that make up a flattened
+      completed track list.  Flattened completed track lists can be freed using
+      <code class="function"><a href="tracking_reference.html#free_flat_completed_track_list" title="ppr_free_flat_completed_track_list">ppr_free_flat_completed_track_list</a></code>.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int num_bytes</span></span></dt>
+<dd><p>
+            Number of bytes in the data buffer.
+          </p></dd>
+<dt><span class="term"><span class="symbol">void *data</span></span></dt>
+<dd><p>
+            Buffer containing flattened completed track list.
+          </p></dd>
+</dl></div>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="tracking_users_guide.html#completed_tracks" title="Completed Tracks">Completed Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tracking_functions"></a>3. Function Reference</h2></div></div></div>
+<p>
+  The functions described in this section are declared in <code class="filename">pittpatt_tracking.h</code>.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="tracking_initialize_and_configure_functions"></a>Initialize and Configure Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="enable_tracking"></a>ppr_enable_tracking</h4></div></div></div>
+<a class="indexterm" name="id4761298"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_enable_tracking</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - context to enable tracking in</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must not already be enabled</p></dd>
+<dt><span class="term">Default Settings</span></dt>
+<dd>
+<p><span class="parameter"><a href="tracking_reference.html#enable_visual_attention" title="ppr_enable_visual_attention">visual_attention</a></span> = disabled</p>
+<p><span class="parameter"><a href="tracking_reference.html#set_tracking_cutoff" title="ppr_set_tracking_cutoff">tracking_cutoff</a></span> = 0</p>
+<p><span class="parameter"><a href="tracking_reference.html#set_num_visual_instances" title="ppr_set_num_visual_instances">num_visual_instances</a></span> = 1</p>
+<p><span class="parameter"><a href="tracking_reference.html#enable_shot_boundary_detection" title="ppr_enable_shot_boundary_detection">shot_boundary_detection</a></span> = disabled</p>
+</dd>
+</dl></div>
+<p>
+      Enables tracking in a context.  Tracking must be enabled before tracking functions can be called.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#enabling_tracking" title="Enabling and Configuring Tracking">Enabling and Configuring Tracking</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_tracking_cutoff"></a>ppr_set_tracking_cutoff</h4></div></div></div>
+<a class="indexterm" name="id4761484"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_tracking_cutoff</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">tracking_cutoff</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to uninitialized context</p>
+<p><span class="parameter">tracking_cutoff</span> - cutoff to be used by tracker</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Cannot be called after context is initialized</p>
+<p>Tracking must be enabled</p>
+</dd>
+</dl></div>
+<p>
+      Sets the tracking cutoff to the specified value, which must be between
+      <span class="parameter"><a href="tracking_reference.html#tracking_cutoff_min" title="PPR_TRACKING_CUTOFF_MIN">PPR_TRACKING_CUTOFF_MIN</a></span> and
+      <span class="parameter"><a href="tracking_reference.html#tracking_cutoff_max" title="PPR_TRACKING_CUTOFF_MAX">PPR_TRACKING_CUTOFF_MAX</a></span>.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#tracking_cutoff" title="Tracking Cutoff">Tracking Cutoff</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="enable_visual_attention"></a>ppr_enable_visual_attention</h4></div></div></div>
+<a class="indexterm" name="id4761653"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_enable_visual_attention</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to uninitialized context</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Cannot be called after context is initialized</p>
+<p>Tracking must be enabled</p>
+</dd>
+</dl></div>
+<p>
+      Enables visual attention in the context.  When visual attention is enabled, only the parts of the image that
+      change from frame-to-frame are searched.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#visual_attention" title="Visual Attention">Visual Attention</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_num_visual_instances"></a>ppr_set_num_visual_instances</h4></div></div></div>
+<a class="indexterm" name="id4761787"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_num_visual_instances</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">num_visual_instances</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to uninitialized context</p>
+<p><span class="parameter">num_visual_instances</span> - number of visual instances to keep per track</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Cannot be called after context is initialized</p>
+<p>Tracking must be enabled</p>
+</dd>
+</dl></div>
+<p>
+      Sets the number of visual instances the tracker will keep per track.  The tracker can keep up to
+      <span class="parameter"><a href="tracking_reference.html#max_num_visual_instances" title="PPR_MAX_NUM_VISUAL_INSTANCES">PPR_MAX_NUM_VISUAL_INSTANCES</a></span> different
+      visual instances per track.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#visual_instances" title="Visual Instances">Visual Instances</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="enable_shot_boundary_detection"></a>ppr_enable_shot_boundary_detection</h4></div></div></div>
+<a class="indexterm" name="id4761948"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_enable_shot_boundary_detection</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to uninitialized context</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Cannot be called after context is initialized</p>
+<p>Tracking must be enabled</p>
+</dd>
+<dt><span class="term">Default Settings</span></dt>
+<dd><p><span class="parameter"><a href="tracking_reference.html#set_shot_boundary_threshold" title="ppr_set_shot_boundary_threshold">shot_boundary_threshold</a></span> = 0.0</p></dd>
+</dl></div>
+<p>
+      Enables shot boundary detection in the context.  Call
+      <code class="function"><a href="tracking_reference.html#set_shot_boundary_threshold" title="ppr_set_shot_boundary_threshold">ppr_set_shot_boundary_threshold</a></code> to set a
+      threshold that controls the sensitivity of the shot boundary detection.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#shot_boundaries" title="Shot Boundary Detection">Shot Boundary Detection</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_shot_boundary_threshold"></a>ppr_set_shot_boundary_threshold</h4></div></div></div>
+<a class="indexterm" name="id4762114"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_shot_boundary_threshold</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>float </td>
+<td>
+<var class="pdparam">threshold</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to uninitialized context</p>
+<p><span class="parameter">threshold</span> - threshold to be used by shot boundary algorithm</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Cannot be called after context is initialized</p>
+<p>Tracking must be enabled</p>
+<p>Shot boundary detection must be enabled</p>
+</dd>
+</dl></div>
+<p>
+      Sets the threshold that controls the sensitivity of shot boundary detection.  Shot boundary detection must first
+      be enabled by calling
+      <code class="function"><a href="tracking_reference.html#enable_shot_boundary_detection" title="ppr_enable_shot_boundary_detection">ppr_enable_shot_boundary_detection</a></code>.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#shot_boundaries" title="Shot Boundary Detection">Shot Boundary Detection</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="context_query_functions"></a>Context Query Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="is_tracking_enabled"></a>ppr_is_tracking_enabled</h4></div></div></div>
+<a class="indexterm" name="id4762289"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_is_tracking_enabled</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_enabled_status_type </td>
+<td>
+<var class="pdparam">*tracking_status</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="detection_reference.html#enabled_status_type" title="ppr_enabled_status_type">tracking_status</a></span> - pointer to flag indicating if tracking is enabled</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Reports whether tracking is enabled.  The status is returned by setting the contents pointed to by the
+      <span class="parameter">tracking_status</span> argument to either
+      <span class="parameter"><a href="detection_reference.html#enabled_status_type" title="ppr_enabled_status_type">PPR_DISABLED</a></span> or
+      <span class="parameter"><a href="detection_reference.html#enabled_status_type" title="ppr_enabled_status_type">PPR_ENABLED</a></span>.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#enabling_tracking" title="Enabling and Configuring Tracking">Enabling and Configuring Tracking</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_tracking_cutoff"></a>ppr_get_tracking_cutoff</h4></div></div></div>
+<a class="indexterm" name="id4762464"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_tracking_cutoff</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*tracking_cutoff</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">tracking_cutoff</span> - pointer to the tracking cutoff being used by the context</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be enabled</p></dd>
+</dl></div>
+<p>
+      Gets the tracking cutoff being used by the context.  The tracking cutoff is returned by setting the contents
+      pointed to by the <span class="parameter">tracking_cutoff</span> argument.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#tracking_cutoff" title="Tracking Cutoff">Tracking Cutoff</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="is_visual_attention_enabled"></a>ppr_is_visual_attention_enabled</h4></div></div></div>
+<a class="indexterm" name="id4762616"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_is_visual_attention_enabled</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_enabled_status_type </td>
+<td>
+<var class="pdparam">*visual_attention_status</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="detection_reference.html#enabled_status_type" title="ppr_enabled_status_type">visual_attention_status</a></span> - pointer to flag indicating if visual attention is enabled</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be enabled</p></dd>
+</dl></div>
+<p>
+      Reports whether visual attention is enabled.  The status is returned by setting the contents pointed to by the
+      <span class="parameter">visual_attention_status</span> argument to either 
+      <span class="parameter"><a href="detection_reference.html#enabled_status_type" title="ppr_enabled_status_type">PPR_DISABLED</a></span> or
+      <span class="parameter"><a href="detection_reference.html#enabled_status_type" title="ppr_enabled_status_type">PPR_ENABLED</a></span>.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#visual_attention" title="Visual Attention">Visual Attention</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_num_visual_instances"></a>ppr_get_num_visual_instances</h4></div></div></div>
+<a class="indexterm" name="id4762792"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_num_visual_instances</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*num_visual_instances</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">num_visual_instances</span> - pointer to the number of visual instances being used by the context</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be enabled</p></dd>
+</dl></div>
+<p>
+      Gets the number of visual instances being used by the context.  The number of visual instances is returned by
+      setting the contents pointed to by the <span class="parameter">num_visual_instances</span> argument.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#visual_instances" title="Visual Instances">Visual Instances</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="is_shot_boundary_detection_enabled"></a>ppr_is_shot_boundary_detection_enabled</h4></div></div></div>
+<a class="indexterm" name="id4762946"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_is_shot_boundary_detection_enabled</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_enabled_status_type </td>
+<td>
+<var class="pdparam">*shot_boundary_status</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="detection_reference.html#enabled_status_type" title="ppr_enabled_status_type">shot_boundary_status</a></span> - pointer to flag indicating if shot boundary detection is enabled</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be enabled</p></dd>
+</dl></div>
+<p>
+      Reports whether shot boundary detection is enabled.  The status is returned by setting the contents pointed to by
+      the <span class="parameter">shot_boundary_status</span> argument to either
+      <span class="parameter"><a href="detection_reference.html#enabled_status_type" title="ppr_enabled_status_type">PPR_DISABLED</a></span> or
+      <span class="parameter"><a href="detection_reference.html#enabled_status_type" title="ppr_enabled_status_type">PPR_ENABLED</a></span>.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#shot_boundaries" title="Shot Boundary Detection">Shot Boundary Detection</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_shot_boundary_threshold"></a>ppr_get_shot_boundary_threshold</h4></div></div></div>
+<a class="indexterm" name="id4763123"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_shot_boundary_threshold</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>float </td>
+<td>
+<var class="pdparam">*threshold</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">threshold</span> - pointer to the shot boundary threshold being used by the context</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Tracking must be enabled</p>
+<p>Shot boundary detection must be enabled</p>
+</dd>
+</dl></div>
+<p>
+      Gets the shot boundary threshold being used by the context.  The shot boundary threshold is returned by setting
+      the contents pointed to by the <span class="parameter">threshold</span> argument.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#shot_boundaries" title="Shot Boundary Detection">Shot Boundary Detection</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="track_functions"></a>Track Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="track_objects"></a>ppr_track_objects</h4></div></div></div>
+<a class="indexterm" name="id4763289"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_track_objects</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_image_type </td>
+<td>
+<var class="pdparam">image</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_object_list_type </td>
+<td>
+<var class="pdparam">object_list</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="detection_reference.html#image_type" title="ppr_image_type">image</a></span> - image in which objects were detected</p>
+<p><span class="parameter"><a href="detection_reference.html#object_list_type" title="ppr_object_list_type">object_list</a></span> - objects detected in image</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Tracking must be enabled</p>
+<p>Context must be initialized</p>
+</dd>
+</dl></div>
+<p>
+      Submits objects from a single frame to the tracker.  The objects must have been previously detected in
+      the input image using <code class="function"><a href="detection_reference.html#detect_objects" title="ppr_detect_objects">ppr_detect_objects</a></code>.  Active
+      tracks are updated with the provided objects. The first frame submitted is frame index <span class="type">zero</span>, and
+      frames are numbered consecutively with each new call.
+    </p>
+<p>
+      The <code class="function"><a href="tracking_reference.html#detect_and_track_objects" title="ppr_detect_and_track_objects">ppr_detect_and_track_objects</a></code> function
+      can be used to do detection and tracking in one function call rather than making separate function calls for
+      detection and tracking.  However, for certain threading schemes, it may be desirable to do detection and tracking
+      as separate calls.
+    </p>
+<p>
+      Tracking results are obtained by querying 
+      <code class="function"><a href="tracking_reference.html#get_completed_tracks" title="ppr_get_completed_tracks">ppr_get_completed_tracks</a></code> and/or
+      <code class="function"><a href="tracking_reference.html#get_current_frame_objects" title="ppr_get_current_frame_objects">ppr_get_current_frame_objects</a></code>.
+    </p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+        Consecutive frames must have the same dimensions.  To pass frames of different dimensions (e.g., a new image
+	sequence), the tracker must first be reset by calling
+	<code class="function"><a href="tracking_reference.html#reset_tracker" title="ppr_reset_tracker">ppr_reset_tracker</a></code>.  
+      </p>
+</div>
+<p>
+      See also:
+      <a href="tracking_users_guide.html#detect_and_track_calls" title="Detect and Track Calls">Detect and Track Calls</a>,
+      <a href="tracking_users_guide.html#tracking_results" title="Results">Results</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>,
+      <a href="detection_users_guide.html#image_types" title="Image Types">Image Types</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="detect_and_track_objects"></a>ppr_detect_and_track_objects</h4></div></div></div>
+<a class="indexterm" name="id4763558"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_detect_and_track_objects</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_image_type </td>
+<td>
+<var class="pdparam">image</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="detection_reference.html#image_type" title="ppr_image_type">image</a></span> - image to search</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Tracking must be enabled</p>
+<p>Context must be initialized</p>
+</dd>
+</dl></div>
+<p>
+      Submits a new video frame to the detector and tracker.  After searching the provided image for objects of
+      interest, single-frame results are used to update active tracks.  The first frame submitted is frame index
+      <span class="type">zero</span>, and frames are numbered consecutively with each new call.  If the landmark detector is set to
+      <span class="parameter"><a href="detection_reference.html#automatic_landmarks" title="PPR_AUTOMATIC_LANDMARKS">PPR_AUTOMATIC_LANDMARKS</a></span>, this function also
+      does landmark detection and, when results are requested from the tracker, the landmark fields will be populated
+      with all landmarks that were detected.
+    </p>
+<p>
+      Tracking results are obtained by querying 
+      <code class="function"><a href="tracking_reference.html#get_completed_tracks" title="ppr_get_completed_tracks">ppr_get_completed_tracks</a></code> and/or
+      <code class="function"><a href="tracking_reference.html#get_current_frame_objects" title="ppr_get_current_frame_objects">ppr_get_current_frame_objects</a></code>.
+    </p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+        Consecutive frames must have the same dimensions.  To pass frames of different dimensions (e.g., a new image
+	sequence), the tracker must first be reset by calling
+	<code class="function"><a href="tracking_reference.html#reset_tracker" title="ppr_reset_tracker">ppr_reset_tracker</a></code>.  
+      </p>
+</div>
+<p>
+      See also:
+      <a href="tracking_users_guide.html#detect_and_track_calls" title="Detect and Track Calls">Detect and Track Calls</a>,
+      <a href="tracking_users_guide.html#tracking_results" title="Results">Results</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>,
+      <a href="detection_users_guide.html#image_types" title="Image Types">Image Types</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="results_functions"></a>Results Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_current_frame_objects"></a>ppr_get_current_frame_objects</h4></div></div></div>
+<a class="indexterm" name="id4763802"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_current_frame_objects</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_tracked_object_list_type </td>
+<td>
+<var class="pdparam">*tracked_object_list</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="tracking_reference.html#tracked_object_list_type" title="ppr_tracked_object_list_type">tracked_object_list</a></span> - pointer to structure containing the objects detected/tracked in the most recently submitted frame</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Tracking must be enabled</p>
+<p>Context must be initialized</p>
+</dd>
+</dl></div>
+<p>
+      Extracts objects that were detected and tracked in the most recently submitted frame.  This function call does
+      not alter the internal state of the tracker.  The resulting tracked object list must be freed with 
+      <code class="function"><a href="tracking_reference.html#free_tracked_object_list" title="ppr_free_tracked_object_list">ppr_free_tracked_object_list</a></code>.
+    </p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+        This function is provided to enable applications that require results immediately after a frame is processed
+	(see <a href="tracking_users_guide.html#current_tracks" title="Current Tracks">Current Tracks</a>).  The results returned from this function call are
+	not finalized.  As such, once the tracks associated with the current-frame object are finalized (i.e., rejected
+	or completed), the data corresponding to the current frame can change.  If results are not required immediately
+	after frames are processed, the
+        <code class="function"><a href="tracking_reference.html#get_completed_tracks" title="ppr_get_completed_tracks">ppr_get_completed_tracks</a></code> interface should be
+	used instead.
+      </p>
+</div>
+<p>
+      See also: <a href="tracking_users_guide.html#current_tracks" title="Current Tracks">Current Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_completed_tracks"></a>ppr_get_completed_tracks</h4></div></div></div>
+<a class="indexterm" name="id4763999"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_completed_tracks</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_completed_track_list_type </td>
+<td>
+<var class="pdparam">*completed_track_list</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="tracking_reference.html#completed_track_list_type" title="ppr_completed_track_list_type">completed_track_list</a></span> - pointer to list of tracks that have been completed</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Tracking must be enabled</p>
+<p>Context must be initialized</p>
+</dd>
+</dl></div>
+<p>
+      Extracts tracks that have completed.  This function can be called periodically or after all frames in a
+      particular sequence have been submitted to the tracker.  Once returned, completed track data internal to the
+      tracker is discarded.
+    </p>
+<p>
+      The returned data structure must be freed with 
+      <code class="function"><a href="tracking_reference.html#free_completed_track_list" title="ppr_free_completed_track_list">ppr_free_completed_track_list</a></code>.
+    </p>
+<p>
+      Until completed tracks are extracted, the tracker will not discard internally managed tracks.  To avoid
+      continually increasing memory usage, long-running applications should periodically extract and free completed
+      tracks.
+    </p>
+<p>
+      In order to be certain that a particular track has completed (e.g., that an object has left the scene), a small
+      delay is required before tracks are marked complete.  This means that an object will leave the scene some number
+      of frames prior to the corresponding track being returned.  To force the completion of any tracks and note the
+      end of a video sequence, be sure to call 
+      <code class="function"><a href="tracking_reference.html#finalize_current_tracks" title="ppr_finalize_current_tracks">ppr_finalize_current_tracks</a></code>.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#completed_tracks" title="Completed Tracks">Completed Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="finalize_current_tracks"></a>ppr_finalize_current_tracks</h4></div></div></div>
+<a class="indexterm" name="id4764204"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_finalize_current_tracks</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Tracking must be enabled</p>
+<p>Context must be initialized</p>
+</dd>
+</dl></div>
+<p>
+      Forces completion of all active tracks.  Low-confidence active tracks are discarded, and high-confidence active
+      tracks are moved to the completed track list.  This function should be called between frames when it is known
+      that a track cannot cross the frame-to-frame boundary.  For example, this function should be called after
+      processing one video sequence, before processing a different video sequence.  After calling, completed tracks may
+      be extracted with
+      <code class="function"><a href="tracking_reference.html#get_completed_tracks" title="ppr_get_completed_tracks">ppr_get_completed_tracks</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="tracking_users_guide.html#current_tracks" title="Current Tracks">Current Tracks</a>,
+      <a href="tracking_users_guide.html#completed_tracks" title="Completed Tracks">Completed Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="discard_unreturned_completed_tracks"></a>ppr_discard_unreturned_completed_tracks</h4></div></div></div>
+<a class="indexterm" name="id4764360"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_discard_unreturned_completed_tracks</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Tracking must be enabled</p>
+<p>Context must be initialized</p>
+</dd>
+</dl></div>
+<p>
+      Releases any unreturned completed tracks.  This has the same effect as 
+      <code class="function"><a href="tracking_reference.html#get_completed_tracks" title="ppr_get_completed_tracks">ppr_get_completed_tracks</a></code> 
+      followed by the necessary
+      <code class="function"><a href="tracking_reference.html#free_completed_track_list" title="ppr_free_completed_track_list">ppr_free_completed_track_list</a></code> call.  After
+      this function is called, the results are no longer available.
+    </p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+        For applications that request frame-by-frame results, but not completed tracks, this function must be called
+	periodically to control tracker memory requirements. See
+	<a href="tracking_users_guide.html#current_track_framework" title="Tracking Using Current Results">Tracking Using Current Results</a> for a more detailed discussion.
+      </p>
+</div>
+<p>
+      See also: <a href="tracking_users_guide.html#completed_tracks" title="Completed Tracks">Completed Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_dispersed_frontal_objects_from_track"></a>ppr_get_dispersed_frontal_objects_from_track</h4></div></div></div>
+<a class="indexterm" name="id4764531"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_dispersed_frontal_objects_from_track</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_completed_track_type </td>
+<td>
+<var class="pdparam">completed_track</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">max_num_objects</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_tracked_object_list_type </td>
+<td>
+<var class="pdparam">*frontal_objects_list</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="tracking_reference.html#completed_track_type" title="ppr_completed_track_type">completed_track</a></span> - completed track to get dispersed objects from</p>
+<p><span class="parameter">max_num_objects</span> - maximum number of objects to place in output tracked object list</p>
+<p><span class="parameter"><a href="tracking_reference.html#tracked_object_list_type" title="ppr_tracked_object_list_type">frontal_objects_list</a></span> - pointer to dispersed list of frontal objects selected from the completed track</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Tracking must be enabled</p>
+<p>Context must be initialized</p>
+</dd>
+</dl></div>
+<p>
+      Selects frontal objects from a completed track.  The frontal objects are selected such that they are spaced
+      temporally over the entire track.  The number of selected objects will be no greater than
+      <span class="parameter">max_num_objects</span>, although it may be less than <span class="parameter">max_num_objects</span> if
+      the track does not contain enough suitable frontal objects.
+    </p>
+<p>
+      The returned data structure must be freed with 
+      <code class="function"><a href="tracking_reference.html#free_tracked_object_list" title="ppr_free_tracked_object_list">ppr_free_tracked_object_list</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#frontal_faces" title="Frontal Faces">Frontal Faces</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>,
+      <a href="tracking_users_guide.html#completed_tracks" title="Completed Tracks">Completed Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="reset_tracker"></a>ppr_reset_tracker</h4></div></div></div>
+<a class="indexterm" name="id4764767"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_reset_tracker</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Tracking must be enabled</p>
+<p>Context must be initialized</p>
+</dd>
+</dl></div>
+<p>
+      Resets the tracker to its initial state.  All internal memory is freed, any unreturned tracks are discarded, and
+      the frame index is set back to <span class="type">zero</span>.  This function should be called between video sequences if
+      multiple sequences are submitted in series using the same context.  It also needs to be called any time the image
+      dimensions must change from one image to the next.  All of the context's existing settings remain intact.
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#tracking_results" title="Results">Results</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="tracking_file_io_functions"></a>File I/O Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="write_tracked_object_list"></a>ppr_write_tracked_object_list</h4></div></div></div>
+<a class="indexterm" name="id4764917"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_write_tracked_object_list</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*file_name</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_tracked_object_list_type </td>
+<td>
+<var class="pdparam">tracked_object_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*source_file_name</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">file_name</span> - null-terminated string specifying name of tracked object list file to write</p>
+<p><span class="parameter"><a href="tracking_reference.html#tracked_object_list_type" title="ppr_tracked_object_list_type">tracked_object_list</a></span> - tracked object list to write to file</p>
+<p><span class="parameter">source_file_name</span> - null-terminated string specifying the file name of the source file that generated the tracked object list</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be enabled</p></dd>
+</dl></div>
+<p>
+      Writes a tracked object list to a file.  The file can later be read using
+      <code class="function"><a href="tracking_reference.html#read_tracked_object_list" title="ppr_read_tracked_object_list">ppr_read_tracked_object_list</a></code>.
+    </p>
+<p>
+      The <span class="parameter">source_file_name</span> provides a means of associating the tracked object list with the
+      input source it was generated from.  It is the user's responsibility to ensure that the input source file remains
+      in the correct location such that it can be retrieved when the tracked object list is read.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#binary_io" title="Binary I/O">Binary I/O</a>,
+      <a href="tracking_users_guide.html#current_tracks" title="Current Tracks">Current Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="read_tracked_object_list"></a>ppr_read_tracked_object_list</h4></div></div></div>
+<a class="indexterm" name="id4765133"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_read_tracked_object_list</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*file_name</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_tracked_object_list_type </td>
+<td>
+<var class="pdparam">*tracked_object_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>char </td>
+<td>
+<var class="pdparam">*source_file_name</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">file_name</span> - null-terminated string specifying name of tracked object list file to read</p>
+<p><span class="parameter"><a href="tracking_reference.html#tracked_object_list_type" title="ppr_tracked_object_list_type">tracked_object_list</a></span> - pointer to tracked object list read from file</p>
+<p><span class="parameter">source_file_name</span> - null-terminated string specifying the source file name that was provided when the tracked object list was written</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be enabled</p></dd>
+</dl></div>
+<p>
+      Reads a tracked object list file previously written using
+      <code class="function"><a href="tracking_reference.html#write_tracked_object_list" title="ppr_write_tracked_object_list">ppr_write_tracked_object_list</a></code>.  The tracked
+      object list must later be freed using
+      <code class="function"><a href="tracking_reference.html#free_tracked_object_list" title="ppr_free_tracked_object_list">ppr_free_tracked_object_list</a></code>.
+    </p>
+<p>
+      The <span class="parameter">source_file_name</span> argument is used to return the source file name that was provided
+      when the tracked object list was written.  It is the user's responsibility to ensure that the input source file
+      is in the same location as when the tracked object list was written so it can be referenced properly.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#binary_io" title="Binary I/O">Binary I/O</a>,
+      <a href="tracking_users_guide.html#current_tracks" title="Current Tracks">Current Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="write_completed_track_list"></a>ppr_write_completed_track_list</h4></div></div></div>
+<a class="indexterm" name="id4765360"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_write_completed_track_list</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*file_name</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_completed_track_list_type </td>
+<td>
+<var class="pdparam">completed_track_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*source_file_name</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">file_name</span> - null-terminated string specifying name of completed track list file to write</p>
+<p><span class="parameter"><a href="tracking_reference.html#completed_track_list_type" title="ppr_completed_track_list_type">completed_track_list</a></span> - completed track list to write to file</p>
+<p><span class="parameter">source_file_name</span> - null-terminated string specifying the file name of the source file that generated the completed track list</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be enabled</p></dd>
+</dl></div>
+<p>
+      Writes a completed track list to a file.  The file can later be read using
+      <code class="function"><a href="tracking_reference.html#read_completed_track_list" title="ppr_read_completed_track_list">ppr_read_completed_track_list</a></code>.
+    </p>
+<p>
+      The <span class="parameter">source_file_name</span> provides a means of associating the completed track list with the
+      input source it was generated from.  It is the user's responsibility to ensure that the input source file remains
+      in the correct location such that it can be retrieved when the completed track list is read.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#binary_io" title="Binary I/O">Binary I/O</a>,
+      <a href="tracking_users_guide.html#completed_tracks" title="Completed Tracks">Completed Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="read_completed_track_list"></a>ppr_read_completed_track_list</h4></div></div></div>
+<a class="indexterm" name="id4765576"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_read_completed_track_list</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*file_name</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_completed_track_list_type </td>
+<td>
+<var class="pdparam">*completed_track_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>char </td>
+<td>
+<var class="pdparam">*source_file_name</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">file_name</span> - null-terminated string specifying name of completed track list file to read</p>
+<p><span class="parameter"><a href="tracking_reference.html#completed_track_list_type" title="ppr_completed_track_list_type">completed_track_list</a></span> - pointer to completed track list read from file</p>
+<p><span class="parameter">source_file_name</span> - null-terminated string specifying the source file name that was provided when the completed track list was written</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be enabled</p></dd>
+</dl></div>
+<p>
+      Reads a completed track list file previously written using
+      <code class="function"><a href="tracking_reference.html#write_completed_track_list" title="ppr_write_completed_track_list">ppr_write_completed_track_list</a></code>.  The
+      completed track list must later be freed using
+      <code class="function"><a href="tracking_reference.html#free_completed_track_list" title="ppr_free_completed_track_list">ppr_free_completed_track_list</a></code>.
+    </p>
+<p>
+      The <span class="parameter">source_file_name</span> argument is used to return the source file name that was provided
+      when the completed track list was written.  It is the user's responsibility to ensure that the input source file
+      is in the same location as when the completed track list was written so it can be referenced properly.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#binary_io" title="Binary I/O">Binary I/O</a>,
+      <a href="tracking_users_guide.html#completed_tracks" title="Completed Tracks">Completed Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="tracking_flatten_unflatten_functions"></a>Flatten / Unflatten Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="flatten_tracked_object_list"></a>ppr_flatten_tracked_object_list</h4></div></div></div>
+<a class="indexterm" name="id4765813"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_flatten_tracked_object_list</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_tracked_object_list_type </td>
+<td>
+<var class="pdparam">tracked_object_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_flat_tracked_object_list_type </td>
+<td>
+<var class="pdparam">*flat_tracked_object_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*source_file_name</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="tracking_reference.html#tracked_object_list_type" title="ppr_tracked_object_list_type">tracked_object_list</a></span> - tracked object list to flatten</p>
+<p><span class="parameter"><a href="tracking_reference.html#flat_tracked_object_list_type" title="ppr_flat_tracked_object_list_type">flat_tracked_object_list</a></span> - pointer to flattened tracked object list</p>
+<p><span class="parameter">source_file_name</span> - null-terminated string specifying the file name of the source file that generated the tracked object list</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be enabled</p></dd>
+</dl></div>
+<p>
+      Flattens a tracked object list, writing all of its internal data to a buffer.  This is useful for applications
+      that must write tracked object lists to output sources other than the file system, such as a database.  The
+      flattened tracked object list can be converted back to a regular object list using
+      <code class="function"><a href="tracking_reference.html#unflatten_tracked_object_list" title="ppr_unflatten_tracked_object_list">ppr_unflatten_tracked_object_list</a></code>.  The
+      flattened tracked object list must be freed using
+      <code class="function"><a href="tracking_reference.html#free_flat_tracked_object_list" title="ppr_free_flat_tracked_object_list">ppr_free_flat_tracked_object_list</a></code>.
+    </p>
+<p>
+      The <span class="parameter">source_file_name</span> provides a means of associating the tracked object list with the
+      input source it was generated from.  It is the user's responsibility to ensure that the input source file remains
+      in the correct location such that it can be retrieved when the tracked object list is unflattened.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="tracking_users_guide.html#current_tracks" title="Current Tracks">Current Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="unflatten_tracked_object_list"></a>ppr_unflatten_tracked_object_list</h4></div></div></div>
+<a class="indexterm" name="id4766048"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_unflatten_tracked_object_list</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_flat_tracked_object_list_type </td>
+<td>
+<var class="pdparam">flat_tracked_object_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_tracked_object_list_type </td>
+<td>
+<var class="pdparam">*tracked_object_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>char </td>
+<td>
+<var class="pdparam">*source_file_name</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="tracking_reference.html#flat_tracked_object_list_type" title="ppr_flat_tracked_object_list_type">flat_tracked_object_list</a></span> - tracked object list to unflatten</p>
+<p><span class="parameter"><a href="tracking_reference.html#tracked_object_list_type" title="ppr_tracked_object_list_type">tracked_object_list</a></span> - pointer to unflattened tracked object list</p>
+<p><span class="parameter">source_file_name</span> - null-terminated string specifying the source file name that was provided when the tracked object list was flattened</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be enabled</p></dd>
+</dl></div>
+<p>
+      Unflattens a tracked object list by taking data from a flattened buffer and turning it into a regular tracked
+      object list.  This is useful for applications that must read object lists from input sources other than the file
+      system, such as a database.  The resulting tracked object list must be freed using
+      <code class="function"><a href="tracking_reference.html#free_tracked_object_list" title="ppr_free_tracked_object_list">ppr_free_tracked_object_list</a></code>.
+    </p>
+<p>
+      The <span class="parameter">source_file_name</span> argument is used to return the source file name that was provided
+      when the tracked object list was flattened.  It is the user's responsibility to ensure that the input source file
+      is in the same location as when the tracked object list was flattened so it can be referenced properly.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="tracking_users_guide.html#current_tracks" title="Current Tracks">Current Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="flatten_completed_track_list"></a>ppr_flatten_completed_track_list</h4></div></div></div>
+<a class="indexterm" name="id4766273"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_flatten_completed_track_list</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_completed_track_list_type </td>
+<td>
+<var class="pdparam">completed_track_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_flat_completed_track_list_type </td>
+<td>
+<var class="pdparam">*flat_completed_track_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*source_file_name</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="tracking_reference.html#completed_track_list_type" title="ppr_completed_track_list_type">completed_track_list</a></span> - completed track list to flatten</p>
+<p><span class="parameter"><a href="tracking_reference.html#flat_completed_track_list_type" title="ppr_flat_completed_track_list_type">flat_completed_track_list</a></span> - pointer to flattened completed track list</p>
+<p><span class="parameter">source_file_name</span> - null-terminated string specifying the file name of the source file that generated the completed track list</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be enabled</p></dd>
+</dl></div>
+<p>
+      Flattens a completed track list, writing all of its internal data to a buffer.  This is useful for applications
+      that must write completed track lists to output sources other than the file system, such as a database.  The
+      flattened completed track list can be converted back to a regular object list using
+      <code class="function"><a href="tracking_reference.html#unflatten_completed_track_list" title="ppr_unflatten_completed_track_list">ppr_unflatten_completed_track_list</a></code>.
+      The flattened completed track list must be freed using
+      <code class="function"><a href="tracking_reference.html#free_flat_completed_track_list" title="ppr_free_flat_completed_track_list">ppr_free_flat_completed_track_list</a></code>.
+    </p>
+<p>
+      The <span class="parameter">source_file_name</span> provides a means of associating the completed track list with the
+      input source it was generated from.  It is the user's responsibility to ensure that the input source file remains
+      in the correct location such that it can be retrieved when the completed track list is unflattened.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="tracking_users_guide.html#completed_tracks" title="Completed Tracks">Completed Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="unflatten_completed_track_list"></a>ppr_unflatten_completed_track_list</h4></div></div></div>
+<a class="indexterm" name="id4766509"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_unflatten_completed_track_list</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_flat_completed_track_list_type </td>
+<td>
+<var class="pdparam">flat_completed_track_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_completed_track_list_type </td>
+<td>
+<var class="pdparam">*completed_track_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>char </td>
+<td>
+<var class="pdparam">*source_file_name</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="tracking_reference.html#flat_completed_track_list_type" title="ppr_flat_completed_track_list_type">flat_completed_track_list</a></span> - completed track list to unflatten</p>
+<p><span class="parameter"><a href="tracking_reference.html#completed_track_list_type" title="ppr_completed_track_list_type">completed_track_list</a></span> - pointer to unflattened completed track list</p>
+<p><span class="parameter">source_file_name</span> - null-terminated string specifying the source file name that was provided when the completed track list was flattened</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be enabled</p></dd>
+</dl></div>
+<p>
+      Unflattens a completed track list by taking data from a flattened buffer and turning it into a regular completed
+      track list.  This is useful for applications that must read object lists from input sources other than the file
+      system, such as a database.  The resulting completed track list must be freed using
+      <code class="function"><a href="tracking_reference.html#free_completed_track_list" title="ppr_free_completed_track_list">ppr_free_completed_track_list</a></code>.
+    </p>
+<p>
+      The <span class="parameter">source_file_name</span> argument is used to return the source file name that was provided
+      when the completed track list was flattened.  It is the user's responsibility to ensure that the input source
+      file is in the same location as when the completed track list was flattened so it can be referenced properly.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="tracking_users_guide.html#completed_tracks" title="Completed Tracks">Completed Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="free_functions"></a>Free Functions</h3></div></div></div>
+<p>
+    The provided free functions must be used to free the data structures returned from SDK functions.  The user should
+    not try to free these structures using their own free statements.  Likewise, if the user allocates their own memory
+    using the provided data types, the user must free that memory themselves rather than calling these free functions.
+    This ensures that the same libraries are used for allocation and freeing.
+  </p>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="free_tracked_object_list"></a>ppr_free_tracked_object_list</h4></div></div></div>
+<a class="indexterm" name="id4766765"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">void <b class="fsfunc">ppr_free_tracked_object_list</b>(</code></td>
+<td>ppr_tracked_object_list_type </td>
+<td>
+<var class="pdparam">tracked_object_list</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p>
+            <span class="parameter"><a href="tracking_reference.html#tracked_object_list_type" title="ppr_tracked_object_list_type">tracked_object_list</a></span> - tracked object list to free
+          </p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>This function must only be used to free data allocated by the SDK</p></dd>
+</dl></div>
+<p>
+      Frees a tracked object list.  Tracked object lists are allocated by the following functions:
+      </p>
+<div class="itemizedlist"><ul type="disc">
+<li><code class="function"><a href="tracking_reference.html#get_current_frame_objects" title="ppr_get_current_frame_objects">ppr_get_current_frame_objects</a></code></li>
+<li><code class="function"><a href="tracking_reference.html#get_dispersed_frontal_objects_from_track" title="ppr_get_dispersed_frontal_objects_from_track">ppr_get_dispersed_frontal_objects_from_track</a></code></li>
+<li><code class="function"><a href="tracking_reference.html#read_tracked_object_list" title="ppr_read_tracked_object_list">ppr_read_tracked_object_list</a></code></li>
+<li><code class="function"><a href="tracking_reference.html#unflatten_tracked_object_list" title="ppr_unflatten_tracked_object_list">ppr_unflatten_tracked_object_list</a></code></li>
+</ul></div>
+<p>
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#current_tracks" title="Current Tracks">Current Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="free_flat_tracked_object_list"></a>ppr_free_flat_tracked_object_list</h4></div></div></div>
+<a class="indexterm" name="id4766937"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">void <b class="fsfunc">ppr_free_flat_tracked_object_list</b>(</code></td>
+<td>ppr_flat_tracked_object_list_type </td>
+<td>
+<var class="pdparam">flat_tracked_object_list</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="tracking_reference.html#flat_tracked_object_list_type" title="ppr_flat_tracked_object_list_type">flat_tracked_object_list</a></span> - flattened tracked object list to free</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>This function must only be used to free data allocated by the SDK</p></dd>
+</dl></div>
+<p>
+      Frees a flattened tracked object list.  Flattened tracked object lists are allocated by the following function:
+      </p>
+<div class="itemizedlist"><ul type="disc"><li><code class="function"><a href="tracking_reference.html#flatten_tracked_object_list" title="ppr_flatten_tracked_object_list">ppr_flatten_tracked_object_list</a></code></li></ul></div>
+<p>
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="tracking_users_guide.html#current_tracks" title="Current Tracks">Current Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="free_completed_track_list"></a>ppr_free_completed_track_list</h4></div></div></div>
+<a class="indexterm" name="id4767082"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">void <b class="fsfunc">ppr_free_completed_track_list</b>(</code></td>
+<td>ppr_completed_track_list_type </td>
+<td>
+<var class="pdparam">completed_track_list</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p>
+	    <span class="parameter"><a href="tracking_reference.html#completed_track_list_type" title="ppr_completed_track_list_type">completed_track_list</a></span> - completed track list to free
+	  </p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>This function must only be used to free data allocated by the SDK</p></dd>
+</dl></div>
+<p>
+      Frees a completed track list.  Completed track lists are allocated by the following functions:
+      </p>
+<div class="itemizedlist"><ul type="disc">
+<li><code class="function"><a href="tracking_reference.html#get_completed_tracks" title="ppr_get_completed_tracks">ppr_get_completed_tracks</a></code></li>
+<li><code class="function"><a href="tracking_reference.html#read_completed_track_list" title="ppr_read_completed_track_list">ppr_read_completed_track_list</a></code></li>
+<li><code class="function"><a href="tracking_reference.html#unflatten_completed_track_list" title="ppr_unflatten_completed_track_list">ppr_unflatten_completed_track_list</a></code></li>
+</ul></div>
+<p>
+    </p>
+<p>
+      See also: <a href="tracking_users_guide.html#completed_tracks" title="Completed Tracks">Completed Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="free_flat_completed_track_list"></a>ppr_free_flat_completed_track_list</h4></div></div></div>
+<a class="indexterm" name="id4767243"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">void <b class="fsfunc">ppr_free_flat_completed_track_list</b>(</code></td>
+<td>ppr_flat_completed_track_list_type </td>
+<td>
+<var class="pdparam">flat_completed_track_list</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="tracking_reference.html#flat_completed_track_list_type" title="ppr_flat_completed_track_list_type">flat_completed_track_list</a></span> - flattened completed track list to free</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>This function must only be used to free data allocated by the SDK</p></dd>
+</dl></div>
+<p>
+      Frees a flattened completed track list.  Flattened completed track lists are allocated by the following function:
+      </p>
+<div class="itemizedlist"><ul type="disc"><li><code class="function"><a href="tracking_reference.html#flatten_completed_track_list" title="ppr_flatten_completed_track_list">ppr_flatten_completed_track_list</a></code></li></ul></div>
+<p>
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="tracking_users_guide.html#completed_tracks" title="Completed Tracks">Completed Tracks</a>
+    </p>
+<p>
+      Back to <a href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">top</a>.
+    </p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<p class="copyright">© 2004-2010 Pittsburgh Pattern Recognition, Inc.</p>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="detection_reference.html">Prev</a> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right"> <a accesskey="n" href="recognition_reference.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Chapter 10. FTR-SDK: Detection Reference </td>
+<td width="20%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="40%" align="right" valign="top"> Chapter 12. FTR-SDK: Recognition Reference</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,2325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Chapter 13. FTR-SDK: Clustering Reference</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="up" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="prev" href="recognition_reference.html" title="Chapter 12. FTR-SDK: Recognition Reference">
+<link rel="next" href="version_history.html" title="Chapter 14. FTR-SDK: Version History">
+<style type="text/css">
+      /* Document Structure */
+
+div.book, div.chapter, div.article, div.sect1 {
+    width: auto;
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+div.sect1, div.toc {
+    margin-left: 10px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+div.sect2 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect2 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+div.sect3 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect3 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+
+/* Type Conventions (e.g. parameter vs. structelement) */
+
+.type, .function, .symbol, .structfield, .parameter, .structname {
+    font-family: courier, monospace;
+    font-size: 10pt;
+}
+
+.type, .function {
+    font-weight: bold;
+}
+
+/* Table of Contents */
+
+div.toc {
+  background-color: #DDDDDD;
+  padding: 0.5em 20px;
+  margin: 0em auto;
+}
+
+div.toc dl {
+  margin-left: 10px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dt {
+  line-height: 1.1em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 30px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+
+/* Function Formatting */
+
+.programlisting, .funcsynopsis table {
+    background-color: #DDDDDD;
+    font-family: courier, monospace;
+    font-size: 10pt;
+    padding: 8px 10px;
+}
+
+.funcsynopsis table td {
+    vertical-align: bottom;
+    white-space: normal;
+}
+
+.funcsynopsis + .variablelist dt {
+    font-weight: bold;
+    font-size: 11pt;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+.funcsynopsis + .variablelist dd {
+    margin-left: 20px;
+}
+
+.funcsynopsis + .variablelist dd p {
+    margin: 0.25em 0px;
+}
+
+/* Compilation Examples */
+
+div.variablelist {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+div.variablelist .term {
+    margin-left: 15px;
+}
+
+div.variablelist .programlisting {
+    margin-bottom: 2em;
+}
+
+
+/* Callout Boxes (e.g. note/warning) */
+
+div.warning {
+    background-color: #FFDDDD;
+}
+
+div.note {
+    background-color: #FFFFCC;
+}
+
+div.warning, div.note {
+    margin-top: 1.0em;
+    margin-bottom: 2.0em;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+div.warning h3, div.note h3 {
+    margin: 0.25em 0px;
+}
+
+div.warning p, div.note p {
+    margin: 0.25em 10px;
+}
+
+/* Image */
+
+div.mediaobject {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+div.caption {
+    font-weight: bold;
+}
+
+
+/* Table Layout */
+
+div.table {
+    margin: 1em auto;
+    padding: 1em;
+    border: 1px solid;
+    width: auto;
+}
+
+div.table p {
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+div.table table {
+    border-spacing: 0px 0px;
+    border-collapse: collapse;
+    margin: 0em auto;
+}
+
+div.table table th {
+    margin: 0px;
+    padding: 3px 15px;
+    font-size: small;
+    text-align: center;
+    border-bottom: medium solid;
+}
+
+div.table table td {
+    margin: 0px;
+    padding: 3px 15px;
+    text-align: center;
+    border-top: thin dotted;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover {
+    color: blue;
+}
+
+/* Copyright Formatting */
+
+p.copyright {
+    margin-top: 3px;
+    text-align: right;
+    font-size: x-small;
+}
+    </style>
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">Chapter 13. FTR-SDK: Clustering Reference</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="recognition_reference.html">Prev</a> </td>
+<td width="60%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="20%" align="right"> <a accesskey="n" href="version_history.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="chapter" lang="en">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="clustering_reference"></a>Chapter 13. FTR-SDK: Clustering Reference</h2></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1">1. <a href="clustering_reference.html#clustering_constants">Constants Reference</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="clustering_reference.html#clustering_constants">Clustering Constants</a></span></dt>
+<dd><dl><dt><span class="sect3"><a href="clustering_reference.html#max_clustering_aggressiveness">PPR_MAX_CLUSTERING_AGGRESSIVENESS</a></span></dt></dl></dd>
+</dl></dd>
+<dt><span class="sect1">2. <a href="clustering_reference.html#clustering_types">Types Reference</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="clustering_reference.html#basic_types">Basic Types</a></span></dt>
+<dd><dl><dt><span class="sect3"><a href="clustering_reference.html#gallery_group_type">ppr_gallery_group_type</a></span></dt></dl></dd>
+<dt><span class="sect2"><a href="clustering_reference.html#structure_types">Structure Types</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="clustering_reference.html#flat_gallery_group_type">ppr_flat_gallery_group_type</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#gallery_id_list_type">ppr_gallery_id_list_type</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#template_source_type">ppr_template_source_type</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#template_source_list_type">ppr_template_source_list_type</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#inter_gallery_subject_list_type">ppr_inter_gallery_subject_list_type</a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="sect1">3. <a href="clustering_reference.html#clustering_functions">Function Reference</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="clustering_reference.html#gallery_group_building_and_editing_functions">Gallery Group Building and Editing Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="clustering_reference.html#create_gallery_group">ppr_create_gallery_group</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#create_disk_gallery_group">ppr_create_disk_gallery_group</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#move_gallery_to_gallery_group">ppr_move_gallery_to_gallery_group</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#remove_gallery_from_gallery_group">ppr_remove_gallery_from_gallery_group</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#set_template_source_relationship">ppr_set_template_source_relationship</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#set_gallery_string_by_id">ppr_set_gallery_string_by_id</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="clustering_reference.html#configure_functions">Configure Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="clustering_reference.html#set_num_representative_templates_per_subject">ppr_set_num_representative_templates_per_subject</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#set_straggler_cutoff">ppr_set_straggler_cutoff</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="clustering_reference.html#query_functions">Query Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="clustering_reference.html#get_num_representative_templates_per_subject">ppr_get_num_representative_templates_per_subject</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#get_straggler_cutoff">ppr_get_straggler_cutoff</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#get_gallery_id">ppr_get_gallery_id</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#get_num_galleries_in_gallery_group">ppr_get_num_galleries_in_gallery_group</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#get_gallery_id_list_from_gallery_group">ppr_get_gallery_id_list_from_gallery_group</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#get_gallery_reference_by_id">ppr_get_gallery_reference_by_id</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#release_gallery_reference">ppr_release_gallery_reference</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#get_gallery_string_length_by_id">ppr_get_gallery_string_length_by_id</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#get_gallery_string_by_id">ppr_get_gallery_string_by_id</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#get_user_specified_template_source_relationship">ppr_get_user_specified_template_source_relationship</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="clustering_reference.html#clustering_and_comparison_functions">Clustering and Comparison Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="clustering_reference.html#cluster_gallery">ppr_cluster_gallery</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#cluster_gallery_group">ppr_cluster_gallery_group</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#get_ranked_list_for_template_source">ppr_get_ranked_list_for_template_source</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="clustering_reference.html#clustering_file_io_functions">File I/O Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="clustering_reference.html#write_gallery_group">ppr_write_gallery_group</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#read_gallery_group">ppr_read_gallery_group</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#read_as_disk_gallery_group">ppr_read_as_disk_gallery_group</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="clustering_reference.html#clustering_flatten_unflatten_functions">Flatten / Unflatten Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="clustering_reference.html#flatten_gallery_group">ppr_flatten_gallery_group</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#unflatten_gallery_group">ppr_unflatten_gallery_group</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#unflatten_as_disk_gallery_group">ppr_unflatten_as_disk_gallery_group</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="clustering_reference.html#free_functions">Free Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="clustering_reference.html#free_gallery_group">ppr_free_gallery_group</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#free_flat_gallery_group">ppr_free_flat_gallery_group</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#free_gallery_id_list">ppr_free_gallery_id_list</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#free_template_source_list">ppr_free_template_source_list</a></span></dt>
+<dt><span class="sect3"><a href="clustering_reference.html#free_inter_gallery_subject_list">ppr_free_inter_gallery_subject_list</a></span></dt>
+</dl></dd>
+</dl></dd>
+</dl>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="clustering_constants"></a>1. Constants Reference</h2></div></div></div>
+<p>
+  The constants described in this section are defined in <code class="filename">pittpatt_clustering.h</code>.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="clustering_constants"></a>Clustering Constants</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="max_clustering_aggressiveness"></a>PPR_MAX_CLUSTERING_AGGRESSIVENESS</h4></div></div></div>
+<a class="indexterm" name="id4784150"></a><pre class="programlisting">#define PPR_MAX_CLUSTERING_AGGRESSIVENESS 10</pre>
+<p>
+      The <span class="parameter">PPR_MAX_CLUSTERING_AGGRESSIVENESS</span> constant specifies the maximum aggressiveness value
+      that can be passed to
+      <code class="function"><a href="clustering_reference.html#cluster_gallery" title="ppr_cluster_gallery">ppr_cluster_gallery</a></code> or
+      <code class="function"><a href="clustering_reference.html#cluster_gallery_group" title="ppr_cluster_gallery_group">ppr_cluster_gallery_group</a></code>.  The minimum
+      allowable aggressiveness is 0.
+    </p>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#clustering_aggressiveness" title="Clustering Aggressiveness">Clustering Aggressiveness</a>,
+      <a href="clustering_users_guide.html#clustering" title="Clustering">Clustering</a>,
+      <a href="clustering_users_guide.html#multi_gallery_clustering" title="Multi-Gallery Clustering">Multi-Gallery Clustering</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="clustering_types"></a>2. Types Reference</h2></div></div></div>
+<p>
+  The data types described in this section are declared in <code class="filename">pittpatt_clustering.h</code>.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="basic_types"></a>Basic Types</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="gallery_group_type"></a>ppr_gallery_group_type</h4></div></div></div>
+<a class="indexterm" name="id4784275"></a><pre class="programlisting">typedef struct ppr_gallery_group_struct* <span class="type">ppr_gallery_group_type</span>;</pre>
+<p>
+      The <span class="structname">ppr_gallery_group_type</span> maintains a set of galleries to be used for multi-gallery
+      clustering.  A gallery group can be created with
+      <code class="function"><a href="clustering_reference.html#create_gallery_group" title="ppr_create_gallery_group">ppr_create_gallery_group</a></code> or
+      <code class="function"><a href="clustering_reference.html#create_disk_gallery_group" title="ppr_create_disk_gallery_group">ppr_create_disk_gallery_group</a></code>.  A gallery
+      group can be read with <code class="function"><a href="clustering_reference.html#read_gallery_group" title="ppr_read_gallery_group">ppr_read_gallery_group</a></code> or
+      <code class="function"><a href="clustering_reference.html#read_as_disk_gallery_group" title="ppr_read_as_disk_gallery_group">ppr_read_as_disk_gallery_group</a></code>.  The
+      returned gallery group must be freed using
+      <code class="function"><a href="clustering_reference.html#free_gallery_group" title="ppr_free_gallery_group">ppr_free_gallery_group</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>,
+      <a href="clustering_users_guide.html#disk_gallery_groups" title="Disk Gallery Groups">Disk Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="structure_types"></a>Structure Types</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="flat_gallery_group_type"></a>ppr_flat_gallery_group_type</h4></div></div></div>
+<a class="indexterm" name="id4784402"></a><pre class="programlisting">typedef struct
+{
+  size_t num_bytes;
+  void *data;
+} <span class="type">ppr_flat_gallery_group_type</span>;</pre>
+<p>
+      The <span class="structname">ppr_flat_gallery_group_type</span> stores the bytes that make up a flattened gallery group.
+      Flattened gallery groups can be freed using
+      <code class="function"><a href="clustering_reference.html#free_flat_gallery_group" title="ppr_free_flat_gallery_group">ppr_free_flat_gallery_group</a></code>.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">size_t num_bytes</span></span></dt>
+<dd><p>Number of bytes in the data buffer.</p></dd>
+<dt><span class="term"><span class="symbol">void *data</span></span></dt>
+<dd><p>Buffer containing flattened gallery group.</p></dd>
+</dl></div>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="gallery_id_list_type"></a>ppr_gallery_id_list_type</h4></div></div></div>
+<a class="indexterm" name="id4784513"></a><pre class="programlisting">typedef struct
+{
+  int num_gallery_ids;
+  int *gallery_ids;
+  int capacity;
+} <span class="type">ppr_gallery_id_list_type</span>;</pre>
+<p>
+      The <span class="structname">ppr_gallery_id_list_type</span> structure is used to store a list of gallery IDs.
+      Gallery ID lists can be freed using
+      <code class="function"><a href="clustering_reference.html#free_gallery_id_list" title="ppr_free_gallery_id_list">ppr_free_gallery_id_list</a></code>.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int num_gallery_ids</span></span></dt>
+<dd><p>Number of gallery IDs in the list.</p></dd>
+<dt><span class="term"><span class="symbol">int *gallery_ids</span></span></dt>
+<dd><p>Array of gallery IDs.</p></dd>
+<dt><span class="term"><span class="symbol">int capacity</span></span></dt>
+<dd><p>Number of elements allocated in the array.</p></dd>
+</dl></div>
+<p>
+      See also: <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="template_source_type"></a>ppr_template_source_type</h4></div></div></div>
+<a class="indexterm" name="id4784632"></a><pre class="programlisting">typedef struct
+{
+  int gallery_id;
+  int template_id;
+} <span class="type">ppr_template_source_type</span>;</pre>
+<p>
+      The <span class="structname">ppr_template_source_type</span> provides a means of specifying an individual template within
+      a gallery group.  Since template IDs are not unique between galleries, specifying a single template within a
+      gallery group requires providing not only the template's ID, but also the ID of the gallery that contains the
+      template.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int gallery_id</span></span></dt>
+<dd><p>ID of the gallery within the gallery group that contains the template.</p></dd>
+<dt><span class="term"><span class="symbol">int template_id</span></span></dt>
+<dd><p>ID of the template within the gallery specified by <span class="parameter">gallery_id</span>.</p></dd>
+</dl></div>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#template_sources" title="Template Sources">Template Sources</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="template_source_list_type"></a>ppr_template_source_list_type</h4></div></div></div>
+<a class="indexterm" name="id4784744"></a><pre class="programlisting">typedef struct
+{
+  int num_template_sources;
+  ppr_template_source_type *template_sources;
+  int capacity;
+} <span class="type">ppr_template_source_list_type</span>;</pre>
+<p>
+      The <span class="structname">ppr_template_source_list_type</span> structure is used to store a list of template sources,
+      thereby specifying a set of templates within a gallery group. Template source lists can be freed using
+      <code class="function"><a href="clustering_reference.html#free_template_source_list" title="ppr_free_template_source_list">ppr_free_template_source_list</a></code>.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int num_template_sources</span></span></dt>
+<dd><p>Number of template sources in the list.</p></dd>
+<dt><span class="term"><span class="symbol"><a href="clustering_reference.html#template_source_type" title="ppr_template_source_type">ppr_template_source_type</a> *template_sources</span></span></dt>
+<dd><p>Array of template sources.</p></dd>
+<dt><span class="term"><span class="symbol">int capacity</span></span></dt>
+<dd><p>Number of elements allocated in the array.</p></dd>
+</dl></div>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#template_sources" title="Template Sources">Template Sources</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="inter_gallery_subject_list_type"></a>ppr_inter_gallery_subject_list_type</h4></div></div></div>
+<a class="indexterm" name="id4784877"></a><pre class="programlisting">typedef struct
+{
+  int num_subjects;
+  ppr_template_source_list_type *subjects;
+  int capacity;
+} <span class="type">ppr_inter_gallery_subject_list_type</span>;</pre>
+<p>
+      The <span class="structname">ppr_inter_gallery_subject_list_type</span> represents a list of subjects spanning multiple
+      galleries in a gallery group, where a subject is a list of template sources.  An inter-gallery subject list can
+      be produced from a gallery group by calling
+      <code class="function"><a href="clustering_reference.html#cluster_gallery_group" title="ppr_cluster_gallery_group">ppr_cluster_gallery_group</a></code>. The inter-gallery
+      subject list must later be freed using
+      <code class="function"><a href="clustering_reference.html#free_inter_gallery_subject_list" title="ppr_free_inter_gallery_subject_list">ppr_free_inter_gallery_subject_list</a></code>. 
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int num_subjects</span></span></dt>
+<dd><p>
+	    Number of subjects in the list.
+	  </p></dd>
+<dt><span class="term"><span class="symbol"><a href="clustering_reference.html#template_source_list_type" title="ppr_template_source_list_type">ppr_template_source_list_type</a> *subjects</span></span></dt>
+<dd><p>
+            Array of subjects.  Each subject is a template source list.
+          </p></dd>
+<dt><span class="term"><span class="symbol">int capacity</span></span></dt>
+<dd><p>
+            Number of elements allocated in the array.
+	  </p></dd>
+</dl></div>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#inter_gallery_subject_lists" title="Inter-Gallery Subject Lists">Inter-Gallery Subject Lists</a>,
+      <a href="clustering_users_guide.html#template_sources" title="Template Sources">Template Sources</a>,
+      <a href="clustering_users_guide.html#multi_gallery_clustering" title="Multi-Gallery Clustering">Multi-Gallery Clustering</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="clustering_functions"></a>3. Function Reference</h2></div></div></div>
+<p>
+  The functions described in this section are declared in <code class="filename">pittpatt_clustering.h</code>.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="gallery_group_building_and_editing_functions"></a>Gallery Group Building and Editing Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="create_gallery_group"></a>ppr_create_gallery_group</h4></div></div></div>
+<a class="indexterm" name="id4785070"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_create_gallery_group</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">*gallery_group</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - pointer to created gallery group</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Default Settings</span></dt>
+<dd>
+<p><span class="parameter"><a href="clustering_reference.html#set_num_representative_templates_per_subject" title="ppr_set_num_representative_templates_per_subject">num_representative_templates_per_subject</a></span> = 1</p>
+<p><span class="parameter"><a href="clustering_reference.html#set_straggler_cutoff" title="ppr_set_straggler_cutoff">straggler_cutoff</a></span> = 1</p>
+</dd>
+</dl></div>
+<p>
+      Allocates and initializes a new gallery group.  The gallery group starts with no galleries.  Galleries can be
+      moved to the created gallery group using
+      <code class="function"><a href="clustering_reference.html#move_gallery_to_gallery_group" title="ppr_move_gallery_to_gallery_group">ppr_move_gallery_to_gallery_group</a></code>.
+      The gallery group must later be freed using
+      <code class="function"><a href="clustering_reference.html#free_gallery_group" title="ppr_free_gallery_group">ppr_free_gallery_group</a></code>. 
+    </p>
+<p>
+      See also: <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="create_disk_gallery_group"></a>ppr_create_disk_gallery_group</h4></div></div></div>
+<a class="indexterm" name="id4785276"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_create_disk_gallery_group</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">*gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*scratch_directory</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - pointer to created gallery group</p>
+<p><span class="parameter">scratch_directory</span> - null-terminated string specifying an existing directory to use for intermediate files</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Default Settings</span></dt>
+<dd>
+<p><span class="parameter"><a href="clustering_reference.html#set_num_representative_templates_per_subject" title="ppr_set_num_representative_templates_per_subject">num_representative_templates_per_subject</a></span> = 1</p>
+<p><span class="parameter"><a href="clustering_reference.html#set_straggler_cutoff" title="ppr_set_straggler_cutoff">straggler_cutoff</a></span> = 1</p>
+</dd>
+</dl></div>
+<p>
+      Allocates and initializes a new gallery group.  Unlike
+      <code class="function"><a href="clustering_reference.html#create_gallery_group" title="ppr_create_gallery_group">ppr_create_gallery_group</a></code>, this function produces
+      a gallery group in which the galleries are stored on disk (in the specified 
+      <span class="parameter">scratch_directory</span>) and only loaded when needed.  The gallery group starts with no
+      galleries.  Galleries can be added to the created gallery group using
+      <code class="function"><a href="clustering_reference.html#move_gallery_to_gallery_group" title="ppr_move_gallery_to_gallery_group">ppr_move_gallery_to_gallery_group</a></code>.  The
+      gallery group read must later be freed using
+      <code class="function"><a href="clustering_reference.html#free_gallery_group" title="ppr_free_gallery_group">ppr_free_gallery_group</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#disk_gallery_groups" title="Disk Gallery Groups">Disk Gallery Groups</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="move_gallery_to_gallery_group"></a>ppr_move_gallery_to_gallery_group</h4></div></div></div>
+<a class="indexterm" name="id4785524"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_move_gallery_to_gallery_group</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">*gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_type </td>
+<td>
+<var class="pdparam">*gallery</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*gallery_id</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - pointer to gallery group to move gallery to</p>
+<p><span class="parameter"><a href="recognition_reference.html#gallery_type" title="ppr_gallery_type">gallery</a></span> - pointer to gallery to move to gallery group</p>
+<p><span class="parameter">gallery_id</span> - pointer to ID assigned to gallery</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Gallery must not already be in a gallery group</p></dd>
+</dl></div>
+<p>
+      Moves a gallery to an existing gallery group.  The ID assigned to the gallery within the gallery group is
+      returned by setting the contents pointed to by <span class="parameter">gallery_id</span>.  The gallery group takes
+      control of the gallery, so the user's reference to the gallery is no longer valid.  To get a reference to a
+      gallery in a gallery group, call
+      <code class="function"><a href="clustering_reference.html#get_gallery_reference_by_id" title="ppr_get_gallery_reference_by_id">ppr_get_gallery_reference_by_id</a></code>.
+      Since the gallery group takes ownership of the gallery, the user should not free the gallery because it will be
+      freed when the gallery group is freed.
+    </p>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>,
+      <a href="recognition_users_guide.html#galleries" title="Galleries">Galleries</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="remove_gallery_from_gallery_group"></a>ppr_remove_gallery_from_gallery_group</h4></div></div></div>
+<a class="indexterm" name="id4785740"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_remove_gallery_from_gallery_group</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">*gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">gallery_id</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - pointer to gallery group to remove gallery from</p>
+<p><span class="parameter">gallery_id</span> - ID of gallery to remove from gallery group</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Gallery being removed must not have any unreleased references</p></dd>
+</dl></div>
+<p>
+      Removes the gallery with the specified ID from the gallery group and frees the removed gallery.
+    </p>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>,
+      <a href="recognition_users_guide.html#galleries" title="Galleries">Galleries</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_template_source_relationship"></a>ppr_set_template_source_relationship</h4></div></div></div>
+<a class="indexterm" name="id4785914"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_template_source_relationship</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">*gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_template_source_type </td>
+<td>
+<var class="pdparam">template_source_a</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_template_source_type </td>
+<td>
+<var class="pdparam">template_source_b</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_template_relationship_type </td>
+<td>
+<var class="pdparam">relationship</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - pointer to gallery group to set template relationship in</p>
+<p><span class="parameter"><a href="clustering_reference.html#template_source_type" title="ppr_template_source_type">template_source_a</a></span> - first template in the pair, specified by its gallery ID and template ID</p>
+<p><span class="parameter"><a href="clustering_reference.html#template_source_type" title="ppr_template_source_type">template_source_b</a></span> - second template in the pair, specified by its gallery ID and template ID</p>
+<p><span class="parameter"><a href="recognition_reference.html#template_relationship_type" title="ppr_template_relationship_type">relationship</a></span> - relationship between the two templates</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Sets the relationship between two templates in a gallery group to indicate that the templates represent the same
+      subjects or different subjects.
+    </p>
+<p>
+      See also
+      <a href="recognition_users_guide.html#template_relationships" title="Template Relationships">Template Relationships</a>,
+      <a href="clustering_users_guide.html#template_sources" title="Template Sources">Template Sources</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_gallery_string_by_id"></a>ppr_set_gallery_string_by_id</h4></div></div></div>
+<a class="indexterm" name="id4786142"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_gallery_string_by_id</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">*gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">gallery_id</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*string</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - pointer to gallery group containing gallery</p>
+<p><span class="parameter">template_id</span> - ID of gallery to set string in</p>
+<p><span class="parameter">string</span> - null-terminated string to copy into gallery</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Recognition must be enabled</p></dd>
+</dl></div>
+<p>
+      Sets the string embedded in the gallery with the specified ID.  The string argument is copied into the string
+      inside the gallery.  The string must not be longer than
+      <span class="parameter"><a href="recognition_reference.html#max_gallery_string_size" title="PPR_MAX_GALLERY_STRING_SIZE">PPR_MAX_GALLERY_STRING_SIZE</a></span> including the
+      null terminator.
+    </p>
+<p>
+      See also:
+      <a href="recognition_users_guide.html#template_and_gallery_strings" title="Template and Gallery Strings">Template and Gallery Strings</a>,
+      <a href="recognition_users_guide.html#galleries" title="Galleries">Galleries</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="configure_functions"></a>Configure Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_num_representative_templates_per_subject"></a>ppr_set_num_representative_templates_per_subject</h4></div></div></div>
+<a class="indexterm" name="id4786360"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_num_representative_templates_per_subject</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">*gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">num_representative_templates</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - pointer to gallery group to set number of representative templates in</p>
+<p><span class="parameter">num_representative_templates</span> - number of templates from each stage one subject to represent that subject in stage two</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Sets the number of templates that will be selected from each subject in stage one to represent that subject in
+      stage two. If a subject has less templates than the desired number of representative templates, then all of the
+      templates are used to represent that subject in stage two.
+    </p>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#representative_templates" title="Representative Templates">Representative Templates</a>,
+      <a href="clustering_users_guide.html#multi_gallery_clustering" title="Multi-Gallery Clustering">Multi-Gallery Clustering</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_straggler_cutoff"></a>ppr_set_straggler_cutoff</h4></div></div></div>
+<a class="indexterm" name="id4786545"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_straggler_cutoff</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">*gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">straggler_cutoff</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - pointer to gallery group to set straggler cutoff in</p>
+<p><span class="parameter">straggler_cutoff</span> - cutoff for how many templates a subject must have to be represented in stage two</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Sets the cutoff for whether or not a subject is considered a straggler.  Any subject with a number of templates
+      less than or equal to <span class="parameter">straggler_cutoff</span> is considered a straggler and is not represented in
+      stage two of the two-stage clustering scheme.
+    </p>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#stragglers" title="Stragglers">Stragglers</a>,
+      <a href="clustering_users_guide.html#multi_gallery_clustering" title="Multi-Gallery Clustering">Multi-Gallery Clustering</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="query_functions"></a>Query Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_num_representative_templates_per_subject"></a>ppr_get_num_representative_templates_per_subject</h4></div></div></div>
+<a class="indexterm" name="id4786743"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_num_representative_templates_per_subject</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*num_representative_templates</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - gallery group to get number of representative templates from</p>
+<p><span class="parameter">num_representative_templates</span> - pointer to number of templates from each stage one subject to represent that subject in stage two</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets the number of templates that are selected from each subject in stage one to represent that subject in stage
+      two.
+    </p>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#representative_templates" title="Representative Templates">Representative Templates</a>,
+      <a href="clustering_users_guide.html#multi_gallery_clustering" title="Multi-Gallery Clustering">Multi-Gallery Clustering</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_straggler_cutoff"></a>ppr_get_straggler_cutoff</h4></div></div></div>
+<a class="indexterm" name="id4786926"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_straggler_cutoff</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*straggler_cutoff</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - gallery group to get straggler cutoff from</p>
+<p><span class="parameter">straggler_cutoff</span> - pointer to cutoff for how many templates a subject must have to be represented in stage two</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets the cutoff for whether or not a subject is considered a straggler.  Any subject with a number of templates
+      less than or equal to <span class="parameter">straggler_cutoff</span> is considered a straggler and is not represented in
+      stage two of the two-stage clustering scheme.
+    </p>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#stragglers" title="Stragglers">Stragglers</a>,
+      <a href="clustering_users_guide.html#multi_gallery_clustering" title="Multi-Gallery Clustering">Multi-Gallery Clustering</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_gallery_id"></a>ppr_get_gallery_id</h4></div></div></div>
+<a class="indexterm" name="id4787114"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_gallery_id</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_type </td>
+<td>
+<var class="pdparam">gallery</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*gallery_id</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="recognition_reference.html#gallery_type" title="ppr_gallery_type">gallery</a></span> - gallery group to get ID of</p>
+<p><span class="parameter">gallery_id</span> - pointer to ID of gallery</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Gallery must be in a gallery group</p></dd>
+</dl></div>
+<p>
+      Gets the ID of a gallery.  A gallery only has an ID when it is in a gallery group.  An error is returned if this
+      function is called on a gallery that is not a reference to a gallery within a gallery group.
+    </p>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>,
+      <a href="recognition_users_guide.html#galleries" title="Galleries">Galleries</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_num_galleries_in_gallery_group"></a>ppr_get_num_galleries_in_gallery_group</h4></div></div></div>
+<a class="indexterm" name="id4787287"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_num_galleries_in_gallery_group</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*num_galleries</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - gallery group to get number of galleries from</p>
+<p><span class="parameter">num_galleries</span> - pointer to number of galleries in gallery group</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets the number of galleries currently in the gallery group.
+    </p>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>,
+      <a href="recognition_users_guide.html#galleries" title="Galleries">Galleries</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_gallery_id_list_from_gallery_group"></a>ppr_get_gallery_id_list_from_gallery_group</h4></div></div></div>
+<a class="indexterm" name="id4787460"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_gallery_id_list_from_gallery_group</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_id_list_type </td>
+<td>
+<var class="pdparam">*gallery_id_list</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - gallery group to get gallery ID list from</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_id_list_type" title="ppr_gallery_id_list_type">gallery_id_list</a></span> - pointer to ordered list of IDs of all galleries in gallery group</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets a list of the IDs of all of the galleries in a gallery group.  The ID list is in ascending order.  The
+      returned gallery ID list must be freed using
+      <code class="function"><a href="clustering_reference.html#free_gallery_id_list" title="ppr_free_gallery_id_list">ppr_free_gallery_id_list</a></code>.
+    </p>
+<p>
+      See also: <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_gallery_reference_by_id"></a>ppr_get_gallery_reference_by_id</h4></div></div></div>
+<a class="indexterm" name="id4787643"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_gallery_reference_by_id</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">gallery_id</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_type </td>
+<td>
+<var class="pdparam">*gallery</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - gallery group to get gallery from</p>
+<p><span class="parameter">gallery_id</span> - ID of gallery to get reference to</p>
+<p><span class="parameter"><a href="recognition_reference.html#gallery_type" title="ppr_gallery_type">gallery</a></span> - pointer to gallery with specified ID</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets a reference to the gallery that has the specified ID within the gallery group.  The gallery group maintains
+      a reference to the same gallery so any changes made by the user will affect the gallery inside of the gallery
+      group.  The gallery group retains ownership of the gallery, so the user should not free the gallery.  Instead,
+      the gallery reference should be released back to the gallery group using
+      <code class="function"><a href="clustering_reference.html#release_gallery_reference" title="ppr_release_gallery_reference">ppr_release_gallery_reference</a></code>.
+    </p>
+<p>
+      See also: <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>,
+      <a href="recognition_users_guide.html#galleries" title="Galleries">Galleries</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="release_gallery_reference"></a>ppr_release_gallery_reference</h4></div></div></div>
+<a class="indexterm" name="id4787851"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_release_gallery_reference</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_type </td>
+<td>
+<var class="pdparam">*gallery</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - gallery group containing gallery to release reference to</p>
+<p><span class="parameter"><a href="recognition_reference.html#gallery_type" title="ppr_gallery_type">gallery</a></span> - pointer to gallery to release reference to</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Releases a reference to a gallery obtained using
+      <code class="function"><a href="clustering_reference.html#get_gallery_reference_by_id" title="ppr_get_gallery_reference_by_id">ppr_get_gallery_reference_by_id</a></code>.  All
+      gallery references must be released before performing operations on the gallery group such as
+      <code class="function"><a href="clustering_reference.html#cluster_gallery_group" title="ppr_cluster_gallery_group">ppr_cluster_gallery_group</a></code> and
+      <code class="function"><a href="clustering_reference.html#get_ranked_list_for_template_source" title="ppr_get_ranked_list_for_template_source">ppr_get_ranked_list_for_template_source</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>,
+      <a href="recognition_users_guide.html#galleries" title="Galleries">Galleries</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_gallery_string_length_by_id"></a>ppr_get_gallery_string_length_by_id</h4></div></div></div>
+<a class="indexterm" name="id4788058"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_gallery_string_length_by_id</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">gallery_id</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>size_t </td>
+<td>
+<var class="pdparam">*string_length</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - gallery group containing gallery to get string length from</p>
+<p><span class="parameter">gallery_id</span> - ID of gallery to get string length from</p>
+<p><span class="parameter">string_length</span> - pointer to length of gallery string, not including the null terminator</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Recognition must be enabled</p></dd>
+</dl></div>
+<p>
+      Gets the length of the string embedded in the gallery with the specified ID, not including the null terminator.
+      If the string was not previously set using
+      <code class="function"><a href="recognition_reference.html#set_gallery_string" title="ppr_set_gallery_string">ppr_set_gallery_string</a></code> or
+      <code class="function"><a href="clustering_reference.html#set_gallery_string_by_id" title="ppr_set_gallery_string_by_id">ppr_set_gallery_string_by_id</a></code>, the length
+      returned will be zero, as the string consists of only the null terminator.  The string length is guaranteed to
+      not be larger than
+      <span class="parameter"><a href="recognition_reference.html#max_gallery_string_size" title="PPR_MAX_GALLERY_STRING_SIZE">PPR_MAX_GALLERY_STRING_SIZE</a> - 1</span>.
+    </p>
+<p>
+      This function is useful for allocating a string before calling 
+      <code class="function"><a href="clustering_reference.html#get_gallery_string_by_id" title="ppr_get_gallery_string_by_id">ppr_get_gallery_string_by_id</a></code>.  Remember
+      that the returned length does not include the null terminator, so this must be accounted for by allocating a size
+      that is one more than the value returned from this function.
+    </p>
+<p>
+      See also:
+      <a href="recognition_users_guide.html#template_and_gallery_strings" title="Template and Gallery Strings">Template and Gallery Strings</a>,
+      <a href="recognition_users_guide.html#galleries" title="Galleries">Galleries</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_gallery_string_by_id"></a>ppr_get_gallery_string_by_id</h4></div></div></div>
+<a class="indexterm" name="id4788308"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_gallery_string_by_id</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">gallery_id</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>char </td>
+<td>
+<var class="pdparam">*string</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery</a></span> - gallery group containing gallery to get string from</p>
+<p><span class="parameter">gallery_id</span> - ID of gallery to get string from</p>
+<p><span class="parameter">string</span> - null-terminated string copied from gallery</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Recognition must be enabled</p></dd>
+</dl></div>
+<p>
+      Gets the string embedded in the gallery, which was previously set using
+      <code class="function"><a href="recognition_reference.html#set_gallery_string" title="ppr_set_gallery_string">ppr_set_gallery_string</a></code> or
+      <code class="function"><a href="clustering_reference.html#set_gallery_string_by_id" title="ppr_set_gallery_string_by_id">ppr_set_gallery_string_by_id</a></code>.
+      If the string was not set, a zero-length string is returned, consisting of only a null terminator.  The string is
+      guaranteed to not be longer than
+      <span class="parameter"><a href="recognition_reference.html#max_gallery_string_size" title="PPR_MAX_GALLERY_STRING_SIZE">PPR_MAX_GALLERY_STRING_SIZE</a></span>, including
+      the null terminator.  The function does not allocate memory for the output string.  The output string must be
+      allocated by the user before calling the function, and it must be large enough to hold the contents of the output
+      string, including the null terminator.  The size of the string can be determined beforehand using the
+      <code class="function"><a href="clustering_reference.html#get_gallery_string_length_by_id" title="ppr_get_gallery_string_length_by_id">ppr_get_gallery_string_length_by_id</a></code>
+      function, or the user can simply allocate enough memory to hold the maximum possible string size.
+    </p>
+<p>
+      See also:
+      <a href="recognition_users_guide.html#template_and_gallery_strings" title="Template and Gallery Strings">Template and Gallery Strings</a>,
+      <a href="recognition_users_guide.html#galleries" title="Galleries">Galleries</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_user_specified_template_source_relationship"></a>ppr_get_user_specified_template_source_relationship</h4></div></div></div>
+<a class="indexterm" name="id4788555"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_user_specified_template_source_relationship</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_template_source_type </td>
+<td>
+<var class="pdparam">template_source_a</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_template_source_type </td>
+<td>
+<var class="pdparam">template_source_b</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_template_relationship_type </td>
+<td>
+<var class="pdparam">*relationship</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - gallery group to get template relationship from</p>
+<p><span class="parameter"><a href="clustering_reference.html#template_source_type" title="ppr_template_source_type">template_source_a</a></span> - first template in the pair, specified by its gallery ID and template ID</p>
+<p><span class="parameter"><a href="clustering_reference.html#template_source_type" title="ppr_template_source_type">template_source_b</a></span> - second template in the pair, specified by its gallery ID and template ID</p>
+<p><span class="parameter"><a href="recognition_reference.html#template_relationship_type" title="ppr_template_relationship_type">relationship</a></span> - pointer to the user-specified relationship between the two templates</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets the relationship between two templates in a gallery group previously specified using
+      <code class="function"><a href="recognition_reference.html#set_template_relationship" title="ppr_set_template_relationship">ppr_set_template_relationship</a></code> or
+      <code class="function"><a href="clustering_reference.html#set_template_source_relationship" title="ppr_set_template_source_relationship">ppr_set_template_source_relationship</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="recognition_users_guide.html#template_relationships" title="Template Relationships">Template Relationships</a>,
+      <a href="clustering_users_guide.html#template_sources" title="Template Sources">Template Sources</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="clustering_and_comparison_functions"></a>Clustering and Comparison Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="cluster_gallery"></a>ppr_cluster_gallery</h4></div></div></div>
+<a class="indexterm" name="id4788812"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_cluster_gallery</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_type </td>
+<td>
+<var class="pdparam">gallery</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int  </td>
+<td>
+<var class="pdparam">clustering_aggressiveness</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_subject_list_type </td>
+<td>
+<var class="pdparam">*subject_list</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="recognition_reference.html#gallery_type" title="ppr_gallery_type">gallery</a></span> - gallery to cluster into subject list</p>
+<p><span class="parameter">clustering_aggressiveness</span> - aggressiveness when clustering to generate subject list</p>
+<p><span class="parameter"><a href="recognition_reference.html#subject_list_type" title="ppr_subject_list_type">subject_list</a></span> - pointer to generated subject list</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Context must be initialized</p>
+<p>Recognition must be enabled</p>
+</dd>
+</dl></div>
+<p>
+      Clusters templates to generate a subject list from a gallery.  The subject list is generated with the specified
+      clustering aggressiveness.  User-specified template relationships are accounted for when generating the output
+      subject list.
+    </p>
+<p>
+      An error is returned from clustering when a paradoxical template relationship is encountered.  In this case, the
+      results are invalid and any paradoxes in the template relationships must be corrected before clustering can be
+      performed.
+    </p>
+<p>
+      The returned subject list must later be freed using
+      <code class="function"><a href="recognition_reference.html#free_subject_list" title="ppr_free_subject_list">ppr_free_subject_list</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#clustering" title="Clustering">Clustering</a>,
+      <a href="clustering_users_guide.html#clustering_aggressiveness" title="Clustering Aggressiveness">Clustering Aggressiveness</a>,
+      <a href="recognition_users_guide.html#template_relationships" title="Template Relationships">Template Relationships</a>,
+      <a href="recognition_users_guide.html#paradoxical_relationships" title="Paradoxical Relationships">Paradoxical Relationships</a>,
+      <a href="recognition_users_guide.html#subject_lists" title="Subject Lists">Subject Lists</a>,
+      <a href="recognition_users_guide.html#galleries" title="Galleries">Galleries</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="cluster_gallery_group"></a>ppr_cluster_gallery_group</h4></div></div></div>
+<a class="indexterm" name="id4789059"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_cluster_gallery_group</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int  </td>
+<td>
+<var class="pdparam">clustering_aggressiveness</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_inter_gallery_subject_list_type </td>
+<td>
+<var class="pdparam">*inter_gallery_subject_list</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - gallery group to cluster into inter-gallery subject list</p>
+<p><span class="parameter">clustering_aggressiveness</span> - aggressiveness when clustering to generate inter-gallery subject list</p>
+<p><span class="parameter"><a href="clustering_reference.html#inter_gallery_subject_list_type" title="ppr_inter_gallery_subject_list_type">inter_gallery_subject_list</a></span> - pointer to generated inter-gallery subject list</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Context must be initialized</p>
+<p>Recognition must be enabled</p>
+</dd>
+</dl></div>
+<p>
+      Clusters templates to generate an inter-gallery subject list from a gallery group.  The subject list is generated
+      using the specified clustering aggressiveness.  User-specified template relationships are accounted for when
+      generating the output subject list.
+    </p>
+<p>
+      An error is returned from clustering when a paradoxical template relationship is encountered.  In this case, the
+      results are invalid and any paradoxes in the template relationships must be corrected before clustering can be
+      performed.
+    </p>
+<p>
+      The returned inter-gallery subject list must later be freed using
+      <code class="function"><a href="clustering_reference.html#free_inter_gallery_subject_list" title="ppr_free_inter_gallery_subject_list">ppr_free_inter_gallery_subject_list</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="clustering_users_guide.html#clustering" title="Clustering">Clustering</a>,
+      <a href="clustering_users_guide.html#multi_gallery_clustering" title="Multi-Gallery Clustering">Multi-Gallery Clustering</a>,
+      <a href="clustering_users_guide.html#clustering_aggressiveness" title="Clustering Aggressiveness">Clustering Aggressiveness</a>,
+      <a href="recognition_users_guide.html#template_relationships" title="Template Relationships">Template Relationships</a>,
+      <a href="recognition_users_guide.html#paradoxical_relationships" title="Paradoxical Relationships">Paradoxical Relationships</a>,
+      <a href="clustering_users_guide.html#inter_gallery_subject_lists" title="Inter-Gallery Subject Lists">Inter-Gallery Subject Lists</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_ranked_list_for_template_source"></a>ppr_get_ranked_list_for_template_source</h4></div></div></div>
+<a class="indexterm" name="id4789317"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_ranked_list_for_template_source</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_template_source_type </td>
+<td>
+<var class="pdparam">query_template_source</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">max_list_length</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>float </td>
+<td>
+<var class="pdparam">threshold</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_template_source_list_type </td>
+<td>
+<var class="pdparam">*ranked_source_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_score_list_type </td>
+<td>
+<var class="pdparam">*scores</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - gallery group to get ranked list from</p>
+<p><span class="parameter"><a href="clustering_reference.html#template_source_type" title="ppr_template_source_type">query_template_source</a></span> - template to get ranked list for, specified by gallery ID and template ID</p>
+<p><span class="parameter">max_list_length</span> - maximum number of elements to return in ranked list</p>
+<p><span class="parameter">threshold</span> - score that must be exceeded to return element in ranked list</p>
+<p><span class="parameter"><a href="clustering_reference.html#template_source_list_type" title="ppr_template_source_list_type">ranked_source_list</a></span> - pointer to ranked list of templates that best match the query template, specified by gallery ID and template ID</p>
+<p><span class="parameter"><a href="recognition_reference.html#score_list_type" title="ppr_score_list_type">scores</a></span> - pointer to list containing a score for each item in the ranked list</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Context must be initialized</p>
+<p>Recognition must be enabled</p>
+</dd>
+</dl></div>
+<p>
+      Returns a ranked list of templates in the gallery group that best match the query template.  The templates are
+      specified by the ID of the gallery that contains the template and its ID within that gallery.  The returned list
+      must be freed using
+      <code class="function"><a href="clustering_reference.html#free_template_source_list" title="ppr_free_template_source_list">ppr_free_template_source_list</a></code>.  A list of
+      scores corresponding to each item in the ranked list is also returned and must be freed using
+      <code class="function"><a href="recognition_reference.html#free_score_list" title="ppr_free_score_list">ppr_free_score_list</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="recognition_users_guide.html#ranked_lists" title="Ranked Lists">Ranked Lists</a>,
+      <a href="clustering_users_guide.html#template_sources" title="Template Sources">Template Sources</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+   </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="clustering_file_io_functions"></a>File I/O Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="write_gallery_group"></a>ppr_write_gallery_group</h4></div></div></div>
+<a class="indexterm" name="id4789616"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_write_gallery_group</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*file_name</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">gallery_group</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">file_name</span> - null-terminated string specifying name of gallery group file to write</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - gallery group to write to file</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Writes a gallery group to a file.  The file can later be read using
+      <code class="function"><a href="clustering_reference.html#read_gallery_group" title="ppr_read_gallery_group">ppr_read_gallery_group</a></code> or
+      <code class="function"><a href="clustering_reference.html#read_as_disk_gallery_group" title="ppr_read_as_disk_gallery_group">ppr_read_as_disk_gallery_group</a></code>.  The
+      gallery group parameters, namely the number of representative templates and the straggler cutoff, are written
+      with the gallery group.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#binary_io" title="Binary I/O">Binary I/O</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>,
+      <a href="clustering_users_guide.html#disk_gallery_groups" title="Disk Gallery Groups">Disk Gallery Groups</a>,
+      <a href="clustering_users_guide.html#representative_templates" title="Representative Templates">Representative Templates</a>,
+      <a href="clustering_users_guide.html#stragglers" title="Stragglers">Stragglers</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="read_gallery_group"></a>ppr_read_gallery_group</h4></div></div></div>
+<a class="indexterm" name="id4789829"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_read_gallery_group</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*file_name</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">*gallery_group</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">file_name</span> - null-terminated string specifying name of gallery group file to read</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - pointer to gallery group read from file</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Reads a gallery group file previously written using
+      <code class="function"><a href="clustering_reference.html#write_gallery_group" title="ppr_write_gallery_group">ppr_write_gallery_group</a></code>.  This includes reading
+      the gallery group parameters, namely number of representative templates and the straggler cutoff.  The gallery
+      group read must later be freed using
+      <code class="function"><a href="clustering_reference.html#free_gallery_group" title="ppr_free_gallery_group">ppr_free_gallery_group</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#binary_io" title="Binary I/O">Binary I/O</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>,
+      <a href="clustering_users_guide.html#representative_templates" title="Representative Templates">Representative Templates</a>,
+      <a href="clustering_users_guide.html#stragglers" title="Stragglers">Stragglers</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="read_as_disk_gallery_group"></a>ppr_read_as_disk_gallery_group</h4></div></div></div>
+<a class="indexterm" name="id4790036"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_read_as_disk_gallery_group</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*file_name</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">*gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*scratch_directory</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">file_name</span> - null-terminated string specifying name of gallery group file to read</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - pointer to gallery group read from file</p>
+<p><span class="parameter">scratch_directory</span> - null-terminated string specifying an existing directory to use for intermediate files</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Reads a gallery group file previously written using
+      <code class="function"><a href="clustering_reference.html#write_gallery_group" title="ppr_write_gallery_group">ppr_write_gallery_group</a></code>.  This includes reading
+      the gallery group parameters, namely number of representative templates and the straggler cutoff.  Unlike
+      <code class="function"><a href="clustering_reference.html#read_gallery_group" title="ppr_read_gallery_group">ppr_read_gallery_group</a></code>, this function produces
+      a gallery group in which the galleries are stored on disk (in the specified 
+      <span class="parameter">scratch_directory</span>) and only loaded when needed.  The gallery group read must later be
+      freed using <code class="function"><a href="clustering_reference.html#free_gallery_group" title="ppr_free_gallery_group">ppr_free_gallery_group</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#binary_io" title="Binary I/O">Binary I/O</a>,
+      <a href="clustering_users_guide.html#disk_gallery_groups" title="Disk Gallery Groups">Disk Gallery Groups</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>,
+      <a href="clustering_users_guide.html#representative_templates" title="Representative Templates">Representative Templates</a>,
+      <a href="clustering_users_guide.html#stragglers" title="Stragglers">Stragglers</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="clustering_flatten_unflatten_functions"></a>Flatten / Unflatten Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="flatten_gallery_group"></a>ppr_flatten_gallery_group</h4></div></div></div>
+<a class="indexterm" name="id4790295"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_flatten_gallery_group</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_flat_gallery_group_type </td>
+<td>
+<var class="pdparam">*flat_gallery_group</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - gallery group to flatten</p>
+<p><span class="parameter"><a href="clustering_reference.html#flat_gallery_group_type" title="ppr_flat_gallery_group_type">flat_gallery_group</a></span> - pointer to flattened gallery group</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Flattens a gallery group, writing all of its internal data to a buffer.  This is useful for applications that must
+      write gallery groups to output sources other than the file system, such as a database.  The flattened gallery
+      group must be freed using
+      <code class="function"><a href="clustering_reference.html#free_flat_gallery_group" title="ppr_free_flat_gallery_group">ppr_free_flat_gallery_group</a></code>.
+    </p>
+<p>
+      The flattened gallery group can be converted back to a regular gallery group using
+      <code class="function"><a href="clustering_reference.html#unflatten_gallery_group" title="ppr_unflatten_gallery_group">ppr_unflatten_gallery_group</a></code> or
+      <code class="function"><a href="clustering_reference.html#unflatten_as_disk_gallery_group" title="ppr_unflatten_as_disk_gallery_group">ppr_unflatten_as_disk_gallery_group</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>,
+      <a href="clustering_users_guide.html#disk_gallery_groups" title="Disk Gallery Groups">Disk Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="unflatten_gallery_group"></a>ppr_unflatten_gallery_group</h4></div></div></div>
+<a class="indexterm" name="id4790516"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_unflatten_gallery_group</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_flat_gallery_group_type </td>
+<td>
+<var class="pdparam">flat_gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">*gallery_group</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#flat_gallery_group_type" title="ppr_flat_gallery_group_type">flat_gallery_group</a></span> - gallery group to unflatten</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - pointer to unflattened gallery group</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Unflattens a gallery group by taking data from a flattened buffer and turning it into a regular gallery group.
+      This is useful for applications that must read gallery groups from input sources other than the file system, such
+      as a database.  The resulting gallery group must be freed using
+      <code class="function"><a href="clustering_reference.html#free_gallery_group" title="ppr_free_gallery_group">ppr_free_gallery_group</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="unflatten_as_disk_gallery_group"></a>ppr_unflatten_as_disk_gallery_group</h4></div></div></div>
+<a class="indexterm" name="id4790705"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_unflatten_as_disk_gallery_group</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_flat_gallery_group_type </td>
+<td>
+<var class="pdparam">flat_gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">*gallery_group</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*scratch_directory</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="clustering_reference.html#flat_gallery_group_type" title="ppr_flat_gallery_group_type">flat_gallery_group</a></span> - gallery group to unflatten</p>
+<p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - pointer to unflattened gallery group</p>
+<p><span class="parameter">scratch_directory</span> - null-terminated string specifying an existing directory to use for intermediate files</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Unflattens a gallery group by taking data from a flattened buffer and turning it into a regular gallery group.
+      This is useful for applications that must read gallery groups from input sources other than the file system, such
+      as a database.  Unlike
+      <code class="function"><a href="clustering_reference.html#unflatten_gallery_group" title="ppr_unflatten_gallery_group">ppr_unflatten_gallery_group</a></code>, this function
+      produces a gallery group in which the galleries are stored on disk (in the specified
+      <span class="parameter">scratch_directory</span>) and only loaded when needed.  The resulting gallery group must be freed
+      using <code class="function"><a href="clustering_reference.html#free_gallery_group" title="ppr_free_gallery_group">ppr_free_gallery_group</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="clustering_users_guide.html#disk_gallery_groups" title="Disk Gallery Groups">Disk Gallery Groups</a>,
+      <a href="clustering_users_guide.html#disk_gallery_groups" title="Disk Gallery Groups">Disk Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="free_functions"></a>Free Functions</h3></div></div></div>
+<p>
+    The provided free functions must be used to free the data structures returned from SDK functions - the user should
+    not try to free these structures using their own free statements.  Likewise, if the user allocates their own memory
+    using the provided data types, the user must free that memory themselves rather than calling these free functions.
+    This ensures that the same libraries are used for allocation and freeing.
+  </p>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="free_gallery_group"></a>ppr_free_gallery_group</h4></div></div></div>
+<a class="indexterm" name="id4790969"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">void <b class="fsfunc">ppr_free_gallery_group</b>(</code></td>
+<td>ppr_gallery_group_type </td>
+<td>
+<var class="pdparam">gallery_group</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="clustering_reference.html#gallery_group_type" title="ppr_gallery_group_type">gallery_group</a></span> - gallery group to free</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Must only be used to free data allocated by the SDK</p></dd>
+</dl></div>
+<p>
+      Frees a gallery group and the galleries within it.  Galleries groups are allocated by the following functions:
+      </p>
+<div class="itemizedlist"><ul type="disc">
+<li><code class="function"><a href="clustering_reference.html#create_gallery_group" title="ppr_create_gallery_group">ppr_create_gallery_group</a></code></li>
+<li><code class="function"><a href="clustering_reference.html#create_disk_gallery_group" title="ppr_create_disk_gallery_group">ppr_create_disk_gallery_group</a></code></li>
+<li><code class="function"><a href="clustering_reference.html#read_gallery_group" title="ppr_read_gallery_group">ppr_read_gallery_group</a></code></li>
+<li><code class="function"><a href="clustering_reference.html#read_as_disk_gallery_group" title="ppr_read_as_disk_gallery_group">ppr_read_as_disk_gallery_group</a></code></li>
+<li><code class="function"><a href="clustering_reference.html#unflatten_gallery_group" title="ppr_unflatten_gallery_group">ppr_unflatten_gallery_group</a></code></li>
+<li><code class="function"><a href="clustering_reference.html#unflatten_as_disk_gallery_group" title="ppr_unflatten_as_disk_gallery_group">ppr_unflatten_as_disk_gallery_group</a></code></li>
+</ul></div>
+<p>
+    </p>
+<p>
+      See also: <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="free_flat_gallery_group"></a>ppr_free_flat_gallery_group</h4></div></div></div>
+<a class="indexterm" name="id4791159"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">void <b class="fsfunc">ppr_free_flat_gallery_group</b>(</code></td>
+<td>ppr_flat_gallery_group_type </td>
+<td>
+<var class="pdparam">flat_gallery_group</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="clustering_reference.html#flat_gallery_group_type" title="ppr_flat_gallery_group_type">flat_gallery_group</a></span> - flattened gallery group to free</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Must only be used to free data allocated by the SDK</p></dd>
+</dl></div>
+<p>
+      Frees a flattened gallery group.  Flattened gallery groups are allocated by the following functions:
+      </p>
+<div class="itemizedlist"><ul type="disc"><li><code class="function"><a href="clustering_reference.html#flatten_gallery_group" title="ppr_flatten_gallery_group">ppr_flatten_gallery_group</a></code></li></ul></div>
+<p>
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="free_gallery_id_list"></a>ppr_free_gallery_id_list</h4></div></div></div>
+<a class="indexterm" name="id4791302"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">void <b class="fsfunc">ppr_free_gallery_id_list</b>(</code></td>
+<td>ppr_gallery_id_list_type </td>
+<td>
+<var class="pdparam">gallery_id_list</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="clustering_reference.html#gallery_id_list_type" title="ppr_gallery_id_list_type">gallery_id_list</a></span> - gallery ID list to free</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Must only be used to free data allocated by the SDK</p></dd>
+</dl></div>
+<p>
+      Frees a gallery ID list.  Gallery ID lists are allocated by the following functions:
+      </p>
+<div class="itemizedlist"><ul type="disc"><li><code class="function"><a href="clustering_reference.html#get_gallery_id_list_from_gallery_group" title="ppr_get_gallery_id_list_from_gallery_group">ppr_get_gallery_id_list_from_gallery_group</a></code></li></ul></div>
+<p>
+    </p>
+<p>
+      See also: <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">Gallery Groups</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="free_template_source_list"></a>ppr_free_template_source_list</h4></div></div></div>
+<a class="indexterm" name="id4791440"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">void <b class="fsfunc">ppr_free_template_source_list</b>(</code></td>
+<td>ppr_template_source_list_type </td>
+<td>
+<var class="pdparam">template_source_list</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="clustering_reference.html#template_source_list_type" title="ppr_template_source_list_type">template_source_list</a></span> - template source list to free</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Must only be used to free data allocated by the SDK</p></dd>
+</dl></div>
+<p>
+      Frees a template source list.  Template source lists are allocated by the following functions:
+      </p>
+<div class="itemizedlist"><ul type="disc"><li><code class="function"><a href="clustering_reference.html#get_ranked_list_for_template_source" title="ppr_get_ranked_list_for_template_source">ppr_get_ranked_template_list_for_template_source</a></code></li></ul></div>
+<p>
+    </p>
+<p>
+      See also: <a href="clustering_users_guide.html#template_sources" title="Template Sources">Template Sources</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="free_inter_gallery_subject_list"></a>ppr_free_inter_gallery_subject_list</h4></div></div></div>
+<a class="indexterm" name="id4791578"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">void <b class="fsfunc">ppr_free_inter_gallery_subject_list</b>(</code></td>
+<td>ppr_inter_gallery_subject_list_type </td>
+<td>
+<var class="pdparam">inter_gallery_subject_list</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="clustering_reference.html#inter_gallery_subject_list_type" title="ppr_inter_gallery_subject_list_type">inter_gallery_subject_list</a></span> - inter-gallery subject list to free</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Must only be used to free data allocated by the SDK</p></dd>
+</dl></div>
+<p>
+      Frees an inter-gallery subject list.  Inter-gallery subject lists are allocated by the following functions:
+      </p>
+<div class="itemizedlist"><ul type="disc"><li><code class="function"><a href="clustering_reference.html#cluster_gallery_group" title="ppr_cluster_gallery_group">ppr_cluster_gallery_group</a></code></li></ul></div>
+<p>
+    </p>
+<p>
+      See also: <a href="clustering_users_guide.html#inter_gallery_subject_lists" title="Inter-Gallery Subject Lists">Inter-Gallery Subject Lists</a>
+    </p>
+<p>
+      Back to <a href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">top</a>.
+    </p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<p class="copyright">© 2004-2010 Pittsburgh Pattern Recognition, Inc.</p>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="recognition_reference.html">Prev</a> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right"> <a accesskey="n" href="version_history.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Chapter 12. FTR-SDK: Recognition Reference </td>
+<td width="20%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="40%" align="right" valign="top"> Chapter 14. FTR-SDK: Version History</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

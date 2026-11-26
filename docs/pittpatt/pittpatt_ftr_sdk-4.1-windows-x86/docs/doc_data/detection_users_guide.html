@@ -1,0 +1,946 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Chapter 1. FTR-SDK: Detection User's Guide</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="up" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="prev" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="next" href="tracking_users_guide.html" title="Chapter 2. FTR-SDK: Tracking User's Guide">
+<style type="text/css">
+      /* Document Structure */
+
+div.book, div.chapter, div.article, div.sect1 {
+    width: auto;
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+div.sect1, div.toc {
+    margin-left: 10px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+div.sect2 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect2 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+div.sect3 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect3 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+
+/* Type Conventions (e.g. parameter vs. structelement) */
+
+.type, .function, .symbol, .structfield, .parameter, .structname {
+    font-family: courier, monospace;
+    font-size: 10pt;
+}
+
+.type, .function {
+    font-weight: bold;
+}
+
+/* Table of Contents */
+
+div.toc {
+  background-color: #DDDDDD;
+  padding: 0.5em 20px;
+  margin: 0em auto;
+}
+
+div.toc dl {
+  margin-left: 10px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dt {
+  line-height: 1.1em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 30px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+
+/* Function Formatting */
+
+.programlisting, .funcsynopsis table {
+    background-color: #DDDDDD;
+    font-family: courier, monospace;
+    font-size: 10pt;
+    padding: 8px 10px;
+}
+
+.funcsynopsis table td {
+    vertical-align: bottom;
+    white-space: normal;
+}
+
+.funcsynopsis + .variablelist dt {
+    font-weight: bold;
+    font-size: 11pt;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+.funcsynopsis + .variablelist dd {
+    margin-left: 20px;
+}
+
+.funcsynopsis + .variablelist dd p {
+    margin: 0.25em 0px;
+}
+
+/* Compilation Examples */
+
+div.variablelist {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+div.variablelist .term {
+    margin-left: 15px;
+}
+
+div.variablelist .programlisting {
+    margin-bottom: 2em;
+}
+
+
+/* Callout Boxes (e.g. note/warning) */
+
+div.warning {
+    background-color: #FFDDDD;
+}
+
+div.note {
+    background-color: #FFFFCC;
+}
+
+div.warning, div.note {
+    margin-top: 1.0em;
+    margin-bottom: 2.0em;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+div.warning h3, div.note h3 {
+    margin: 0.25em 0px;
+}
+
+div.warning p, div.note p {
+    margin: 0.25em 10px;
+}
+
+/* Image */
+
+div.mediaobject {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+div.caption {
+    font-weight: bold;
+}
+
+
+/* Table Layout */
+
+div.table {
+    margin: 1em auto;
+    padding: 1em;
+    border: 1px solid;
+    width: auto;
+}
+
+div.table p {
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+div.table table {
+    border-spacing: 0px 0px;
+    border-collapse: collapse;
+    margin: 0em auto;
+}
+
+div.table table th {
+    margin: 0px;
+    padding: 3px 15px;
+    font-size: small;
+    text-align: center;
+    border-bottom: medium solid;
+}
+
+div.table table td {
+    margin: 0px;
+    padding: 3px 15px;
+    text-align: center;
+    border-top: thin dotted;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover {
+    color: blue;
+}
+
+/* Copyright Formatting */
+
+p.copyright {
+    margin-top: 3px;
+    text-align: right;
+    font-size: x-small;
+}
+    </style>
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">Chapter 1. FTR-SDK: Detection User's Guide</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="../ftr_sdk.html">Prev</a> </td>
+<td width="60%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="20%" align="right"> <a accesskey="n" href="tracking_users_guide.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="chapter" lang="en">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="detection_users_guide"></a>Chapter 1. FTR-SDK: Detection User's Guide</h2></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1">1. <a href="detection_users_guide.html#detection_definitions">Definitions and Terminology</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="detection_users_guide.html#face_detection">Face Detection</a></span></dt>
+<dt><span class="sect2"><a href="detection_users_guide.html#landmarks_definition">Landmarks</a></span></dt>
+<dt><span class="sect2"><a href="detection_users_guide.html#objects">Objects</a></span></dt>
+</dl></dd>
+<dt><span class="sect1">2. <a href="detection_users_guide.html#detection_introductory_topics">Introductory Topics</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="detection_users_guide.html#contexts">Contexts</a></span></dt>
+<dt><span class="sect2"><a href="detection_users_guide.html#image_types">Image Types</a></span></dt>
+<dt><span class="sect2"><a href="detection_users_guide.html#detection_results">Interpreting Results</a></span></dt>
+<dt><span class="sect2"><a href="detection_users_guide.html#error_codes">Error Codes</a></span></dt>
+</dl></dd>
+<dt><span class="sect1">3. <a href="detection_users_guide.html#detection_advanced_topics">Advanced Topics</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="detection_users_guide.html#detection_precision">Detection Precision</a></span></dt>
+<dt><span class="sect2"><a href="detection_users_guide.html#face_sizes">Face Sizes</a></span></dt>
+<dt><span class="sect2"><a href="detection_users_guide.html#landmarks">Landmarks</a></span></dt>
+<dt><span class="sect2"><a href="detection_users_guide.html#frontal_faces">Frontal Faces</a></span></dt>
+<dt><span class="sect2"><a href="detection_users_guide.html#search_pruning">Search Pruning</a></span></dt>
+<dt><span class="sect2"><a href="detection_users_guide.html#detection_threading">Multi-Threaded Detection</a></span></dt>
+<dt><span class="sect2"><a href="detection_users_guide.html#detection_threshold">Detection Threshold</a></span></dt>
+<dt><span class="sect2"><a href="detection_users_guide.html#region_selection">Image Search Regions</a></span></dt>
+<dt><span class="sect2"><a href="detection_users_guide.html#binary_io">Binary I/O</a></span></dt>
+<dt><span class="sect2"><a href="detection_users_guide.html#flattened_data">Flattened Data</a></span></dt>
+</dl></dd>
+<dt><span class="sect1">4. <a href="detection_users_guide.html#detection_framework">Detection Framework</a></span></dt>
+<dt><span class="sect1">5. <a href="detection_users_guide.html#detection_example_programs">Example Applications</a></span></dt>
+</dl>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="detection_definitions"></a>1. Definitions and Terminology</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="face_detection"></a>Face Detection</h3></div></div></div>
+<p>
+  Face detection is the process of automatically locating human faces in visual media (digital images or video).  Once
+  a face is detected, it can be searched for <a href="detection_users_guide.html#landmarks_definition" title="Landmarks">landmarks</a> such as the eyes,
+  nose, and mouth.
+</p>
+<p>
+  Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="landmarks_definition"></a>Landmarks</h3></div></div></div>
+<p>
+  A landmark is a point of interest within a face.  The left eye, right eye, and nose base are all examples of
+  landmarks.  The SDK has the ability to find landmarks on a detected face.  Please see the
+  <a href="detection_users_guide.html#landmarks" title="Landmarks">Landmarks</a> section for an in-depth discussion of landmarks.
+</p>
+<p>
+  Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="objects"></a>Objects</h3></div></div></div>
+<p>
+  The term 'object' is used throughout the SDK.  It is the primary data structure in the SDK as it indicates the
+  position, orientation, size, and confidence of detected faces.  In fact, for the FTR-SDK, the terms 'object'
+  and 'face' can really be used interchangeably.  However, the data structures do not use the term 'face' because
+  future SDKs could potentially look for objects other than faces.  Using the term 'object' allows the same data
+  structures to be used in the event that such an SDK is developed.  At this time, Pittsburgh Pattern Recognition has no plans to
+  develop SDKs that detect objects other than faces (and their constituent landmarks).
+</p>
+<p>
+  Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+</p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="detection_introductory_topics"></a>2. Introductory Topics</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="contexts"></a>Contexts</h3></div></div></div>
+<p>
+  Most functions provided by the SDK require a context handle as their first parameter.  Each context references a
+  specific set of configuration parameters.  Using these context handles, the SDK enables multiple instances to be
+  maintained in parallel &#8212; each with its own configuration.  Contexts can be used to support
+  <a href="detection_users_guide.html#detection_threading" title="Multi-Threaded Detection">multi-threaded</a> applications or just different configurations within the
+  same thread.  A context is obtained by calling
+  <code class="function"><a href="detection_reference.html#get_context" title="ppr_get_context">ppr_get_context</a></code>.
+</p>
+<p>
+ Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="image_types"></a>Image Types</h3></div></div></div>
+<p>
+  The FTR-SDK deals with two different image types.  The
+  <span class="parameter"><a href="raw_image_library.html#raw_image_type" title="ppr_raw_image_type">ppr_raw_image_type</a></span> is used to store data after it is
+  read from its input source.  However, the SDK functions use their own internal format,
+  <span class="parameter"><a href="detection_reference.html#image_type" title="ppr_image_type">ppr_image_type</a></span>.  Therefore the raw image format must be
+  converted to the SDK's internal format before it can be used.  This can be achieved by calling
+  <code class="function"><a href="detection_reference.html#create_image" title="ppr_create_image">ppr_create_image</a></code>.
+</p>
+<p>
+  The <a href="raw_image_io_library.html" title="Chapter 6. PittPatt Raw Image I/O Library Documentation">PittPatt Raw Image I/O Library</a> provides functions to easily read and 
+  write raw images directly from common image formats.  If a different image library will be used, the 
+  <a href="raw_image_library.html" title="Chapter 5. PittPatt Raw Image Library Documentation">PittPatt Raw Image Library</a> provides functions for allocating and freeing 
+  raw images.  
+</p>
+<p>
+  Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="detection_results"></a>Interpreting Results</h3></div></div></div>
+<p>
+    Each detected face is returned as a <span class="structname"><a href="detection_reference.html#object_type" title="ppr_object_type">ppr_object_type</a></span>.  
+    Among the information returned are the position, dimensions, rotation, and confidence of each detected object.
+  </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><a name="position"></a>Position</span></dt>
+<dd><p>
+          The <span class="parameter">position</span> is the x- and y-coordinates of the center of the face or
+	  <a href="detection_users_guide.html#landmarks" title="Landmarks">landmark</a>.  
+        </p></dd>
+<dt><span class="term"><a name="dimensions"></a>Dimensions</span></dt>
+<dd>
+<p>
+          The object <span class="parameter">dimensions</span> are returned as the <span class="parameter">width</span> and the
+          <span class="parameter">height</span> of the detected object.
+        </p>
+<p>
+          The coordinates for a polygon that encompasses a detected face can be acquired using the
+          <code class="function"><a href="detection_reference.html#get_object_boundary" title="ppr_get_object_boundary">ppr_get_object_boundary</a></code> function.
+        </p>
+</dd>
+<dt><span class="term"><a name="rotation"></a>Rotation</span></dt>
+<dd>
+<p>
+          The <span class="parameter">rotation</span> angles for each detected face are provided in the form of yaw, pitch, 
+          and roll.  The rotation angles are defined with respect to a fixed coordinate frame where the rotations are 
+          applied in the order of yaw, then pitch, then roll.  Pitch is currently not computed, but will be added in 
+          the future.  Yaw, pitch, and roll are defined as rotation about the axes shown in Figure 1.  The red arrows 
+          show the direction of positive rotation.
+        </p>
+<div class="mediaobject" align="center">
+<img src="images/sdk_rotation_figure.jpg" align="middle"><div class="caption" align="center"><p>
+              Figure 1.  Visual representation of yaw, pitch, and roll coordinate planes (left), and yaw (y) &amp;
+              roll (r) angles (right).
+            </p></div>
+</div>
+<p>
+          Coarse detection provides rough estimates of the yaw and roll angles.  Fine detection provides more accurate 
+          yaw and roll angles.  Faces in which frontal landmarks are found report the most accurate roll angle.  All
+          angles are reported in degrees.
+        </p>
+</dd>
+<dt><span class="term"><a name="confidence"></a>Confidence</span></dt>
+<dd><p>
+          The <span class="parameter">confidence</span> indicates the likelihood that the object corresponds to a correct 
+          detection. The confidence field is normalized such that a value of zero corresponds to the equal error rate 
+          of the detector (i.e., approximately equal number of misses and false alarms). Larger values suggest a 
+          greater confidence in the correctness of the corresponding detection.
+        </p></dd>
+</dl></div>
+<p>
+    Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+  </p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="error_codes"></a>Error Codes</h3></div></div></div>
+<p>
+    Most of the FTR-SDK functions return an integer error code to indicate success or failure.  An error code 
+    value of zero indicates success while non-zero values indicate failure.  Instead of relying on the integer
+    values, users are encouraged to use the enumerated error codes found in <code class="filename">pittpatt_errors.h</code>.
+  </p>
+<p>
+    A human readable error message can be obtained by passing the error code to
+    <code class="function"><a href="detection_reference.html#error_message" title="ppr_error_message">ppr_error_message</a></code>.
+  </p>
+<p>
+    Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+  </p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="detection_advanced_topics"></a>3. Advanced Topics</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="detection_precision"></a>Detection Precision</h3></div></div></div>
+<p>
+  A collection of specialized detectors has been trained for a variety of face orientations (poses). The FTR-SDK
+  provides two possibilities for pose estimation: coarse precision and fine precision.  For coarse precision, the 
+  number of individual pose-specific detectors is smaller than for fine precision, and each individual detector covers 
+  a wider range of poses.  Moreover, the user can configure coarse precision to run any subset of available detectors
+  (e.g., frontal faces only).  The same is not possible for fine precision since all detectors work collectively to 
+  give a more precise estimate of pose. Since each detector adds to the amount of processing required while searching 
+  the image, coarse precision executes faster than fine precision and can be sped up further through the selection of
+  detector subsets.
+</p>
+<p>
+  The detection precision can be specified with 
+  <code class="function"><a href="detection_reference.html#set_detection_precision" title="ppr_set_detection_precision">ppr_set_detection_precision</a></code>.
+  If using coarse precision, a subset of detectors can be specified with 
+  <code class="function"><a href="detection_reference.html#set_coarse_detector_types" title="ppr_set_coarse_detector_types">ppr_set_coarse_detector_types</a></code>.
+</p>
+<p>
+  Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="face_sizes"></a>Face Sizes</h3></div></div></div>
+<p>
+    The SDK uses two different conventions for reporting and specifying face sizes.  The 
+    <span class="parameter">dimensions</span> of a detected face are reported via a <span class="parameter">width</span> and a
+    <span class="parameter">height</span>, while a logarithmic <span class="parameter">size</span> is used to specify how big or 
+    small of a face to search for.  
+  </p>
+<div class="variablelist"><dl>
+<dt><span class="term">Dimensions</span></dt>
+<dd><p>
+          The dimensions of a detected face are reported as the width and height of the face in pixels. 
+          The coordinates for a polygon that encompasses a detected face can be acquired using the 
+          <code class="function"><a href="detection_reference.html#get_object_boundary" title="ppr_get_object_boundary">ppr_get_object_boundary</a></code>.
+        </p></dd>
+<dt><span class="term">Size</span></dt>
+<dd><p>
+          The size is used by the detector internally as it searches for faces at different logarithmic scales.  
+          The size can be approximated by the number of pixels between the eyes.  The 
+          <code class="function"><a href="detection_reference.html#get_size_from_pixels" title="ppr_get_size_from_pixels">ppr_get_size_from_pixels</a></code> function computes
+          the size given the number of pixels between the eyes.
+        </p></dd>
+</dl></div>
+<p>
+    Size provides a way of reducing the number of scales that the detector needs to search.  Each scale that must be 
+    searched adds to the amount of memory and number of execution cycles used.  There are four ways to specify which 
+    scales to search:
+  </p>
+<div class="variablelist"><dl>
+<dt><span class="term">Minimum Size</span></dt>
+<dd><p>
+          The minimum size puts a lower limit on the face size that is searched.  Increasing the minimum size makes 
+          the search much faster at the expense of missing smaller faces.  The minimum size is specified via the  
+          <code class="function"><a href="detection_reference.html#set_min_size" title="ppr_set_min_size">ppr_set_min_size</a></code> function.
+        </p></dd>
+<dt><span class="term">Maximum Size</span></dt>
+<dd><p>
+          The maximum size puts an upper limit on the face size that is searched.  Decreasing the maximum size
+          makes the search faster at the expense of missing larger faces.  The maximum size is specified via the
+          <code class="function"><a href="detection_reference.html#set_max_size" title="ppr_set_max_size">ppr_set_max_size</a></code> function.
+        </p></dd>
+<dt><span class="term">Adaptive Minimum Size</span></dt>
+<dd><p>
+        The adaptive minimum size puts a lower limit on the face size that is searched as a proportion of the 
+        image width.  For example, if an adaptive minimum size of 0.1 is specified, then the smallest face being 
+        searched for in that image is approximately 10% of the image width.  The adaptive minimum size is specified via
+	the <code class="function"><a href="detection_reference.html#set_adaptive_min_size" title="ppr_set_adaptive_min_size">ppr_set_adaptive_min_size</a></code> function.
+      </p></dd>
+<dt><span class="term">Adaptive Maximum Size</span></dt>
+<dd><p>
+        The adaptive maximum size puts an upper limit on the face size that is searched as a proportion of the
+        image width.  For example, if an adaptive minimum size of 0.5 is specified, then the largest face being 
+        searched for in that image is approximately 50% of the image width.  The adaptive maximum size is specified via
+	the <code class="function"><a href="detection_reference.html#set_adaptive_max_size" title="ppr_set_adaptive_max_size">ppr_set_adaptive_max_size</a></code> function.
+      </p></dd>
+</dl></div>
+<p>
+    If both the minimum size and the adaptive minimum size are specified, then the setting which results in the 
+    faster search (by searching fewer scales) is used.  The same is true if both the maximum size and the
+    adaptive maximum size are specified.
+  </p>
+<p>
+    In practice, the SDK may find some faces with slightly smaller or larger dimensions than suggested here. The
+    minimum size and maximum size parameters are intended to control processing requirements rather than define a hard
+    limit on face sizes. Due to built-in scale invariance, the detector can successfully detect faces as much as 10%
+    smaller or larger than specified by the minimum or maximum size.
+  </p>
+<p>
+    As an example, assume the smallest frontal face desired is 14 pixels between the eyes.  The suggested size 
+    returned by <code class="function"><a href="detection_reference.html#get_size_from_pixels" title="ppr_get_size_from_pixels">ppr_get_size_from_pixels</a></code> is 2.6.  
+    Since minimum size must be an integer, the result must be rounded up or down.  Being conservative as to not miss 
+    desired faces, a minimum size of 2 may be a good choice.  However, if missing some of the borderline cases can be 
+    tolerated, using a minimum size of 3 will provide faster execution time and less memory usage. 
+  </p>
+<p>
+    Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+  </p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="landmarks"></a>Landmarks</h3></div></div></div>
+<p>
+    A landmark is a point of interest within a face.  The left eye, right eye, and nose base are all examples of
+    landmarks.  The FTR-SDK has the ability to find landmarks on a detected face.
+  </p>
+<p>
+    The SDK can search for two types of landmarks: frontal landmarks and multi-pose landmarks.  The two landmark
+    types differ in the amount of <a href="detection_users_guide.html#rotation">yaw angle</a> they can accommodate.  Frontal landmarks
+    require a <a href="detection_users_guide.html#frontal_faces" title="Frontal Faces">frontal face</a> and can detect three landmarks.  Multi-pose landmarks 
+    can detect landmarks for faces over a wide-range of yaw angles and will detect up to six landmarks depending on 
+    the face's yaw angle.  See the images below for a listing and visual representation of the available landmarks.
+  </p>
+<div class="mediaobject" align="center">
+<img src="images/sdk_landmarks_figure.jpg" align="middle"><div class="caption" align="center"><p>Figure 2.  Frontal Landmarks (left) and Multi-Pose Landmarks (right).</p></div>
+</div>
+<p>
+    Optimal landmark detection can be achieved by running frontal landmark detection followed by multi-pose landmark
+    detection, whether searching for landmarks on frontal faces only, or searching for landmarks across multiple poses.
+    The SDK provides options to perform this type of dual landmark detection.  When running dual landmark detection,
+    the landmarks returned may correspond to frontal landmarks, or they may correspond to multi-pose landmarks.  This
+    is because the landmarks may be returned from the frontal landmark detector, or they may be returned from the
+    multi-pose landmark detector if the frontal detector was unable to find landmarks.
+  </p>
+<p>
+    A side benefit of performing landmark detection is that the attributes of the detected face can be improved.  The 
+    landmarks can provide a better estimate of the face's position and orientation, and if landmarks are found in a 
+    face then the detection confidence of that face is boosted.
+  </p>
+<p>
+    Landmark detection can be enabled using the 
+    <code class="function"><a href="detection_reference.html#set_landmark_detector_type" title="ppr_set_landmark_detector_type">ppr_set_landmark_detector_type</a></code>
+    function.  In addition to the type of landmark detector to use, this function takes an argument that indicates
+    whether landmark detection will be automatic or manual.  For automatic landmark detection, the
+    <code class="function"><a href="detection_reference.html#detect_objects" title="ppr_detect_objects">ppr_detect_objects</a></code> and
+    <code class="function"><a href="tracking_reference.html#detect_and_track_objects" title="ppr_detect_and_track_objects">ppr_detect_and_track_objects</a></code>
+    functions automatically search for landmarks in detected faces.  For manual landmark detection, faces must
+    be passed to
+    <code class="function"><a href="detection_reference.html#detect_landmarks_from_object" title="ppr_detect_landmarks_from_object">ppr_detect_landmarks_from_object</a></code>
+    to find landmarks in a detected face.  If the landmark detector type is set to
+    <span class="parameter"><a href="detection_reference.html#landmark_detector_type" title="ppr_landmark_detector_type">PPR_NO_LANDMARK_DETECTOR</a></span>, landmarks cannot be
+    found, regardless of whether automatic or manual landmark detection is requested.
+  </p>
+<p>
+    Since landmark detection takes additional processing time, landmark detection should only be enabled if necessary.
+    If landmarks are only needed in some faces, it is best to set the landmark detector to manual mode and only
+    submit the faces that require landmark detection.  However, the image that contained the face is needed to
+    perform landmark detection.  This is usually not a problem for detection.  For
+    <a href="tracking_users_guide.html#face_tracking" title="Face Tracking">tracking</a>, it is common to request results only after a track has completed.
+    This may mean that images from previous frames are no longer available to submit to the landmark detector.
+    Therefore it is common to use automatic landmark detection for tracking, despite the possible extra processing
+    time required.
+  </p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+    Multi-pose and dual landmark detection require <a href="detection_users_guide.html#detection_precision" title="Detection Precision">fine precision</a>.  A 
+    <span class="parameter">PPR_INVALID_DETECTOR_LANDMARK_COMBINATION</span> error is returned by 
+    <a href="detection_reference.html#initialize_context" title="ppr_initialize_context"><code class="function">ppr_initialize_context</code></a>
+    if coarse precision and multi-pose or dual landmarks are enabled.
+  </div>
+<p>
+    Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+  </p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="frontal_faces"></a>Frontal Faces</h3></div></div></div>
+<p>
+  A frontal face is defined to be a face with a certain yaw angle range.  The frontal yaw constraint indicates what 
+  range of yaw angles is acceptable to consider a face to be frontal:
+</p>
+<div class="variablelist"><dl>
+<dt></dt>
+<dd>
+<p>Restrictive Yaw Constraint: -18° &lt; yaw &lt; 18° </p>
+<p>Permissive Yaw Constraint: -24° &lt; yaw &lt; 24°</p>
+</dd>
+</dl></div>
+<p>
+  Since a frontal face is required by the <a href="detection_reference.html#landmark_detector_type" title="ppr_landmark_detector_type">
+  <span class="parameter">PPR_FRONTAL_LANDMARK_DETECTOR</span></a>, using the restrictive frontal yaw constraint reduces
+  the number of cases for which frontal landmarks are searched.  As a result, frontal landmark detection execution
+  speed is faster at the cost of not finding as many frontal landmarks.  Conversely, using the permissive setting
+  increases the number of frontal landmarks that are found at the cost of slower execution speed.  The frontal yaw
+  constraint is set using 
+  <code class="function"><a href="detection_reference.html#set_frontal_yaw_constraint" title="ppr_set_frontal_yaw_constraint">ppr_set_frontal_yaw_constraint</a></code>.
+</p>
+<p>
+  Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="search_pruning"></a>Search Pruning</h3></div></div></div>
+<p>
+  Search pruning provides several strategies for limiting the number of scales and detectors that are needed to 
+  search an image.  It greatly improves computational speed while preserving a high accuracy rate.  
+  Search pruning is controlled by setting an aggressiveness level with
+  <code class="function"><a href="detection_reference.html#set_search_pruning_aggressiveness" title="ppr_set_search_pruning_aggressiveness">ppr_set_search_pruning_aggressiveness</a></code>.
+</p>
+<div class="variablelist"><dl>
+<dt><span class="term">Aggressiveness 0</span></dt>
+<dd><p>
+        At this setting, all search pruning strategies are disabled.  All scales are searched.
+      </p></dd>
+<dt><span class="term">Aggressiveness 1</span></dt>
+<dd><p>
+        At this setting, the coarse <a href="detection_users_guide.html#detection_precision" title="Detection Precision">precision</a> detectors are used to limit
+	the number of fine precision detectors needed, but all scales are still searched.  This setting does not have
+	any effects when using coarse precision.
+      </p></dd>
+<dt><span class="term">Aggressiveness 2 - 5</span></dt>
+<dd><p>
+        For these settings, the detector searches for large faces first.  Once a large, high-confidence face is found,
+	the detector searches for faces just slightly smaller than the first face found, then stops searching (even if
+	there are other small faces in the background).  These settings are suitable for searching for foreground faces
+	and build on top of aggressiveness <span class="parameter">1</span>.  Each search pruning aggressiveness level is more
+	aggressive than the previous, and thus provides greater speed improvements with marginally less accurate
+	results.
+      </p></dd>
+</dl></div>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+  Search pruning cannot be used with the threading provided by
+  <code class="function"><a href="detection_reference.html#set_num_detection_threads" title="ppr_set_num_detection_threads">ppr_set_num_detection_threads</a></code>.  See the
+  <a href="detection_users_guide.html#detection_threading" title="Multi-Threaded Detection">Multi-Threaded Detection</a> section for more information.
+</div>
+<p>
+  Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="detection_threading"></a>Multi-Threaded Detection</h3></div></div></div>
+<p>
+  In the presence of multiple processing cores (within or across CPUs), substantial speed improvements can be achieved
+  by allowing the SDK to spawn multiple worker threads. When configured appropriately, the SDK distributes much of the
+  processing load among each worker with a relatively small overhead.  The SDK provides two different mechanisms for
+  multi-threaded operation:  within each image and across multiple images.
+</p>
+<div class="variablelist"><dl>
+<dt><span class="term">Within a Single Image</span></dt>
+<dd>
+<p>
+        The FTR-SDK uses a highly parallelizable algorithm to search each image.  As a result, the search within a
+	single image can be distributed across multiple processing cores.  From the perspective of the calling
+	application, this is the most straightforward path to multi-threaded operation.  Supply the number of desired
+	threads using the <span class="parameter">num_threads</span> parameter of the
+	<code class="function"><a href="detection_reference.html#set_num_detection_threads" title="ppr_set_num_detection_threads">ppr_set_num_detection_threads</a></code> function,
+	and the SDK distributes processing accordingly for each image.
+      </p>
+<p>
+        When threading within a single image, <span class="parameter">num_threads</span> should be set to the number of
+	available CPU cores.  Alternatively, fewer threads can be requested to reserve processing resources for other
+	activities. To avoid unnecessary speed penalties, the <span class="parameter">num_threads</span> parameter should not
+	be greater than the number of available cores.
+      </p>
+<p>
+        This threading model is not compatible with <a href="detection_users_guide.html#search_pruning" title="Search Pruning">search pruning</a>.
+      </p>
+</dd>
+<dt><span class="term">Across Multiple Images</span></dt>
+<dd>
+<p>
+        Additional speed improvements can be achieved by moving the level of multi-threading outside of the SDK. In
+	this mode, the calling application is responsible for creating and managing each thread of control, using a
+	separate context for each thread.  Detection can be performed on multiple images in parallel, or
+	<a href="tracking_users_guide.html#face_tracking" title="Face Tracking">tracking</a> can be performed on multiple videos in parallel.
+      </p>
+<p>
+        Within a context, detection can be performed on multiple images in parallel and results can be passed to the
+	tracker, as long as results are submitted to the tracker in the order they appear in the video sequence.
+      </p>
+<p>
+        This threading model combined with <a href="detection_users_guide.html#search_pruning" title="Search Pruning">search pruning</a> provides the fastest
+	execution speeds.
+      </p>
+<p>
+        When multi-threading is used outside of the SDK, the
+        <code class="function"><a href="detection_reference.html#finalize_thread" title="ppr_finalize_thread">ppr_finalize_thread</a></code> function must be called before
+	each thread exits.  This allows the SDK's internal threading scheme to work properly with the user's external
+	threading scheme.
+      </p>
+</dd>
+</dl></div>
+<p>
+  Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="detection_threshold"></a>Detection Threshold</h3></div></div></div>
+<p>
+  The detection threshold controls the trade-off between misses and false alarms.  A lower threshold results in fewer
+  misses and more false alarms while a higher threshold results in more misses and fewer false alarms. The default
+  threshold is <span class="parameter">0.0</span> and corresponds to the equal error rate of false alarms and misses on a
+  predetermined set of images. The useful operational range for the threshold is from <span class="parameter">-1.0</span> to
+  <span class="parameter">1.0</span>. A threshold of <span class="parameter">-1.0</span> reports many false alarms. At a threshold of
+  <span class="parameter">1.0</span>, the false alarm rate approaches zero. 
+</p>
+<p>
+  The detection threshold is set using
+  <code class="function"><a href="detection_reference.html#set_detection_threshold" title="ppr_set_detection_threshold">ppr_set_detection_threshold</a></code>.
+</p>
+<p>
+  Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="region_selection"></a>Image Search Regions</h3></div></div></div>
+<p>
+  When performing detection, it is possible to only search a subset of an image.  Specifying a search region can reduce
+  computation time since less of the image needs to be searched.  The search region is specified using the
+  <code class="function"><a href="detection_reference.html#set_search_region" title="ppr_set_search_region">ppr_set_search_region</a></code> function.  Only faces whose
+  center is contained within the search region will be found.  By default, the largest face searched is 
+  approximately the size of the search region.
+</p>
+<p>
+  The search region can be updated as often as desired, from one image to the next, unless
+  <a href="tracking_users_guide.html#face_tracking" title="Face Tracking">tracking</a> is enabled.  When tracking is enabled, the search region must be
+  specified before initializing the context. The tracker requires that the search region is the same from frame to
+  frame to produce correct results.
+</p>
+<p>
+  Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="binary_io"></a>Binary I/O</h3></div></div></div>
+<p>
+  All major data types in the FTR-SDK have functions to write the data structure to disk as a binary file and to read
+  the data structure back from the file.  This is useful for creating programs that do a small task and store the
+  results to disk so another small program can read the file and do another small task.  The
+  <a href="../ftr_sdk.html#tools" title="Tools">tools</a> provided with the SDK work this way.
+</p>
+<p>
+  Functions are also provided for <a href="detection_users_guide.html#flattened_data" title="Flattened Data">flattening</a> the data structures into a series of
+  bytes in memory for applications that use I/O other than the file system.
+</p>
+<p>
+  Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="flattened_data"></a>Flattened Data</h3></div></div></div>
+<p>
+  Although functions are provided to read and write <a href="detection_users_guide.html#binary_io" title="Binary I/O">binary files</a>, for some
+  applications the file system is not the desired form of I/O.  For alternative means of I/O, such as databases,
+  functions are provided to flatten the data into a memory buffer and unflatten that data to produce the original data
+  structure.  The series of bytes in a flattened data structure is the same series of bytes that would appear in the
+  file had it been written to disk.  In other words, flattening a data structure and writing those bytes to disk as a
+  binary file produces the same exact file as if the file had been written using the corresponding write function.
+</p>
+<p>
+  Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+</p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="detection_framework"></a>4. Detection Framework</h2></div></div></div>
+<p>
+  A general framework for detecting faces with the FTR-SDK is described below.  This framework provides an 
+  introduction to the order in which functions should be called with links to each function's detailed description.
+</p>
+<div class="orderedlist"><ol type="1">
+<li>
+<span><strong class="command">Get</strong></span> a new context
+    <p>
+      Call <code class="function"><a href="detection_reference.html#get_context" title="ppr_get_context">ppr_get_context</a></code> to get a new context with the
+      default parameters.  The returned context should be stored for submission to future function calls.
+    </p>
+</li>
+<li>
+<span><strong class="command">Configure</strong></span> the context
+    <p>
+      Certain parameters cannot be configured after the context is initialized.  Therefore, unless the default values
+      are desired, the parameters must be configured before the initialization step.  The function references indicate
+      which parameters must be set before initialization.
+    </p>
+</li>
+<li>
+<span><strong class="command">Initialize</strong></span> the context
+    <p>
+      After configuring the context,
+      <code class="function"><a href="detection_reference.html#initialize_context" title="ppr_initialize_context">ppr_initialize_context</a></code> must be called before the
+      context can be used.
+    </p>
+</li>
+<li>
+<span><strong class="command">Create</strong></span> an image
+    <p>
+      An image can be read using the <a href="raw_image_io_library.html" title="Chapter 6. PittPatt Raw Image I/O Library Documentation">PittPatt Raw Image I/O Library</a>
+      or any other image reader, as long as the data is put into a
+      <span class="structname"><a href="raw_image_library.html#raw_image_type" title="ppr_raw_image_type">ppr_raw_image_type</a></span> structure. Then use
+      <code class="function"><a href="detection_reference.html#create_image" title="ppr_create_image">ppr_create_image</a></code> to convert the raw image into the format
+      required by the SDK functions.
+    </p>
+</li>
+<li>
+<span><strong class="command">Submit</strong></span> the image to the detector
+    <p>
+      Call <code class="function"><a href="detection_reference.html#detect_objects" title="ppr_detect_objects">ppr_detect_objects</a></code> to search the provided image
+      for faces and return the results.  
+    </p>
+</li>
+<li>
+<span><strong class="command">Find</strong></span> landmarks in the detected faces
+    <p>
+      Call <code class="function"><a href="detection_reference.html#detect_landmarks_from_object" title="ppr_detect_landmarks_from_object">ppr_detect_landmarks_from_object</a></code>
+      for each detected face for which landmarks are desired.  If automatic landmarks were enabled using
+      <code class="function"><a href="detection_reference.html#set_landmark_detector_type" title="ppr_set_landmark_detector_type">ppr_set_landmark_detector_type</a></code>,
+      then there is no need to submit the detected faces for landmark detection because landmark detection was already
+      performed when the image was submitted to the detector.
+    </p>
+</li>
+<li>
+<span><strong class="command">Free</strong></span> memory for the image and any returned data structures
+    <p>
+      To free the image created in step 4, use <code class="function"><a href="detection_reference.html#free_image" title="ppr_free_image">ppr_free_image</a></code>.  
+      Also remember to free the raw image in accordance with the image reader that was used to acquire the image.
+    </p>
+<p>
+      After processing (or storing) the detection results, call 
+      <code class="function"><a href="detection_reference.html#free_object_list" title="ppr_free_object_list">ppr_free_object_list</a></code> to free the memory allocated
+      for the results.
+    </p>
+</li>
+<li>
+<span><strong class="command">Release</strong></span> the context
+    <p>
+      Call <code class="function"><a href="detection_reference.html#release_context" title="ppr_release_context">ppr_release_context</a></code> to inform the SDK that the
+      previously allocated context is no longer required.  Each context must be released to avoid memory leaks.
+    </p>
+</li>
+<li>
+<span><strong class="command">Finalize</strong></span> the SDK
+    <p>
+      Call <code class="function"><a href="detection_reference.html#finalize_sdk" title="ppr_finalize_sdk">ppr_finalize_sdk</a></code> to inform the SDK that it is no
+      longer needed. This function releases the SDK's internally managed memory buffers. It must be called before
+      exiting the program.
+    </p>
+</li>
+</ol></div>
+<p>
+  Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+</p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="detection_example_programs"></a>5. Example Applications</h2></div></div></div>
+<p>
+  The following applications are included to demonstrate usage of the detection portion of the FTR-SDK and to provide
+  an easy way to evaluate the SDK.  A build script is provided to build all example applications.  The applications can
+  be passed a <span class="parameter">-help</span> flag to get usage information.
+</p>
+<div class="variablelist"><dl>
+<dt><span class="term"><code class="filename">detection</code></span></dt>
+<dd><p>
+        This application demonstrates many of the features available for detection tasks.  Most detection parameters
+	can be configured from the command line.  The command line also provides options for visualizing the results.
+	The application follows the
+	<a href="detection_users_guide.html#detection_framework" title="4. Detection Framework">Detection Framework</a>.
+      </p></dd>
+<dt><span class="term"><code class="filename">detection-threaded</code></span></dt>
+<dd><p>
+	This application demonstrates threading at the image level.  Instead of using the SDK's internal threading,
+	threading is performed manually at the image level using POSIX Threads (<span class="parameter">pthreads</span>). Since
+	Windows does not ship with the <span class="parameter">pthreads</span> library, this example program is not built by
+	default for Windows users.
+      </p></dd>
+</dl></div>
+<p>
+  Back to <a href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">top</a>.
+</p>
+</div>
+</div>
+<hr>
+<p class="copyright">© 2004-2010 Pittsburgh Pattern Recognition, Inc.</p>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="../ftr_sdk.html">Prev</a> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right"> <a accesskey="n" href="tracking_users_guide.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">PittPatt FTR-SDK v4.1 Documentation </td>
+<td width="20%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="40%" align="right" valign="top"> Chapter 2. FTR-SDK: Tracking User's Guide</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

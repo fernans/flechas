@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Chapter 6. PittPatt Raw Image I/O Library Documentation</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="up" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="prev" href="raw_image_library.html" title="Chapter 5. PittPatt Raw Image Library Documentation">
+<link rel="next" href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">
+<style type="text/css">
+      /* Document Structure */
+
+div.book, div.chapter, div.article, div.sect1 {
+    width: auto;
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+div.sect1, div.toc {
+    margin-left: 10px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+div.sect2 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect2 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+div.sect3 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect3 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+
+/* Type Conventions (e.g. parameter vs. structelement) */
+
+.type, .function, .symbol, .structfield, .parameter, .structname {
+    font-family: courier, monospace;
+    font-size: 10pt;
+}
+
+.type, .function {
+    font-weight: bold;
+}
+
+/* Table of Contents */
+
+div.toc {
+  background-color: #DDDDDD;
+  padding: 0.5em 20px;
+  margin: 0em auto;
+}
+
+div.toc dl {
+  margin-left: 10px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dt {
+  line-height: 1.1em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 30px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+
+/* Function Formatting */
+
+.programlisting, .funcsynopsis table {
+    background-color: #DDDDDD;
+    font-family: courier, monospace;
+    font-size: 10pt;
+    padding: 8px 10px;
+}
+
+.funcsynopsis table td {
+    vertical-align: bottom;
+    white-space: normal;
+}
+
+.funcsynopsis + .variablelist dt {
+    font-weight: bold;
+    font-size: 11pt;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+.funcsynopsis + .variablelist dd {
+    margin-left: 20px;
+}
+
+.funcsynopsis + .variablelist dd p {
+    margin: 0.25em 0px;
+}
+
+/* Compilation Examples */
+
+div.variablelist {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+div.variablelist .term {
+    margin-left: 15px;
+}
+
+div.variablelist .programlisting {
+    margin-bottom: 2em;
+}
+
+
+/* Callout Boxes (e.g. note/warning) */
+
+div.warning {
+    background-color: #FFDDDD;
+}
+
+div.note {
+    background-color: #FFFFCC;
+}
+
+div.warning, div.note {
+    margin-top: 1.0em;
+    margin-bottom: 2.0em;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+div.warning h3, div.note h3 {
+    margin: 0.25em 0px;
+}
+
+div.warning p, div.note p {
+    margin: 0.25em 10px;
+}
+
+/* Image */
+
+div.mediaobject {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+div.caption {
+    font-weight: bold;
+}
+
+
+/* Table Layout */
+
+div.table {
+    margin: 1em auto;
+    padding: 1em;
+    border: 1px solid;
+    width: auto;
+}
+
+div.table p {
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+div.table table {
+    border-spacing: 0px 0px;
+    border-collapse: collapse;
+    margin: 0em auto;
+}
+
+div.table table th {
+    margin: 0px;
+    padding: 3px 15px;
+    font-size: small;
+    text-align: center;
+    border-bottom: medium solid;
+}
+
+div.table table td {
+    margin: 0px;
+    padding: 3px 15px;
+    text-align: center;
+    border-top: thin dotted;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover {
+    color: blue;
+}
+
+/* Copyright Formatting */
+
+p.copyright {
+    margin-top: 3px;
+    text-align: right;
+    font-size: x-small;
+}
+    </style>
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">Chapter 6. PittPatt Raw Image I/O Library Documentation</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="raw_image_library.html">Prev</a> </td>
+<td width="60%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="20%" align="right"> <a accesskey="n" href="video_io_library.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="chapter" lang="en">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="raw_image_io_library"></a>Chapter 6. PittPatt Raw Image I/O Library Documentation</h2></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1">1. <a href="raw_image_io_library.html#raw_image_io_introductory_topics">Introductory Topics</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="raw_image_io_library.html#raw_image_io_formats">Supported Formats</a></span></dt>
+<dt><span class="sect2"><a href="raw_image_io_library.html#quality">Image Quality</a></span></dt>
+</dl></dd>
+<dt><span class="sect1">2. <a href="raw_image_io_library.html#raw_image_io_functions">Function Reference</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="raw_image_io_library.html#raw_image_io_read">ppr_raw_image_io_read</a></span></dt>
+<dt><span class="sect2"><a href="raw_image_io_library.html#raw_image_io_write">ppr_raw_image_io_write</a></span></dt>
+<dt><span class="sect2"><a href="raw_image_io_library.html#raw_image_io_write_with_quality">ppr_raw_image_io_write_with_quality</a></span></dt>
+</dl></dd>
+<dt><span class="sect1">3. <a href="raw_image_io_library.html#raw_image_io_thirdparty">Third Party Attributions</a></span></dt>
+</dl>
+</div>
+<p>
+  The PittPatt Raw Image I/O Library is provided for reading and writing images of many different image formats.
+</p>
+<p>
+  It is important to also read the <a href="raw_image_library.html" title="Chapter 5. PittPatt Raw Image Library Documentation">PittPatt Raw Image Library Documentation</a>
+  because the PittPatt Raw Image I/O Library depends on it, and it includes very important information about
+  <a href="raw_image_library.html#memory_management" title="Memory Management">Memory Management</a>.
+</p>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="raw_image_io_introductory_topics"></a>1. Introductory Topics</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="raw_image_io_formats"></a>Supported Formats</h3></div></div></div>
+<p>
+  The PittPatt Raw Image I/O Library supports many image formats including, but not limited to:
+  <span class="parameter">JPEG</span>,
+  <span class="parameter">GIF</span>,
+  <span class="parameter">BMP</span>,
+  <span class="parameter">PNG</span>,
+  <span class="parameter">PPM</span>, and
+  <span class="parameter">PGM</span>.
+</p>
+<p>
+  Back to <a href="raw_image_io_library.html" title="Chapter 6. PittPatt Raw Image I/O Library Documentation">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="quality"></a>Image Quality</h3></div></div></div>
+<p>
+  Two functions are provided for writing a raw image to disk.  The
+  <code class="function"><a href="raw_image_io_library.html#raw_image_io_write_with_quality" title="ppr_raw_image_io_write_with_quality">ppr_raw_image_io_write_with_quality</a></code>
+  function has a <span class="parameter">quality</span> argument used to specify the image quality for lossy formats.  The
+  <code class="function"><a href="raw_image_io_library.html#raw_image_io_write" title="ppr_raw_image_io_write">ppr_raw_image_io_write</a></code> function uses a default
+  <span class="parameter">quality</span> of <span class="parameter">85</span> and is provided as a convenience function.
+</p>
+<p>
+  For lossy image formats, the <span class="parameter">quality</span> argument controls the compression ratio, where
+  <span class="parameter">0</span> represents the most compression and <span class="parameter">100</span> represents the highest
+  quality.  For non-lossy formats, the <span class="parameter">quality</span> argument is ignored.
+</p>
+<p>
+  Back to <a href="raw_image_io_library.html" title="Chapter 6. PittPatt Raw Image I/O Library Documentation">top</a>.
+</p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="raw_image_io_functions"></a>2. Function Reference</h2></div></div></div>
+<p>
+  The functions described in this section are declared in <code class="filename">pittpatt_raw_image_io.h</code>.  The main data
+  type used by these functions, <span class="parameter"><a href="raw_image_library.html#raw_image_type" title="ppr_raw_image_type">ppr_raw_image_type</a></span>, is
+  declared in <code class="filename">pittpatt_raw_image.h</code>, and is described in the
+  <a href="raw_image_library.html" title="Chapter 5. PittPatt Raw Image Library Documentation">PittPatt Raw Image Library Documentation</a>.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="raw_image_io_read"></a>ppr_raw_image_io_read</h3></div></div></div>
+<a class="indexterm" name="id4741118"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_raw_image_error_type <b class="fsfunc">ppr_raw_image_io_read</b>(</code></td>
+<td>const char </td>
+<td>
+<var class="pdparam">*file_name</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_raw_image_type </td>
+<td>
+<var class="pdparam">*image</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter">file_name</span> - null-terminated string specifying the file name of the image to read</p>
+<p><span class="parameter"><a href="raw_image_library.html#raw_image_type" title="ppr_raw_image_type">image</a></span> - pointer to a raw image read from the specified file</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="raw_image_library.html#raw_image_error_type" title="ppr_raw_image_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+    Reads an image from a file, using the file extension to determine the format.  Grayscale images are returned using
+    the <span class="parameter"><a href="raw_image_library.html#raw_image_color_space_type" title="ppr_raw_image_color_space_type">PPR_RAW_IMAGE_GRAY8</a></span> color space, and
+    color images are returned using the
+    <span class="parameter"><a href="raw_image_library.html#raw_image_color_space_type" title="ppr_raw_image_color_space_type">PPR_RAW_IMAGE_RGB24</a></span> color space.  The
+    image that is read must later be freed using
+    <code class="function"><a href="raw_image_library.html#raw_image_free" title="ppr_raw_image_free">ppr_raw_image_free</a></code>.
+  </p>
+<p>
+    See also:
+    <a href="raw_image_io_library.html#raw_image_io_formats" title="Supported Formats">Supported Formats</a>,
+    <a href="raw_image_library.html#color_spaces" title="Image Color Spaces">Color Spaces</a>
+  </p>
+<p>
+    Back to <a href="raw_image_io_library.html" title="Chapter 6. PittPatt Raw Image I/O Library Documentation">top</a>.
+  </p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="raw_image_io_write"></a>ppr_raw_image_io_write</h3></div></div></div>
+<a class="indexterm" name="id4741302"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_raw_image_error_type <b class="fsfunc">ppr_raw_image_io_write</b>(</code></td>
+<td>const char </td>
+<td>
+<var class="pdparam">*file_name</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_raw_image_type </td>
+<td>
+<var class="pdparam">image</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter">file_name</span> - null-terminated string specifying the file name of the image to write</p>
+<p><span class="parameter"><a href="raw_image_library.html#raw_image_type" title="ppr_raw_image_type">image</a></span> - raw image to write to disk</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="raw_image_library.html#raw_image_error_type" title="ppr_raw_image_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+    Writes an image to a file, using the file extension to determine the format.  Calling this function is equivalent
+    to calling
+    <code class="function"><a href="raw_image_io_library.html#raw_image_io_write_with_quality" title="ppr_raw_image_io_write_with_quality">ppr_raw_image_io_write_with_quality</a></code>
+    with a <span class="parameter">quality</span> value of <span class="parameter">85</span>.
+  </p>
+<p>
+    See also:
+    <a href="raw_image_io_library.html#raw_image_io_formats" title="Supported Formats">Supported Formats</a>,
+    <a href="raw_image_io_library.html#quality" title="Image Quality">Image Quality</a>
+  </p>
+<p>
+    Back to <a href="raw_image_io_library.html" title="Chapter 6. PittPatt Raw Image I/O Library Documentation">top</a>.
+  </p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="raw_image_io_write_with_quality"></a>ppr_raw_image_io_write_with_quality</h3></div></div></div>
+<a class="indexterm" name="id4741477"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_raw_image_error_type <b class="fsfunc">ppr_raw_image_io_write_with_quality</b>(</code></td>
+<td>const char </td>
+<td>
+<var class="pdparam">*file_name</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_raw_image_type </td>
+<td>
+<var class="pdparam">image</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">quality</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter">file_name</span> - null-terminated string specifying the file name of the image to write</p>
+<p><span class="parameter"><a href="raw_image_library.html#raw_image_type" title="ppr_raw_image_type">image</a></span> - raw image to write to disk</p>
+<p><span class="parameter">quality</span> - quality setting to use when writing the output image</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="raw_image_library.html#raw_image_error_type" title="ppr_raw_image_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+    Writes an image to a file, using the file extension to determine the format.  For lossy image formats the
+    <span class="parameter">quality</span> argument controls the compression ratio.  For non-lossy formats, calling this
+    function is equivalent to calling
+    <code class="function"><a href="raw_image_io_library.html#raw_image_io_write" title="ppr_raw_image_io_write">ppr_raw_image_io_write</a></code>.
+  </p>
+<p>
+    See also:
+    <a href="raw_image_io_library.html#raw_image_io_formats" title="Supported Formats">Supported Formats</a>,
+    <a href="raw_image_io_library.html#quality" title="Image Quality">Image Quality</a>
+  </p>
+<p>
+    Back to <a href="raw_image_io_library.html" title="Chapter 6. PittPatt Raw Image I/O Library Documentation">top</a>.
+  </p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="raw_image_io_thirdparty"></a>3. Third Party Attributions</h2></div></div></div>
+<p>
+  This software is based in part on the work of the Independent JPEG Group (libjpeg), ImageMagick LLC (ImageMagick),
+  the PNG Reference Library (libpng), and the zlib General Purpose Compression Library (zlib).
+</p>
+<p>
+  Please see the accompanying NOTICE and LICENSE files for more details.
+</p>
+<p>
+  Back to <a href="raw_image_io_library.html" title="Chapter 6. PittPatt Raw Image I/O Library Documentation">top</a>.
+</p>
+</div>
+</div>
+<hr>
+<p class="copyright">© 2004-2010 Pittsburgh Pattern Recognition, Inc.</p>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="raw_image_library.html">Prev</a> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right"> <a accesskey="n" href="video_io_library.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Chapter 5. PittPatt Raw Image Library Documentation </td>
+<td width="20%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="40%" align="right" valign="top"> Chapter 7. PittPatt Video I/O Library Documentation</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

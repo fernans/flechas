@@ -1,0 +1,1051 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Chapter 3. FTR-SDK: Recognition User's Guide</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="up" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="prev" href="tracking_users_guide.html" title="Chapter 2. FTR-SDK: Tracking User's Guide">
+<link rel="next" href="clustering_users_guide.html" title="Chapter 4. FTR-SDK: Clustering User's Guide">
+<style type="text/css">
+      /* Document Structure */
+
+div.book, div.chapter, div.article, div.sect1 {
+    width: auto;
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+div.sect1, div.toc {
+    margin-left: 10px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+div.sect2 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect2 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+div.sect3 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect3 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+
+/* Type Conventions (e.g. parameter vs. structelement) */
+
+.type, .function, .symbol, .structfield, .parameter, .structname {
+    font-family: courier, monospace;
+    font-size: 10pt;
+}
+
+.type, .function {
+    font-weight: bold;
+}
+
+/* Table of Contents */
+
+div.toc {
+  background-color: #DDDDDD;
+  padding: 0.5em 20px;
+  margin: 0em auto;
+}
+
+div.toc dl {
+  margin-left: 10px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dt {
+  line-height: 1.1em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 30px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+
+/* Function Formatting */
+
+.programlisting, .funcsynopsis table {
+    background-color: #DDDDDD;
+    font-family: courier, monospace;
+    font-size: 10pt;
+    padding: 8px 10px;
+}
+
+.funcsynopsis table td {
+    vertical-align: bottom;
+    white-space: normal;
+}
+
+.funcsynopsis + .variablelist dt {
+    font-weight: bold;
+    font-size: 11pt;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+.funcsynopsis + .variablelist dd {
+    margin-left: 20px;
+}
+
+.funcsynopsis + .variablelist dd p {
+    margin: 0.25em 0px;
+}
+
+/* Compilation Examples */
+
+div.variablelist {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+div.variablelist .term {
+    margin-left: 15px;
+}
+
+div.variablelist .programlisting {
+    margin-bottom: 2em;
+}
+
+
+/* Callout Boxes (e.g. note/warning) */
+
+div.warning {
+    background-color: #FFDDDD;
+}
+
+div.note {
+    background-color: #FFFFCC;
+}
+
+div.warning, div.note {
+    margin-top: 1.0em;
+    margin-bottom: 2.0em;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+div.warning h3, div.note h3 {
+    margin: 0.25em 0px;
+}
+
+div.warning p, div.note p {
+    margin: 0.25em 10px;
+}
+
+/* Image */
+
+div.mediaobject {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+div.caption {
+    font-weight: bold;
+}
+
+
+/* Table Layout */
+
+div.table {
+    margin: 1em auto;
+    padding: 1em;
+    border: 1px solid;
+    width: auto;
+}
+
+div.table p {
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+div.table table {
+    border-spacing: 0px 0px;
+    border-collapse: collapse;
+    margin: 0em auto;
+}
+
+div.table table th {
+    margin: 0px;
+    padding: 3px 15px;
+    font-size: small;
+    text-align: center;
+    border-bottom: medium solid;
+}
+
+div.table table td {
+    margin: 0px;
+    padding: 3px 15px;
+    text-align: center;
+    border-top: thin dotted;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover {
+    color: blue;
+}
+
+/* Copyright Formatting */
+
+p.copyright {
+    margin-top: 3px;
+    text-align: right;
+    font-size: x-small;
+}
+    </style>
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">Chapter 3. FTR-SDK: Recognition User's Guide</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="tracking_users_guide.html">Prev</a> </td>
+<td width="60%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="20%" align="right"> <a accesskey="n" href="clustering_users_guide.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="chapter" lang="en">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="recognition_users_guide"></a>Chapter 3. FTR-SDK: Recognition User's Guide</h2></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1">1. <a href="recognition_users_guide.html#recognition_definitions">Definitions and Terminology</a></span></dt>
+<dd><dl><dt><span class="sect2"><a href="recognition_users_guide.html#recognition">Face Recognition</a></span></dt></dl></dd>
+<dt><span class="sect1">2. <a href="recognition_users_guide.html#recognition_introductory_topics">Introductory Topics</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="recognition_users_guide.html#enabling_recognition">Enabling and Configuring Recognition</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#templates">Templates</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#galleries">Galleries</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#template_relationships">Template Relationships</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#similarity_scores">Similarity Scores</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#similarity_matrices">Similarity Matrices</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#self_similarity_matrices">Self-Similarity Matrices</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#subjects">Subjects</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#subject_lists">Subject Lists</a></span></dt>
+</dl></dd>
+<dt><span class="sect1">3. <a href="recognition_users_guide.html#recognition_advanced_topics">Advanced Topics</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="recognition_users_guide.html#template_extraction">Template Extraction</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#template_yaw_constraint">Frontal Yaw Constraint and Templates</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#template_thumbnails">Template Thumbnails</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#recognition_threading">Multi-Threaded Recognition</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#ranked_lists">Ranked Lists</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#paradoxical_relationships">Paradoxical Relationships</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#transitive_matching">Transitive Matching</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#template_and_gallery_strings">Template and Gallery Strings</a></span></dt>
+</dl></dd>
+<dt><span class="sect1">4. <a href="recognition_users_guide.html#recognition_framework">Recognition Framework</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="recognition_users_guide.html#creating_galleries_framework">Creating Galleries</a></span></dt>
+<dt><span class="sect2"><a href="recognition_users_guide.html#comparing_galleries_framework">Comparing Galleries</a></span></dt>
+</dl></dd>
+<dt><span class="sect1">5. <a href="recognition_users_guide.html#recognition_example_programs">Example Applications</a></span></dt>
+</dl>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="recognition_definitions"></a>1. Definitions and Terminology</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="recognition"></a>Face Recognition</h3></div></div></div>
+<p>
+  Face recognition automatically determines if two face images are likely to be the same
+  <a href="recognition_users_guide.html#subjects" title="Subjects">subject</a>.  By convention, a query subject is a person of interest that is compared to
+  one or more target subjects to find the best match, if any.  The FTR-SDK enables large-scale query to target
+  comparisons by extracting <a href="recognition_users_guide.html#templates" title="Templates">templates</a> from faces and organizing those templates into
+  <a href="recognition_users_guide.html#galleries" title="Galleries">galleries</a> that can be compared to each other.
+</p>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="recognition_introductory_topics"></a>2. Introductory Topics</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="enabling_recognition"></a>Enabling and Configuring Recognition</h3></div></div></div>
+<p>
+  If recognition will be used, it must be enabled by calling
+  <code class="function"><a href="recognition_reference.html#enable_recognition" title="ppr_enable_recognition">ppr_enable_recognition</a></code>
+  before initializing the context.  Recognition should not be enabled if it will not be used because it increases
+  memory usage and initialization time.  After recognition is enabled, its
+  <a href="detection_users_guide.html#contexts" title="Contexts">context</a> parameters can be configured by calling the functions listed in
+  <a href="recognition_reference.html#recognition_initialize_and_configure_functions" title="Initialize and Configure Functions">Initialize and Configure Functions</a>.  Finally,
+  the context can be initialized by calling
+  <code class="function"><a href="detection_reference.html#initialize_context" title="ppr_initialize_context">ppr_initialize_context</a></code>.
+</p>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="templates"></a>Templates</h3></div></div></div>
+<p>
+  A template is a representation of a face that can be compared to other templates to determine the similarity between
+  faces.  After extracting a template from a face, it can be added to a <a href="recognition_users_guide.html#galleries" title="Galleries">gallery</a> where
+  large-scale template-to-template comparisons can be performed.  Each template-to-template comparison produces a
+  <a href="recognition_users_guide.html#similarity_scores" title="Similarity Scores">similarity score</a>.
+</p>
+<p>
+  A frontal face object with <a href="detection_users_guide.html#landmarks" title="Landmarks">landmarks</a> is required in order to create a template.
+  Faces with frontal landmarks typically produce better recognition results than faces with multi-pose landmarks.
+</p>
+<div class="mediaobject" align="center">
+<img src="images/sdk_template_figure.jpg" align="middle"><div class="caption" align="center"><p>Figure 1.  Templates are generated from faces and then compared to produce similarity scores.</p></div>
+</div>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="galleries"></a>Galleries</h3></div></div></div>
+<p>
+  A gallery is a collection of <a href="recognition_users_guide.html#templates" title="Templates">templates</a>.  A gallery not only provides a convenient
+  way of storing templates, but also provides a number of advantages over storing an array of individual templates in a
+  separate data structure.
+  </p>
+<div class="itemizedlist"><ul type="disc">
+<li>
+      A large number of templates can be compared quickly due to parallelization within the gallery.
+    </li>
+<li>
+<a href="clustering_users_guide.html#clustering" title="Clustering">Clustering</a> can be performed within a gallery to generate groups of templates
+      that belong to the same <a href="recognition_users_guide.html#subjects" title="Subjects">subject</a>.
+    </li>
+<li>
+      A gallery provides a way for the user to specify known
+      <a href="recognition_users_guide.html#template_relationships" title="Template Relationships">template relationships</a>.
+    </li>
+</ul></div>
+<p>
+</p>
+<p>
+  Each template is assigned an ID as it is added to a gallery.  Template IDs are unique within a given gallery but not
+  across galleries.  If a template is added to more than one gallery, a copy of the template is stored in each gallery,
+  and the template is likely to have a different ID in each gallery.  Template IDs are assigned incrementally, starting
+  at 0, and are not reused within a gallery (i.e., if a template is removed from a gallery its ID will never be assigned
+  to another template that is added later).
+</p>
+<p>
+  A gallery also maintains user-specified relationships between templates.
+</p>
+<div class="mediaobject" align="center">
+<img src="images/sdk_gallery_figure.jpg" align="middle"><div class="caption" align="center"><p>Figure 2.  A gallery consists of a template list and user-specified relationships between templates.</p></div>
+</div>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="template_relationships"></a>Template Relationships</h3></div></div></div>
+<p>
+  A <a href="recognition_users_guide.html#galleries" title="Galleries">gallery</a> maintains user-specified relationships between
+  <a href="recognition_users_guide.html#templates" title="Templates">templates</a>.  A relationship indicates if a pair of templates are known to be from the
+  same <a href="recognition_users_guide.html#subjects" title="Subjects">subject</a> or known to be from different subjects.
+</p>
+<p>
+  The relationships are taken into account when creating a
+  <a href="recognition_users_guide.html#self_similarity_matrices" title="Self-Similarity Matrices">self-similarity matrix</a>.  Templates that are specified as belonging to
+  the same subject will have high <a href="recognition_users_guide.html#similarity_scores" title="Similarity Scores">similarity scores</a>.  Likewise, templates that
+  are specified as belonging to different subjects will have very low similarity scores.
+</p>
+<p>
+  The user-specified relationships are also taken into account when <a href="clustering_users_guide.html#clustering" title="Clustering">clustering</a>.
+  Templates that are specified as belonging to the same subject will always be in the same subject in the
+  <a href="recognition_users_guide.html#subject_lists" title="Subject Lists">subject list</a> that results from clustering.  Likewise, templates that are
+  specified as belonging to different subjects will always be in different subjects in the resulting subject list.
+</p>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="similarity_scores"></a>Similarity Scores</h3></div></div></div>
+<p>
+  A similarity score is produced when two <a href="recognition_users_guide.html#templates" title="Templates">templates</a> are compared.  Higher scores
+  indicate better matches.  The score is normalized such that a score of 0.0 corresponds to a 1% false acceptance rate
+  on an internal data set, and a score of 1.0 corresponds to a 0.1% false acceptance rate on the same data set.
+</p>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="similarity_matrices"></a>Similarity Matrices</h3></div></div></div>
+<p>
+  Two <a href="recognition_users_guide.html#galleries" title="Galleries">galleries</a> can be compared to produce a similarity matrix. By convention, the
+  <a href="recognition_users_guide.html#subjects" title="Subjects">subjects</a> in question are placed in a query gallery and are matched against the
+  subjects in a target gallery.  The number of rows in the resulting similarity matrix is equal to the number of
+  templates in the query gallery.  The number of columns in the similarity matrix is equal to the number of templates
+  in the target gallery.  Each value in the matrix gives a score that indicates how well the corresponding target
+  template and query template match.
+</p>
+<p>
+  All <a href="recognition_users_guide.html#templates" title="Templates">templates</a> in a single gallery can be compared to all other templates in the same
+  gallery to produce a <a href="recognition_users_guide.html#self_similarity_matrices" title="Self-Similarity Matrices">self-similarity matrix</a>.  A self-similarity
+  matrix takes user-specified <a href="recognition_users_guide.html#template_relationships" title="Template Relationships">relationships</a> into account when it is
+  created.
+</p>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="self_similarity_matrices"></a>Self-Similarity Matrices</h3></div></div></div>
+<p>
+  A self-similarity matrix is a comparison between all <a href="recognition_users_guide.html#templates" title="Templates">templates</a> in a
+  <a href="recognition_users_guide.html#galleries" title="Galleries">gallery</a> and themselves.  The
+  <a href="recognition_users_guide.html#template_relationships" title="Template Relationships">template relationships</a> specified by the user are taken into account
+  when generating the self-similarity matrix such that template pairs marked as
+  <span class="parameter"><a href="recognition_reference.html#template_relationship_type" title="ppr_template_relationship_type">PPR_RELATIONSHIP_SAME_SUBJECT</a></span> have high
+  <a href="recognition_users_guide.html#similarity_scores" title="Similarity Scores">scores</a> and template pairs marked as
+  <span class="parameter"><a href="recognition_reference.html#template_relationship_type" title="ppr_template_relationship_type">PPR_RELATIONSHIP_DIFFERENT_SUBJECTS</a></span> have
+  large negative scores.  Transitivity is applied to the user-specified template relationships such that if A and B are
+  marked as the same, and B and C are marked as the same, the similarity score between A and C will also be set to a
+  high value.  Values along the diagonal of the self-similarity matrix also have high scores because they represent
+  comparing a template to itself.
+</p>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="subjects"></a>Subjects</h3></div></div></div>
+<p>
+  A subject represents a single person.  A single subject may be represented by one or more
+  <a href="recognition_users_guide.html#templates" title="Templates">templates</a>.  Therefore, the
+  <span class="parameter"><a href="recognition_reference.html#template_id_list_type" title="ppr_template_id_list_type">ppr_template_id_list_type</a></span> data structure is
+  typically used for a subject, storing a list of the IDs of the templates that make up the subject.
+</p>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="subject_lists"></a>Subject Lists</h3></div></div></div>
+<p>
+  A subject list groups <a href="recognition_users_guide.html#templates" title="Templates">templates</a> that are likely to be (or known to be) from the same
+  person.  A subject list can be generated automatically from a <a href="recognition_users_guide.html#galleries" title="Galleries">gallery</a> by
+  <a href="clustering_users_guide.html#clustering" title="Clustering">clustering</a> the templates in the gallery based on similarity.  The clustering
+  accounts for any
+  <a href="recognition_users_guide.html#template_relationships" title="Template Relationships">template relationship</a> information the user has provided.
+</p>
+<div class="mediaobject" align="center">
+<img src="images/sdk_subject_list_figure.jpg" align="middle"><div class="caption" align="center"><p>
+      Figure 3.  A subject list contains a set of template lists.  Each template list represents a single subject.
+    </p></div>
+</div>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="recognition_advanced_topics"></a>3. Advanced Topics</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="template_extraction"></a>Template Extraction</h3></div></div></div>
+<p>
+  <a href="recognition_users_guide.html#templates" title="Templates">Templates</a> can only be extracted from frontal faces that contain the necessary
+  <a href="detection_users_guide.html#landmarks" title="Landmarks">landmarks</a>, namely the two eyes and the nose base.  The
+  <a href="recognition_users_guide.html#template_yaw_constraint" title="Frontal Yaw Constraint and Templates">frontal yaw constraint</a> is used to determine whether or not a face is
+  frontal.  Call
+  <code class="function"><a href="recognition_reference.html#is_object_suitable_for_recognition" title="ppr_is_object_suitable_for_recognition">ppr_is_object_suitable_for_recognition</a></code>
+  to determine if a template meets the requirements for extraction.
+</p>
+<p>
+  There are two different types of templates that can be extracted - single templates and double templates.  Single
+  templates are faster and use less memory at the expense of some accuracy when performing template comparisons.
+  Double templates are the most accurate, but when compared to single templates, they use twice as much memory and
+  comparisons take twice as long.  If a single template is compared to a double template, the comparison will work, but
+  the double template will be treated as a single template.  Therefore the speed and accuracy will be equivalent to
+  comparing two single templates.  Set the template extraction type using
+  <code class="function"><a href="recognition_reference.html#set_template_extraction_type" title="ppr_set_template_extraction_type">ppr_set_template_extraction_type</a></code>.
+</p>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="template_yaw_constraint"></a>Frontal Yaw Constraint and Templates</h3></div></div></div>
+<p>
+  The frontal yaw constraint indicates what range of yaw angles is acceptable to consider a face to be frontal.  Since
+  <a href="recognition_users_guide.html#templates" title="Templates">templates</a> can only be extracted for
+  <a href="detection_users_guide.html#frontal_faces" title="Frontal Faces">frontal faces</a>, using the restrictive frontal yaw constraint reduces the number
+  of cases where templates can be extracted.  However, using the permissive setting can decrease overall recognition
+  accuracy.  The decrease in accuracy is due to the fact that as the difference in yaw angle between two faces
+  increases, the ability of the recognizer to successfully match the two faces decreases.  Set the frontal yaw
+  constraint using
+  <code class="function"><a href="detection_reference.html#set_frontal_yaw_constraint" title="ppr_set_frontal_yaw_constraint">ppr_set_frontal_yaw_constraint</a></code>.
+</p>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="template_thumbnails"></a>Template Thumbnails</h3></div></div></div>
+<p>
+  By default each <a href="recognition_users_guide.html#templates" title="Templates">template</a> contains a thumbnail image of the object it was generated
+  from.  A thumbnail can be retrieved from a template by calling
+  <code class="function"><a href="recognition_reference.html#get_template_thumbnail" title="ppr_get_template_thumbnail">ppr_get_template_thumbnail</a></code> or
+  <code class="function"><a href="recognition_reference.html#get_template_thumbnail_by_id" title="ppr_get_template_thumbnail_by_id">ppr_get_template_thumbnail_by_id</a></code>.  A
+  thumbnail is cropped, rotated, and scaled such that the face is upright and the thumbnail dimensions are 48 x 64.
+  Thumbnails are provided strictly as a way of visualizing the face represented by the template.  Operations such as
+  recognition should be performed only on the original images, not on the thumbnail images.  The cropping, rotation,
+  scaling, and compression applied to the thumbnails makes them unsuitable for recognition and other SDK operations.
+</p>
+<p>
+  Template thumbnails can be disabled by calling
+  <code class="function"><a href="recognition_reference.html#disable_template_thumbnails" title="ppr_disable_template_thumbnails">ppr_disable_template_thumbnails</a></code>.  When
+  template thumbnails are disabled, a thumbnail is not added to the template when
+  <code class="function"><a href="recognition_reference.html#extract_template_from_object" title="ppr_extract_template_from_object">ppr_extract_template_from_object</a></code> is called.
+  When reading templates, any existing thumbnail is removed after the template is read from disk.  Disabling template
+  thumbnails does not affect any templates that are already in memory.  When writing a template to disk, the thumbnail
+  will be written if the template has one, regardless of whether template thumbnails are disabled.  An error is
+  returned when trying to retrieve a thumbnail from a template that does not have one.
+</p>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="recognition_threading"></a>Multi-Threaded Recognition</h3></div></div></div>
+<p>
+  In the presence of multiple processing cores (within or across CPUs), substantial speed improvements can be achieved
+  by allowing the SDK to spawn multiple worker threads. When configured appropriately, the SDK distributes much of the
+  processing load among each worker with a relatively small overhead.
+</p>
+<p>
+  The number of worker threads that are spawned can be set independently for detection and recognition.  This allows
+  threading schemes where the user handles threading across multiple images for detection, but the SDK handles the
+  threading for recognition.  See <a href="detection_users_guide.html#detection_threading" title="Multi-Threaded Detection">Multi-Threaded Detection</a> for a discussion
+  of various detection threading schemes.
+</p>
+<p>
+  Call <code class="function"><a href="recognition_reference.html#set_num_recognition_threads" title="ppr_set_num_recognition_threads">ppr_set_num_recognition_threads</a></code> to set
+  the number of threads that the SDK will use internally for recognition.  The <span class="parameter">num_threads</span>
+  argument should be set to the number of available CPU cores.  Alternatively, fewer threads can be requested to
+  reserve processing resources for other activities. To avoid unnecessary speed penalties, the
+  <span class="parameter">num_threads</span> parameter should not be greater than the number of available cores.  Setting the
+  number of recognition threads does not change the number of detection threads.  Set the number of detection threads
+  independently using
+  <code class="function"><a href="detection_reference.html#set_num_detection_threads" title="ppr_set_num_detection_threads">ppr_set_num_detection_threads</a></code>.
+</p>
+<p>
+  The <code class="function"><a href="recognition_reference.html#extract_template_from_object" title="ppr_extract_template_from_object">ppr_extract_template_from_object</a></code>
+  function is not internally threaded.  The user may benefit from launching several threads and extracting templates in
+  parallel.
+</p>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="ranked_lists"></a>Ranked Lists</h3></div></div></div>
+<p>
+  A ranked list provides <a href="recognition_users_guide.html#similarity_scores" title="Similarity Scores">scores</a> indicating how well a specified query
+  <a href="recognition_users_guide.html#templates" title="Templates">template</a> matches all templates in a target
+  <a href="recognition_users_guide.html#galleries" title="Galleries">gallery</a>.  When generating a ranked list, a maximum list length as well as a score
+  threshold can be specified.  Any templates that do not meet the score threshold are not included in the ranked list.
+  The ranked list is guaranteed not to exceed the maximum length specified, but it may be smaller than the maximum
+  length if not enough templates in the target gallery meet the score threshold.
+</p>
+<p>
+  Some functions produce ranked lists based on entire <a href="recognition_users_guide.html#subjects" title="Subjects">subjects</a> rather than just
+  templates.  For those functions, the scores are produced by averaging the scores between each template in the query
+  subject and each template in the target.
+</p>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="paradoxical_relationships"></a>Paradoxical Relationships</h3></div></div></div>
+<p>
+  It is possible to create a paradoxical set of <a href="recognition_users_guide.html#template_relationships" title="Template Relationships">template relationships</a>.
+  Consider the case where the following relationships are assigned:
+  </p>
+<div class="itemizedlist"><ul type="disc">
+<li>
+<a href="recognition_users_guide.html#templates" title="Templates">Template</a> A and Template B are marked as the same
+      <a href="recognition_users_guide.html#subjects" title="Subjects">subject</a>
+</li>
+<li>Template B and Template C are marked as the same subject</li>
+<li>Template C and Template A are marked as different subjects</li>
+</ul></div>
+<p>
+  The user must avoid creating paradoxes such as the above example.  Such paradoxical relationships cause errors to be
+  returned from the <a href="clustering_users_guide.html#clustering" title="Clustering">clustering</a> and
+  <a href="recognition_users_guide.html#transitive_matching" title="Transitive Matching">transitive matching</a> portions of the SDK. To avoid paradoxes, create a
+  <a href="recognition_users_guide.html#subject_lists" title="Subject Lists">subject list</a> and use
+  <code class="function"><a href="recognition_reference.html#set_template_relationships_from_subject_list" title="ppr_set_template_relationships_from_subject_list">ppr_set_template_relationships_from_subject_list</a></code>
+  to set the template relationships when possible.
+</p>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="transitive_matching"></a>Transitive Matching</h3></div></div></div>
+<p>
+  Transitive matching improves the accuracy of gallery-to-gallery comparisons when there are multiple
+  <a href="recognition_users_guide.html#templates" title="Templates">templates</a> for the same <a href="recognition_users_guide.html#subjects" title="Subjects">subject</a> in one or both
+  <a href="recognition_users_guide.html#galleries" title="Galleries">galleries</a>.  This feature is extremely helpful when identifying subjects in videos or
+  when using a photo collection with known subjects to identify subjects in another photo collection.  
+</p>
+<p>
+  Without transitive matching, a gallery-to-gallery comparison simply compares all templates in the target gallery to
+  all templates in the query gallery to produce a <a href="recognition_users_guide.html#similarity_matrices" title="Similarity Matrices">similarity matrix</a>.
+  Transitive matching takes gallery-to-gallery comparisons one step further by identifying transitive relationships in
+  and across galleries and using them to boost <a href="recognition_users_guide.html#similarity_scores" title="Similarity Scores">similarity scores</a>.  Consider
+  this illustrative example.
+
+  </p>
+<div class="itemizedlist"><ul type="disc">
+<li>
+      The target gallery contains template A, generated from a photo taken of Sam Adams in the year 1990.
+    </li>
+<li>
+      The query gallery contains two templates for subject Sam Adams: one from a 2001 photo and another from a 2009
+      photo.
+    </li>
+</ul></div>
+<p>
+
+  Because Sam has aged through the course of these photos, templates A and B are very similar - as are templates B and
+  C.  But, due to the passage of time, the similarity score between A and C is low.  Transitive matching leverages the
+  transitive relationship
+
+  </p>
+<div class="itemizedlist"><ul type="disc">
+<li>A = B</li>
+<li>B = C</li>
+<li>therefore, A = C</li>
+</ul></div>
+<p>
+  to boost the similarity score between A and C.
+</p>
+<p>
+  A call to <code class="function"><a href="recognition_reference.html#apply_transitive_matching" title="ppr_apply_transitive_matching">ppr_apply_transitive_matching</a></code>
+  updates the similarity matrix by leveraging as many transitive relationships as possible via an internal clustering
+  process.
+</p>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="template_and_gallery_strings"></a>Template and Gallery Strings</h3></div></div></div>
+<p>
+  Each template and gallery can hold a string set by the user.  The strings are not used internally by the SDK.  They
+  are simply provided as a way for the user to associate their own string with the data structures.  For example a
+  template string could be used to store the name of the image the template was generated from, or the name of the
+  subject represented by the template.  The maximum string lengths, including the null-terminators are defined by
+  <span class="parameter"><a href="recognition_reference.html#max_template_string_size" title="PPR_MAX_TEMPLATE_STRING_SIZE">PPR_MAX_TEMPLATE_STRING_SIZE</a></span> and
+  <span class="parameter"><a href="recognition_reference.html#max_gallery_string_size" title="PPR_MAX_GALLERY_STRING_SIZE">PPR_MAX_GALLERY_STRING_SIZE</a></span>.  Only the
+  number of characters actually used in the string are stored in the data structures.
+</p>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="recognition_framework"></a>4. Recognition Framework</h2></div></div></div>
+<p>
+  Frameworks for using the recognition portion of the FTR-SDK are described below.  The frameworks provide an
+  introduction to the order in which functions should be called, with links to each function's detailed description.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="creating_galleries_framework"></a>Creating Galleries</h3></div></div></div>
+<div class="orderedlist"><ol type="1">
+<li>
+<span><strong class="command">Get</strong></span> a new context
+      <p>
+	Call <code class="function"><a href="detection_reference.html#get_context" title="ppr_get_context">ppr_get_context</a></code> to get a new context with the
+	default parameters.  The returned context should be stored for submission to future function calls.
+      </p>
+</li>
+<li>
+<span><strong class="command">Enable</strong></span> recognition
+      <p>
+	Recognition must be enabled in the context before initialization since recognition functions will be used.  Call
+	<code class="function"><a href="recognition_reference.html#enable_recognition" title="ppr_enable_recognition">ppr_enable_recognition</a></code> to allow recognition
+	functions to be used in the context.
+      </p>
+</li>
+<li>
+<span><strong class="command">Configure</strong></span> the context
+      <p>
+	Certain parameters cannot be configured after the context is initialized.  Therefore, unless the default values
+	are desired, the parameters must be configured before the initialization step.  The function references indicate
+	which parameters must be set before initialization.
+      </p>
+</li>
+<li>
+<span><strong class="command">Initialize</strong></span> the context
+      <p>
+	After configuring the context,
+	<code class="function"><a href="detection_reference.html#initialize_context" title="ppr_initialize_context">ppr_initialize_context</a></code> must be called before the
+	context can be used.
+      </p>
+</li>
+<li>
+<span><strong class="command">Create</strong></span> a gallery
+      <p>
+	A gallery can be created using the
+	<code class="function"><a href="recognition_reference.html#create_gallery" title="ppr_create_gallery">ppr_create_gallery</a></code> function.  The newly created
+	gallery is empty (i.e., it contains no templates).
+      </p>
+</li>
+<li>
+<span><strong class="command">Get</strong></span> templates
+      <p>
+	Follow the steps in the <a href="detection_users_guide.html#detection_framework" title="4. Detection Framework">Detection Framework</a> or
+	<a href="tracking_users_guide.html#tracking_framework" title="4. Tracking Framework">Tracking Framework</a> to acquire faces with landmarks. Templates can be
+	created by passing detected faces with the required landmarks to the
+	<code class="function"><a href="recognition_reference.html#extract_template_from_object" title="ppr_extract_template_from_object">ppr_extract_template_from_object</a></code>
+	function. Alternatively, previously saved templates can be read from disk by calling
+	<code class="function"><a href="recognition_reference.html#read_template" title="ppr_read_template">ppr_read_template</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Add</strong></span> templates to a gallery
+      <p>
+	A template can be added to a gallery using the
+	<code class="function"><a href="recognition_reference.html#copy_template_to_gallery" title="ppr_copy_template_to_gallery">ppr_copy_template_to_gallery</a></code>
+	function.  The template is assigned an ID and copied to a list inside the gallery.
+      </p>
+</li>
+<li>
+<span><strong class="command">Specify</strong></span> template relationships
+      <p>
+	If two templates are known to be the same subject or different subjects, this can be specified using
+	<code class="function"><a href="recognition_reference.html#set_template_relationship" title="ppr_set_template_relationship">ppr_set_template_relationship</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Process</strong></span> the gallery
+      <p>
+	A gallery can be <a href="recognition_users_guide.html#comparing_galleries_framework" title="Comparing Galleries">compared</a> to other galleries or it can be
+	<a href="clustering_users_guide.html#single_gallery_clustering_framework" title="Single-Gallery Clustering">clustered</a> to produce subject groupings.  The gallery
+	can be saved to disk by calling <code class="function"><a href="recognition_reference.html#write_gallery" title="ppr_write_gallery">ppr_write_gallery</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Free</strong></span> allocated memory
+      <p>
+	Any templates that were created or read from disk must be freed using
+	<code class="function"><a href="recognition_reference.html#free_template" title="ppr_free_template">ppr_free_template</a></code> when they are no longer needed.
+	Galleries must be freed using <code class="function"><a href="recognition_reference.html#free_gallery" title="ppr_free_gallery">ppr_free_gallery</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Release</strong></span> the context
+     <p>
+	Call <code class="function"><a href="detection_reference.html#release_context" title="ppr_release_context">ppr_release_context</a></code> to inform the SDK that the
+	previously allocated context is no longer required.  Each context must be released to avoid memory leaks.
+     </p>
+</li>
+<li>
+<span><strong class="command">Finalize</strong></span> the SDK
+     <p>
+	Call <code class="function"><a href="detection_reference.html#finalize_sdk" title="ppr_finalize_sdk">ppr_finalize_sdk</a></code> to inform the SDK that it is no
+	longer needed. This function releases the SDK's internally managed memory buffers. It must be called before
+	exiting the program.
+     </p>
+</li>
+</ol></div>
+<p>
+    Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+  </p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="comparing_galleries_framework"></a>Comparing Galleries</h3></div></div></div>
+<div class="orderedlist"><ol type="1">
+<li>
+<span><strong class="command">Get</strong></span> a new context
+      <p>
+	Call <code class="function"><a href="detection_reference.html#get_context" title="ppr_get_context">ppr_get_context</a></code> to get a new context with the
+	default parameters.  The returned context should be stored for submission to future function calls.
+      </p>
+</li>
+<li>
+<span><strong class="command">Enable</strong></span> recognition
+      <p>
+	Recognition must be enabled in the context before initialization since recognition functions will be used.  Call
+	<code class="function"><a href="recognition_reference.html#enable_recognition" title="ppr_enable_recognition">ppr_enable_recognition</a></code> to allow recognition
+	functions to be used in the context.
+     </p>
+</li>
+<li>
+<span><strong class="command">Configure</strong></span> the context
+      <p>
+	Certain parameters cannot be configured after the context is initialized.  Therefore, unless the default values
+	are desired, the parameters must be configured before the initialization step.  The function references indicate
+	which parameters must be set before initialization.
+      </p>
+</li>
+<li>
+<span><strong class="command">Initialize</strong></span> the context
+      <p>
+	After configuring the context,
+	<code class="function"><a href="detection_reference.html#initialize_context" title="ppr_initialize_context">ppr_initialize_context</a></code> must be called before the
+	context can be used.
+      </p>
+</li>
+<li>
+<span><strong class="command">Get</strong></span> galleries
+     <p>
+	Follow the steps in the <a href="recognition_users_guide.html#creating_galleries_framework" title="Creating Galleries">Creating Galleries</a> section to create
+	galleries. Alternatively, previously saved galleries can be read from disk by calling
+	<code class="function"><a href="recognition_reference.html#read_gallery" title="ppr_read_gallery">ppr_read_gallery</a></code>.
+     </p>
+</li>
+<li>
+<span><strong class="command">Compare</strong></span> galleries
+      <p>
+	Compare two galleries using the
+	<code class="function"><a href="recognition_reference.html#compare_galleries" title="ppr_compare_galleries">ppr_compare_galleries</a></code> function. This produces a
+	similarity matrix from which meaningful information can be extracted. If the two galleries have previously been
+	compared, but have now changed, pass the previous similarity matrix to
+	<code class="function"><a href="recognition_reference.html#recompare_galleries" title="ppr_recompare_galleries">ppr_recompare_galleries</a></code>. Calling
+	<code class="function"><a href="recognition_reference.html#recompare_galleries" title="ppr_recompare_galleries">ppr_recompare_galleries</a></code> is faster than repeating
+	a call to
+        <code class="function"><a href="recognition_reference.html#compare_galleries" title="ppr_compare_galleries">ppr_compare_galleries</a></code> because it is able to re-use
+	previously computed data.
+      </p>
+</li>
+<li>
+<span><strong class="command">Extract</strong></span> information from the similarity matrix
+      <p>
+	The
+	<code class="function"><a href="recognition_reference.html#get_ranked_template_list_for_template" title="ppr_get_ranked_template_list_for_template">ppr_get_ranked_template_list_for_template</a></code>,
+	<code class="function"><a href="recognition_reference.html#get_ranked_template_list_for_subject" title="ppr_get_ranked_template_list_for_subject">ppr_get_ranked_template_list_for_subject</a></code>,
+	<code class="function"><a href="recognition_reference.html#get_ranked_subject_list_for_subject" title="ppr_get_ranked_subject_list_for_subject">ppr_get_ranked_subject_list_for_subject</a></code>,
+	<code class="function"><a href="recognition_reference.html#get_best_matching_templates" title="ppr_get_best_matching_templates">ppr_get_best_matching_templates</a></code>, and
+	<code class="function"><a href="recognition_reference.html#get_best_matching_subjects" title="ppr_get_best_matching_subjects">ppr_get_best_matching_subjects</a></code> functions
+	all take a similarity matrix as input and return useful information.
+      </p>
+</li>
+<li>
+<span><strong class="command">Free</strong></span> allocated memory
+      <p>
+	Any galleries that were created or read from disk must be freed using
+	<code class="function"><a href="recognition_reference.html#free_gallery" title="ppr_free_gallery">ppr_free_gallery</a></code> when they are no longer needed.
+	Similarity matrices must be freed using
+	<code class="function"><a href="recognition_reference.html#free_similarity_matrix" title="ppr_free_similarity_matrix">ppr_free_similarity_matrix</a></code>.
+        Lists returned from comparison functions must be freed using
+	<code class="function"><a href="recognition_reference.html#free_template_id_list" title="ppr_free_template_id_list">ppr_free_template_id_list</a></code>,
+	<code class="function"><a href="recognition_reference.html#free_index_list" title="ppr_free_index_list">ppr_free_index_list</a></code>, and
+	<code class="function"><a href="recognition_reference.html#free_score_list" title="ppr_free_score_list">ppr_free_score_list</a></code>, as appropriate.
+      </p>
+</li>
+<li>
+<span><strong class="command">Release</strong></span> the context
+      <p>
+	Call <code class="function"><a href="detection_reference.html#release_context" title="ppr_release_context">ppr_release_context</a></code> to inform the SDK that the
+	previously allocated context is no longer required.  Each context must be released to avoid memory leaks.
+      </p>
+</li>
+<li>
+<span><strong class="command">Finalize</strong></span> the SDK
+      <p>
+	Call <code class="function"><a href="detection_reference.html#finalize_sdk" title="ppr_finalize_sdk">ppr_finalize_sdk</a></code> to inform the SDK that it is no
+	longer needed. This function releases the SDK's internally managed memory buffers. It must be called before
+	exiting the program.
+      </p>
+</li>
+</ol></div>
+<p>
+    Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+  </p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="recognition_example_programs"></a>5. Example Applications</h2></div></div></div>
+<p>
+  The following applications are included to demonstrate usage of the recognition portion of the FTR-SDK and to
+  provide an easy way to evaluate the SDK.  A build script is provided to build all example applications.  The
+  applications can be passed a <span class="parameter">-help</span> flag to get usage information.
+</p>
+<div class="variablelist"><dl>
+<dt><span class="term"><code class="filename">recognition-create_gallery</code></span></dt>
+<dd><p>
+        This application reads a list of images, detects all of the faces in all of the images, and creates a template
+	for each face that meets the criteria for recognition.  All templates are added to a gallery.  The gallery is
+	then written to disk.
+      </p></dd>
+<dt><span class="term"><code class="filename">recognition-create_subject_gallery</code></span></dt>
+<dd>
+<p>
+	This application takes input in the form of a directory which contains one or more subdirectories that each
+	represent a single subject.  Each subdirectory must have one or more single-frontal-face images of the
+	corresponding subject.
+      </p>
+<p>
+	A gallery and a subject list are created from the input.  The gallery and subject list are then written to disk
+	as a known-subject gallery.  The known-subject gallery can be read from disk and compared to other galleries to
+	identify people.
+      </p>
+</dd>
+<dt><span class="term"><code class="filename">recognition-compare_gallery_templates</code></span></dt>
+<dd>
+<p>
+	This application reads a target gallery and a query gallery from disk and does a gallery-to-gallery comparison.
+	The result of comparing the two galleries is a similarity matrix that shows how well each template in the
+	target gallery matches each template in the query gallery.
+      </p>
+<p>
+	A directory is created for each template in the query gallery.  The directory contains a thumbnail for the
+	query template.  It also contains a subdirectory of thumbnails from the target templates that best match the
+	query template.
+      </p>
+</dd>
+<dt><span class="term"><code class="filename">recognition-compare_gallery_subjects</code></span></dt>
+<dd>
+<p>
+	This application compares a query gallery to a known subject gallery and determines which subjects in the known
+	subject gallery best match each subject in the query gallery.
+      </p>
+<p>
+	A directory is created for each subject in the query gallery.  The directory contains a thumbnail for each
+	template in the query subject.  It also contains a subdirectory of target subjects that best match the query
+	subject.  Each target subject is its own directory, consisting of thumbnails for each template in that target
+	subject.
+      </p>
+</dd>
+<dt><span class="term"><code class="filename">recognition-rank_matching_faces</code></span></dt>
+<dd>
+<p>
+        This application reads a list of images of single faces and compares all of the images to each other.  For each
+	image it ranks all of the other images according to how well they match the image in question.
+      </p>
+<p>
+        If more than one face is found in an image, the SDK determines which face is the most suitable for face
+	recognition.
+      </p>
+</dd>
+<dt><span class="term"><code class="filename">recognition-match_query_to_reference</code></span></dt>
+<dd>
+<p>
+        This is an example of using recognition to match faces between images. All frontal faces in the query image(s)
+	are compared to all frontal faces in the reference image to determine their similarity.  Scores are reported
+	for each pair of faces.
+      </p>
+<p>
+        Output images are written with boxes showing the location of the faces that were found in each image.  If a
+	face in a query image matches a face in the reference image, then their boxes will be the same color.  Faces in
+	the query image(s) that do not match any of the faces in the reference image or do not meet the criteria for
+	recognition are boxed with a dotted line.  Faces in the reference image that do not meet the criteria for
+	recognition are also boxed with a dotted line.
+      </p>
+</dd>
+<dt><span class="term"><code class="filename">recognition-across_tracks</code></span></dt>
+<dd>
+<p>
+	This application uses the tracker to process a video sequence.  It then selects faces from each track such that
+	they are spaced out over the entire track.  It produces templates from those faces and chooses a select few
+	templates to represent each track.  Finally, all resulting templates are clustered to determine which tracks
+	belong to the same subject.
+      </p>
+<p>
+	If a known-subject gallery is provided, the final gallery is matched against it to assign names to subjects.
+	Use recognition-create_subject_gallery to create a known-subject gallery.
+      </p>
+<p>
+	An output video is created with boxes around the tracked faces.  Track ID information is displayed below each
+	box along with the subject's name if it was matched to a subject in the known-subject gallery.
+      </p>
+</dd>
+</dl></div>
+<p>
+  Back to <a href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">top</a>.
+</p>
+</div>
+</div>
+<hr>
+<p class="copyright">© 2004-2010 Pittsburgh Pattern Recognition, Inc.</p>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="tracking_users_guide.html">Prev</a> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right"> <a accesskey="n" href="clustering_users_guide.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Chapter 2. FTR-SDK: Tracking User's Guide </td>
+<td width="20%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="40%" align="right" valign="top"> Chapter 4. FTR-SDK: Clustering User's Guide</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

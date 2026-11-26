@@ -1,0 +1,674 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>PittPatt FTR-SDK v4.1 Documentation</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="next" href="doc_data/detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">
+<style type="text/css">
+      /* Document Structure */
+
+div.book, div.chapter, div.article, div.sect1 {
+    width: auto;
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+div.sect1, div.toc {
+    margin-left: 10px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+div.sect2 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect2 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+div.sect3 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect3 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+
+/* Type Conventions (e.g. parameter vs. structelement) */
+
+.type, .function, .symbol, .structfield, .parameter, .structname {
+    font-family: courier, monospace;
+    font-size: 10pt;
+}
+
+.type, .function {
+    font-weight: bold;
+}
+
+/* Table of Contents */
+
+div.toc {
+  background-color: #DDDDDD;
+  padding: 0.5em 20px;
+  margin: 0em auto;
+}
+
+div.toc dl {
+  margin-left: 10px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dt {
+  line-height: 1.1em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 30px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+
+/* Function Formatting */
+
+.programlisting, .funcsynopsis table {
+    background-color: #DDDDDD;
+    font-family: courier, monospace;
+    font-size: 10pt;
+    padding: 8px 10px;
+}
+
+.funcsynopsis table td {
+    vertical-align: bottom;
+    white-space: normal;
+}
+
+.funcsynopsis + .variablelist dt {
+    font-weight: bold;
+    font-size: 11pt;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+.funcsynopsis + .variablelist dd {
+    margin-left: 20px;
+}
+
+.funcsynopsis + .variablelist dd p {
+    margin: 0.25em 0px;
+}
+
+/* Compilation Examples */
+
+div.variablelist {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+div.variablelist .term {
+    margin-left: 15px;
+}
+
+div.variablelist .programlisting {
+    margin-bottom: 2em;
+}
+
+
+/* Callout Boxes (e.g. note/warning) */
+
+div.warning {
+    background-color: #FFDDDD;
+}
+
+div.note {
+    background-color: #FFFFCC;
+}
+
+div.warning, div.note {
+    margin-top: 1.0em;
+    margin-bottom: 2.0em;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+div.warning h3, div.note h3 {
+    margin: 0.25em 0px;
+}
+
+div.warning p, div.note p {
+    margin: 0.25em 10px;
+}
+
+/* Image */
+
+div.mediaobject {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+div.caption {
+    font-weight: bold;
+}
+
+
+/* Table Layout */
+
+div.table {
+    margin: 1em auto;
+    padding: 1em;
+    border: 1px solid;
+    width: auto;
+}
+
+div.table p {
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+div.table table {
+    border-spacing: 0px 0px;
+    border-collapse: collapse;
+    margin: 0em auto;
+}
+
+div.table table th {
+    margin: 0px;
+    padding: 3px 15px;
+    font-size: small;
+    text-align: center;
+    border-bottom: medium solid;
+}
+
+div.table table td {
+    margin: 0px;
+    padding: 3px 15px;
+    text-align: center;
+    border-top: thin dotted;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover {
+    color: blue;
+}
+
+/* Copyright Formatting */
+
+p.copyright {
+    margin-top: 3px;
+    text-align: right;
+    font-size: x-small;
+}
+    </style>
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">PittPatt FTR-SDK v4.1 Documentation</th></tr>
+<tr>
+<td width="20%" align="left"> </td>
+<td width="60%" align="center"> </td>
+<td width="20%" align="right"> <a accesskey="n" href="doc_data/detection_users_guide.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="book" lang="en">
+<div class="titlepage">
+<div><div><h1 class="title">
+<a name="ftr_sdk"></a>PittPatt FTR-SDK v4.1 Documentation</h1></div></div>
+<hr>
+</div>
+<p>
+  The Face Tracking and Recognition Software Development Kit (FTR-SDK) from Pittsburgh Pattern Recognition (PittPatt) provides tools to search images for faces, track faces 
+  in video sequences,  pinpoint constituent landmarks in
+  faces<span>, and determine if faces are the same person</span> using a straightforward 
+  C-language interface.
+</p>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="home_documentation"></a>1. Documentation</h2></div></div></div>
+<p>
+  The FTR-SDK documentation starts with user's guides that discuss important concepts and explain how to use the
+  FTR-SDK:
+  </p>
+<div class="itemizedlist"><ul type="disc">
+<li><a href="doc_data/detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">Detection User's Guide</a></li>
+<li><a href="doc_data/tracking_users_guide.html" title="Chapter 2. FTR-SDK: Tracking User's Guide">Tracking User's Guide</a></li>
+<li><a href="doc_data/recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">Recognition User's Guide</a></li>
+<li><a href="doc_data/clustering_users_guide.html" title="Chapter 4. FTR-SDK: Clustering User's Guide">Clustering User's Guide</a></li>
+</ul></div>
+<p>
+</p>
+<p>
+  Documentation is also included for supplemental libraries that accompany the FTR-SDK:
+  </p>
+<div class="itemizedlist"><ul type="disc">
+<li><a href="doc_data/raw_image_library.html" title="Chapter 5. PittPatt Raw Image Library Documentation">PittPatt Raw Image Library</a></li>
+<li><a href="doc_data/raw_image_io_library.html" title="Chapter 6. PittPatt Raw Image I/O Library Documentation">PittPatt Raw Image I/O Library</a></li>
+<li><a href="doc_data/video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">PittPatt Video I/O Library</a></li>
+</ul></div>
+<p>
+</p>
+<p>
+  An additional guide is provided to help tune applications with respect to processing speed, memory usage, and
+  accuracy:
+  </p>
+<div class="itemizedlist"><ul type="disc"><li><a href="doc_data/tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">Tuning Guide</a></li></ul></div>
+<p>
+</p>
+<p>
+  Users of earlier versions of the FTR-SDK should follow the steps outlined in the Migration Guide to bring 
+  their code up to date with this version of the SDK:
+  </p>
+<div class="itemizedlist"><ul type="disc"><li><a href="doc_data/migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">Migration Guide</a></li></ul></div>
+<p>
+</p>
+<p>
+  The following references provide detailed descriptions of the constants, types, and functions in the FTR-SDK:
+  </p>
+<div class="itemizedlist"><ul type="disc">
+<li><a href="doc_data/detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">Detection Reference</a></li>
+<li><a href="doc_data/tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">Tracking Reference</a></li>
+<li><a href="doc_data/recognition_reference.html" title="Chapter 12. FTR-SDK: Recognition Reference">Recognition Reference</a></li>
+<li><a href="doc_data/clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">Clustering Reference</a></li>
+</ul></div>
+<p>
+</p>
+<p>
+  The indexes span the FTR-SDK and all supplemental libraries:
+  </p>
+<div class="itemizedlist"><ul type="disc">
+<li><a href="doc_data/indexes.html#constants_index" title="Constants Index">Constants Index</a></li>
+<li><a href="doc_data/indexes.html#types_index" title="Types Index">Types Index</a></li>
+<li><a href="doc_data/indexes.html#functions_index" title="Functions Index">Functions Index</a></li>
+</ul></div>
+<p>
+</p>
+<p>
+  Back to <a href="ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">top</a>.
+</p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="home_include"></a>2. What's Included</h2></div></div></div>
+<p>
+  In addition to the face 
+  <span>detection, tracking, and recognition</span> library, the FTR-SDK includes various
+  other components that expedite the evaluation and/or integration of our software into your custom application:
+</p>
+<p>
+  </p>
+<div class="itemizedlist"><ul type="disc">
+<li>
+<a href="doc_data/raw_image_io_library.html" title="Chapter 6. PittPatt Raw Image I/O Library Documentation">PittPatt Raw Image I/O Library</a><div class="itemizedlist"><ul type="opencircle"><li style="list-style-type: circle">
+          Reads and writes multiple image formats, including
+          <span class="parameter">JPEG</span>,
+          <span class="parameter">GIF</span>,
+          <span class="parameter">BMP</span>,
+          <span class="parameter">PNG</span>,
+          <span class="parameter">PPM</span>, and
+          <span class="parameter">PGM</span>.
+        </li></ul></div>
+</li>
+<li>
+<a href="doc_data/video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">PittPatt Video I/O Library</a><div class="itemizedlist"><ul type="opencircle">
+<li style="list-style-type: circle">
+         Extracts video frames from multiple video formats, including
+         MPEG-1/MPEG-2 (.mpg), MPEG-4 (.mp4), and Flash Video (.flv).
+       </li>
+<li style="list-style-type: circle">
+         Encodes video frames in multiple video formats, including
+	 MPEG-4 (.mp4) and WMV2 (.avi).
+       </li>
+</ul></div>
+</li>
+<li>
+      SDK Utilities
+      <div class="itemizedlist"><ul type="opencircle"><li style="list-style-type: circle">
+          A set of open-source helper functions included to facilitate prototyping with the SDK.  The functions
+          include printing and overlaying results, among other things.  
+        </li></ul></div>
+</li>
+<li>
+      Example <a href="ftr_sdk.html#applications" title="Applications">applications</a> and <a href="ftr_sdk.html#tools" title="Tools">tools</a> and
+      corresponding build scripts
+      <div class="itemizedlist"><ul type="opencircle"><li style="list-style-type: circle">
+          Shows SDK usage for common use cases and provides an easy way to evaluate the SDK.
+        </li></ul></div>
+</li>
+<li>
+      Microsoft Visual Studio project files (Visual Studio 2008, Visual Studio 2005, and Visual Studio .net)
+      <div class="itemizedlist"><ul type="opencircle"><li style="list-style-type: circle">
+          Provided for Windows users for all of the example applications.
+        </li></ul></div>
+</li>
+<li>
+<a href="ftr_sdk.html#home_sample_data" title="6. Sample Data">Sample data</a><div class="itemizedlist"><ul type="opencircle"><li style="list-style-type: circle">
+          To use with the example programs and for testing purposes.
+        </li></ul></div>
+</li>
+<li>
+      Documentation for the SDK and supplemental libraries
+      <div class="itemizedlist"><ul type="opencircle"><li style="list-style-type: circle">
+          Includes guides for <a href="doc_data/migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">migrating</a> and
+	  <a href="doc_data/tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">tuning</a> code.
+        </li></ul></div>
+</li>
+</ul></div>
+<p>
+</p>
+<p>
+  Back to <a href="ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">top</a>.
+</p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="home_whats_new"></a>3. What's New</h2></div></div></div>
+<p>
+  We have added new features to enhance applications that
+  <span>detect, track, and identify</span>
+  faces in videos or photo collections. These new features will make your applications more accurate, more efficient,
+  and easier to code.
+</p>
+<p>
+  Version 4.1 is a maintenance release that includes the following improvements:
+  </p>
+<div class="itemizedlist"><ul type="disc">
+<li><p>
+        Reduced latent memory usage on Windows
+      </p></li>
+<li><p>
+        Added long path support on Windows
+      </p></li>
+<li><p>
+        Initialization no longer changes the working directory
+      </p></li>
+<li><p>
+        Added applications that illustrate how to create and compare known subject galleries
+      </p></li>
+<li><p>
+        Added a known subject gallery as an optional parameter to the <span class="parameter">recognition-across_tracks</span>
+	application.  It overlays names for tracks that match subjects in the known subject gallery, if specified.
+      </p></li>
+<li><p>
+	Added more videos and single-face images
+      </p></li>
+<li><p>
+	Minor bug fixes
+      </p></li>
+</ul></div>
+<p>
+</p>
+<p>
+  New features in 4.0 include:
+
+  </p>
+<div class="itemizedlist"><ul type="disc">
+<li><p>
+        Improved the speed of
+        
+        <span>detection, frontal landmark detection, template extraction, template comparisons, 
+        and clustering</span>
+      </p></li>
+<li><p>
+        Reduced the memory requirements for single-threaded detection calls
+	<span>and clustering</span>
+      </p></li>
+<li><p>Reduced the size of templates</p></li>
+<li><p>
+        Added multi-gallery clustering, a two-stage clustering approach that greatly reduces the number of 
+        comparisons that must be performed
+      </p></li>
+<li><p>Added ability to set the min and max object sizes to search as a proportion of the image width</p></li>
+<li><p>Added functions to read and write objects and tracks to disk</p></li>
+<li><p>Added a number of robust and powerful sample applications</p></li>
+<li><p>Added a large set of simple, yet powerful tools</p></li>
+<li><p>Added ability to encode videos</p></li>
+<li><p>Added SDK utilities to draw text overlays on images and videos</p></li>
+<li><p>Added SDK utilities to time execution speed</p></li>
+</ul></div>
+<p>
+</p>
+<p>
+  For a complete version history, see <a href="doc_data/version_history.html" title="Chapter 14. FTR-SDK: Version History">FTR-SDK Version History</a>.
+</p>
+<p>
+  Back to <a href="ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">top</a>.
+</p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="home_license"></a>4. License</h2></div></div></div>
+<p>
+  A license ID and a license key are required to use the FTR-SDK.  The ID and key are provided as constants 
+  in a header file named <code class="filename">pittpatt_license.h</code>.  The constants are named 
+  <span class="parameter">my_license_id</span> and <span class="parameter">my_license_key</span>,
+  respectively.  The license ID and key need to be passed to the SDK via the
+  <code class="function"><a href="doc_data/detection_reference.html#set_license" title="ppr_set_license">ppr_set_license</a></code> function.
+</p>
+<p>
+  Back to <a href="ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">top</a>.
+</p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="home_compiling"></a>5. Compiling</h2></div></div></div>
+<p>
+  Projects that make use of the FTR-SDK must be compiled against the FTR-SDK library. If using
+  <code class="filename">sdk_utils.c</code>, the
+  <a href="doc_data/raw_image_io_library.html" title="Chapter 6. PittPatt Raw Image I/O Library Documentation">PittPatt Raw Image I/O Library</a>,
+  <a href="doc_data/video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">PittPatt Video I/O Library</a>, and
+  <a href="doc_data/raw_image_library.html" title="Chapter 5. PittPatt Raw Image Library Documentation">PittPatt Raw Image Library</a>
+  libraries must also be linked because they are needed by some SDK utility functions.
+</p>
+<p>
+  Mac OS X users will need to set their <span class="parameter">DYLD_LIBRARY_PATH</span> environment variable to include the
+  location of the <code class="filename">lib</code> directory, which contains the dynamic libraries needed to run programs built
+  using the SDK.
+</p>
+<p>
+  The commands below show how to compile and link the 
+  
+  <span><code class="filename">recognition-rank_matching_faces</code></span>
+  example in Linux and Windows.  The compilation examples below assume that the commands
+  will be executed in the <code class="filename">applications</code> directory.
+</p>
+<div class="variablelist"><dl>
+<dt><span class="term">GNU C Compiler (<span><strong class="command">gcc</strong></span>) in Linux</span></dt>
+<dd><pre class="programlisting">
+        % gcc ../source/applications/recognition-rank_matching_faces/recognition-rank_matching_faces.c \
+	../source/applications/recognition-rank_matching_faces/parse_command_line.c \
+	../source/utilities/sdk_utils.c ../source/utilities/sdk_draw_utils.c \
+	../source/utilities/sdk_cmd_line_utils.c ../source/utilities/sdk_profile_timers.c \
+	-I../include -I../source/utilities -L../lib -lpittpatt_ftr_sdk -lpittpatt_raw_image_io -lpittpatt_video_io \
+	-lpittpatt_raw_image -Wl,-rpath,../lib -o recognition-rank_matching_faces
+      </pre></dd>
+<dt><span class="term">GNU C Compiler (<span><strong class="command">gcc</strong></span>) in Windows</span></dt>
+<dd><pre class="programlisting">
+	% gcc ../source/applications/recognition-rank_matching_faces/recognition-rank_matching_faces.c \
+	../source/applications/recognition-rank_matching_faces/parse_command_line.c \
+	../source/utilities/sdk_utils.c ../source/utilities/sdk_draw_utils.c \
+	../source/utilities/sdk_cmd_line_utils.c ../source/utilities/sdk_profile_timers.c \
+	-I../include -I../source/utilities -L../lib -lpittpatt_ftr_sdk -lpittpatt_raw_image_io -lpittpatt_video_io \
+	-lpittpatt_raw_image -o recognition-rank_matching_faces
+     </pre></dd>
+<dt><span class="term">Microsoft C Compiler (<span><strong class="command">cl</strong></span>) in Windows</span></dt>
+<dd><pre class="programlisting">
+        % cl ..\source\applications\recognition-rank_matching_faces\recognition-rank_matching_faces.c ^
+	..\source\applications\recognition-rank_matching_faces\parse_command_line.c ^
+	..\source\utilities\sdk_utils.c ..\source\utilities\sdk_draw_utils.c ^
+	..\source\utilities\sdk_cmd_line_utils.c ..\source\utilities\sdk_profile_timers.c ^
+	-I..\include -I..\source\utilities ..\lib\pittpatt_ftr_sdk.lib ..\lib\pittpatt_raw_image_io.lib ^
+	..\lib\pittpatt_video_io.lib ..\lib\pittpatt_raw_image.lib
+      </pre></dd>
+</dl></div>
+<p>
+  The <code class="filename">applications</code> directory contains a build script that compiles and links all of the example 
+  programs.  In addition to the build script, Windows projects are provided for Microsoft Visual Studio 2008, 
+  Microsoft Visual Studio 2005, and Microsoft Visual Studio .net.
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+  The support code in <code class="filename">sdk_utils.c</code>, <code class="filename">sdk_draw_utils.c</code>,
+  <code class="filename">sdk_cmd_line_utils.c</code>, and <code class="filename">sdk_profile_timers.c</code> is provided for use with the
+  example programs.  The support code is not part of the SDK and it is not recommended for use in production code.
+</div>
+<p>
+  Back to <a href="ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">top</a>.
+</p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="home_sample_data"></a>6. Sample Data</h2></div></div></div>
+<p>
+  Sample data is provided as a way to quickly get started using the example programs and to test user applications.
+  Data is provided for 
+  <span>detection, tracking, and recognition</span>.
+  The sample data is organized as follows:
+</p>
+<div class="mediaobject" align="center">
+<img src="doc_data/images/sdk_sample_data_directory.jpg" align="middle"><div class="caption" align="center"><p>Sample Data Directory Structure</p></div>
+</div>
+<p>
+  The <code class="filename">image_sequence</code> directory contains a sequence of 600 frames that can be used with
+  the tracking examples. The <code class="filename">videos</code> directory contains several video files
+  that can also be used as input to the tracking examples.
+</p>
+<p>
+  The <code class="filename">still_images</code> directory contains 240 still images, each containing one or more faces 
+  for a total of over 350 faces.  Most of the faces are frontal, but some profile views are included as well.  
+  The <code class="filename">single_faces</code> directory contains images with one frontal face per image.  All of the 
+  still images and single faces are useful for running detection experiments.
+</p>
+<p>
+  The <code class="filename">applications</code> directory has a subdirectory named <code class="filename">image_lists</code>.  Several
+  image lists are provided as an easy way to specify subsets of the sample data.  There is an image list for the
+  image sequence mentioned above, and there are also image lists for the data in the <code class="filename">still_images</code>
+  and <code class="filename">single_faces</code> directories.
+</p>
+<p>
+  The image lists use relative paths, so without modification they
+  will only work if executables are run in the <code class="filename">applications</code> directory.  For Visual Studio users,
+  the <code class="filename">visual_studio</code> directory (in the <code class="filename">applications</code> directory) also contains
+  an <code class="filename">image_lists</code> directory with paths that are set appropriately for running applications from
+  Visual Studio.
+</p>
+<p>
+  The image lists are organized in a way that is useful for running recognition experiments.  The still images are 
+  divided into subsets.  The still image subsets are labeled A, B, C, and D.  The subsets are grouped according to the 
+  people that appear in the images.  Many of the same people appear throughout the images within a subset.  The 
+  subsets are each broken down into two smaller sets.  Having the images organized in this manner provides a great 
+  way of experimenting with recognition.  If a gallery is created for each of the eight image lists, there will be a 
+  lot of overlap between subjects when comparing the two image lists within a subset, but little overlap when 
+  comparing image lists between two subsets.
+</p>
+<p>
+  The single face lists are also organized with recognition in mind.  Image lists are provided for all of the single 
+  face image, as well as only the male subjects and only the female subjects.  There are 18 different subjects in the 
+  set, and six additional image lists are provided, each containing 3 different subjects.  This is useful for running 
+  smaller recognition experiments.
+</p>
+<p>
+  Back to <a href="ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">top</a>.
+</p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="home_example_programs"></a>7. Example Programs</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="applications"></a>Applications</h3></div></div></div>
+<p>
+   A set of robust applications are provided not only to serve as example source code, but also to provide a way to
+   easily evaluate the FTR-SDK.  The applications provide a full set of command-line options to control input
+   parameters and ways of visualizing results.
+ </p>
+<p>
+   The example applications are described in their corresponding User's Guides:
+   </p>
+<div class="itemizedlist"><ul type="disc">
+<li><a href="doc_data/detection_users_guide.html#detection_example_programs" title="5. Example Applications">Detection Example Applications</a></li>
+<li><a href="doc_data/tracking_users_guide.html#tracking_example_programs" title="5. Example Applications">Tracking Example Applications</a></li>
+<li><a href="doc_data/recognition_users_guide.html#recognition_example_programs" title="5. Example Applications">Recognition Example Applications</a></li>
+<li><a href="doc_data/clustering_users_guide.html#clustering_example_programs" title="5. Example Applications">Clustering Example Applications</a></li>
+</ul></div>
+<p>
+ </p>
+<p>
+   Back to <a href="ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">top</a>.
+ </p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="tools"></a>Tools</h3></div></div></div>
+<p>
+   A set of tools are included for working with files that have been written from the FTR-SDK and to perform other
+   simple tasks from the command line.  Source code is provided for all of the tools, so they also serve as simple
+   examples of SDK usage.
+ </p>
+<p>
+   Back to <a href="ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">top</a>.
+ </p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="home_support"></a>8. Support</h2></div></div></div>
+<p>
+  For PittPatt FTR-SDK support please email <code class="email">&lt;<a href="mailto:support@pittpatt.com">support@pittpatt.com</a>&gt;</code>.
+</p>
+<p>
+  Back to <a href="ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">top</a>.
+</p>
+</div>
+</div>
+<hr>
+<p class="copyright">© 2004-2010 Pittsburgh Pattern Recognition, Inc.</p>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left"> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right"> <a accesskey="n" href="doc_data/detection_users_guide.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top"> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right" valign="top"> Chapter 1. FTR-SDK: Detection User's Guide</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

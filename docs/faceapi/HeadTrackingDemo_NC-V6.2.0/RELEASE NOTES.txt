@@ -1,0 +1,391 @@
+--------------------------------------------------------------------------------
+HeadTrackingDemo Version 6.2.0 - April 2010
+Copyright (C) 2010 Seeing Machines Limited
+--------------------------------------------------------------------------------
+
+This program demonstrates many of the features available in the faceAPI.
+
+For further information on the faceAPI, please see http://www.faceapi.com or 
+contact Seeing Machines at mailto:bizdev@seeingmachines.com.
+
+NOTE: This is a demo. The performance of this software is not warranted. 
+It does not come with any technical support.
+
+Non-Commercial variant restrictions: Tracking from files and PtGrey cameras, 
+and recording capabilities are disabled.
+
+--------------------------------------------------------------------------------
+System Requirements
+--------------------------------------------------------------------------------
+* CPU supporting SSE2 or greater.
+
+* Minimum CPU: Intel Core2-Duo.
+
+* Windows XP operating system SP2 or higher.
+
+* WDM compatible camera (DirectShow driver).
+
+--------------------------------------------------------------------------------
+Changes V6.2.0
+--------------------------------------------------------------------------------
+
+* The nature of the face-texture generation process has been changed so that 
+  face textures are now produced per-frame when the head is within pose limits. 
+  Previously a texture would only be generated for the first frame of tracking. 
+  Now textures are produced whenever the face is tracking and the head is 
+  oriented toward the camera within 10 degrees left/right, and +30 deg tilted up 
+  or -15 titled down, from the camera axis.
+
+* Updated included PointGrey Driver to 1.8.3.23, certified for Windows-7 64-bit.
+
+* Updated included HASP Driver to 5.86, compatible with Windows-7.
+
+--------------------------------------------------------------------------------
+Known Issues
+--------------------------------------------------------------------------------
+
+* Development License: HASP HL driver issue - on computers with NVIDIA nForce4 
+  chipsets and Vista 64-bit, the driver may not be loaded.
+  The workaround is to connect the HASP dongle via a USB hub. 
+
+* Development License: Installer issue on Windows Vista 64, the HASP
+  pre-requistite is not skipped if HASP drivers are already installed, this
+  has no adverse effect other than slowing the installation.
+
+* Does not run on Intel Atom and some newer Intel CPU types.
+  This is due to problems with Intel IPP version 5.X and will be fixed upon 
+  upgrade to IPP 6.X upon next major release.
+
+* Development License: Requires WorldView 2.2 to visualize output data. 
+  WorldView 2.1 will crash.
+
+* Some webcams show black images and cause the tracker to stop responding at 
+  640x480 @ 30 Hz framerates. This appears to be due to bandwidth limitations of 
+  USB and is often because a second device is connected to the same USB hub or 
+  chipset.
+
+  The first thing to try is to disconnect all other USB devices on the same root 
+  hub.
+  
+  Using the system device manager, on the view menu select "Devices by 
+  connection". Expand the device tree until you find the webcam you are using. 
+  Check it is the only device connected to the USB root hub.
+
+  The second thing to try is disabling the Bandwidth Limitation Filter checkbox 
+  on the camera driver control panel under the Device Manager (however please be 
+  aware that this option is automatically re-enabled whenever the camera is 
+  reconnected to the USB port). 
+
+  The final solution is to reduce the image resolution or framerate of the 
+  camera (e.g. using the camera configuration dialog that is shown when the 
+  HeadTrackingDemo is launched) 320x240 @30Hz will work in most cases. 
+
+  Logitech Quickcam Pro for Notebooks has been tested and seems quite reliable, 
+  however the Quickcam Deluxe and Orbit cameras sometimes exhibit this issue.
+
+--------------------------------------------------------------------------------
+Support
+--------------------------------------------------------------------------------
+
+This demo does not come with any support. 
+
+If you have a faceAPI development license refer to the faceAPI support information.
+
+--------------------------------------------------------------------------------
+Contacting Us
+--------------------------------------------------------------------------------
+Seeing Machines Ltd.
+Level 1, 11 Lonsdale St, Braddon ACT 2612 Australia
+GPO Box 782, Canberra ACT 2601 Australia
+Ph: +61 2 6103 4700
+mailto:info@seeingmachines.com
+
+--------------------------------------------------------------------------------
+Previous Releases
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Changes V6.1.6
+--------------------------------------------------------------------------------
+
+* Fixed bug preventing loading movie files with capitalized file extensions 
+  (e.g. .AVI)
+
+--------------------------------------------------------------------------------
+Changes V6.1.5
+--------------------------------------------------------------------------------
+
+* Reduced memory bandwidth when working with I420 image types. I420 is the most 
+  efficient color format for faceAPI.
+
+* Refactor of camera exposure control logic, particularly for PointGrey cameras.
+
+* Set default exposure-mode for PointGrey cameras to be Indoor Flickerless 50Hz. 
+
+* Fixed issue causing slowdown and crashes when lens-parameters are used that 
+  have radial distortion coefficients. faceAPI V3 engines now ignore any radial 
+  distortion coefficients. This has been fixed in the trunk and faceAPI V4 
+  engines will operate with radial distortion correctly.
+
+--------------------------------------------------------------------------------
+Changes V6.1.4
+--------------------------------------------------------------------------------
+
+* Fixed memory handling bug when using color images from PointGrey cameras.
+
+--------------------------------------------------------------------------------
+Changes V6.1.3
+--------------------------------------------------------------------------------
+
+* Fixed BSOD reportedly occuring with some webcams. This bug was a result of 
+  memory bandwith performance optimizations made in version 6.1.1.
+
+--------------------------------------------------------------------------------
+Changes V6.1.2
+--------------------------------------------------------------------------------
+
+* Fixed a DirectShow bug occuring with some video-files and webcams
+  where images are appearing corrupted or flipped.
+
+--------------------------------------------------------------------------------
+Changes V6.1.1
+--------------------------------------------------------------------------------
+
+This update improves usability with PointGrey cameras and fixes some 
+performance and stability issues.
+
+* Improved compatibility with different PointGrey camera models (including 
+  those with color sensors).
+
+* Camera controls button now shows the PointGrey GUI as seen in FlyCap.
+
+* Reduced memory bandwidth of head-tracking real-time loop, improving overall
+  performance of all engines.
+
+* Fixed bug with video-recording mechanism where remaining images in memory were 
+  being discarded instead of written to disk, truncating the video file.
+
+* Changed raw recording mechanism to create windows .WMV files instead of .MOV
+  
+* Fixed crash bug occuring when changing cameras.
+
+* Removed 21MB of binary data from Resources sub-folder.
+
+--------------------------------------------------------------------------------
+Changes V6.1.0
+--------------------------------------------------------------------------------
+
+* Tracking engines now compute tracking ranges based on image resolution
+  and lens field-of-view settings. A side effect is that switching cameras 
+  will change the default tracking ranges. The benefit is that (1) engines
+  can be run on higher resolution images or with large focal-length lenses
+  with much larger tracking ranges, and (2) initial range settings are 
+  guaranteed to be sensible (provided the lens parameters passed to the 
+  engine are correct).
+
+* Changed video recording functions to use WMV Advanced Profile, WMV9, WMV8 
+  codecs, if available in that order.
+  This fixed a bug where compressed videos could not be made on Vista.
+  Video files produced now have .wmv file extension.
+
+* Upgraded IPP from 5.3.3 to 5.3.4 fixing an issue with incorrect
+  processor-specific DLL dispatching, which was causing unsupported 
+  instruction crashes on some newer Intel processors.
+
+* Development License: added PtGrey FlyCapture 1.8b8 driver files to 
+  installation. PLEASE NOTE: only supports the following monochrome models 
+  on 32-bit versions of Windows XP or Vista:
+  - Flea
+  - Flea2
+  - FireflyMV (USB or Firewire)
+  To install the drivers connect the camera and then browse to this
+  folder (typically C:\Program Files\SeeingMachines\FaceTrackingAPI 3.1\Drivers\PointGrey)  
+
+* Development License: upgraded Alladin HASP SRM to version 3.60 to fix HASP
+  installer failures under Vista 64-bit.
+
+* Development License: license summary shown on the window caption,
+  including any time-trial expiry date.
+
+* Fixed thread shutdown issue in tracking engines related to 
+  the face acquisition (or "autoinit") process. This would exhibit as
+  the tracker never finding the face.
+  
+* Fixed crash on startup occuring when no cameras are connected.
+
+--------------------------------------------------------------------------------
+V6.0.2
+--------------------------------------------------------------------------------
+
+* Improvment to eyebrow tracking stability.
+
+* Fixed crash occuring on engine shutdown due to static variable co-dependency.
+
+* Fixed crash occuring when changing from a Quicktime movie (.mov) to a 
+  DirectShow media (.avi etc) movie.
+
+* Fixed playback of DirectShow media files (.avi etc) so they automatically 
+  rewind and repeat. This is consistent with the playback behaviour of 
+  Quicktime movies.
+
+* Minor GUI enhancements for fullscreen display handling and keyboard shortcuts.
+
+--------------------------------------------------------------------------------
+V6.0.1
+--------------------------------------------------------------------------------
+
+* Added tracking of lips and eyebrows.
+
+* Orthographic frontal face-texture generated on first tracking frame.
+
+* Smoother head-tracking using new pose-minimization technique.
+
+* Head-pose prediction technique updated to account for latency variations in 
+  the processing.
+
+* Added ability to load and track movie files (FileCamera).
+
+* Tracking now flexible to input image resolution and format.
+
+* Many bug-fixes with respect to use of the DirectShow API and improvements to 
+  flexibility with different camera and video-file types.
+
+* Deep optimization of tracking engine architecture and core image processing
+  algorithms greatly improving CPU utilization.
+
+* Added ability to record compressed videos from the display and raw video 
+  from the camera.
+
+--------------------------------------------------------------------------------
+V5.1.3
+--------------------------------------------------------------------------------
+
+* Improved tracking performance at low framerates (15Hz)
+
+* Improved video rendering performance issue mainly occuring when video is 
+  fullscreen.
+
+* Removed all DLL dependencies on relative paths for accessing resource files.
+
+* Tested with latest Logitech camera drivers (qc1150.exe)
+
+* Fixed crash bug sometimes occuring on startup when default Microsoft USB 
+  camera driver is being used.
+
+* Fixed occasional crash bug due to race-condition on thread startup.
+
+* Known issue: sometimes third-party software unregisters DirectShow default 
+  filters. The API depends on the SampleGrabber filter. When this is missing 
+  an error occurs when creating the tracking engine.
+  The fix is to re-register qedit.dll as follows:
+	> regsvr32 /u %SystemRoot%\system32\qedit.dll
+	> regsvr32 %SystemRoot%\system32\qedit.dll
+
+--------------------------------------------------------------------------------
+V5.1.2
+--------------------------------------------------------------------------------
+
+* Removed bug in HeadTrackingEngineV2 causing significant instability in 
+  head-pose solution. 
+  This improves robustness to motion and low-framerates and decreases the 
+  measurement noise.
+
+* Added capability to recover from tracking failures when not facing frontal.
+
+--------------------------------------------------------------------------------
+V5.1.1
+--------------------------------------------------------------------------------
+
+* Removed partial IPP5.1 dependency issue. Only IPP 5.2 is required.
+
+* Improved performance of fullscreen video-display. There was a bug causing 
+  multiple repaints through event buildup.
+
+* Fixed occasional deadlock that was occuring when switcing between engine 
+  versions.
+
+* Added support for PtGrey cameras.
+
+--------------------------------------------------------------------------------
+V5.1.0
+--------------------------------------------------------------------------------
+
+* Added support for windows driver-model cameras that are able to run VGA with 
+  1 of the formats: RGB24, I420, YUY2.
+
+* Tested with Apple iSight (iMac version), Logitech Quickcam Pro 5000, 
+  Creative Webcam Live Pro!
+
+* Added option to disable automatic brightness control by the tracking engine.
+
+* Known issue: deadlock sometimes occuring when repeatedly changing between 
+  engine versions.
+
+--------------------------------------------------------------------------------
+V5.0.0
+--------------------------------------------------------------------------------
+
+* Now demonstrates HeadTrackingEngineV2, that is available in FaceTrackingAPI. 
+  This head-tracker has significantly wider tracking range, and is able to 
+  measure head rotations up to 90 degrees.
+
+--------------------------------------------------------------------------------
+V4.1.5
+--------------------------------------------------------------------------------
+
+* Added head-pose prediction of 33ms to counter measurement latency due to 
+  camera exposure.
+
+* Tweaked process measurement noise in kalman filter to reduce gain on angular 
+  velocity estimates.
+
+--------------------------------------------------------------------------------
+V4.1.4
+--------------------------------------------------------------------------------
+
+* Replaced Rockey Dongle with Alladin HASP.
+
+--------------------------------------------------------------------------------
+V4.1.3
+--------------------------------------------------------------------------------
+
+* Added SM standard mutual NDA into documentation 
+
+--------------------------------------------------------------------------------
+V4.1.2
+--------------------------------------------------------------------------------
+
+* Fixed rare crash bug occuring in histogram equalization phase of auto-init.
+
+* Added missing msvcrt DLL to installer.
+
+--------------------------------------------------------------------------------
+V4.1.1
+--------------------------------------------------------------------------------
+
+* Fixed crash bug occuring sometimes after tracking initialization.
+
+--------------------------------------------------------------------------------
+V4.1.0
+--------------------------------------------------------------------------------
+
+* Face finding improved in high-contrast conditions where lighting is from one 
+  side.
+
+* Face finding improved for glasses with thick frames.
+
+* Removed bug where tracking ranges were not having any effect. Can now 
+  restrict the tracking range using the engine-controls. This allows tuning the
+  tracker so the initialization phase can be much faster if the range to the 
+  head is known (or desired) to be within certain bounds before tracking 
+  commences.
+  
+* Added control over brightness and exposure settings on the Logitech camera to 
+  automatically improve image quality and therefore tracking quality.
+
+* Removed Logitech driver from installation package, and instead ask customers 
+  to download the latest version from Logitech.
+  
+* Removed WorldView from the installation package. This is now a free download
+  from Seeing Machines website.
+ 

@@ -1,0 +1,824 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Chapter 4. FTR-SDK: Clustering User's Guide</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="up" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="prev" href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">
+<link rel="next" href="raw_image_library.html" title="Chapter 5. PittPatt Raw Image Library Documentation">
+<style type="text/css">
+      /* Document Structure */
+
+div.book, div.chapter, div.article, div.sect1 {
+    width: auto;
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+div.sect1, div.toc {
+    margin-left: 10px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+div.sect2 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect2 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+div.sect3 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect3 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+
+/* Type Conventions (e.g. parameter vs. structelement) */
+
+.type, .function, .symbol, .structfield, .parameter, .structname {
+    font-family: courier, monospace;
+    font-size: 10pt;
+}
+
+.type, .function {
+    font-weight: bold;
+}
+
+/* Table of Contents */
+
+div.toc {
+  background-color: #DDDDDD;
+  padding: 0.5em 20px;
+  margin: 0em auto;
+}
+
+div.toc dl {
+  margin-left: 10px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dt {
+  line-height: 1.1em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 30px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+
+/* Function Formatting */
+
+.programlisting, .funcsynopsis table {
+    background-color: #DDDDDD;
+    font-family: courier, monospace;
+    font-size: 10pt;
+    padding: 8px 10px;
+}
+
+.funcsynopsis table td {
+    vertical-align: bottom;
+    white-space: normal;
+}
+
+.funcsynopsis + .variablelist dt {
+    font-weight: bold;
+    font-size: 11pt;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+.funcsynopsis + .variablelist dd {
+    margin-left: 20px;
+}
+
+.funcsynopsis + .variablelist dd p {
+    margin: 0.25em 0px;
+}
+
+/* Compilation Examples */
+
+div.variablelist {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+div.variablelist .term {
+    margin-left: 15px;
+}
+
+div.variablelist .programlisting {
+    margin-bottom: 2em;
+}
+
+
+/* Callout Boxes (e.g. note/warning) */
+
+div.warning {
+    background-color: #FFDDDD;
+}
+
+div.note {
+    background-color: #FFFFCC;
+}
+
+div.warning, div.note {
+    margin-top: 1.0em;
+    margin-bottom: 2.0em;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+div.warning h3, div.note h3 {
+    margin: 0.25em 0px;
+}
+
+div.warning p, div.note p {
+    margin: 0.25em 10px;
+}
+
+/* Image */
+
+div.mediaobject {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+div.caption {
+    font-weight: bold;
+}
+
+
+/* Table Layout */
+
+div.table {
+    margin: 1em auto;
+    padding: 1em;
+    border: 1px solid;
+    width: auto;
+}
+
+div.table p {
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+div.table table {
+    border-spacing: 0px 0px;
+    border-collapse: collapse;
+    margin: 0em auto;
+}
+
+div.table table th {
+    margin: 0px;
+    padding: 3px 15px;
+    font-size: small;
+    text-align: center;
+    border-bottom: medium solid;
+}
+
+div.table table td {
+    margin: 0px;
+    padding: 3px 15px;
+    text-align: center;
+    border-top: thin dotted;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover {
+    color: blue;
+}
+
+/* Copyright Formatting */
+
+p.copyright {
+    margin-top: 3px;
+    text-align: right;
+    font-size: x-small;
+}
+    </style>
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">Chapter 4. FTR-SDK: Clustering User's Guide</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="recognition_users_guide.html">Prev</a> </td>
+<td width="60%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="20%" align="right"> <a accesskey="n" href="raw_image_library.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="chapter" lang="en">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="clustering_users_guide"></a>Chapter 4. FTR-SDK: Clustering User's Guide</h2></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1">1. <a href="clustering_users_guide.html#clustering_definitions">Definitions and Terminology</a></span></dt>
+<dd><dl><dt><span class="sect2"><a href="clustering_users_guide.html#clustering">Clustering</a></span></dt></dl></dd>
+<dt><span class="sect1">2. <a href="clustering_users_guide.html#clustering_introductory_topics">Introductory Topics</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="clustering_users_guide.html#clustering_aggressiveness">Clustering Aggressiveness</a></span></dt>
+<dt><span class="sect2"><a href="clustering_users_guide.html#multi_gallery_clustering">Multi-Gallery Clustering</a></span></dt>
+<dt><span class="sect2"><a href="clustering_users_guide.html#gallery_groups">Gallery Groups</a></span></dt>
+<dt><span class="sect2"><a href="clustering_users_guide.html#template_sources">Template Sources</a></span></dt>
+<dt><span class="sect2"><a href="clustering_users_guide.html#inter_gallery_subject_lists">Inter-Gallery Subject Lists</a></span></dt>
+</dl></dd>
+<dt><span class="sect1">3. <a href="clustering_users_guide.html#clustering_advanced_topics">Advanced Topics</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="clustering_users_guide.html#representative_templates">Representative Templates</a></span></dt>
+<dt><span class="sect2"><a href="clustering_users_guide.html#stragglers">Stragglers</a></span></dt>
+<dt><span class="sect2"><a href="clustering_users_guide.html#disk_gallery_groups">Disk Gallery Groups</a></span></dt>
+</dl></dd>
+<dt><span class="sect1">4. <a href="clustering_users_guide.html#clustering_framework">Clustering Framework</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="clustering_users_guide.html#single_gallery_clustering_framework">Single-Gallery Clustering</a></span></dt>
+<dt><span class="sect2"><a href="clustering_users_guide.html#creating_gallery_groups_framework">Creating Gallery Groups</a></span></dt>
+<dt><span class="sect2"><a href="clustering_users_guide.html#multi_gallery_clustering_framework">Multi-Gallery Clustering</a></span></dt>
+</dl></dd>
+<dt><span class="sect1">5. <a href="clustering_users_guide.html#clustering_example_programs">Example Applications</a></span></dt>
+</dl>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="clustering_definitions"></a>1. Definitions and Terminology</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="clustering"></a>Clustering</h3></div></div></div>
+<p>
+  Clustering is the process of automatically grouping subjects such that all instances of the same
+  <a href="recognition_users_guide.html#subjects" title="Subjects">subject</a> are in the same group. For example, consider a set of images where subject A,
+  subject B, and subject C appear multiple times.  Clustering can be used to group the images such that all images of
+  subject A are in a group, all images of subject B are in a different group, and all images of subject C are in a
+  third group.
+</p>
+<p>
+  Back to <a href="clustering_users_guide.html" title="Chapter 4. FTR-SDK: Clustering User's Guide">top</a>.
+</p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="clustering_introductory_topics"></a>2. Introductory Topics</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="clustering_aggressiveness"></a>Clustering Aggressiveness</h3></div></div></div>
+<p>
+  A clustering aggressiveness between 0 and 10 can be specified when generating a
+  <a href="recognition_users_guide.html#subject_lists" title="Subject Lists">subject list</a> from a <a href="recognition_users_guide.html#galleries" title="Galleries">gallery</a>.  An aggressiveness
+  of 0 will do no clustering, and the generated subject list will simply be a representation of the information the
+  user has provided about <a href="recognition_users_guide.html#template_relationships" title="Template Relationships">template relationships</a>.  In this case, any
+  templates that do not have a specified relationship to any other templates will be their own
+  <a href="recognition_users_guide.html#subjects" title="Subjects">subject</a>.  If the clustering aggressiveness is 0 and no template relationships have
+  been assigned, then each template will be its own subject.
+</p>
+<p>
+  When the clustering aggressiveness is greater than 0, clustering is performed to determine which templates belong to
+  the same subject, taking into account the user-specified template relationships.
+</p>
+<p>
+  Higher clustering aggressiveness results in less subjects with more templates in each subject.  Lower clustering
+  aggressiveness results in more subjects with less templates in each subject.  The trade-off is that very aggressive
+  clustering may group templates even though they are not the same subject, while less aggressive clustering may assign
+  templates to different subjects even though they are the same subject.  Regardless of the clustering aggressiveness,
+  the user-specified template relationships will not be violated.  If all template pairs have been assigned a
+  relationship, then the generated subject list will simply be a representation of information the user has provided,
+  and will be the same regardless of the clustering aggressiveness.
+</p>
+<p>
+  Back to <a href="clustering_users_guide.html" title="Chapter 4. FTR-SDK: Clustering User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="multi_gallery_clustering"></a>Multi-Gallery Clustering</h3></div></div></div>
+<p>
+  Clustering a <a href="recognition_users_guide.html#galleries" title="Galleries">gallery</a> into <a href="recognition_users_guide.html#subjects" title="Subjects">subjects</a> requires
+  comparing every <a href="recognition_users_guide.html#templates" title="Templates">template</a> in the gallery to every other template in the gallery.
+  This means there is a squared dependence between the number of templates in the gallery and the number of comparisons
+  that must be performed to do clustering.  Therefore, as galleries become larger, the number of required comparisons
+  grows quickly.  As many templates are added, it becomes unfeasible to compare every template to every other template
+  in a reasonable amount of time.
+</p>
+<p>
+  Multi-gallery clustering addresses this issue by using a two-stage clustering approach that greatly reduces the
+  number of comparisons that must be performed.  Instead of creating one large gallery, the user creates several smaller
+  galleries, which form a <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">gallery group</a>.  Each gallery in the gallery group is
+  clustered independently.  From each resulting subject, a number of templates are strategically selected to represent
+  that subject in stage two.  Stage two clusters the
+  <a href="clustering_users_guide.html#representative_templates" title="Representative Templates">representative templates</a>.  Subjects from the stage one galleries are
+  merged based on how their representative templates were clustered in stage two, producing a final clustering result.
+</p>
+<p>
+  The clusters that result from multi-gallery clustering are typically less accurate than clustering results obtained
+  from clustering one large gallery.  However, for applications where time and/or memory is limited, multi-gallery
+  clustering may be the only option.  The accuracy penalty can be mitigated by intelligently deciding how the entire
+  set of templates is split into smaller galleries.  If there is a high probability that a set of templates has many of
+  the same subjects, it is best to place those templates into the same gallery.  For example, a photo management
+  application may choose to divide templates into galleries based on events where the photographs were taken.  Because
+  the probability that there are photos of the same person within an event is higher than the probability that there
+  are photos of the same person across events, it makes sense to create a separate gallery for each event.
+</p>
+<p>
+  When dividing templates into galleries, it is also important to avoid galleries with too few or too many templates.
+  If galleries are too small, there may be little clustering in stage one, making the two-stage approach less useful.
+  If galleries are too large, the original problem of doing too many comparisons still exists.  For the photo management
+  application example above, this may mean putting multiple events into a single gallery, or breaking a single event
+  into multiple galleries.
+</p>
+<p>
+  Back to <a href="clustering_users_guide.html" title="Chapter 4. FTR-SDK: Clustering User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="gallery_groups"></a>Gallery Groups</h3></div></div></div>
+<p>
+  A gallery group is a collection of <a href="recognition_users_guide.html#galleries" title="Galleries">galleries</a> for
+  <a href="clustering_users_guide.html#multi_gallery_clustering" title="Multi-Gallery Clustering">multi-gallery clustering</a>.  Each gallery is assigned an ID as it is
+  added to a gallery group.  Gallery IDs are unique within a given gallery group but not across galleries groups.
+  Gallery IDs are assigned incrementally, starting at 0 and are not reused within a gallery group (i.e., if a gallery
+  is removed from a gallery group its ID will never be assigned to another gallery that is added later).
+</p>
+<p>
+  Because galleries are so large, a gallery is not copied when it is added to a gallery group.  Instead it is moved.
+  The gallery group takes control of the gallery, and the user can gain access to the gallery by requesting a reference
+  to it.  Any changes made to the referenced gallery affect the gallery in the gallery group.  The user must release
+  the reference when it is no longer needed.  Operations such as clustering cannot be performed on a gallery group if
+  there are outstanding references to galleries within that group.  A gallery may only be added to one gallery group.
+</p>
+<p>
+  A gallery group also maintains user-specified <a href="recognition_users_guide.html#template_relationships" title="Template Relationships">relationships</a> between
+  templates within the same gallery and between templates in different galleries in the group.
+</p>
+<p>
+  Back to <a href="clustering_users_guide.html" title="Chapter 4. FTR-SDK: Clustering User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="template_sources"></a>Template Sources</h3></div></div></div>
+<p>
+  An individual <a href="recognition_users_guide.html#templates" title="Templates">template</a> inside of a
+  <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">gallery group</a> cannot be specified using the template ID alone.  Since template
+  IDs are unique within, but not across <a href="recognition_users_guide.html#galleries" title="Galleries">galleries</a>, specifying a template in a gallery
+  group requires not only the template ID, but also the ID of the gallery that contains it.  The term 'Template Source'
+  is used to encompass a template ID and its gallery's ID.
+</p>
+<p>
+  Back to <a href="clustering_users_guide.html" title="Chapter 4. FTR-SDK: Clustering User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="inter_gallery_subject_lists"></a>Inter-Gallery Subject Lists</h3></div></div></div>
+<p>
+  An inter-gallery subject list is the result of
+  <a href="clustering_users_guide.html#multi_gallery_clustering" title="Multi-Gallery Clustering">multi-gallery clustering</a>.  This is different from a regular
+  <a href="recognition_users_guide.html#subject_lists" title="Subject Lists">subject list</a> because the <a href="recognition_users_guide.html#subjects" title="Subjects">subjects</a> are a list of
+  <a href="clustering_users_guide.html#template_sources" title="Template Sources">template sources</a> rather than a list of
+  <a href="recognition_users_guide.html#templates" title="Templates">template</a> IDs.  For multi-gallery clustering the resulting subjects must be in the
+  form of template sources because they are generated from a <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">gallery group</a>, and
+  therefore require not only a template ID, but also a <a href="recognition_users_guide.html#galleries" title="Galleries">gallery</a> ID to fully specify a
+  template.
+</p>
+<p>
+  Back to <a href="clustering_users_guide.html" title="Chapter 4. FTR-SDK: Clustering User's Guide">top</a>.
+</p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="clustering_advanced_topics"></a>3. Advanced Topics</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="representative_templates"></a>Representative Templates</h3></div></div></div>
+<p>
+  <a href="clustering_users_guide.html#multi_gallery_clustering" title="Multi-Gallery Clustering">Multi-gallery clustering</a> is able to perform fewer comparisons than
+  full clustering because only a select few <a href="recognition_users_guide.html#templates" title="Templates">templates</a> from each stage one
+  <a href="recognition_users_guide.html#subjects" title="Subjects">subject</a> are passed along to stage two.  The templates selected from each subject are
+  called representative templates.  The number of representative templates taken from each stage one subject can be
+  specified using
+  <code class="function"><a href="clustering_reference.html#set_num_representative_templates_per_subject" title="ppr_set_num_representative_templates_per_subject">ppr_set_num_representative_templates_per_subject</a></code>.
+</p>
+<p>
+  Using fewer representative templates per stage one subject reduces the number of comparisons required in stage two
+  because fewer templates are passed to the second stage.  However, using a greater number of representative templates
+  increases accuracy because the stage one subjects are better represented in stage two.  This speed vs. accuracy
+  trade-off must be considered when selecting the number of representative templates to use.  Setting the number of
+  representative templates too high will pass so many templates to stage two that it could defeat the purpose of using
+  multi-gallery clustering.
+</p>
+<p>
+  Back to <a href="clustering_users_guide.html" title="Chapter 4. FTR-SDK: Clustering User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="stragglers"></a>Stragglers</h3></div></div></div>
+<p>
+  <a href="recognition_users_guide.html#subjects" title="Subjects">Subjects</a> that have few <a href="recognition_users_guide.html#templates" title="Templates">templates</a> in stage one are
+  called stragglers. Depending on the application, such subjects may be unimportant, and therefore it may not be
+  necessary to pass them along to stage two.  If so, the number of stage two comparisons can be reduced by not
+  representing the stragglers in the second stage.
+</p>
+<p>
+  The number of templates required for a subject to not be labeled a straggler can be set by calling
+  <code class="function"><a href="clustering_reference.html#set_straggler_cutoff" title="ppr_set_straggler_cutoff">ppr_set_straggler_cutoff</a></code>.  If the number of templates
+  in a stage one subject is less than or equal to the straggler cutoff, that subject is considered a straggler.
+  Therefore, if the straggler cutoff is set to 0 then no stage one subjects will be labeled as stragglers, and all
+  subjects will be represented in stage two.
+</p>
+<p>
+  Back to <a href="clustering_users_guide.html" title="Chapter 4. FTR-SDK: Clustering User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="disk_gallery_groups"></a>Disk Gallery Groups</h3></div></div></div>
+<p>
+  A <a href="clustering_users_guide.html#gallery_groups" title="Gallery Groups">gallery group</a> can become very large since it may contain many
+  <a href="recognition_users_guide.html#galleries" title="Galleries">galleries</a>, each of which may contain many
+  <a href="recognition_users_guide.html#templates" title="Templates">templates</a>.  Depending on the size of the gallery group and the amount of memory in
+  the system, the gallery group may be too large to fit into memory.  A disk gallery group stores galleries on disk and
+  only loads a gallery when it is needed.  During multi-gallery clustering, only one gallery is needed at a time.  Any
+  gallery that has an unreleased reference must also be in memory, so to reduce memory requirements, outstanding
+  references to multiple galleries should be avoided.
+</p>
+<p>
+  When a gallery group is created, read from disk, or <a href="detection_users_guide.html#flattened_data" title="Flattened Data">unflattened</a>, a scratch
+  directory can be specified to provide a place for galleries to be stored on disk.  The scratch directory must already
+  exist - it is not created by the SDK.
+</p>
+<p>
+  Using a disk gallery group comes with a penalty because time must be spent performing disk I/O.  However, when
+  clustering large gallery groups, the disk I/O time is often insignificant compared to the time taken to perform
+  clustering.
+</p>
+<p>
+  Back to <a href="clustering_users_guide.html" title="Chapter 4. FTR-SDK: Clustering User's Guide">top</a>.
+</p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="clustering_framework"></a>4. Clustering Framework</h2></div></div></div>
+<p>
+  Frameworks for using the clustering portion of the FTR-SDK are described below.  The frameworks provide an
+  introduction to the order in which functions should be called, with links to each function's detailed description.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="single_gallery_clustering_framework"></a>Single-Gallery Clustering</h3></div></div></div>
+<div class="orderedlist"><ol type="1">
+<li>
+<span><strong class="command">Get</strong></span> a new context
+      <p>
+	Call <code class="function"><a href="detection_reference.html#get_context" title="ppr_get_context">ppr_get_context</a></code> to get a new context with the
+	default parameters.  The returned context should be stored for submission to future function calls.
+      </p>
+</li>
+<li>
+<span><strong class="command">Enable</strong></span> recognition
+      <p>
+	Recognition must be enabled in the context before initialization since recognition functions will be used.  Call
+	<code class="function"><a href="recognition_reference.html#enable_recognition" title="ppr_enable_recognition">ppr_enable_recognition</a></code> to allow recognition
+	functions to be used in the context.
+     </p>
+</li>
+<li>
+<span><strong class="command">Configure</strong></span> the context
+      <p>
+	Certain parameters cannot be configured after the context is initialized.  Therefore, unless the default values
+	are desired, the parameters must be configured before the initialization step.  The function references indicate
+	which parameters must be set before initialization.
+      </p>
+</li>
+<li>
+<span><strong class="command">Initialize</strong></span> the context
+      <p>
+	After configuring the context,
+	<code class="function"><a href="detection_reference.html#initialize_context" title="ppr_initialize_context">ppr_initialize_context</a></code> must be called before the
+	context can be used.
+      </p>
+</li>
+<li>
+<span><strong class="command">Get</strong></span> a gallery
+      <p>
+	Follow the steps in the <a href="recognition_users_guide.html#creating_galleries_framework" title="Creating Galleries">Creating Galleries</a> section to create
+	a gallery. Alternatively, a previously saved gallery can be read from disk by calling
+	<code class="function"><a href="recognition_reference.html#read_gallery" title="ppr_read_gallery">ppr_read_gallery</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Cluster</strong></span> templates in the gallery
+      <p>
+        The <code class="function"><a href="clustering_reference.html#cluster_gallery" title="ppr_cluster_gallery">ppr_cluster_gallery</a></code> function clusters templates
+	within a gallery to create a subject list.  The resulting subject list indicates which templates belong to the
+	same subject.
+      </p>
+</li>
+<li>
+<span><strong class="command">Free</strong></span> allocated memory
+      <p>
+	Any galleries that were created or read from disk must be freed using
+	<code class="function"><a href="recognition_reference.html#free_gallery" title="ppr_free_gallery">ppr_free_gallery</a></code> when they are no longer needed.
+	Subject lists must be freed using
+	<code class="function"><a href="recognition_reference.html#free_subject_list" title="ppr_free_subject_list">ppr_free_subject_list</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Release</strong></span> the context
+      <p>
+	Call <code class="function"><a href="detection_reference.html#release_context" title="ppr_release_context">ppr_release_context</a></code> to inform the SDK that the
+	previously allocated context is no longer required.  Each context must be released to avoid memory leaks.
+      </p>
+</li>
+<li>
+<span><strong class="command">Finalize</strong></span> the SDK
+      <p>
+	Call <code class="function"><a href="detection_reference.html#finalize_sdk" title="ppr_finalize_sdk">ppr_finalize_sdk</a></code> to inform the SDK that it is no
+	longer needed. This function releases the SDK's internally managed memory buffers. It must be called before
+	exiting the program.
+      </p>
+</li>
+</ol></div>
+<p>
+    Back to <a href="clustering_users_guide.html" title="Chapter 4. FTR-SDK: Clustering User's Guide">top</a>.
+  </p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="creating_gallery_groups_framework"></a>Creating Gallery Groups</h3></div></div></div>
+<div class="orderedlist"><ol type="1">
+<li>
+<span><strong class="command">Get</strong></span> a new context
+      <p>
+	Call <code class="function"><a href="detection_reference.html#get_context" title="ppr_get_context">ppr_get_context</a></code> to get a new context with the
+	default parameters.  The returned context should be stored for submission to future function calls.
+      </p>
+</li>
+<li>
+<span><strong class="command">Enable</strong></span> recognition
+      <p>
+	Recognition must be enabled in the context before initialization since recognition functions will be used.  Call
+	<code class="function"><a href="recognition_reference.html#enable_recognition" title="ppr_enable_recognition">ppr_enable_recognition</a></code> to allow recognition
+	functions to be used in the context.
+     </p>
+</li>
+<li>
+<span><strong class="command">Configure</strong></span> the context
+      <p>
+	Certain parameters cannot be configured after the context is initialized.  Therefore, unless the default values
+	are desired, the parameters must be configured before the initialization step.  The function references indicate
+	which parameters must be set before initialization.
+      </p>
+</li>
+<li>
+<span><strong class="command">Initialize</strong></span> the context
+      <p>
+	After configuring the context,
+	<code class="function"><a href="detection_reference.html#initialize_context" title="ppr_initialize_context">ppr_initialize_context</a></code> must be called before the
+	context can be used.
+      </p>
+</li>
+<li>
+<span><strong class="command">Create</strong></span> a gallery group
+      <p>
+	Galleries groups can be created using the
+	<code class="function"><a href="clustering_reference.html#create_gallery_group" title="ppr_create_gallery_group">ppr_create_gallery_group</a></code> function.  The newly
+	created gallery group is empty (i.e., it contains no galleries).
+      </p>
+<p>
+	Alternatively, a previously saved gallery group can be read from disk using
+	<code class="function"><a href="clustering_reference.html#read_gallery_group" title="ppr_read_gallery_group">ppr_read_gallery_group</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Get</strong></span> galleries
+      <p>
+	Follow the steps in the <a href="recognition_users_guide.html#creating_galleries_framework" title="Creating Galleries">Creating Galleries</a> section to create
+	galleries. Alternatively, previously saved galleries can be read from disk by calling
+	<code class="function"><a href="recognition_reference.html#read_gallery" title="ppr_read_gallery">ppr_read_gallery</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Move</strong></span> galleries to the gallery group
+      <p>
+	A gallery can be moved to a gallery group using the
+	<code class="function"><a href="clustering_reference.html#move_gallery_to_gallery_group" title="ppr_move_gallery_to_gallery_group">ppr_move_gallery_to_gallery_group</a></code>
+	function.  The gallery group is given a pointer to the gallery, and the gallery is assigned an ID.  The user's
+	reference to the gallery is no longer valid.
+      </p>
+</li>
+<li>
+<span><strong class="command">Specify</strong></span> template relationships
+      <p>
+        If two templates are known to be the same subject or different subjects, this can be specified using
+	<code class="function"><a href="clustering_reference.html#set_template_source_relationship" title="ppr_set_template_source_relationship">ppr_set_template_source_relationship</a></code>.
+	This function can be used regardless of whether the templates are in the same gallery or are in different
+	galleries.
+      </p>
+</li>
+<li>
+<span><strong class="command">Process</strong></span> the gallery group
+      <p>
+	A gallery group can be clustered using
+	<a href="clustering_users_guide.html#multi_gallery_clustering_framework" title="Multi-Gallery Clustering">Multi-Gallery Clustering</a> to produce subject
+	groupings. The gallery group can be saved to disk by calling
+	<code class="function"><a href="clustering_reference.html#write_gallery_group" title="ppr_write_gallery_group">ppr_write_gallery_group</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Free</strong></span> allocated memory
+      <p>
+	Any gallery groups that were created or read from disk must be freed using
+	<code class="function"><a href="clustering_reference.html#free_gallery_group" title="ppr_free_gallery_group">ppr_free_gallery_group</a></code>.
+	Inter-gallery subject lists must be freed using
+	<code class="function"><a href="clustering_reference.html#free_inter_gallery_subject_list" title="ppr_free_inter_gallery_subject_list">ppr_free_inter_gallery_subject_list</a></code>.
+	Galleries that were moved to the gallery group are freed when the gallery group is freed, and therefore should
+	not be freed by the user.
+      </p>
+</li>
+<li>
+<span><strong class="command">Release</strong></span> the context
+      <p>
+	Call <code class="function"><a href="detection_reference.html#release_context" title="ppr_release_context">ppr_release_context</a></code> to inform the SDK that a
+	previously allocated context is no longer required.  Each context must be released to avoid memory leaks.
+      </p>
+</li>
+<li>
+<span><strong class="command">Finalize</strong></span> the SDK
+      <p>
+	Call <code class="function"><a href="detection_reference.html#finalize_sdk" title="ppr_finalize_sdk">ppr_finalize_sdk</a></code> to inform the SDK that it is no
+	longer needed. This function releases the SDK's internally managed memory buffers. It must be called before
+	exiting the program.
+      </p>
+</li>
+</ol></div>
+<p>
+    Back to <a href="clustering_users_guide.html" title="Chapter 4. FTR-SDK: Clustering User's Guide">top</a>.
+  </p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="multi_gallery_clustering_framework"></a>Multi-Gallery Clustering</h3></div></div></div>
+<div class="orderedlist"><ol type="1">
+<li>
+<span><strong class="command">Get</strong></span> a new context
+      <p>
+	Call <code class="function"><a href="detection_reference.html#get_context" title="ppr_get_context">ppr_get_context</a></code> to get a new context with the
+	default parameters.  The returned context should be stored for submission to future function calls.
+      </p>
+</li>
+<li>
+<span><strong class="command">Enable</strong></span> recognition
+      <p>
+	Recognition must be enabled in the context before initialization since recognition functions will be used.  Call
+	<code class="function"><a href="recognition_reference.html#enable_recognition" title="ppr_enable_recognition">ppr_enable_recognition</a></code> to allow recognition
+	functions to be used in the context.
+     </p>
+</li>
+<li>
+<span><strong class="command">Configure</strong></span> the context
+      <p>
+	Certain parameters cannot be configured after the context is initialized.  Therefore, unless the default values
+	are desired, the parameters must be configured before the initialization step.  The function references indicate
+	which parameters must be set before initialization.
+      </p>
+</li>
+<li>
+<span><strong class="command">Initialize</strong></span> the context
+      <p>
+	After configuring the context,
+	<code class="function"><a href="detection_reference.html#initialize_context" title="ppr_initialize_context">ppr_initialize_context</a></code> must be called before the
+	context can be used.
+      </p>
+</li>
+<li>
+<span><strong class="command">Get</strong></span> a gallery group
+      <p>
+	Follow the steps in the <a href="clustering_users_guide.html#creating_gallery_groups_framework" title="Creating Gallery Groups">Creating Gallery Groups</a> section
+	to create a gallery group. Alternatively, a previously saved gallery group can be read from disk by calling
+	<code class="function"><a href="clustering_reference.html#read_gallery_group" title="ppr_read_gallery_group">ppr_read_gallery_group</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Cluster</strong></span> a gallery group
+      <p>
+        The <code class="function"><a href="clustering_reference.html#cluster_gallery_group" title="ppr_cluster_gallery_group">ppr_cluster_gallery_group</a></code> function
+	clusters templates within a gallery group to create an inter-gallery subject list.  The resulting inter-gallery
+	subject list indicates which templates from which galleries belong to the same subject.
+      </p>
+</li>
+<li>
+<span><strong class="command">Free</strong></span> allocated memory
+      <p>
+	Any gallery groups that were created or read from disk must be freed using
+	<code class="function"><a href="clustering_reference.html#free_gallery_group" title="ppr_free_gallery_group">ppr_free_gallery_group</a></code>.
+	Inter-gallery subject lists must be freed using
+	<code class="function"><a href="clustering_reference.html#free_inter_gallery_subject_list" title="ppr_free_inter_gallery_subject_list">ppr_free_inter_gallery_subject_list</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Release</strong></span> the context
+      <p>
+	Call <code class="function"><a href="detection_reference.html#release_context" title="ppr_release_context">ppr_release_context</a></code> to inform the SDK that the
+	previously allocated context is no longer required.  Each context must be released to avoid memory leaks.
+      </p>
+</li>
+<li>
+<span><strong class="command">Finalize</strong></span> the SDK
+      <p>
+	Call <code class="function"><a href="detection_reference.html#finalize_sdk" title="ppr_finalize_sdk">ppr_finalize_sdk</a></code> to inform the SDK that it is no
+	longer needed. This function releases the SDK's internally managed memory buffers. It must be called before
+	exiting the program.
+      </p>
+</li>
+</ol></div>
+<p>
+    Back to <a href="clustering_users_guide.html" title="Chapter 4. FTR-SDK: Clustering User's Guide">top</a>.
+  </p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="clustering_example_programs"></a>5. Example Applications</h2></div></div></div>
+<p>
+  The following application is included to demonstrate usage of the clustering portion of the FTR-SDK and to provide
+  an easy way to evaluate the SDK.  A build script is provided to build all example applications.  The applications
+  can be passed a <span class="parameter">-help</span> flag to get usage information.
+</p>
+<div class="variablelist"><dl>
+<dt><span class="term"><code class="filename">clustering-cluster_gallery</code></span></dt>
+<dd><p>
+       This application reads a gallery from disk and clusters the gallery using the specified aggressiveness to create
+       a subject list.  A directory structure is created where each directory corresponds to a subject in the subject
+       list, and each subject directory contains thumbnail images extracted from the templates that make up the subject.
+       The input gallery file is updated to contain the new subject list.  The application follows the
+       <a href="clustering_users_guide.html#single_gallery_clustering_framework" title="Single-Gallery Clustering">Single-Gallery Clustering</a> framework.
+     </p></dd>
+</dl></div>
+<p>
+  Back to <a href="clustering_users_guide.html" title="Chapter 4. FTR-SDK: Clustering User's Guide">top</a>.
+</p>
+</div>
+</div>
+<hr>
+<p class="copyright">© 2004-2010 Pittsburgh Pattern Recognition, Inc.</p>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="recognition_users_guide.html">Prev</a> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right"> <a accesskey="n" href="raw_image_library.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Chapter 3. FTR-SDK: Recognition User's Guide </td>
+<td width="20%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="40%" align="right" valign="top"> Chapter 5. PittPatt Raw Image Library Documentation</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

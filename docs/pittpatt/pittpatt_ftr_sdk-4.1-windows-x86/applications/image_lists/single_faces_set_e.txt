@@ -1,0 +1,12 @@
+../sample_data/images/single_faces/joe/joe_01.jpg
+../sample_data/images/single_faces/joe/joe_02.jpg
+../sample_data/images/single_faces/joe/joe_03.jpg
+../sample_data/images/single_faces/ken/ken_01.jpg
+../sample_data/images/single_faces/ken/ken_02.jpg
+../sample_data/images/single_faces/ken/ken_03.jpg
+../sample_data/images/single_faces/ken/ken_04.jpg
+../sample_data/images/single_faces/ken/ken_05.jpg
+../sample_data/images/single_faces/marcia/marcia_01.jpg
+../sample_data/images/single_faces/marcia/marcia_02.jpg
+../sample_data/images/single_faces/marcia/marcia_03.jpg
+../sample_data/images/single_faces/marcia/marcia_04.jpg

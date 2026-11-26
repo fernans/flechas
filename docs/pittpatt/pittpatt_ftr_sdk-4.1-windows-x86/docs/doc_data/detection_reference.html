@@ -1,0 +1,3446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Chapter 10. FTR-SDK: Detection Reference</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="up" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="prev" href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">
+<link rel="next" href="tracking_reference.html" title="Chapter 11. FTR-SDK: Tracking Reference">
+<style type="text/css">
+      /* Document Structure */
+
+div.book, div.chapter, div.article, div.sect1 {
+    width: auto;
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+div.sect1, div.toc {
+    margin-left: 10px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+div.sect2 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect2 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+div.sect3 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect3 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+
+/* Type Conventions (e.g. parameter vs. structelement) */
+
+.type, .function, .symbol, .structfield, .parameter, .structname {
+    font-family: courier, monospace;
+    font-size: 10pt;
+}
+
+.type, .function {
+    font-weight: bold;
+}
+
+/* Table of Contents */
+
+div.toc {
+  background-color: #DDDDDD;
+  padding: 0.5em 20px;
+  margin: 0em auto;
+}
+
+div.toc dl {
+  margin-left: 10px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dt {
+  line-height: 1.1em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 30px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+
+/* Function Formatting */
+
+.programlisting, .funcsynopsis table {
+    background-color: #DDDDDD;
+    font-family: courier, monospace;
+    font-size: 10pt;
+    padding: 8px 10px;
+}
+
+.funcsynopsis table td {
+    vertical-align: bottom;
+    white-space: normal;
+}
+
+.funcsynopsis + .variablelist dt {
+    font-weight: bold;
+    font-size: 11pt;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+.funcsynopsis + .variablelist dd {
+    margin-left: 20px;
+}
+
+.funcsynopsis + .variablelist dd p {
+    margin: 0.25em 0px;
+}
+
+/* Compilation Examples */
+
+div.variablelist {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+div.variablelist .term {
+    margin-left: 15px;
+}
+
+div.variablelist .programlisting {
+    margin-bottom: 2em;
+}
+
+
+/* Callout Boxes (e.g. note/warning) */
+
+div.warning {
+    background-color: #FFDDDD;
+}
+
+div.note {
+    background-color: #FFFFCC;
+}
+
+div.warning, div.note {
+    margin-top: 1.0em;
+    margin-bottom: 2.0em;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+div.warning h3, div.note h3 {
+    margin: 0.25em 0px;
+}
+
+div.warning p, div.note p {
+    margin: 0.25em 10px;
+}
+
+/* Image */
+
+div.mediaobject {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+div.caption {
+    font-weight: bold;
+}
+
+
+/* Table Layout */
+
+div.table {
+    margin: 1em auto;
+    padding: 1em;
+    border: 1px solid;
+    width: auto;
+}
+
+div.table p {
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+div.table table {
+    border-spacing: 0px 0px;
+    border-collapse: collapse;
+    margin: 0em auto;
+}
+
+div.table table th {
+    margin: 0px;
+    padding: 3px 15px;
+    font-size: small;
+    text-align: center;
+    border-bottom: medium solid;
+}
+
+div.table table td {
+    margin: 0px;
+    padding: 3px 15px;
+    text-align: center;
+    border-top: thin dotted;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover {
+    color: blue;
+}
+
+/* Copyright Formatting */
+
+p.copyright {
+    margin-top: 3px;
+    text-align: right;
+    font-size: x-small;
+}
+    </style>
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">Chapter 10. FTR-SDK: Detection Reference</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="migration_guide.html">Prev</a> </td>
+<td width="60%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="20%" align="right"> <a accesskey="n" href="tracking_reference.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="chapter" lang="en">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="detection_reference"></a>Chapter 10. FTR-SDK: Detection Reference</h2></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1">1. <a href="detection_reference.html#detection_constants">Constants Reference</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="detection_reference.html#min_max_size_constants">Min and Max Size Constants</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="detection_reference.html#min_min_size">PPR_MIN_MIN_SIZE</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#max_max_size">PPR_MAX_MAX_SIZE</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="detection_reference.html#landmark_detector_constants">Landmark Detector Constants</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="detection_reference.html#manual_landmarks">PPR_MANUAL_LANDMARKS</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#automatic_landmarks">PPR_AUTOMATIC_LANDMARKS</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="detection_reference.html#detection_miscellaneous_constants">Miscellaneous Constants</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="detection_reference.html#max_search_pruning_aggressiveness">PPR_MAX_SEARCH_PRUNING_AGGRESSIVENESS</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#max_source_file_name_size">PPR_MAX_SOURCE_FILE_NAME_SIZE</a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="sect1">2. <a href="detection_reference.html#detection_types">Types Reference</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="detection_reference.html#basic_types">Basic Types</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="detection_reference.html#context_type">ppr_context_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#image_type">ppr_image_type</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="detection_reference.html#enumerated_types">Enumerated Types</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="detection_reference.html#coarse_detector_mask_type">ppr_coarse_detector_mask_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#landmark_detector_type">ppr_landmark_detector_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#landmark_category_type">ppr_landmark_category_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#precision_type">ppr_precision_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#frontal_yaw_constraint_type">ppr_frontal_yaw_constraint_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#bounding_box_type">ppr_bounding_box_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#enabled_status_type">ppr_enabled_status_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#error_type">ppr_error_type</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="detection_reference.html#structure_types">Structure Types</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="detection_reference.html#coordinate_type">ppr_coordinate_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#polygon_type">ppr_polygon_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#landmark_type">ppr_landmark_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#dimensions_type">ppr_dimensions_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#rotation_type">ppr_rotation_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#object_type">ppr_object_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#object_list_type">ppr_object_list_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#flat_object_list_type">ppr_flat_object_list_type</a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="sect1">3. <a href="detection_reference.html#detection_functions">Function Reference</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="detection_reference.html#detection_initialize_and_configure_functions">Initialize and Configure Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="detection_reference.html#get_context">ppr_get_context</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#set_license">ppr_set_license</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#set_models_path">ppr_set_models_path</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#set_detection_precision">ppr_set_detection_precision</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#set_coarse_detector_types">ppr_set_coarse_detector_types</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#set_landmark_detector_type">ppr_set_landmark_detector_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#set_frontal_yaw_constraint">ppr_set_frontal_yaw_constraint</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#set_num_detection_threads">ppr_set_num_detection_threads</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#set_search_pruning_aggressiveness">ppr_set_search_pruning_aggressiveness</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#set_min_size">ppr_set_min_size</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#set_max_size">ppr_set_max_size</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#set_adaptive_min_size">ppr_set_adaptive_min_size</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#set_adaptive_max_size">ppr_set_adaptive_max_size</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#set_detection_threshold">ppr_set_detection_threshold</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#set_search_region">ppr_set_search_region</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#clear_search_region">ppr_clear_search_region</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#initialize_context">ppr_initialize_context</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="detection_reference.html#detection_context_query_functions">Context Query Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="detection_reference.html#get_models_path">ppr_get_models_path</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#get_detection_precision">ppr_get_detection_precision</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#get_coarse_detector_types">ppr_get_coarse_detector_types</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#get_landmark_detector_type">ppr_get_landmark_detector_type</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#get_frontal_yaw_constraint">ppr_get_frontal_yaw_constraint</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#get_num_detection_threads">ppr_get_num_detection_threads</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#get_search_pruning_aggressiveness">ppr_get_search_pruning_aggressiveness</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#get_min_size">ppr_get_min_size</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#get_max_size">ppr_get_max_size</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#get_adaptive_min_size">ppr_get_adaptive_min_size</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#get_adaptive_max_size">ppr_get_adaptive_max_size</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#get_detection_threshold">ppr_get_detection_threshold</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#get_search_region">ppr_get_search_region</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="detection_reference.html#miscellaneous_query_functions">Miscellaneous Query Functions</a></span></dt>
+<dd><dl><dt><span class="sect3"><a href="detection_reference.html#get_size_from_pixels">ppr_get_size_from_pixels</a></span></dt></dl></dd>
+<dt><span class="sect2"><a href="detection_reference.html#detect_functions">Detect Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="detection_reference.html#create_image">ppr_create_image</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#detect_objects">ppr_detect_objects</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#detect_best_frontal_object">ppr_detect_best_frontal_object</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#detect_landmarks_from_object">ppr_detect_landmarks_from_object</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="detection_reference.html#miscellaneous_functions">Miscellaneous Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="detection_reference.html#get_object_boundary">ppr_get_object_boundary</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#crop_object_from_image">ppr_crop_object_from_image</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#crop_thumbnail_from_image">ppr_crop_thumbnail_from_image</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#error_message">ppr_error_message</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#write_image">ppr_write_image</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#version">ppr_version</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="detection_reference.html#detection_file_io_functions">File I/O Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="detection_reference.html#write_object_list">ppr_write_object_list</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#read_object_list">ppr_read_object_list</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="detection_reference.html#detection_flatten_unflatten_functions">Flatten / Unflatten Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="detection_reference.html#flatten_object_list">ppr_flatten_object_list</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#unflatten_object_list">ppr_unflatten_object_list</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="detection_reference.html#free_functions">Free Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="detection_reference.html#free_object_list">ppr_free_object_list</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#free_flat_object_list">ppr_free_flat_object_list</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#free_polygon">ppr_free_polygon</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#free_image">ppr_free_image</a></span></dt>
+</dl></dd>
+<dt><span class="sect2"><a href="detection_reference.html#finalize_functions">Finalize Functions</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="detection_reference.html#finalize_thread">ppr_finalize_thread</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#release_context">ppr_release_context</a></span></dt>
+<dt><span class="sect3"><a href="detection_reference.html#finalize_sdk">ppr_finalize_sdk</a></span></dt>
+</dl></dd>
+</dl></dd>
+</dl>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="detection_constants"></a>1. Constants Reference</h2></div></div></div>
+<p>
+  The constants described in this section are defined in <code class="filename">pittpatt_detection.h</code>.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="min_max_size_constants"></a>Min and Max Size Constants</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="min_min_size"></a>PPR_MIN_MIN_SIZE</h4></div></div></div>
+<a class="indexterm" name="id4747887"></a><pre class="programlisting">#define PPR_MIN_MIN_SIZE -2</pre>
+<p>
+      The <span class="parameter">PPR_MIN_MIN_SIZE</span> constant defines the minimum <span class="parameter">min_size</span> value
+      that can be passed to <code class="function"><a href="detection_reference.html#set_min_size" title="ppr_set_min_size">ppr_set_min_size</a></code>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#face_sizes" title="Face Sizes">Face Sizes</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="max_max_size"></a>PPR_MAX_MAX_SIZE</h4></div></div></div>
+<a class="indexterm" name="id4747960"></a><pre class="programlisting">#define PPR_MAX_MAX_SIZE 100</pre>
+<p>
+      The <span class="parameter">PPR_MAX_MAX_SIZE</span> constant defines the maximum <span class="parameter">max_size</span> value
+      that can be passed to <code class="function"><a href="detection_reference.html#set_max_size" title="ppr_set_max_size">ppr_set_max_size</a></code>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#face_sizes" title="Face Sizes">Face Sizes</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="landmark_detector_constants"></a>Landmark Detector Constants</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="manual_landmarks"></a>PPR_MANUAL_LANDMARKS</h4></div></div></div>
+<a class="indexterm" name="id4748043"></a><pre class="programlisting">#define PPR_MANUAL_LANDMARKS 0</pre>
+<p>
+      The <span class="parameter">PPR_MANUAL_LANDMARKS</span> constant is passed to the
+      <code class="function"><a href="detection_reference.html#set_landmark_detector_type" title="ppr_set_landmark_detector_type">ppr_set_landmark_detector_type</a></code> function to
+      indicate that the user will manually submit objects for landmark detection using
+      <code class="function"><a href="detection_reference.html#detect_landmarks_from_object" title="ppr_detect_landmarks_from_object">ppr_detect_landmarks_from_object</a></code>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#landmarks" title="Landmarks">Landmarks</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="automatic_landmarks"></a>PPR_AUTOMATIC_LANDMARKS</h4></div></div></div>
+<a class="indexterm" name="id4748122"></a><pre class="programlisting">#define PPR_AUTOMATIC_LANDMARKS 1</pre>
+<p>
+      The <span class="parameter">PPR_AUTOMATIC_LANDMARKS</span> constant is passed to the
+      <code class="function"><a href="detection_reference.html#set_landmark_detector_type" title="ppr_set_landmark_detector_type">ppr_set_landmark_detector_type</a></code>
+      function to indicate that the user would like the detector to automatically find landmarks in detected objects.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#landmarks" title="Landmarks">Landmarks</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="detection_miscellaneous_constants"></a>Miscellaneous Constants</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="max_search_pruning_aggressiveness"></a>PPR_MAX_SEARCH_PRUNING_AGGRESSIVENESS</h4></div></div></div>
+<a class="indexterm" name="id4748201"></a><pre class="programlisting">#define PPR_MAX_SEARCH_PRUNING_AGGRESSIVENESS 5</pre>
+<p>
+      The <span class="parameter">PPR_MAX_SEARCH_PRUNING_AGGRESSIVENESS</span> constant defines the maximum 
+      <span class="parameter">aggressiveness</span> value that can be passed to
+      <code class="function"><a href="detection_reference.html#set_search_pruning_aggressiveness" title="ppr_set_search_pruning_aggressiveness">ppr_set_search_pruning_aggressiveness</a></code>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#search_pruning" title="Search Pruning">Search Pruning</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="max_source_file_name_size"></a>PPR_MAX_SOURCE_FILE_NAME_SIZE</h4></div></div></div>
+<a class="indexterm" name="id4748277"></a><pre class="programlisting">#define PPR_MAX_SOURCE_FILE_NAME_SIZE 1024</pre>
+<p>
+      The <span class="parameter">PPR_MAX_SOURCE_FILE_NAME_SIZE</span> constant defines the maximum length, including the NULL
+      terminator, of the source file name required by some write and flatten functions.  The source file name returned
+      from the corresponding read and unflatten functions is guaranteed to be no longer than
+      <span class="parameter">PPR_MAX_SOURCE_FILE_NAME_SIZE</span>, including the NULL terminator.
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="detection_types"></a>2. Types Reference</h2></div></div></div>
+<p>
+  The data types described in this section are declared in <code class="filename">pittpatt_detection.h</code>, with the exception
+  of <span class="structname"><a href="detection_reference.html#error_type" title="ppr_error_type">ppr_error_type</a></span>, which is declared in
+  <code class="filename">pittpatt_errors.h</code>.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="basic_types"></a>Basic Types</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="context_type"></a>ppr_context_type</h4></div></div></div>
+<a class="indexterm" name="id4748383"></a><pre class="programlisting">typedef ppr_context_struct* <span class="type">ppr_context_type</span>;</pre>
+<p>
+      The <span class="structname">ppr_context_type</span> is a handle that references private data maintained internally by
+      the SDK library.  Most of the SDK functions take a context as the first parameter.  Multiple contexts allow the
+      SDK to be used with different sets of parameters or inside of different threads within the same process.
+    </p>
+<p>
+      A new handle is returned by the <code class="function"><a href="detection_reference.html#get_context" title="ppr_get_context">ppr_get_context</a></code> function.
+      When a context is no longer needed, it must be released with a call to 
+      <code class="function"><a href="detection_reference.html#release_context" title="ppr_release_context">ppr_release_context</a></code>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#contexts" title="Contexts">Contexts</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="image_type"></a>ppr_image_type</h4></div></div></div>
+<a class="indexterm" name="id4748470"></a><pre class="programlisting">typedef ppr_image_struct* <span class="type">ppr_image_type</span>;</pre>
+<p>
+      The SDK functions operate on images of type <span class="structname">ppr_image_type</span>.  However, images are read
+      from disk in the <span class="structname"><a href="raw_image_library.html#raw_image_type" title="ppr_raw_image_type">ppr_raw_image_type</a></span> format.  Use
+      <code class="function"><a href="detection_reference.html#create_image" title="ppr_create_image">ppr_create_image</a></code> to create a
+      <span class="structname">ppr_image_type</span> from a
+      <span class="structname"><a href="raw_image_library.html#raw_image_type" title="ppr_raw_image_type">ppr_raw_image_type</a></span>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#image_types" title="Image Types">Image Types</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="enumerated_types"></a>Enumerated Types</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="coarse_detector_mask_type"></a>ppr_coarse_detector_mask_type</h4></div></div></div>
+<a class="indexterm" name="id4748568"></a><pre class="programlisting">typedef enum 
+{
+  PPR_FRONTAL_DETECTOR_MASK            = 0x01,
+  PPR_RIGHT_PROFILE_DETECTOR_MASK      = 0x02,
+  PPR_LEFT_PROFILE_DETECTOR_MASK       = 0x04,
+  PPR_FRONTAL_TILTED_N30_DETECTOR_MASK = 0x08,
+  PPR_FRONTAL_TILTED_P30_DETECTOR_MASK = 0x10,
+  PPR_ALL_FACE_DETECTORS_MASK          = 0x1F,
+} <span class="type">ppr_coarse_detector_mask_type</span>;</pre>
+<p>
+      This enumeration defines binary masks used to specify a set of coarse-precision detectors.  Values can be
+      combined using binary OR operators to select any number of available detectors. For example, the two profile
+      detectors can be specified using the following expression:
+    </p>
+<pre class="programlisting">PPR_RIGHT_PROFILE_DETECTOR_MASK | PPR_LEFT_PROFILE_DETECTOR_MASK</pre>
+<p>
+      As a shortcut to easily specify all of the face detectors, the <span class="parameter">ALL_FACE_DETECTORS_MASK</span>
+      value is provided.
+    </p>
+<p>
+      The set of coarse-precision detectors can be set using
+      <code class="function"><a href="detection_reference.html#set_coarse_detector_types" title="ppr_set_coarse_detector_types">ppr_set_coarse_detector_types</a></code>.  This only
+      applies when using coarse-precision detection.  To select coarse or fine precision, use
+      <code class="function"><a href="detection_reference.html#set_detection_precision" title="ppr_set_detection_precision">ppr_set_detection_precision</a></code>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#detection_precision" title="Detection Precision">Detection Precision</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="landmark_detector_type"></a>ppr_landmark_detector_type</h4></div></div></div>
+<a class="indexterm" name="id4748676"></a><pre class="programlisting">typedef enum 
+{
+  PPR_NO_LANDMARK_DETECTOR,
+  PPR_FRONTAL_LANDMARK_DETECTOR,
+  PPR_MULTI_POSE_LANDMARK_DETECTOR,
+  PPR_DUAL_FRONTAL_LANDMARK_DETECTOR,
+  PPR_DUAL_MULTI_POSE_LANDMARK_DETECTOR
+} <span class="type">ppr_landmark_detector_type</span>;</pre>
+<p>
+      This enumeration defines the types of landmark detectors.  The landmark detector type can be specified using  
+      <code class="function"><a href="detection_reference.html#set_landmark_detector_type" title="ppr_set_landmark_detector_type">ppr_set_landmark_detector_type</a></code>.  Landmark
+      detector options that use multi-pose landmark detection must also use fine precision.  The detection
+      precision can be set using
+      <code class="function"><a href="detection_reference.html#set_detection_precision" title="ppr_set_detection_precision">ppr_set_detection_precision</a></code>.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">PPR_NO_LANDMARK_DETECTOR</span></span></dt>
+<dd><p>
+            This option does not initialize the landmark detector.  Memory usage is less than if landmark detection is
+            enabled, but faces cannot be submitted for landmark detection.  The
+	    <code class="function"><a href="detection_reference.html#detect_objects" title="ppr_detect_objects">ppr_detect_objects</a></code> and
+	    <code class="function"><a href="tracking_reference.html#detect_and_track_objects" title="ppr_detect_and_track_objects">ppr_detect_and_track_objects</a></code> functions
+	    will not return landmarks, even if
+	    <span class="parameter"><a href="detection_reference.html#automatic_landmarks" title="PPR_AUTOMATIC_LANDMARKS">PPR_AUTOMATIC_LANDMARKS</a></span> is set.  Calls to
+	    <code class="function"><a href="detection_reference.html#detect_landmarks_from_object" title="ppr_detect_landmarks_from_object">ppr_detect_landmarks_from_object</a></code>
+	    will return an error.
+          </p></dd>
+<dt><span class="term"><span class="symbol">PPR_FRONTAL_LANDMARK_DETECTOR</span></span></dt>
+<dd><p>
+	    This option initializes the frontal landmark detector.  All functions that detect landmarks will use the
+	    frontal landmark detector.  This is the only landmark detector option that can be used with coarse
+	    detection precision.
+          </p></dd>
+<dt><span class="term"><span class="symbol">PPR_MULTI_POSE_LANDMARK_DETECTOR</span></span></dt>
+<dd><p>
+	    This option initializes the multi-pose landmark detector.  All functions that detect landmarks will use the
+	    multi-pose landmark detector.  This option allows landmarks to be found even when the pose is not frontal.
+	    This landmark detector requires that fine precision is used.  
+          </p></dd>
+<dt><span class="term"><span class="symbol">PPR_DUAL_FRONTAL_LANDMARK_DETECTOR</span></span></dt>
+<dd><p>
+	    This option initializes the frontal and multi-pose landmark detectors.  When detecting landmarks, the
+            frontal landmark detector is used first.  If the frontal landmark detector finds landmarks, processing is
+	    complete and the detected landmarks are returned.  If the frontal landmark detector is unable to find
+            landmarks, the multi-pose landmark detector is then used,
+	    <span class="emphasis"><em>but it only searches for frontal landmarks</em></span>.  This method gives the best chance of
+	    finding frontal landmarks because sometimes frontal landmarks that are missed using the frontal landmark
+	    detector can be found using the multi-pose landmark detector.  This landmark detector option requires that
+	    fine precision is used.
+          </p></dd>
+<dt><span class="term"><span class="symbol">PPR_DUAL_MULTI_POSE_LANDMARK_DETECTOR</span></span></dt>
+<dd><p>
+	    This option initializes the frontal and multi-pose landmark detectors.  When detecting landmarks, the
+            frontal landmark detector is used first.  If the frontal landmark detector finds landmarks, processing is
+	    complete, and the detected landmarks are returned.  If the frontal landmark detector is unable to find
+            landmarks, the multi-pose landmark detector is used,
+	    <span class="emphasis"><em>searching for landmarks across all poses</em></span>.  This method gives the best possible
+	    multi-pose landmarks because if frontal landmarks can be found with the frontal detector, they are typically
+	    better than frontal landmarks detected with the multi-pose detector.  Unlike the
+	    <span class="parameter">PPR_DUAL_FRONTAL_LANDMARK_DETECTOR</span> option, landmarks from non-frontal poses can be
+	    returned if frontal landmarks are not present.  However, this comes at the expense of additional execution
+            time.  This landmark detector option requires that fine precision is used.
+          </p></dd>
+</dl></div>
+<p>
+      See also:
+      <a href="detection_users_guide.html#landmarks" title="Landmarks">Landmarks</a>,
+      <a href="detection_users_guide.html#detection_precision" title="Detection Precision">Detection Precision</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="landmark_category_type"></a>ppr_landmark_category_type</h4></div></div></div>
+<a class="indexterm" name="id4748937"></a><pre class="programlisting">typedef enum 
+{
+  PPR_LANDMARK_LEFT_EYE,
+  PPR_LANDMARK_RIGHT_EYE,
+  PPR_LANDMARK_NOSE_BASE,
+  PPR_LANDMARK_NOSE_BRIDGE,
+  PPR_LANDMARK_NOSE_TIP,
+  PPR_LANDMARK_NOSE_TOP,
+  PPR_LANDMARK_EYE_NOSE,
+  PPR_LANDMARK_MOUTH
+} <span class="type">ppr_landmark_category_type</span>;</pre>
+<p>
+      This enumeration defines the types of landmarks that can be detected on a face.  The types of landmarks that can
+      be detected varies with pose.  See the figures in the <a href="detection_users_guide.html#landmarks" title="Landmarks">Landmarks</a> section for a
+      visual depiction of the various landmarks.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">PPR_LANDMARK_LEFT_EYE</span></span></dt>
+<dd><p>The subject's left eye, defined as the midpoint between the eye corners.</p></dd>
+<dt><span class="term"><span class="symbol">PPR_LANDMARK_RIGHT_EYE</span></span></dt>
+<dd><p>The subject's right eye, defined as the midpoint between the eye corners.</p></dd>
+<dt><span class="term"><span class="symbol">PPR_LANDMARK_NOSE_BASE</span></span></dt>
+<dd><p>The lowest point along the vertical axis of the nose.</p></dd>
+<dt><span class="term"><span class="symbol">PPR_LANDMARK_NOSE_BRIDGE</span></span></dt>
+<dd><p>Point along nose approximately midway between the nose top and nose tip.</p></dd>
+<dt><span class="term"><span class="symbol">PPR_LANDMARK_NOSE_TIP</span></span></dt>
+<dd><p>Point along nose that is the furthest from the face plane.</p></dd>
+<dt><span class="term"><span class="symbol">PPR_LANDMARK_NOSE_TOP</span></span></dt>
+<dd><p>Point on nose that is approximately midway between the subject's eyes.</p></dd>
+<dt><span class="term"><span class="symbol">PPR_LANDMARK_EYE_NOSE</span></span></dt>
+<dd><p>Midpoint between the nose base and the center of the eye cavity.</p></dd>
+<dt><span class="term"><span class="symbol">PPR_LANDMARK_MOUTH</span></span></dt>
+<dd><p>Point just below the bottom lip.</p></dd>
+</dl></div>
+<p>
+      See also: <a href="detection_users_guide.html#landmarks" title="Landmarks">Landmarks</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="precision_type"></a>ppr_precision_type</h4></div></div></div>
+<a class="indexterm" name="id4749132"></a><pre class="programlisting">typedef enum 
+{
+  PPR_COARSE_PRECISION,
+  PPR_FINE_PRECISION
+} <span class="type">ppr_precision_type</span>;</pre>
+<p>
+      This enumeration is used to set the detection precision using
+      <code class="function"><a href="detection_reference.html#set_detection_precision" title="ppr_set_detection_precision">ppr_set_detection_precision</a></code>.
+      It is also used to define the precision of the rotation angles in
+      <span class="parameter"><a href="detection_reference.html#rotation_type" title="ppr_rotation_type">ppr_rotation_type</a></span>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#detection_precision" title="Detection Precision">Detection Precision</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="frontal_yaw_constraint_type"></a>ppr_frontal_yaw_constraint_type</h4></div></div></div>
+<a class="indexterm" name="id4749209"></a><pre class="programlisting">typedef enum 
+{
+  PPR_FRONTAL_YAW_CONSTRAINT_RESTRICTIVE,
+  PPR_FRONTAL_YAW_CONSTRAINT_PERMISSIVE
+} <span class="type">ppr_frontal_yaw_constraint_type</span>;</pre>
+<p>
+      This enumeration provides a means of specifying the range of yaw angles for which a face is considered to be
+      frontal.  This affects landmark detection, as it is used to determine which faces should be searched for frontal
+      landmarks.  The frontal yaw constraint can be set using
+      <code class="function"><a href="detection_reference.html#set_frontal_yaw_constraint" title="ppr_set_frontal_yaw_constraint">ppr_set_frontal_yaw_constraint</a></code>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#frontal_faces" title="Frontal Faces">Frontal Faces</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="bounding_box_type"></a>ppr_bounding_box_type</h4></div></div></div>
+<a class="indexterm" name="id4749281"></a><pre class="programlisting">typedef enum 
+{
+  PPR_DEFAULT_BOUNDING_BOX,
+  PPR_TIGHT_BOUNDING_BOX
+} <span class="type">ppr_bounding_box_type</span>;</pre>
+<p>
+      This enumeration defines the types of bounding boxes available for the 
+      <code class="function"><a href="detection_reference.html#get_object_boundary" title="ppr_get_object_boundary">ppr_get_object_boundary</a></code> function.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">PPR_DEFAULT_BOUNDING_BOX</span></span></dt>
+<dd><p>
+	    Uses the size of the object to create the bounding box.
+	  </p></dd>
+<dt><span class="term"><span class="symbol">PPR_TIGHT_BOUNDING_BOX</span></span></dt>
+<dd><p>
+	    Creates a tighter bounding box around the object than <span class="parameter">PPR_DEFAULT_BOUNDING_BOX</span>.
+	  </p></dd>
+</dl></div>
+<p>
+      See also: <a href="detection_users_guide.html#objects" title="Objects">Objects</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="enabled_status_type"></a>ppr_enabled_status_type</h4></div></div></div>
+<a class="indexterm" name="id4749388"></a><pre class="programlisting">typedef enum 
+{
+  PPR_DISABLED,
+  PPR_ENABLED
+} <span class="type">ppr_enabled_status_type</span>;</pre>
+<p>
+      This enumeration is used to determine if certain SDK options have been enabled. 
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="error_type"></a>ppr_error_type</h4></div></div></div>
+<a class="indexterm" name="id4749434"></a><pre class="programlisting">typedef enum 
+{
+  PPR_SUCCESS,
+  ...
+} <span class="type">ppr_error_type</span>;</pre>
+<p>
+      This enumeration defines each possible error code.  The full list of error codes can be found in
+      <code class="filename">pittpatt_errors.h</code>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#error_codes" title="Error Codes">Error Codes</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="structure_types"></a>Structure Types</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="coordinate_type"></a>ppr_coordinate_type</h4></div></div></div>
+<a class="indexterm" name="id4749506"></a><pre class="programlisting">typedef struct
+{
+  float x;
+  float y;
+} <span class="type">ppr_coordinate_type</span>;</pre>
+<p>
+      The <span class="structname">ppr_coordinate_type</span> represents the position of a single point in an image.  Each
+      floating-point coordinate is zero-indexed with the top-left corner serving as the origin.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">float x</span></span></dt>
+<dd><p>Position along the horizontal axis of the image.</p></dd>
+<dt><span class="term"><span class="symbol">float y</span></span></dt>
+<dd><p>Position along the vertical axis of the image.</p></dd>
+</dl></div>
+<p>
+      See also: <a href="detection_users_guide.html#position">Position</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="polygon_type"></a>ppr_polygon_type</h4></div></div></div>
+<a class="indexterm" name="id4749600"></a><pre class="programlisting">typedef struct
+{
+  int num_points;
+  ppr_coordinate_type *points;
+} <span class="type">ppr_polygon_type</span>;</pre>
+<p>
+      The <span class="structname">ppr_polygon_type</span> represents a list of points that form a polygon. The polygon points
+      are in a clockwise order such that drawing a line between consecutive points (and from the last point back to the
+      first point) yields a closed polygon.  The structure is returned by 
+      <code class="function"><a href="detection_reference.html#get_object_boundary" title="ppr_get_object_boundary">ppr_get_object_boundary</a></code> and must be freed using
+      <code class="function"><a href="detection_reference.html#free_polygon" title="ppr_free_polygon">ppr_free_polygon</a></code>.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int num_points</span></span></dt>
+<dd><p>Number of points in the polygon.</p></dd>
+<dt><span class="term"><span class="symbol"><a href="detection_reference.html#coordinate_type" title="ppr_coordinate_type">ppr_coordinate_type</a> *points</span></span></dt>
+<dd><p>Array of points in the polygon.</p></dd>
+</dl></div>
+<p>
+      See also: <a href="detection_users_guide.html#objects" title="Objects">Objects</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="landmark_type"></a>ppr_landmark_type</h4></div></div></div>
+<a class="indexterm" name="id4749721"></a><pre class="programlisting">typedef struct
+{
+  int model_id;
+  ppr_landmark_category_type category;
+  ppr_coordinate_type position;
+} <span class="type">ppr_landmark_type</span>;</pre>
+<p>
+      This structure represents a single landmark detected by the SDK.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int model_id</span></span></dt>
+<dd><p>
+	    Specific detector that found the landmark.  The user should not manipulate this value.  It is provided
+	    because it is needed by the SDK functions internally.
+	  </p></dd>
+<dt><span class="term"><span class="symbol"><a href="detection_reference.html#landmark_category_type" title="ppr_landmark_category_type">ppr_landmark_category_type</a> category</span></span></dt>
+<dd><p>Type of landmark detected.</p></dd>
+<dt><span class="term"><span class="symbol"><a href="detection_reference.html#coordinate_type" title="ppr_coordinate_type">ppr_coordinate_type</a> position</span></span></dt>
+<dd><p>Position of the landmark within the image.</p></dd>
+</dl></div>
+<p>
+      See also: <a href="detection_users_guide.html#landmarks" title="Landmarks">Landmarks</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="dimensions_type"></a>ppr_dimensions_type</h4></div></div></div>
+<a class="indexterm" name="id4749838"></a><pre class="programlisting">typedef struct
+{
+  float width;
+  float height;
+} <span class="type">ppr_dimensions_type</span>;</pre>
+<p>
+      The <span class="structname">ppr_dimensions_type</span> represents an object's <span class="parameter">width</span> and
+      <span class="parameter">height</span> in pixels.  
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">float width</span></span></dt>
+<dd><p>The width of the object in pixels.</p></dd>
+<dt><span class="term"><span class="symbol">float height</span></span></dt>
+<dd><p>The height of the object in pixels.</p></dd>
+</dl></div>
+<p>
+      See also: <a href="detection_users_guide.html#dimensions">Dimensions</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="rotation_type"></a>ppr_rotation_type</h4></div></div></div>
+<a class="indexterm" name="id4749941"></a><pre class="programlisting">typedef struct
+{
+  float yaw;
+  float pitch;
+  float roll;
+  ppr_precision_type precision;
+} <span class="type">ppr_rotation_type</span>;</pre>
+<p>
+      The <span class="structname">ppr_rotation_type</span> represents an object's <span class="parameter">yaw</span>,
+      <span class="parameter">pitch</span>, and <span class="parameter">roll</span> angles in degrees.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">float yaw</span></span></dt>
+<dd><p>Rotation about the axis pointing out of the top of the head.</p></dd>
+<dt><span class="term"><span class="symbol">float pitch</span></span></dt>
+<dd><p>Rotation about the axis pointing out of the side of the head.</p></dd>
+<dt><span class="term"><span class="symbol">float roll</span></span></dt>
+<dd><p>Rotation about the axis pointing out of the face.</p></dd>
+<dt><span class="term"><span class="symbol"><a href="detection_reference.html#precision_type" title="ppr_precision_type">ppr_precision_type</a> precision</span></span></dt>
+<dd><p>Indicates whether the angles are defined at coarse or fine precision.</p></dd>
+</dl></div>
+<p>
+      See also: <a href="detection_users_guide.html#rotation">Rotation</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="object_type"></a>ppr_object_type</h4></div></div></div>
+<a class="indexterm" name="id4750088"></a><pre class="programlisting">typedef struct
+{
+  int model_id;
+  ppr_coordinate_type position;
+  ppr_dimensions_type dimensions;
+  ppr_rotation_type rotation;
+  float size;
+  float confidence;
+  int num_landmarks;
+  ppr_landmark_type *landmarks;
+} <span class="type">ppr_object_type</span>;</pre>
+<p>
+      This structure represents a single object detected by the SDK.  
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int model_id</span></span></dt>
+<dd><p>
+            Specific detector that found the object.  The user should not manipulate this value.  It is provided
+            because it is needed by the SDK functions internally.
+          </p></dd>
+<dt><span class="term"><span class="symbol"><a href="detection_reference.html#coordinate_type" title="ppr_coordinate_type">ppr_coordinate_type</a> position</span></span></dt>
+<dd><p>
+            Position of the object within the image.
+          </p></dd>
+<dt><span class="term"><span class="symbol"><a href="detection_reference.html#dimensions_type" title="ppr_dimensions_type">ppr_dimensions_type</a> dimensions</span></span></dt>
+<dd><p>
+            Dimensions of the object in pixels.
+          </p></dd>
+<dt><span class="term"><span class="symbol"><a href="detection_reference.html#rotation_type" title="ppr_rotation_type">ppr_rotation_type</a> rotation</span></span></dt>
+<dd><p>
+            Rotation of the object within the image.
+          </p></dd>
+<dt><span class="term"><span class="symbol">float size</span></span></dt>
+<dd><p>
+            Size of the object used internally by the detector.
+          </p></dd>
+<dt><span class="term"><span class="symbol">float confidence</span></span></dt>
+<dd>
+<p>
+            Likelihood that the object corresponds to a correct detection.  For a detection context, the
+            <span class="parameter">threshold</span> parameter controls which detected objects are reported: objects with a
+            confidence below the provided threshold will not be reported.
+          </p>
+<p>
+            There is always some chance that an object reported by a particular detector is not actually present
+            &#8212; for example, a false detection from a face detector would erroneously report a face in a location
+            where no face is visible. The <span class="structfield">confidence</span> field is normalized such that a value
+            of zero corresponds to the equal error rate of the detector (i.e., approximately equal number of misses 
+            and false alarms).  Larger values suggest a greater confidence in the correctness of the corresponding
+            detection.
+          </p>
+</dd>
+<dt><span class="term"><span class="symbol">int num_landmarks</span></span></dt>
+<dd><p>
+            Number of landmarks detected.
+          </p></dd>
+<dt><span class="term"><span class="symbol"><a href="detection_reference.html#landmark_type" title="ppr_landmark_type">ppr_landmark_type</a> *landmarks</span></span></dt>
+<dd><p>
+            Array of landmark structures.
+          </p></dd>
+</dl></div>
+<p>
+      See also:
+      <a href="detection_users_guide.html#detection_results" title="Interpreting Results">Interpreting Results</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="object_list_type"></a>ppr_object_list_type</h4></div></div></div>
+<a class="indexterm" name="id4750331"></a><pre class="programlisting">typedef struct
+{
+  int num_objects;
+  ppr_object_type *objects;
+} <span class="type">ppr_object_list_type</span>;</pre>
+<p>
+      This structure provides an array of detected objects and the number of objects in that array.  The structure is
+      returned by the detector and must be freed by calling
+      <code class="function"><a href="detection_reference.html#free_object_list" title="ppr_free_object_list">ppr_free_object_list</a></code>.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int num_objects</span></span></dt>
+<dd><p>Number of objects in the list.</p></dd>
+<dt><span class="term"><span class="symbol"><a href="detection_reference.html#object_type" title="ppr_object_type">ppr_object_type</a> *objects</span></span></dt>
+<dd><p>Array of objects.</p></dd>
+</dl></div>
+<p>
+      See also:
+      <a href="detection_users_guide.html#detection_results" title="Interpreting Results">Interpreting Results</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="flat_object_list_type"></a>ppr_flat_object_list_type</h4></div></div></div>
+<a class="indexterm" name="id4750443"></a><pre class="programlisting">typedef struct
+{
+  size_t num_bytes;
+  void *data;
+} <span class="type">ppr_flat_object_list_type</span>;</pre>
+<p>
+      The <span class="structname">ppr_flat_object_list_type</span> stores the bytes that make up a flattened object list.
+      Flattened object lists can be freed using
+      <code class="function"><a href="detection_reference.html#free_flat_object_list" title="ppr_free_flat_object_list">ppr_free_flat_object_list</a></code>.
+    </p>
+<div class="variablelist"><dl>
+<dt><span class="term"><span class="symbol">int num_bytes</span></span></dt>
+<dd><p>
+            Number of bytes in the data buffer.
+	  </p></dd>
+<dt><span class="term"><span class="symbol">void *data</span></span></dt>
+<dd><p>
+            Buffer containing flattened object list.
+          </p></dd>
+</dl></div>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="detection_functions"></a>3. Function Reference</h2></div></div></div>
+<p>
+  The functions described in this section are declared in <code class="filename">pittpatt_detection.h</code>.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="detection_initialize_and_configure_functions"></a>Initialize and Configure Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_context"></a>ppr_get_context</h4></div></div></div>
+<a class="indexterm" name="id4750587"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">ppr_context_type <b class="fsfunc">ppr_get_context</b>(</code></td>
+<td> </td>
+<td>
+<code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>Uninitialized <a href="detection_reference.html#context_type" title="ppr_context_type">context</a></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Default Settings</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#set_models_path" title="ppr_set_models_path">models_path</a></span> = "."</p>
+<p><span class="parameter"><a href="detection_reference.html#set_detection_precision" title="ppr_set_detection_precision">detection_precision</a></span>
+	    = <span class="symbol">PPR_COARSE_PRECISION</span></p>
+<p><span class="parameter"><a href="detection_reference.html#set_coarse_detector_types" title="ppr_set_coarse_detector_types">coarse_detector_types</a></span> 
+            = <span class="symbol">PPR_ALL_FACE_DETECTORS_MASK</span></p>
+<p><span class="parameter"><a href="detection_reference.html#set_landmark_detector_type" title="ppr_set_landmark_detector_type">landmark_detector_type</a></span> 
+            = <span class="symbol">PPR_NO_LANDMARK_DETECTOR</span></p>
+<p><span class="parameter"><a href="detection_reference.html#set_num_detection_threads" title="ppr_set_num_detection_threads">num_detection_threads</a></span> = 1</p>
+<p><span class="parameter"><a href="detection_reference.html#set_min_size" title="ppr_set_min_size">min_size</a></span> = -2</p>
+<p><span class="parameter"><a href="detection_reference.html#set_detection_threshold" title="ppr_set_detection_threshold">detection_threshold</a></span> = 0.0</p>
+<p><span class="parameter"><a href="detection_reference.html#set_search_region" title="ppr_set_search_region">search_region</a></span> 
+            = (-1,-1) (-1,-1)<sup>*</sup></p>
+<p><span class="parameter"><a href="recognition_reference.html#enable_recognition" title="ppr_enable_recognition">recognition</a></span> =
+	    disabled</p>
+</dd>
+</dl></div>
+<p>
+      Creates a new context.  Multiple contexts can be created so different parameter sets can be used.
+    </p>
+<p>
+      <sup>*</sup> Searches the entire image
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#contexts" title="Contexts">Contexts</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_license"></a>ppr_set_license</h4></div></div></div>
+<a class="indexterm" name="id4750834"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_license</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*license_id</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const unsigned int </td>
+<td>
+<var class="pdparam">*license_key</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to uninitialized context</p>
+<p><span class="parameter">license_id</span> - null-terminated string specifying the provided license ID</p>
+<p><span class="parameter">license_key</span> - array of values that specify the provided license key</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Cannot be called after context is initialized</p></dd>
+</dl></div>
+<p>
+      Specifies the provided license <span class="parameter">ID</span> and <span class="parameter">key</span>.
+    </p>
+<p>
+      See also: <a href="../ftr_sdk.html#home_license" title="4. License">License</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_models_path"></a>ppr_set_models_path</h4></div></div></div>
+<a class="indexterm" name="id4751008"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_models_path</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*path</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to uninitialized context</p>
+<p><span class="parameter">path</span> - null-terminated string specifying the path to the <code class="filename">models</code> directory</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Cannot be called after context is initialized</p></dd>
+</dl></div>
+<p>
+      Specifies the location of the <code class="filename">models</code> directory.
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_detection_precision"></a>ppr_set_detection_precision</h4></div></div></div>
+<a class="indexterm" name="id4751155"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_detection_precision</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_precision_type </td>
+<td>
+<var class="pdparam">precision</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to uninitialized context</p>
+<p><span class="parameter"><a href="detection_reference.html#precision_type" title="ppr_precision_type">precision</a></span> - desired detection precision</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Cannot be called after context is initialized</p></dd>
+</dl></div>
+<p>
+      Sets the detection precision to either coarse or fine.  Fine precision gives a better estimate of pose than
+      coarse precision, but coarse precision executes faster than fine precision.  If using coarse precision,
+      individual detectors can be specified using
+      <code class="function"><a href="detection_reference.html#set_coarse_detector_types" title="ppr_set_coarse_detector_types">ppr_set_coarse_detector_types</a></code>.  If using
+      fine precision, all detectors are enabled.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#detection_precision" title="Detection Precision">Detection Precision</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_coarse_detector_types"></a>ppr_set_coarse_detector_types</h4></div></div></div>
+<a class="indexterm" name="id4751318"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_coarse_detector_types</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_coarse_detector_mask_type </td>
+<td>
+<var class="pdparam">masks</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to uninitialized context</p>
+<p><span class="parameter"><a href="detection_reference.html#coarse_detector_mask_type" title="ppr_coarse_detector_mask_type">masks</a></span> - coarse detectors to be used</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Cannot be called after context is initialized</p>
+<p>Coarse precision must be enabled</p>
+</dd>
+</dl></div>
+<p>
+      Specifies which coarse detectors to use.  Each context can use a different subset of available detectors.  To
+      configure a precise subset, <span class="parameter">masks</span> can be OR-ed together.
+    </p>
+<p>
+      This function is only applicable when the detection precision is set to coarse.  Use
+      <code class="function"><a href="detection_reference.html#set_detection_precision" title="ppr_set_detection_precision">ppr_set_detection_precision</a></code>
+      to set the desired detection precision.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#detection_precision" title="Detection Precision">Detection Precision</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_landmark_detector_type"></a>ppr_set_landmark_detector_type</h4></div></div></div>
+<a class="indexterm" name="id4751495"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_landmark_detector_type</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_landmark_detector_type </td>
+<td>
+<var class="pdparam">landmark_detector</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">automatic_setting</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to uninitialized context</p>
+<p><span class="parameter"><a href="detection_reference.html#landmark_detector_type" title="ppr_landmark_detector_type">landmark_detector</a></span> - landmark detector to be used</p>
+<p><span class="parameter">automatic_setting</span> - setting to indicate whether landmarks should be found automatically</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Cannot be called after context is initialized</p></dd>
+</dl></div>
+<p>
+      Specifies the type of landmark detector to use and indicates whether landmarks should be found automatically, or
+      if the user will manually submit objects for landmark detection.  If <span class="parameter">automatic_setting</span> is
+      set to <span class="parameter"><a href="detection_reference.html#automatic_landmarks" title="PPR_AUTOMATIC_LANDMARKS">PPR_AUTOMATIC_LANDMARKS</a></span>, landmarks will
+      automatically be found in detected objects, and the detector will populate object data structures with landmark
+      data.  If <span class="parameter">automatic_setting</span> is set to
+      <span class="parameter"><a href="detection_reference.html#manual_landmarks" title="PPR_MANUAL_LANDMARKS">PPR_MANUAL_LANDMARKS</a></span>, the user must submit objects
+      for landmark detection using
+      <code class="function"><a href="detection_reference.html#detect_landmarks_from_object" title="ppr_detect_landmarks_from_object">ppr_detect_landmarks_from_object</a></code>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#landmarks" title="Landmarks">Landmarks</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_frontal_yaw_constraint"></a>ppr_set_frontal_yaw_constraint</h4></div></div></div>
+<a class="indexterm" name="id4751709"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_frontal_yaw_constraint</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_frontal_yaw_constraint_type </td>
+<td>
+<var class="pdparam">yaw_constraint</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to uninitialized context</p>
+<p><span class="parameter"><a href="detection_reference.html#frontal_yaw_constraint_type" title="ppr_frontal_yaw_constraint_type">yaw_constraint</a></span> - frontal yaw constraint value to set</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Cannot be called after context is initialized</p></dd>
+</dl></div>
+<p>
+      Sets the cutoff for what range of yaw angle is required for a face to be considered frontal.  The cutoff can
+      either be set as
+      <span class="parameter"><a href="detection_reference.html#frontal_yaw_constraint_type" title="ppr_frontal_yaw_constraint_type">PPR_FRONTAL_YAW_CONSTRAINT_RESTRICTIVE</a></span>,
+      which is the default, or
+      <span class="parameter"><a href="detection_reference.html#frontal_yaw_constraint_type" title="ppr_frontal_yaw_constraint_type">PPR_FRONTAL_YAW_CONSTRAINT_PERMISSIVE</a></span>,
+      which allows a greater range of yaw angles for frontal faces.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#frontal_faces" title="Frontal Faces">Frontal Faces</a><span>,</span>
+      <a href="recognition_users_guide.html#template_yaw_constraint" title="Frontal Yaw Constraint and Templates">Frontal Yaw Constraint and Templates</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_num_detection_threads"></a>ppr_set_num_detection_threads</h4></div></div></div>
+<a class="indexterm" name="id4751895"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_num_detection_threads</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">num_threads</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to uninitialized context</p>
+<p><span class="parameter">num_threads</span> - number of detection worker threads to spawn during processing</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Cannot be called after context is initialized</p></dd>
+</dl></div>
+<p>
+      The <span class="parameter">num_threads</span> parameter specifies the number of worker threads that the SDK should use
+      internally to perform <span class="emphasis"><em>detection</em></span> within this context.  
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#detection_threading" title="Multi-Threaded Detection">Multi-Threaded Detection</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_search_pruning_aggressiveness"></a>ppr_set_search_pruning_aggressiveness</h4></div></div></div>
+<a class="indexterm" name="id4752052"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_search_pruning_aggressiveness</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">aggressiveness</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to uninitialized context</p>
+<p><span class="parameter">aggressiveness</span> - aggressiveness when detecting objects</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Cannot be called after context is initialized</p>
+<p>Number of internal detection threads must be set to 1</p>
+</dd>
+</dl></div>
+<p>
+      The <span class="parameter">aggressiveness</span> parameter specifies which search pruning strategy to employ.  As the
+      <span class="parameter">aggressiveness</span> is increased, the execution time decreases, but more faces may be missed.
+      An aggressiveness of <span class="parameter">0</span> turns off search pruning.
+      <span class="parameter"><a href="detection_reference.html#max_search_pruning_aggressiveness" title="PPR_MAX_SEARCH_PRUNING_AGGRESSIVENESS">PPR_MAX_SEARCH_PRUNING_AGGRESSIVENESS</a></span>
+      specifies the maximum allowable <span class="parameter">aggressiveness</span>.
+    </p>
+<p>
+      Search pruning only works when the number of internal detection threads is set to 1.  
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#search_pruning" title="Search Pruning">Search Pruning</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_min_size"></a>ppr_set_min_size</h4></div></div></div>
+<a class="indexterm" name="id4752247"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_min_size</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">min_size</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">min_size</span> - the approximate size of the smallest object to search for</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Must be called before initialize when tracking is enabled</p></dd>
+</dl></div>
+<p>
+      The <span class="parameter">min_size</span> parameter defines the approximate size of the smallest objects to search for.
+      The <span class="parameter">min_size</span> may be changed before and/or after 
+      <code class="function"><a href="detection_reference.html#initialize_context" title="ppr_initialize_context">ppr_initialize_context</a></code> or 
+      <code class="function"><a href="detection_reference.html#detect_objects" title="ppr_detect_objects">ppr_detect_objects</a></code> when tracking is not enabled. When
+      tracking is enabled, <span class="parameter">min_size</span> may only be set prior to initializing the context.
+    </p>
+<p>
+      The smallest value allowed for <span class="parameter">min_size</span> is defined by the 
+      <span class="parameter"><a href="detection_reference.html#min_min_size" title="PPR_MIN_MIN_SIZE">PPR_MIN_MIN_SIZE</a></span> constant.  The
+      <span class="parameter">min_size</span> must be smaller than the specified <span class="parameter">max_size</span>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#face_sizes" title="Face Sizes">Face Sizes</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_max_size"></a>ppr_set_max_size</h4></div></div></div>
+<a class="indexterm" name="id4752464"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_max_size</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">max_size</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">max_size</span> - the approximate size of the largest object to search for</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Must be called before initialize when tracking is enabled</p></dd>
+</dl></div>
+<p>
+      The <span class="parameter">max_size</span> parameter defines the approximate size of the largest objects to search for.
+      The <span class="parameter">max_size</span> may be changed before and/or after 
+      <code class="function"><a href="detection_reference.html#initialize_context" title="ppr_initialize_context">ppr_initialize_context</a></code> or 
+      <code class="function"><a href="detection_reference.html#detect_objects" title="ppr_detect_objects">ppr_detect_objects</a></code> when tracking is not enabled.  When
+      tracking is enabled, <span class="parameter">max_size</span> may only be set prior to initializing the context.
+    </p>
+<p>
+      The largest value allowed for <span class="parameter">max_size</span> is defined by the 
+      <span class="parameter"><a href="detection_reference.html#max_max_size" title="PPR_MAX_MAX_SIZE">PPR_MAX_MAX_SIZE</a></span> constant. The
+      <span class="parameter">max_size</span> must be larger than the specified <span class="parameter">min_size</span>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#face_sizes" title="Face Sizes">Face Sizes</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_adaptive_min_size"></a>ppr_set_adaptive_min_size</h4></div></div></div>
+<a class="indexterm" name="id4752681"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_adaptive_min_size</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>float </td>
+<td>
+<var class="pdparam">adaptive_min_size</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">adaptive_min_size</span> - the approximate size of the smallest object to search for as a proportion of the image width</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be disabled</p></dd>
+</dl></div>
+<p>
+      The <span class="parameter">adaptive_min_size</span> parameter defines the approximate size of the smallest object to 
+      search for as a proportion of the image width.
+    </p>
+<p>
+      The <span class="parameter">adaptive_min_size</span> may be changed before and/or after 
+      <code class="function"><a href="detection_reference.html#initialize_context" title="ppr_initialize_context">ppr_initialize_context</a></code> or 
+      <code class="function"><a href="detection_reference.html#detect_objects" title="ppr_detect_objects">ppr_detect_objects</a></code>.
+    </p>
+<p>
+      The <span class="parameter">adaptive_min_size</span> must be a value between <span class="parameter">0.0</span> and
+      <span class="parameter">1.0</span>, and it must be smaller than the specified <span class="parameter">adaptive_max_size</span>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#face_sizes" title="Face Sizes">Face Sizes</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_adaptive_max_size"></a>ppr_set_adaptive_max_size</h4></div></div></div>
+<a class="indexterm" name="id4752892"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_adaptive_max_size</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>float </td>
+<td>
+<var class="pdparam">adaptive_max_size</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">adaptive_max_size</span> - the approximate size of the largest object to search for as a proportion of the image width</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be disabled</p></dd>
+</dl></div>
+<p>
+      The <span class="parameter">adaptive_max_size</span> parameter defines the approximate size of the largest object to 
+      search for as a proportion of the image width.
+    </p>
+<p>
+      The <span class="parameter">adaptive_max_size</span> may be changed before and/or after 
+      <code class="function"><a href="detection_reference.html#initialize_context" title="ppr_initialize_context">ppr_initialize_context</a></code> or 
+      <code class="function"><a href="detection_reference.html#detect_objects" title="ppr_detect_objects">ppr_detect_objects</a></code>.
+    </p>
+<p>
+      The <span class="parameter">adaptive_max_size</span> must be a value between <span class="parameter">0.0</span> and
+      <span class="parameter">1.0</span>, and it must be larger than the specified <span class="parameter">adaptive_min_size</span>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#face_sizes" title="Face Sizes">Face Sizes</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_detection_threshold"></a>ppr_set_detection_threshold</h4></div></div></div>
+<a class="indexterm" name="id4753102"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_detection_threshold</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>float </td>
+<td>
+<var class="pdparam">threshold</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">threshold</span> - confidence threshold for detected objects</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be disabled</p></dd>
+</dl></div>
+<p>
+      The <span class="parameter">threshold</span> may be changed before and/or after 
+      <code class="function"><a href="detection_reference.html#initialize_context" title="ppr_initialize_context">ppr_initialize_context</a></code> or 
+      <code class="function"><a href="detection_reference.html#detect_objects" title="ppr_detect_objects">ppr_detect_objects</a></code>.  The tracker handles its cutoff
+      differently than the detector, so when tracking is enabled, call
+      <code class="function"><a href="tracking_reference.html#set_tracking_cutoff" title="ppr_set_tracking_cutoff">ppr_set_tracking_cutoff</a></code>  to set the cutoff.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#detection_threshold" title="Detection Threshold">Detection Threshold</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="set_search_region"></a>ppr_set_search_region</h4></div></div></div>
+<a class="indexterm" name="id4753283"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_set_search_region</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">x1</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">y1</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">x2</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">y2</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">x1</span> - x-coordinate of the first corner</p>
+<p><span class="parameter">y1</span> - y-coordinate of the first corner</p>
+<p><span class="parameter">x2</span> - x-coordinate of the opposing corner</p>
+<p><span class="parameter">y2</span> - y-coordinate of the opposing corner</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Must be called before initialize when tracking is enabled</p></dd>
+</dl></div>
+<p>
+      The size of the search region can be specified by passing two opposing corners of the region to search.
+    </p>
+<p>
+      Specifying a region smaller than the image will speed up the execution of the detect calls.  However, any objects
+      outside of the specified region will not be found.
+    </p>
+<p>
+      Specifying a region larger than the image dimensions will result in the entire image being searched.
+    </p>
+<p>
+      Specifying a region that is entirely outside of the image will result in the entire image being searched.  If a
+      portion of the specified region is within the image, only that portion will be searched.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#region_selection" title="Image Search Regions">Image Search Regions</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="clear_search_region"></a>ppr_clear_search_region</h4></div></div></div>
+<a class="indexterm" name="id4753494"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_clear_search_region</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Must be called before initialize when tracking is enabled</p></dd>
+</dl></div>
+<p>
+      Clears the previously specified search region.  Future calls to detect functions will search the entire image. 
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#region_selection" title="Image Search Regions">Image Search Regions</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="initialize_context"></a>ppr_initialize_context</h4></div></div></div>
+<a class="indexterm" name="id4753624"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_initialize_context</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to uninitialized context</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Readies the context for use by loading the models for the detectors and initializing the appropriate options
+      based on the parameters that have been set.  The models are read from the directory specified by
+      <code class="function"><a href="detection_reference.html#set_models_path" title="ppr_set_models_path">ppr_set_models_path</a></code>.  
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#contexts" title="Contexts">Contexts</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="detection_context_query_functions"></a>Context Query Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_models_path"></a>ppr_get_models_path</h4></div></div></div>
+<a class="indexterm" name="id4753773"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_models_path</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">**path</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p>
+            <span class="parameter">path</span> - pointer to a null-terminated string of the model path being used by the 
+            context
+          </p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets the model path being used by the context.  The path string will be freed when the context is released.
+      The path is returned by setting the contents pointed to by the <span class="parameter">path</span> argument.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#detection_precision" title="Detection Precision">Detection Precision</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_detection_precision"></a>ppr_get_detection_precision</h4></div></div></div>
+<a class="indexterm" name="id4753927"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_detection_precision</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_precision_type </td>
+<td>
+<var class="pdparam">*precision</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">precision</span> - pointer to the type of precision being used by the context</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets the type of detection precision being used by the context.  The detection precision is returned by setting 
+      the contents pointed to by the <span class="parameter">precision</span> argument.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#detection_precision" title="Detection Precision">Detection Precision</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_coarse_detector_types"></a>ppr_get_coarse_detector_types</h4></div></div></div>
+<a class="indexterm" name="id4754080"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_coarse_detector_types</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_coarse_detector_mask_type </td>
+<td>
+<var class="pdparam">*masks</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="detection_reference.html#coarse_detector_mask_type" title="ppr_coarse_detector_mask_type">masks</a></span> - pointer to the coarse detectors being used by the context</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Coarse detection must be enabled</p></dd>
+</dl></div>
+<p>
+      Gets the coarse detectors being used by the context as an OR-ed value of 
+      <span class="structname"><a href="detection_reference.html#coarse_detector_mask_type" title="ppr_coarse_detector_mask_type">ppr_coarse_detector_mask_type</a></span>.  The
+      OR-ed coarse detector mask is returned by setting the contents pointed to by the
+      <span class="parameter">masks</span> argument.
+    </p>
+<p>
+      This function is only applicable when the detection precision is set to coarse. 
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#detection_precision" title="Detection Precision">Detection Precision</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_landmark_detector_type"></a>ppr_get_landmark_detector_type</h4></div></div></div>
+<a class="indexterm" name="id4754250"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_landmark_detector_type</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_landmark_detector_type </td>
+<td>
+<var class="pdparam">*landmark_detector</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="detection_reference.html#landmark_detector_type" title="ppr_landmark_detector_type">landmark_detector</a></span> - pointer to the landmark detector being used by the context</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets the landmark detector being used by the context.  The landmark detector is returned by setting the contents 
+      pointed to by the <span class="parameter">landmark_detector</span> argument.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#landmarks" title="Landmarks">Landmarks</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_frontal_yaw_constraint"></a>ppr_get_frontal_yaw_constraint</h4></div></div></div>
+<a class="indexterm" name="id4754406"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_frontal_yaw_constraint</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_frontal_yaw_constraint_type </td>
+<td>
+<var class="pdparam">*yaw_constraint</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="detection_reference.html#frontal_yaw_constraint_type" title="ppr_frontal_yaw_constraint_type">yaw_constraint</a></span> - pointer to frontal yaw constraint value being used by the context</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets the frontal yaw constraint being used by the context.  The frontal yaw constraint is returned by setting the
+      contents pointed to by the <span class="parameter">yaw_constraint</span> argument.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#frontal_faces" title="Frontal Faces">Frontal Faces</a><span>,</span>
+      <a href="recognition_users_guide.html#template_yaw_constraint" title="Frontal Yaw Constraint and Templates">Frontal Yaw Constraint and Templates</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_num_detection_threads"></a>ppr_get_num_detection_threads</h4></div></div></div>
+<a class="indexterm" name="id4754576"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_num_detection_threads</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*num_threads</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">num_threads</span> - pointer to the number of detection threads being used by the context</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets the number of detection threads being used by the context.  The number of detection threads is returned by 
+      setting the contents pointed to by the <span class="parameter">num_threads</span> argument.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#detection_threading" title="Multi-Threaded Detection">Multi-Threaded Detection</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_search_pruning_aggressiveness"></a>ppr_get_search_pruning_aggressiveness</h4></div></div></div>
+<a class="indexterm" name="id4754730"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_search_pruning_aggressiveness</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*aggressiveness</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">aggressiveness</span> - pointer to the search pruning aggressiveness being used by the context</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets the search pruning aggressiveness being used by the context.  The search pruning aggressiveness is returned 
+      by setting the contents pointed to by the <span class="parameter">aggressiveness</span> argument.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#search_pruning" title="Search Pruning">Search Pruning</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_min_size"></a>ppr_get_min_size</h4></div></div></div>
+<a class="indexterm" name="id4754883"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_min_size</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*min_size</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">min_size</span> - pointer to the value of the minimum size being used by the context</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets the current minimum size being used by the context.  The minimum size is returned by setting the contents
+      pointed to by the <span class="parameter">min_size</span> argument.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#face_sizes" title="Face Sizes">Face Sizes</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_max_size"></a>ppr_get_max_size</h4></div></div></div>
+<a class="indexterm" name="id4755034"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_max_size</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*max_size</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">max_size</span> - pointer to the value of the maximum size being used by the context</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets the current maximum size being used by the context.  The maximum size is returned by setting the contents
+      pointed to by the <span class="parameter">max_size</span> argument.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#face_sizes" title="Face Sizes">Face Sizes</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_adaptive_min_size"></a>ppr_get_adaptive_min_size</h4></div></div></div>
+<a class="indexterm" name="id4755186"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_adaptive_min_size</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*adaptive_min_size</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">adaptive_min_size</span> - pointer to the value of the adaptive minimum size being used by the context</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be disabled</p></dd>
+</dl></div>
+<p>
+      Gets the current adaptive minimum size being used by the context.  The adaptive minimum size is returned by
+      setting the contents pointed to by the <span class="parameter">adaptive_min_size</span> argument.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#face_sizes" title="Face Sizes">Face Sizes</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_adaptive_max_size"></a>ppr_get_adaptive_max_size</h4></div></div></div>
+<a class="indexterm" name="id4755339"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_adaptive_max_size</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*adaptive_max_size</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">adaptive_max_size</span> - pointer to the value of the adaptive maximum size being used by the context</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be disabled</p></dd>
+</dl></div>
+<p>
+      Gets the current adaptive maximum size being used by the context.  The adaptive maximum size is returned by
+      setting the contents pointed to by the <span class="parameter">adaptive_max_size</span> argument.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#face_sizes" title="Face Sizes">Face Sizes</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_detection_threshold"></a>ppr_get_detection_threshold</h4></div></div></div>
+<a class="indexterm" name="id4755492"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_detection_threshold</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>float </td>
+<td>
+<var class="pdparam">*threshold</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">threshold</span> - pointer to the value of the threshold being used by the context</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Tracking must be disabled</p></dd>
+</dl></div>
+<p>
+      Gets the current detection threshold being used by the context.  The detection threshold is returned by setting
+      the contents pointed to by the <span class="parameter">threshold</span> argument.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#detection_threshold" title="Detection Threshold">Detection Threshold</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_search_region"></a>ppr_get_search_region</h4></div></div></div>
+<a class="indexterm" name="id4755644"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_search_region</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*x1</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*y1</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*x2</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>int </td>
+<td>
+<var class="pdparam">*y2</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">x1</span> - pointer to x-coordinate of the first corner</p>
+<p><span class="parameter">y1</span> - pointer to y-coordinate of the first corner</p>
+<p><span class="parameter">x2</span> - pointer to x-coordinate of the opposing corner</p>
+<p><span class="parameter">y2</span> - pointer to y-coordinate of the opposing corner</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Gets the two opposing corners of the region that is being searched.  The corners are returned by setting the
+      contents pointed to by the <span class="parameter">x1</span>, <span class="parameter">y1</span>, <span class="parameter">x2</span>, and
+      <span class="parameter">y2</span> arguments.
+    </p>
+<p>
+      Returns (-1,-1) (-1,-1) if the search region is not currently set (i.e., the entire image will be searched). 
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#region_selection" title="Image Search Regions">Image Search Regions</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="miscellaneous_query_functions"></a>Miscellaneous Query Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_size_from_pixels"></a>ppr_get_size_from_pixels</h4></div></div></div>
+<a class="indexterm" name="id4755876"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_size_from_pixels</b>(</code></td>
+<td>int </td>
+<td>
+<var class="pdparam">pixels</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>float </td>
+<td>
+<var class="pdparam">*size</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter">pixels</span> - number of pixels between the eyes</p>
+<p><span class="parameter">size</span> - pointer to the size value that corresponds to the specified number of pixels between the eyes</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+     Computes the object size that corresponds to the specified number of pixels between the eyes.
+   </p>
+<p>
+     See also: <a href="detection_users_guide.html#face_sizes" title="Face Sizes">Face Sizes</a>
+   </p>
+<p>
+     Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+   </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="detect_functions"></a>Detect Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="create_image"></a>ppr_create_image</h4></div></div></div>
+<a class="indexterm" name="id4756027"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_create_image</b>(</code></td>
+<td>ppr_raw_image_type </td>
+<td>
+<var class="pdparam">raw_image</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_image_type </td>
+<td>
+<var class="pdparam">*image</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="raw_image_library.html#raw_image_type" title="ppr_raw_image_type">raw_image</a></span> - raw image to create image from</p>
+<p><span class="parameter"><a href="detection_reference.html#image_type" title="ppr_image_type">image</a></span> - pointer to created image</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Creates an image in the format that is used by the SDK from an image provided in the raw image format.  It is the
+      new image, not the raw image, that must be passed to the SDK functions that require an input image.
+    </p>
+<p>
+      The returned data structure must be freed with
+      <code class="function"><a href="detection_reference.html#free_image" title="ppr_free_image">ppr_free_image</a></code>.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#image_types" title="Image Types">Image Types</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="detect_objects"></a>ppr_detect_objects</h4></div></div></div>
+<a class="indexterm" name="id4756191"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_detect_objects</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_image_type </td>
+<td>
+<var class="pdparam">image</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_object_list_type </td>
+<td>
+<var class="pdparam">*object_list</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="detection_reference.html#image_type" title="ppr_image_type">image</a></span> - image to search</p>
+<p><span class="parameter"><a href="detection_reference.html#object_list_type" title="ppr_object_list_type">object_list</a></span> - pointer to list containing the objects detected</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Context must be initialized</p></dd>
+</dl></div>
+<p>
+      Submits a new <span class="parameter">image</span> to the detector and returns the detected objects via a pointer.  If
+      the landmark detector is set to
+      <span class="parameter"><a href="detection_reference.html#automatic_landmarks" title="PPR_AUTOMATIC_LANDMARKS">PPR_AUTOMATIC_LANDMARKS</a></span>, this function also
+      does landmark detection and populates the landmark fields with all landmarks that were found.
+    </p>
+<p>
+      The returned data structure must be freed with 
+      <code class="function"><a href="detection_reference.html#free_object_list" title="ppr_free_object_list">ppr_free_object_list</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#detection_results" title="Interpreting Results">Interpreting Results</a>,
+      <a href="detection_users_guide.html#landmarks" title="Landmarks">Landmarks</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>,
+      <a href="detection_users_guide.html#image_types" title="Image Types">Image Types</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="detect_best_frontal_object"></a>ppr_detect_best_frontal_object</h4></div></div></div>
+<a class="indexterm" name="id4756410"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_detect_best_frontal_object</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_image_type </td>
+<td>
+<var class="pdparam">image</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_object_list_type </td>
+<td>
+<var class="pdparam">*object_list</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="detection_reference.html#image_type" title="ppr_image_type">image</a></span> - image to search</p>
+<p><span class="parameter"><a href="detection_reference.html#object_list_type" title="ppr_object_list_type">object_list</a></span> - pointer to list containing at most one object</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Tracking must be disabled</p>
+<p>Context must be initialized</p>
+<p>Landmark detection must be enabled</p>
+</dd>
+</dl></div>
+<p>
+      Finds the best frontal face object in the input <span class="parameter">image</span>.  If a frontal face with landmarks
+      is found, the output list will contain exactly one object.  If no frontal faces with landmarks are found, the
+      output list will contain no objects.  The detector must find landmarks to determine which object is the best, so
+      a landmark detector must be enabled or this function will return an error.  Since landmark detection must occur,
+      this function populates the object's landmark fields with all landmarks that were found, regardless of whether
+      landmark detection is set to
+      <span class="parameter"><a href="detection_reference.html#automatic_landmarks" title="PPR_AUTOMATIC_LANDMARKS">PPR_AUTOMATIC_LANDMARKS</a></span> or
+      <span class="parameter"><a href="detection_reference.html#manual_landmarks" title="PPR_MANUAL_LANDMARKS">PPR_MANUAL_LANDMARKS</a></span>.  The returned data structure
+      must be freed with <code class="function"><a href="detection_reference.html#free_object_list" title="ppr_free_object_list">ppr_free_object_list</a></code>, even if it
+      contains no objects.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#frontal_faces" title="Frontal Faces">Frontal Faces</a>,
+      <a href="detection_users_guide.html#landmarks" title="Landmarks">Landmarks</a>,
+      <a href="detection_users_guide.html#detection_results" title="Interpreting Results">Interpreting Results</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>,
+      <a href="detection_users_guide.html#image_types" title="Image Types">Image Types</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="detect_landmarks_from_object"></a>ppr_detect_landmarks_from_object</h4></div></div></div>
+<a class="indexterm" name="id4756657"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_detect_landmarks_from_object</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_image_type </td>
+<td>
+<var class="pdparam">image</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_object_type </td>
+<td>
+<var class="pdparam">*object</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="detection_reference.html#image_type" title="ppr_image_type">image</a></span> - image containing object to search</p>
+<p><span class="parameter"><a href="detection_reference.html#object_type" title="ppr_object_type">object</a></span> - pointer to object to detect landmarks in</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd>
+<p>Context must be initialized</p>
+<p>Landmark detection must be enabled</p>
+<p>Object must be frontal face if a frontal landmark detector has been selected</p>
+</dd>
+</dl></div>
+<p>
+      Submits an <span class="parameter">object</span> to the landmark detector.  The landmark fields in the object will be
+      populated with any landmarks that are found.  Larger faces are more likely to produce landmarks than smaller
+      faces.  Landmarks are unlikely to be found in any faces that are smaller than size 2.
+    </p>
+<p>
+      If landmarks are found, the attributes of the submitted object may be modified.  The landmarks can provide a
+      better estimate of an object's position and orientation, so the object structure is updated accordingly.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#landmarks" title="Landmarks">Landmarks</a>,
+      <a href="detection_users_guide.html#detection_results" title="Interpreting Results">Interpreting Results</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="miscellaneous_functions"></a>Miscellaneous Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="get_object_boundary"></a>ppr_get_object_boundary</h4></div></div></div>
+<a class="indexterm" name="id4756873"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_get_object_boundary</b>(</code></td>
+<td>ppr_object_type </td>
+<td>
+<var class="pdparam">object</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_bounding_box_type </td>
+<td>
+<var class="pdparam">bounding_box</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_polygon_type </td>
+<td>
+<var class="pdparam">*polygon</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#object_type" title="ppr_object_type">object</a></span> - object to get the boundary of</p>
+<p><span class="parameter"><a href="detection_reference.html#bounding_box_type" title="ppr_bounding_box_type">bounding_box</a></span> - type of bounding box to use</p>
+<p><span class="parameter"><a href="detection_reference.html#polygon_type" title="ppr_polygon_type">polygon</a></span> - pointer to the bounding polygon</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Extracts the points defining the polygon in which the object is located.  The polygon points are returned in a
+      clockwise order such that drawing a line between consecutive points (and from the last point back to the first
+      point) yields a polygon encompassing the object.  Frontal faces are described by rectangles.  Left and right
+      profile faces are described by oriented pentagons pointing in the direction of gaze.  The
+      <span class="parameter"><a href="detection_reference.html#bounding_box_type" title="ppr_bounding_box_type">bounding_box</a></span> parameter specifies how close the
+      bounding box will be mapped to each object.  When using fine precision, the bounding boxes are rotated according
+      to the estimated roll of the object.
+    </p>
+<p>
+      The resulting <span class="parameter">polygon</span> must be freed using 
+      <code class="function"><a href="detection_reference.html#free_polygon" title="ppr_free_polygon">ppr_free_polygon</a></code>.
+    </p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+        For objects near the border of the image, the returned coordinates may fall outside of the bounds of the image.
+      </p>
+</div>
+<p>
+      See also: <a href="detection_users_guide.html#objects" title="Objects">Objects</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="crop_object_from_image"></a>ppr_crop_object_from_image</h4></div></div></div>
+<a class="indexterm" name="id4757089"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_crop_object_from_image</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_image_type </td>
+<td>
+<var class="pdparam">image</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_object_type </td>
+<td>
+<var class="pdparam">object</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_raw_image_type </td>
+<td>
+<var class="pdparam">*cropped_image</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="detection_reference.html#image_type" title="ppr_image_type">image</a></span> - image to crop object from</p>
+<p><span class="parameter"><a href="detection_reference.html#object_type" title="ppr_object_type">object</a></span> - object to crop from image</p>
+<p><span class="parameter"><a href="raw_image_library.html#raw_image_type" title="ppr_raw_image_type">cropped_image</a></span> - pointer to cropped image in raw image format</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Context must be initialized</p></dd>
+</dl></div>
+<p>
+      Crops an object from an image.  The cropped image is in the raw image format so it can easily be visualized or
+      written to disk.  The cropped image has a considerable amount padding to ensure that other operations, such as
+      recognition if using the FTR-SDK or NC-SDK, will have enough of a border to work with.  The cropped
+      image must be freed using <code class="function"><a href="raw_image_library.html#raw_image_free" title="ppr_raw_image_free">ppr_raw_image_free</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>,
+      <a href="detection_users_guide.html#image_types" title="Image Types">Image Types</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="crop_thumbnail_from_image"></a>ppr_crop_thumbnail_from_image</h4></div></div></div>
+<a class="indexterm" name="id4757298"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_crop_thumbnail_from_image</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_image_type </td>
+<td>
+<var class="pdparam">image</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_object_type </td>
+<td>
+<var class="pdparam">object</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_raw_image_type </td>
+<td>
+<var class="pdparam">*thumbnail</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="detection_reference.html#image_type" title="ppr_image_type">image</a></span> - image to crop object from</p>
+<p><span class="parameter"><a href="detection_reference.html#object_type" title="ppr_object_type">object</a></span> - object to crop from image</p>
+<p><span class="parameter"><a href="raw_image_library.html#raw_image_type" title="ppr_raw_image_type">thumbnail</a></span> - pointer to thumbnail image in raw image format</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Context must be initialized</p></dd>
+</dl></div>
+<p>
+      Crops a thumbnail of the specified object from an image.  The thumbnail is scaled to 48 x 64 pixels and rotated
+      so the object is upright.  The thumbnail should only be used for visualization purposes, and thus, should not
+      be used for recognition if using the FTR-SDK or the NC-SDK.  The thumbnail image must be freed using
+      <code class="function"><a href="raw_image_library.html#raw_image_free" title="ppr_raw_image_free">ppr_raw_image_free</a></code>.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>,
+      <a href="detection_users_guide.html#image_types" title="Image Types">Image Types</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="error_message"></a>ppr_error_message</h4></div></div></div>
+<a class="indexterm" name="id4757507"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">const char* <b class="fsfunc">ppr_error_message</b>(</code></td>
+<td>ppr_error_type </td>
+<td>
+<var class="pdparam">error_code</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error_code</a></span> - error code returned by previous function call</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>Pointer to statically allocated error message</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Returns a human readable error message as a statistically-allocated string for the given error code.  
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#error_codes" title="Error Codes">Error Codes</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="write_image"></a>ppr_write_image</h4></div></div></div>
+<a class="indexterm" name="id4757629"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_write_image</b>(</code></td>
+<td>ppr_image_type  </td>
+<td>
+<var class="pdparam">image</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*base_file_name</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#image_type" title="ppr_image_type">image</a></span> - image to write</p>
+<p><span class="parameter">base_file_name</span> - file name of image to write, without extension</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Writes an image to disk using the specified file name.  If the image is grayscale, it is written as a
+      <span class="parameter">PGM</span> file.  If the image is color, it is written as a <span class="parameter">PPM</span> file.
+      This function is intended for debugging purposes only.  If the SDK results are not as expected, this function can
+      be used to verify that the image the SDK is processing is not corrupt.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#image_types" title="Image Types">Image Types</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="version"></a>ppr_version</h4></div></div></div>
+<a class="indexterm" name="id4757789"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">const char* <b class="fsfunc">ppr_version</b>(</code></td>
+<td> </td>
+<td>
+<code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>Pointer to statically allocated version string</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Returns a string giving the version of the SDK being used.  
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="detection_file_io_functions"></a>File I/O Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="write_object_list"></a>ppr_write_object_list</h4></div></div></div>
+<a class="indexterm" name="id4757895"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_write_object_list</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*file_name</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_object_list_type </td>
+<td>
+<var class="pdparam">object_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*source_image_name</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">file_name</span> - null-terminated string specifying name of object list file to write</p>
+<p><span class="parameter"><a href="detection_reference.html#object_list_type" title="ppr_object_list_type">object_list</a></span> - object list to write to file</p>
+<p><span class="parameter">source_image_name</span> - null-terminated string specifying the file name of the source image that the objects were detected in</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Writes an object list to a file.  The file can later be read using
+      <code class="function"><a href="detection_reference.html#read_object_list" title="ppr_read_object_list">ppr_read_object_list</a></code>.
+    </p>
+<p>
+      The <span class="parameter">source_image_name</span> provides a means of associating the object list with the image it
+      was generated from.  It is the user's responsibility to ensure that the input image file remains in the correct
+      location such that it can be retrieved when the object list is read.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#binary_io" title="Binary I/O">Binary I/O</a>,
+      <a href="detection_users_guide.html#detection_results" title="Interpreting Results">Interpreting Results</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="read_object_list"></a>ppr_read_object_list</h4></div></div></div>
+<a class="indexterm" name="id4758115"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_read_object_list</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*file_name</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_object_list_type </td>
+<td>
+<var class="pdparam">*object_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>char </td>
+<td>
+<var class="pdparam">*source_image_name</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter">file_name</span> - null-terminated string specifying name of object list file to read</p>
+<p><span class="parameter"><a href="detection_reference.html#object_list_type" title="ppr_object_list_type">object_list</a></span> - pointer to object list read from file</p>
+<p><span class="parameter">source_image_name</span> - null-terminated string specifying the source image file name that was provided when the object list was written</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Reads an object list file previously written using
+      <code class="function"><a href="detection_reference.html#write_object_list" title="ppr_write_object_list">ppr_write_object_list</a></code>.  The object list must later
+      be freed using <code class="function"><a href="detection_reference.html#free_object_list" title="ppr_free_object_list">ppr_free_object_list</a></code>.
+    </p>
+<p>
+      The <span class="parameter">source_image_name</span> is used to return the source file name that was provided when the
+      object list was written.  It is the user's responsibility to ensure that the input image is in the same location
+      as when the object list was written so it can be referenced properly.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#binary_io" title="Binary I/O">Binary I/O</a>,
+      <a href="detection_users_guide.html#detection_results" title="Interpreting Results">Interpreting Results</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="detection_flatten_unflatten_functions"></a>Flatten / Unflatten Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="flatten_object_list"></a>ppr_flatten_object_list</h4></div></div></div>
+<a class="indexterm" name="id4758354"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_flatten_object_list</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_object_list_type </td>
+<td>
+<var class="pdparam">object_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_flat_object_list_type </td>
+<td>
+<var class="pdparam">*flat_object_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>const char </td>
+<td>
+<var class="pdparam">*source_image_name</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="detection_reference.html#object_list_type" title="ppr_object_list_type">object_list</a></span> - object list to flatten</p>
+<p><span class="parameter"><a href="detection_reference.html#flat_object_list_type" title="ppr_flat_object_list_type">flat_object_list</a></span> - pointer to flattened object list</p>
+<p><span class="parameter">source_image_name</span> - null-terminated string specifying the file name of the source image that the objects were detected in</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Flattens an object list, writing all of its internal data to a buffer.  This is useful for applications that must
+      write object lists to output sources other than the file system, such as a database.  The flattened object list
+      can be converted back to a regular object list using
+      <code class="function"><a href="detection_reference.html#unflatten_object_list" title="ppr_unflatten_object_list">ppr_unflatten_object_list</a></code>.  The flattened
+      object list must be freed using
+      <code class="function"><a href="detection_reference.html#free_flat_object_list" title="ppr_free_flat_object_list">ppr_free_flat_object_list</a></code>.
+    </p>
+<p>
+      The <span class="parameter">source_image_name</span> provides a means of associating the object list with the image it
+      was generated from.  It is the user's responsibility to ensure that the input image file remains in the correct
+      location such that it can be retrieved when the object list is unflattened.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="detection_users_guide.html#detection_results" title="Interpreting Results">Interpreting Results</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="unflatten_object_list"></a>ppr_unflatten_object_list</h4></div></div></div>
+<a class="indexterm" name="id4758592"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_unflatten_object_list</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_flat_object_list_type </td>
+<td>
+<var class="pdparam">flat_object_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>ppr_object_list_type </td>
+<td>
+<var class="pdparam">*object_list</var>, </td>
+</tr>
+<tr>
+<td> </td>
+<td>char </td>
+<td>
+<var class="pdparam">*source_image_name</var><code>)</code>;</td>
+</tr>
+</table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd>
+<p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p>
+<p><span class="parameter"><a href="detection_reference.html#flat_object_list_type" title="ppr_flat_object_list_type">flat_object_list</a></span> - object list to unflatten</p>
+<p><span class="parameter"><a href="detection_reference.html#object_list_type" title="ppr_object_list_type">object_list</a></span> - pointer to unflattened object list</p>
+<p><span class="parameter">source_image_name</span> - null-terminated string specifying the source image file name that was provided when the object list was flattened</p>
+</dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Unflattens an object list by taking data from a flattened buffer and turning it into a regular object list.  This
+      is useful for applications that must read object lists from input sources other than the file system, such as a
+      database.  The resulting object list must be freed using
+      <code class="function"><a href="detection_reference.html#free_object_list" title="ppr_free_object_list">ppr_free_object_list</a></code>.
+    </p>
+<p>
+     The <span class="parameter">source_image_name</span> is used to return the source file name that was provided when the
+     object list was flattened.  It is the user's responsibility to ensure that the input image is in the same
+     location as when the object list was flattened so it can be referenced properly.
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="detection_users_guide.html#detection_results" title="Interpreting Results">Interpreting Results</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="free_functions"></a>Free Functions</h3></div></div></div>
+<p>
+    The provided free functions must be used to free the data structures returned from SDK functions.  The user should
+    not try to free these structures using their own free statements.  Likewise, if the user allocates their own memory
+    using the provided data types, the user must free that memory themselves rather than calling these free functions.
+    This ensures that the same libraries are used for allocation and freeing.
+  </p>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="free_object_list"></a>ppr_free_object_list</h4></div></div></div>
+<a class="indexterm" name="id4758843"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">void <b class="fsfunc">ppr_free_object_list</b>(</code></td>
+<td>ppr_object_list_type </td>
+<td>
+<var class="pdparam">object_list</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#object_list_type" title="ppr_object_list_type">object_list</a></span> - object list to free</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Must only be used to free data allocated by the SDK</p></dd>
+</dl></div>
+<p>
+      Frees an object list.  Object lists are allocated by the following functions:
+      </p>
+<div class="itemizedlist"><ul type="disc">
+<li><code class="function"><a href="detection_reference.html#detect_objects" title="ppr_detect_objects">ppr_detect_objects</a></code></li>
+<li><code class="function"><a href="detection_reference.html#detect_best_frontal_object" title="ppr_detect_best_frontal_object">ppr_detect_best_frontal_object</a></code></li>
+<li><code class="function"><a href="detection_reference.html#read_object_list" title="ppr_read_object_list">ppr_read_object_list</a></code></li>
+<li><code class="function"><a href="detection_reference.html#unflatten_object_list" title="ppr_unflatten_object_list">ppr_unflatten_object_list</a></code></li>
+</ul></div>
+<p>
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#detection_results" title="Interpreting Results">Interpreting Results</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="free_flat_object_list"></a>ppr_free_flat_object_list</h4></div></div></div>
+<a class="indexterm" name="id4759017"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">void <b class="fsfunc">ppr_free_flat_object_list</b>(</code></td>
+<td>ppr_flat_object_list_type </td>
+<td>
+<var class="pdparam">flat_object_list</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#flat_object_list_type" title="ppr_flat_object_list_type">flat_object_list</a></span> - flattened object list to free</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Must only be used to free data allocated by the SDK</p></dd>
+</dl></div>
+<p>
+      Frees a flattened object list.  Flattened object lists are allocated by the following functions:
+      </p>
+<div class="itemizedlist"><ul type="disc"><li><code class="function"><a href="detection_reference.html#flatten_object_list" title="ppr_flatten_object_list">ppr_flatten_object_list</a></code></li></ul></div>
+<p>
+    </p>
+<p>
+      See also:
+      <a href="detection_users_guide.html#flattened_data" title="Flattened Data">Flattened Data</a>,
+      <a href="detection_users_guide.html#detection_results" title="Interpreting Results">Interpreting Results</a>,
+      <a href="detection_users_guide.html#objects" title="Objects">Objects</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="free_polygon"></a>ppr_free_polygon</h4></div></div></div>
+<a class="indexterm" name="id4759166"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">void <b class="fsfunc">ppr_free_polygon</b>(</code></td>
+<td>ppr_polygon_type </td>
+<td>
+<var class="pdparam">polygon</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#polygon_type" title="ppr_polygon_type">polygon</a></span> - bounding polygon to free</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Must only be used to free data allocated by the SDK</p></dd>
+</dl></div>
+<p>
+      Frees a bounding polygon.  Polygons are allocated by the following functions:
+      </p>
+<div class="itemizedlist"><ul type="disc"><li><code class="function"><a href="detection_reference.html#get_object_boundary" title="ppr_get_object_boundary">ppr_get_object_boundary</a></code></li></ul></div>
+<p>
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#objects" title="Objects">Objects</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="free_image"></a>ppr_free_image</h4></div></div></div>
+<a class="indexterm" name="id4759301"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">void <b class="fsfunc">ppr_free_image</b>(</code></td>
+<td>ppr_image_type </td>
+<td>
+<var class="pdparam">image</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#image_type" title="ppr_image_type">image</a></span> - image to free</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>Must only be used to free data allocated by the SDK</p></dd>
+</dl></div>
+<p>
+      Frees an SDK image.  SDK images are allocated by the following functions:
+      </p>
+<div class="itemizedlist"><ul type="disc"><li><code class="function"><a href="detection_reference.html#create_image" title="ppr_create_image">ppr_create_image</a></code></li></ul></div>
+<p>
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#image_types" title="Image Types">Image Types</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="finalize_functions"></a>Finalize Functions</h3></div></div></div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="finalize_thread"></a>ppr_finalize_thread</h4></div></div></div>
+<a class="indexterm" name="id4759444"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">void <b class="fsfunc">ppr_finalize_thread</b>(</code></td>
+<td> </td>
+<td>
+<code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      If the user is doing their own threading outside of the SDK, this function must be called before each thread
+      terminates.  This is necessary to allow the SDK's internal threading scheme to work properly with the user's
+      external threading scheme.  If this function is not called, memory will leak each time a thread terminates.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#detection_threading" title="Multi-Threaded Detection">Multi-Threaded Detection</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="release_context"></a>ppr_release_context</h4></div></div></div>
+<a class="indexterm" name="id4759555"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">ppr_error_type <b class="fsfunc">ppr_release_context</b>(</code></td>
+<td>ppr_context_type </td>
+<td>
+<var class="pdparam">context</var><code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#context_type" title="ppr_context_type">context</a></span> - handle to context</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p><span class="parameter"><a href="detection_reference.html#error_type" title="ppr_error_type">error code</a></span></p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Informs the system that the specified context is no longer required and frees any memory that was allocated
+      within the context.  After release, the handle no longer references a valid context.
+    </p>
+<p>
+      See also: <a href="detection_users_guide.html#contexts" title="Contexts">Contexts</a>
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="finalize_sdk"></a>ppr_finalize_sdk</h4></div></div></div>
+<a class="indexterm" name="id4759684"></a><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr>
+<td><code class="funcdef">void <b class="fsfunc">ppr_finalize_sdk</b>(</code></td>
+<td> </td>
+<td>
+<code>)</code>;</td>
+</tr></table></div>
+<div class="variablelist"><dl>
+<dt><span class="term">Parameters</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Returns</span></dt>
+<dd><p>none</p></dd>
+<dt><span class="term">Restrictions</span></dt>
+<dd><p>none</p></dd>
+</dl></div>
+<p>
+      Releases memory buffers managed internally by the system.  This function should only be called when SDK calls are
+      no longer required (typically during cleanup). 
+    </p>
+<p>
+      Back to <a href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">top</a>.
+    </p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<p class="copyright">© 2004-2010 Pittsburgh Pattern Recognition, Inc.</p>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="migration_guide.html">Prev</a> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right"> <a accesskey="n" href="tracking_reference.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Chapter 9. FTR-SDK v4.1: Migration Guide </td>
+<td width="20%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="40%" align="right" valign="top"> Chapter 11. FTR-SDK: Tracking Reference</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

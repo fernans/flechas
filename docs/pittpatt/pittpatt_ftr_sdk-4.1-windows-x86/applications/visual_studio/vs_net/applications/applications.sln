@@ -1,0 +1,78 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "detection", "detection\detection.vcproj", "{E69B7E31-2753-4342-BD6B-C6EEB84D34D2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "clustering-cluster_gallery", "clustering-cluster_gallery\clustering-cluster_gallery.vcproj", "{CC4E49F0-2EF7-4AB2-A3F5-BC7A65DF9C8F}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recognition-across_tracks", "recognition-across_tracks\recognition-across_tracks.vcproj", "{868A0FCB-3C04-461B-8F34-4B910D0022E1}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recognition-create_gallery", "recognition-create_gallery\recognition-create_gallery.vcproj", "{4D833C22-00F1-4295-99B0-F24F45F4AB7C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recognition-match_query_to_reference", "recognition-match_query_to_reference\recognition-match_query_to_reference.vcproj", "{F2C54CCC-0CB5-4D55-8468-50B687211A0D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recognition-rank_matching_faces", "recognition-rank_matching_faces\recognition-rank_matching_faces.vcproj", "{B827A073-A85D-42EC-91F3-F0394A2EF63F}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tracking-completed", "tracking-completed\tracking-completed.vcproj", "{0034C060-5917-4B54-B855-E0B5C08C9131}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tracking-current", "tracking-current\tracking-current.vcproj", "{7488BE30-B802-4FC9-B36F-E3EBDDD09540}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recognition-create_subject_gallery", "recognition-create_subject_gallery\recognition-create_subject_gallery.vcproj", "{DFE93B9D-B7E9-4B60-91DD-9851052182A4}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recognition-compare_gallery_templates", "recognition-compare_gallery_templates\recognition-compare_gallery_templates.vcproj", "{B9DD1741-D9EF-4644-AE29-1A543BB99823}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recognition-compare_gallery_subjects", "recognition-compare_gallery_subjects\recognition-compare_gallery_subjects.vcproj", "{7CF2FD07-92EF-4BF7-80DE-4FEC59F1BF83}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{E69B7E31-2753-4342-BD6B-C6EEB84D34D2}.Release.ActiveCfg = Release|Win32
+		{E69B7E31-2753-4342-BD6B-C6EEB84D34D2}.Release.Build.0 = Release|Win32
+		{CC4E49F0-2EF7-4AB2-A3F5-BC7A65DF9C8F}.Release.ActiveCfg = Release|Win32
+		{CC4E49F0-2EF7-4AB2-A3F5-BC7A65DF9C8F}.Release.Build.0 = Release|Win32
+		{868A0FCB-3C04-461B-8F34-4B910D0022E1}.Release.ActiveCfg = Release|Win32
+		{868A0FCB-3C04-461B-8F34-4B910D0022E1}.Release.Build.0 = Release|Win32
+		{4D833C22-00F1-4295-99B0-F24F45F4AB7C}.Release.ActiveCfg = Release|Win32
+		{4D833C22-00F1-4295-99B0-F24F45F4AB7C}.Release.Build.0 = Release|Win32
+		{F2C54CCC-0CB5-4D55-8468-50B687211A0D}.Release.ActiveCfg = Release|Win32
+		{F2C54CCC-0CB5-4D55-8468-50B687211A0D}.Release.Build.0 = Release|Win32
+		{B827A073-A85D-42EC-91F3-F0394A2EF63F}.Release.ActiveCfg = Release|Win32
+		{B827A073-A85D-42EC-91F3-F0394A2EF63F}.Release.Build.0 = Release|Win32
+		{0034C060-5917-4B54-B855-E0B5C08C9131}.Release.ActiveCfg = Release|Win32
+		{0034C060-5917-4B54-B855-E0B5C08C9131}.Release.Build.0 = Release|Win32
+		{7488BE30-B802-4FC9-B36F-E3EBDDD09540}.Release.ActiveCfg = Release|Win32
+		{7488BE30-B802-4FC9-B36F-E3EBDDD09540}.Release.Build.0 = Release|Win32
+		{DFE93B9D-B7E9-4B60-91DD-9851052182A4}.Release.ActiveCfg = Release|Win32
+		{DFE93B9D-B7E9-4B60-91DD-9851052182A4}.Release.Build.0 = Release|Win32
+		{B9DD1741-D9EF-4644-AE29-1A543BB99823}.Release.ActiveCfg = Release|Win32
+		{B9DD1741-D9EF-4644-AE29-1A543BB99823}.Release.Build.0 = Release|Win32
+		{7CF2FD07-92EF-4BF7-80DE-4FEC59F1BF83}.Release.ActiveCfg = Release|Win32
+		{7CF2FD07-92EF-4BF7-80DE-4FEC59F1BF83}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

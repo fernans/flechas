@@ -1,0 +1,686 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Chapter 14. FTR-SDK: Version History</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="up" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="prev" href="clustering_reference.html" title="Chapter 13. FTR-SDK: Clustering Reference">
+<link rel="next" href="indexes.html" title="Chapter 15. Reference Index">
+<style type="text/css">
+      /* Document Structure */
+
+div.book, div.chapter, div.article, div.sect1 {
+    width: auto;
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+div.sect1, div.toc {
+    margin-left: 10px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+div.sect2 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect2 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+div.sect3 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect3 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+
+/* Type Conventions (e.g. parameter vs. structelement) */
+
+.type, .function, .symbol, .structfield, .parameter, .structname {
+    font-family: courier, monospace;
+    font-size: 10pt;
+}
+
+.type, .function {
+    font-weight: bold;
+}
+
+/* Table of Contents */
+
+div.toc {
+  background-color: #DDDDDD;
+  padding: 0.5em 20px;
+  margin: 0em auto;
+}
+
+div.toc dl {
+  margin-left: 10px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dt {
+  line-height: 1.1em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 30px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+
+/* Function Formatting */
+
+.programlisting, .funcsynopsis table {
+    background-color: #DDDDDD;
+    font-family: courier, monospace;
+    font-size: 10pt;
+    padding: 8px 10px;
+}
+
+.funcsynopsis table td {
+    vertical-align: bottom;
+    white-space: normal;
+}
+
+.funcsynopsis + .variablelist dt {
+    font-weight: bold;
+    font-size: 11pt;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+.funcsynopsis + .variablelist dd {
+    margin-left: 20px;
+}
+
+.funcsynopsis + .variablelist dd p {
+    margin: 0.25em 0px;
+}
+
+/* Compilation Examples */
+
+div.variablelist {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+div.variablelist .term {
+    margin-left: 15px;
+}
+
+div.variablelist .programlisting {
+    margin-bottom: 2em;
+}
+
+
+/* Callout Boxes (e.g. note/warning) */
+
+div.warning {
+    background-color: #FFDDDD;
+}
+
+div.note {
+    background-color: #FFFFCC;
+}
+
+div.warning, div.note {
+    margin-top: 1.0em;
+    margin-bottom: 2.0em;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+div.warning h3, div.note h3 {
+    margin: 0.25em 0px;
+}
+
+div.warning p, div.note p {
+    margin: 0.25em 10px;
+}
+
+/* Image */
+
+div.mediaobject {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+div.caption {
+    font-weight: bold;
+}
+
+
+/* Table Layout */
+
+div.table {
+    margin: 1em auto;
+    padding: 1em;
+    border: 1px solid;
+    width: auto;
+}
+
+div.table p {
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+div.table table {
+    border-spacing: 0px 0px;
+    border-collapse: collapse;
+    margin: 0em auto;
+}
+
+div.table table th {
+    margin: 0px;
+    padding: 3px 15px;
+    font-size: small;
+    text-align: center;
+    border-bottom: medium solid;
+}
+
+div.table table td {
+    margin: 0px;
+    padding: 3px 15px;
+    text-align: center;
+    border-top: thin dotted;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover {
+    color: blue;
+}
+
+/* Copyright Formatting */
+
+p.copyright {
+    margin-top: 3px;
+    text-align: right;
+    font-size: x-small;
+}
+    </style>
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">Chapter 14. FTR-SDK: Version History</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="clustering_reference.html">Prev</a> </td>
+<td width="60%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="20%" align="right"> <a accesskey="n" href="indexes.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="chapter" lang="en">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="version_history"></a>Chapter 14. FTR-SDK: Version History</h2></div></div></div>
+<p>
+
+  </p>
+<div class="itemizedlist"><ul type="disc">
+<li>
+<p>
+        <span class="emphasis"><em>Version 4.1</em></span> was released in March 2010.  Notable changes from v4.0 included:
+        </p>
+<div class="itemizedlist"><ul type="circle">
+<li>
+            Reduced latent memory usage on Windows
+          </li>
+<li>
+            Added long path support on Windows
+          </li>
+<li>
+            Initialization no longer changes the working directory
+          </li>
+<li>
+            Added applications that illustrate how to create and compare known subject galleries
+          </li>
+<li>
+            Renamed <span class="parameter">recognition-compare_gallery</span> to
+            <span class="parameter">recognition-compare_gallery_templates</span> and moved some of its functionality to 
+            the new <span class="parameter">recognition-compare_gallery_subjects</span> application.
+          </li>
+<li>
+            Added a known subject gallery as an optional parameter to the
+            <span class="parameter">recognition-across_tracks</span> application.  It overlays names for tracks that match
+            subjects in the known subject gallery, if specified.
+          </li>
+<li>
+            Subject-to-subject similarity scores are now computed by averaging the top several template match scores in
+            the comparison rather than averaging over all scores.
+          </li>
+<li>
+            Added more videos and single-face images
+          </li>
+<li>
+            Fixed segfault caused by requesting similarity matrix from an empty gallery 
+          </li>
+<li>
+            Fixed crash caused when clustering small galleries
+          </li>
+<li>
+            Fixed issue that caused user input to be ignored under certain circumstances when clustering large datasets
+          </li>
+<li>
+            Fixed segfault caused by freeing an unflattened object in Windows
+          </li>
+</ul></div>
+<p>
+      </p>
+</li>
+<li>
+<p>
+        <span class="emphasis"><em>Version 4.0</em></span> was released in February 2010.  Notable changes from v3.1 included:
+        </p>
+<div class="itemizedlist"><ul type="circle">
+<li>
+            Detection speed improvement (via search pruning)
+          </li>
+<li>
+            Reduced detection memory requirements (in single-threaded detection calls)
+          </li>
+<li>
+            Frontal landmark speed improvement
+          </li>
+<li>
+            Template extraction speed improvement
+          </li>
+<li>
+            Template comparison speed improvement
+          </li>
+<li>
+            Clustering speed improvement
+          </li>
+<li>
+            Reduced clustering memory requirement
+          </li>
+<li>
+            Reduced template size
+          </li>
+<li>
+           Added ability to specify template extraction type
+          </li>
+<li>
+            Added multi-gallery clustering
+          </li>
+<li>
+            Removed template compression
+          </li>
+<li>
+            Added ability to disable template thumbnails
+          </li>
+<li>
+            Added ability to store strings in galleries
+          </li>
+<li>
+            Replaced <span class="parameter">scale_factor</span>, <span class="parameter">nominal_width</span>, and 
+            <span class="parameter">nominal_height</span> with <span class="parameter">dimensions</span>
+</li>
+<li>
+            Removed size from landmarks since landmarks are a point-feature
+          </li>
+<li>
+            Replaced min/max/avg scale factor with min/max/avg dimensions in track summary type
+          </li>
+<li>
+            Added ability to set max size
+          </li>
+<li>
+            Added ability to set adaptive min/max sizes
+          </li>
+<li>
+            Added <span class="parameter">PPR_MIN_MIN_SIZE</span> and <span class="parameter">PPR_MAX_MAX_SIZE</span> constants
+          </li>
+<li>
+            Added function to get the object size from the number of pixels between the eyes
+          </li>
+<li>
+            Added get functions for all set functions
+          </li>
+<li>
+            Added 'is enabled' functions to all enable functions
+          </li>
+<li>
+            The crop object from image function always returns RGB color space
+          </li>
+<li>
+            Added a function to crop a thumbnail from an image
+          </li>
+<li>
+            Added functions to read and write objects and tracks to disk
+          </li>
+<li>
+            Added functions to flatten and unflatten objects and tracks
+          </li>
+<li>
+            Split <code class="filename">pittpatt_detection_tracking.h</code> into <code class="filename">pittpatt_detection.h</code>
+            and <code class="filename">pittpatt_tracking.h</code>
+</li>
+<li>
+            One way to acquire a context: <span class="parameter">ppr_get_context</span>
+</li>
+<li>
+            Changed all <span class="parameter">ppr_update_</span> function prefixes to <span class="parameter">ppr_set_</span>
+</li>
+<li>
+            Tracking has to be enabled (instead of getting a tracking context)
+          </li>
+<li>
+            Enabling shot boundary split into enabling shot boundary and setting the shot boundary threshold
+          </li>
+<li>
+            Argument order for <span class="parameter">ppr_set_template_string</span> changed
+          </li>
+<li>
+            Renamed <span class="parameter">ppr_get_ranked_subject_list</span> to 
+            <span class="parameter">ppr_get_ranked_subject_list_for_subject</span>
+</li>
+<li>
+            Arguments passed to <span class="parameter">ppr_copy_template_to_gallery</span> changed
+          </li>
+<li>
+            Renamed <span class="parameter">ppr_object_suitable_for_recognition</span> to 
+            <span class="parameter">ppr_is_object_suitable_for_recognition</span>
+</li>
+<li>
+            Added <span class="parameter">PPR_</span> prefix to <span class="parameter">MAX_CLUSTERING_AGGRESSIVENESS</span> and
+            <span class="parameter">MAX_TEMPLATE_STRING_SIZE</span>
+</li>
+<li>
+            Added functions to overlay text
+          </li>
+<li>
+            Made <code class="filename">sdk_draw_utils.c</code> and moved drawing functions to it
+          </li>
+<li>
+            Added option to overlay text with object overlays
+          </li>
+<li>
+            Added option to overlay frame numbers on tracker output
+          </li>
+<li>
+            Utility functions that used to take line color, type, and thickness now take
+            <span class="parameter">sdk_draw_utils_line_attributes_type</span>
+</li>
+<li>
+            Added functions to time execution speed
+          </li>
+<li>
+            Added applications: a set of robust and powerful sample applications
+          </li>
+<li>
+            Added tools: a large set of simple, yet powerful sample programs
+          </li>
+<li>
+            Raw Image: fixed bug in create image function when color space was set to BGR or ARGB.
+          </li>
+<li>
+            Raw Image: fixed bug when converting between ARGB and anything else
+          </li>
+<li>
+            Raw Image I/O: added ability to specify a quality when writing images
+          </li>
+<li>
+            Raw Image I/O: jpegs read as YUV
+          </li>
+<li>
+            Video I/O: added ability to encode videos
+          </li>
+<li>
+            Video I/O: frames returned as YUV 
+          </li>
+<li>
+            Video I/O: non-squared pixels properly handled
+          </li>
+<li>
+            Video I/O: deinterlaces frames
+          </li>
+<li>
+            Video I/O: changed <span class="parameter">ppr_video_</span> prefix to <span class="parameter">ppr_video_io_</span>
+</li>
+<li>
+            Improved documentation
+          </li>
+</ul></div>
+<p>
+      </p>
+</li>
+<li>
+<p>
+        <span class="emphasis"><em>Version 3.1</em></span> was released in September 2009.  Notable changes from v3.0 included:
+        </p>
+<div class="itemizedlist"><ul type="circle">
+<li>
+            Templates are now compatible across 32-bit and 64-bit architectures (r6668)
+          </li>
+<li>
+            Fixed an exception that was raised when comparing a gallery of size 1 to a gallery of size 800 to 2000
+            or when comparing a gallery of size 2 to a gallery of size 800 to 2000 (r6656)
+          </li>
+<li>
+            Reduced memory fragmentation on Windows (r6549)
+          </li>
+<li>
+            Sped up shot boundary detection (r6680)
+          </li>
+<li>
+            Updated the jpeg, png, and tiff libraries used by Raw Image I/O (r6568)
+          </li>
+</ul></div>
+<p>
+      </p>
+</li>
+<li>
+<p>
+        <span class="emphasis"><em>Version 3.0</em></span> was released in August 2009.  Notable changes from v2.4 included:
+        </p>
+<div class="itemizedlist"><ul type="circle">
+<li>
+	    Added multi-instance recognition
+          </li>
+<li>
+            Added clustering of templates 
+          </li>
+<li>
+            Added transitive matching of templates
+          </li>
+<li>
+            Added compression of templates in memory and on disk
+          </li>
+<li>
+            Added a thumbnail to templates
+          </li>
+<li>
+            Faster template generation
+          </li>
+<li>
+            Added flatten and unflatten functions for templates and galleries 
+          </li>
+<li>
+	    Added the ability to embed a user-defined string to a template
+          </li>
+<li>
+            Added the ability to specify the frontal yaw cutoff for a frontal face
+          </li>
+<li>
+            Added new landmark detection options: <span class="parameter">PPR_DUAL_FRONTAL_LANDMARK_DETECTOR</span> and 
+            <span class="parameter">PPR_DUAL_MULTI_POSE_LANDMARK_DETECTOR</span>
+</li>
+<li>
+            Removed single-pass landmarks
+          </li>
+<li>
+            Added a function to get the single best frontal face object from an image
+          </li>
+<li>
+            Added a function to crop an object from an image
+          </li>
+<li>
+            Added a separate tracking call that allows tracking to be threaded at the frame level
+          </li>
+<li>
+            Visual instances are no longer rotated and have more padding 
+          </li>
+<li>
+            License manager no longer requires a license file
+          </li>
+<li>
+            Changed term 'scene break' to 'shot boundary'
+          </li>
+<li>
+            Changed term 'tracking threshold' to 'tracking cutoff'
+          </li>
+<li>
+	    Changed the <span class="parameter">ppt_</span> prefix to <span class="parameter">ppr_</span>
+</li>
+<li>
+	    Changed the <span class="parameter">ppi_</span> prefix to <span class="parameter">ppr_raw_image_</span> 
+	    (and <span class="parameter">ppr_raw_image_io_</span> for I/O functions)
+	  </li>
+<li>
+	    Changed the <span class="parameter">ppv_</span> prefix to <span class="parameter">ppr_video_</span>
+</li>
+<li>
+            Added a webcam frame-grabber Library for Windows and Linux
+          </li>
+<li>
+            Added Raw Image Library. The FTR-SDK, Raw Image I/O, and Video Decoding now depend on this library. 
+          </li>
+<li>
+	    Removed <code class="filename">pittpatt_image_types.h</code>
+</li>
+<li>
+	    Renamed <code class="filename">pittpatt_image_io.h</code> file to <code class="filename">pittpatt_raw_image_io.h</code>
+</li>
+<li>
+            Renamed <code class="filename">sdk_utilities.c/.h</code> files to <code class="filename">sdk_utils.c/.h</code>
+</li>
+<li>
+            Added SDK utility function to get number of CPUs
+          </li>
+<li>
+            Added SDK utilities to parse command-line arguments
+          </li>
+<li>
+            Correctly reporting left and right eye landmarks in multi-pose frontal landmarks (r3936)
+          </li>
+<li>
+            Improved scene break detection (r5221)
+          </li>
+<li>
+            Improved speed and stability (r5397)
+          </li>
+<li>
+            Added <span class="parameter">ppr_finalize_thread</span> function to prevent memory leak (r6062)
+          </li>
+<li>
+            No longer providing Visual Studio 6.0 project files
+          </li>
+<li>
+            Improved documentation: added migration guide, tuning guide, and getting started guide
+          </li>
+</ul></div>
+<p>
+      </p>
+</li>
+<li>
+<p>
+        <span class="emphasis"><em>Version 2.4</em></span> was released in February 2009.  Notable changes from v2.3 included:
+        </p>
+<div class="itemizedlist"><ul type="opencircle">
+<li style="list-style-type: circle">Improved computational performance in Windows XP (via a custom memory allocator)</li>
+<li style="list-style-type: circle">Improved visual attention</li>
+<li style="list-style-type: circle">Implemented new license manager</li>
+</ul></div>
+<p>
+      </p>
+</li>
+<li>
+<p>
+        <span class="emphasis"><em>Version 2.3</em></span> was released in December 2008.  Notable changes from v2.2 included:
+        </p>
+<div class="itemizedlist"><ul type="opencircle">
+<li style="list-style-type: circle">Improved multi-pass multi-pose landmark accuracy</li>
+<li style="list-style-type: circle">Updated recognizer</li>
+<li style="list-style-type: circle">Added YUV and BGR color space support to the Image I/O library</li>
+</ul></div>
+<p>
+      </p>
+</li>
+<li>
+<p>
+        <span class="emphasis"><em>Version 2.2</em></span> was released in September 2008.  Notable changes from v2.1 included:
+        </p>
+<div class="itemizedlist"><ul type="opencircle">
+<li style="list-style-type: circle">Added multi-pass multi-pose landmarks</li>
+<li style="list-style-type: circle">Added shot boundary detection</li>
+<li style="list-style-type: circle">Improved visual attention</li>
+<li style="list-style-type: circle">Improved multi-threaded landmark computational performance</li>
+<li style="list-style-type: circle">Improved computational performance on 64-bit systems</li>
+<li style="list-style-type: circle">Added jpeg2000 and tiff support to Image I/O library</li>
+<li style="list-style-type: circle">Improved error reporting in Video I/O library</li>
+<li style="list-style-type: circle">Added logging functionality to Video I/O for debugging purposes</li>
+</ul></div>
+<p>
+      </p>
+</li>
+</ul></div>
+<p>
+    
+</p>
+</div>
+<hr>
+<p class="copyright">© 2004-2010 Pittsburgh Pattern Recognition, Inc.</p>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="clustering_reference.html">Prev</a> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right"> <a accesskey="n" href="indexes.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Chapter 13. FTR-SDK: Clustering Reference </td>
+<td width="20%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="40%" align="right" valign="top"> Chapter 15. Reference Index</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

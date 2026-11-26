@@ -1,0 +1,1032 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Chapter 8. FTR-SDK: Tuning Guide</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="up" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="prev" href="video_io_library.html" title="Chapter 7. PittPatt Video I/O Library Documentation">
+<link rel="next" href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">
+<style type="text/css">
+      /* Document Structure */
+
+div.book, div.chapter, div.article, div.sect1 {
+    width: auto;
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+div.sect1, div.toc {
+    margin-left: 10px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+div.sect2 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect2 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+div.sect3 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect3 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+
+/* Type Conventions (e.g. parameter vs. structelement) */
+
+.type, .function, .symbol, .structfield, .parameter, .structname {
+    font-family: courier, monospace;
+    font-size: 10pt;
+}
+
+.type, .function {
+    font-weight: bold;
+}
+
+/* Table of Contents */
+
+div.toc {
+  background-color: #DDDDDD;
+  padding: 0.5em 20px;
+  margin: 0em auto;
+}
+
+div.toc dl {
+  margin-left: 10px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dt {
+  line-height: 1.1em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 30px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+
+/* Function Formatting */
+
+.programlisting, .funcsynopsis table {
+    background-color: #DDDDDD;
+    font-family: courier, monospace;
+    font-size: 10pt;
+    padding: 8px 10px;
+}
+
+.funcsynopsis table td {
+    vertical-align: bottom;
+    white-space: normal;
+}
+
+.funcsynopsis + .variablelist dt {
+    font-weight: bold;
+    font-size: 11pt;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+.funcsynopsis + .variablelist dd {
+    margin-left: 20px;
+}
+
+.funcsynopsis + .variablelist dd p {
+    margin: 0.25em 0px;
+}
+
+/* Compilation Examples */
+
+div.variablelist {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+div.variablelist .term {
+    margin-left: 15px;
+}
+
+div.variablelist .programlisting {
+    margin-bottom: 2em;
+}
+
+
+/* Callout Boxes (e.g. note/warning) */
+
+div.warning {
+    background-color: #FFDDDD;
+}
+
+div.note {
+    background-color: #FFFFCC;
+}
+
+div.warning, div.note {
+    margin-top: 1.0em;
+    margin-bottom: 2.0em;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+div.warning h3, div.note h3 {
+    margin: 0.25em 0px;
+}
+
+div.warning p, div.note p {
+    margin: 0.25em 10px;
+}
+
+/* Image */
+
+div.mediaobject {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+div.caption {
+    font-weight: bold;
+}
+
+
+/* Table Layout */
+
+div.table {
+    margin: 1em auto;
+    padding: 1em;
+    border: 1px solid;
+    width: auto;
+}
+
+div.table p {
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+div.table table {
+    border-spacing: 0px 0px;
+    border-collapse: collapse;
+    margin: 0em auto;
+}
+
+div.table table th {
+    margin: 0px;
+    padding: 3px 15px;
+    font-size: small;
+    text-align: center;
+    border-bottom: medium solid;
+}
+
+div.table table td {
+    margin: 0px;
+    padding: 3px 15px;
+    text-align: center;
+    border-top: thin dotted;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover {
+    color: blue;
+}
+
+/* Copyright Formatting */
+
+p.copyright {
+    margin-top: 3px;
+    text-align: right;
+    font-size: x-small;
+}
+    </style>
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">Chapter 8. FTR-SDK: Tuning Guide</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="video_io_library.html">Prev</a> </td>
+<td width="60%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="20%" align="right"> <a accesskey="n" href="migration_guide.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="chapter" lang="en">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="tuning_guide"></a>Chapter 8. FTR-SDK: Tuning Guide</h2></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1">1. <a href="tuning_guide.html#tuning_precision">Detection Precision</a></span></dt>
+<dt><span class="sect1">2. <a href="tuning_guide.html#tuning_landmark_detection">Landmark Detection</a></span></dt>
+<dt><span class="sect1">3. <a href="tuning_guide.html#tuning_search_pruning">Search Pruning</a></span></dt>
+<dt><span class="sect1">4. <a href="tuning_guide.html#tuning_num_threads">Number of Threads</a></span></dt>
+<dt><span class="sect1">5. <a href="tuning_guide.html#tuning%20visual_attention">Visual Attention</a></span></dt>
+<dt><span class="sect1">6. <a href="tuning_guide.html#tuning_visual_instances">Visual Instances</a></span></dt>
+<dt><span class="sect1">7. <a href="tuning_guide.html#tuning_min_size">Minimum Size</a></span></dt>
+<dt><span class="sect1">8. <a href="tuning_guide.html#tuning_max_size">Maximum Size</a></span></dt>
+<dt><span class="sect1">9. <a href="tuning_guide.html#tuning_search_regions">Search Regions</a></span></dt>
+<dt><span class="sect1">10. <a href="tuning_guide.html#tuning_frontal_yaw_constraint">Frontal Yaw Constraint</a></span></dt>
+<dt><span class="sect1">11. <a href="tuning_guide.html#tuning_recognition">Recognition</a></span></dt>
+<dt><span class="sect1">12. <a href="tuning_guide.html#tuning_template_extraction">Template Extraction</a></span></dt>
+<dt><span class="sect1">13. <a href="tuning_guide.html#tuning_multi_gallery_clustering">Multi-Gallery Clustering</a></span></dt>
+<dt><span class="sect1">14. <a href="tuning_guide.html#tuning_representative_templates">Representative Templates</a></span></dt>
+<dt><span class="sect1">15. <a href="tuning_guide.html#tuning_straggler_cutoff">Straggler Cutoff</a></span></dt>
+<dt><span class="sect1">16. <a href="tuning_guide.html#tuning_disk_gallery_groups">Disk Gallery Groups</a></span></dt>
+<dt><span class="sect1">17. <a href="tuning_guide.html#tuning_image_size">Image Size</a></span></dt>
+</dl>
+</div>
+<p>
+  There are a number of parameters to consider when using the FTR-SDK.  Some of the parameters affect speed, 
+  accuracy, and/or memory usage.  Depending on application requirements, some may choose to achieve the best accuracy 
+  regardless of how much processing time is used.  Others may be able to sacrifice some accuracy to decrease execution 
+  time.  Some systems may have plenty of memory while others may have strict memory usage requirements.  Because all 
+  applications are different, parameters are provided to allow the FTR-SDK to be tuned to an application's specific 
+  requirements.
+</p>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_precision"></a>1. Detection Precision</h2></div></div></div>
+<p>
+    The detector has an option that allows the user to choose between coarse precision and fine precision.
+    When using coarse precision, face detection uses fewer individual detectors, each spanning a larger
+    range of angles than the fine precision detectors.  This means that when using coarse precision
+    the pose estimation is less precise than when using fine precision.  In addition to less precise pose
+    estimation, coarse detection also has the disadvantage of only working with the frontal landmark detector.
+    Fine precision must be enabled for any other landmark detector types because they use the multi-pose landmark
+    detector.  Not only is the multi-pose landmark detector able to provide landmarks for non-frontal faces, it
+    is also capable of providing more landmarks than the frontal landmark detector, which only detects the eyes
+    and nose base.
+  </p>
+<p>
+    One advantage of using coarse precision is that specific individual detectors can be specified.  For example,
+    if only frontal faces are desired, the detector can be told to only look for frontal faces.  Individual
+    detectors cannot be specified when using fine precision.  
+  </p>
+<p>
+    Because coarse precision uses less individual detectors than fine precision, face detection uses less
+    processing cycles when using coarse precision.  This is especially true if only a subset of the individual coarse
+    detectors are activated.  Using coarse precision also decreases memory usage and initialization time because
+    fewer individual detectors need to be loaded into memory.
+  </p>
+<p>
+    If an application does not need accurate pose estimation and only needs basic frontal landmarks, using
+    coarse precision can decrease memory usage and execution time.  But if accurate pose estimation is needed
+    or the application needs multi-pose landmarks, then fine precision must be used. The detection precision can be
+    specified using
+    <code class="function"><a href="detection_reference.html#set_detection_precision" title="ppr_set_detection_precision">ppr_set_detection_precision</a></code>.
+    If coarse precision is being used, individual detectors can be specified using
+    <code class="function"><a href="detection_reference.html#set_coarse_detector_types" title="ppr_set_coarse_detector_types">ppr_set_coarse_detector_types</a></code>.
+  </p>
+<p>
+    See <a href="detection_users_guide.html#detection_precision" title="Detection Precision">Detection Precision</a> for more information.
+  </p>
+<div class="table">
+<a name="detection_trade_offs"></a><p class="title"><b>Table 8.1. Detection Precision Trade-Offs</b></p>
+<div class="table-contents"><table summary="Detection Precision Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Coarse Precision</th>
+<th>Fine Precision</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Faster detection</td>
+<td>Better pose estimation</td>
+</tr>
+<tr>
+<td>Decreased memory usage</td>
+<td>Supports all landmark detectors</td>
+</tr>
+<tr>
+<td>Faster initialization</td>
+<td> </td>
+</tr>
+<tr>
+<td>Individual detectors can be specified</td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_landmark_detection"></a>2. Landmark Detection</h2></div></div></div>
+<p>
+    Enabling landmark detection has two disadvantages.  First, it increases memory usage because the individual 
+    landmark detectors must be loaded into memory.  Second, searching for landmarks adds to the number of execution 
+    cycles.  This is especially important when using automatic landmarks because all faces are searched for landmarks 
+    during detection.  If only a subset of the detected faces need to be searched for landmarks, manual landmark 
+    detection can be used to mitigate the speed penalty.
+  </p>
+<p>
+    The frontal landmark detector uses fewer execution cycles compared to the multi-pose landmark detector.  Because 
+    the dual landmark detectors run the frontal detector followed by the multi-pose detector, the execution time 
+    varies depending on which detector finds landmarks.
+  </p>
+<p>
+    Regardless of whether an application needs to know landmark locations, frontal landmarks are required for 
+    recognition.  For applications that use recognition, there is no choice but to enable landmark detection.
+  </p>
+<p>
+    Landmark detection should only be enabled if necessary.  Use
+    <code class="function"><a href="detection_reference.html#set_landmark_detector_type" title="ppr_set_landmark_detector_type">ppr_set_landmark_detector_type</a></code>
+    to specify the landmark detector to use, if any.
+  </p>
+<p>
+    See <a href="detection_users_guide.html#landmarks" title="Landmarks">Landmarks</a> for more information.
+  </p>
+<div class="table">
+<a name="landmark_detection_trade_offs"></a><p class="title"><b>Table 8.2. Landmark Detection Trade-Offs</b></p>
+<div class="table-contents"><table summary="Landmark Detection Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Disabled</th>
+<th>Enabled</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>No cycles spent detecting landmarks</td>
+<td>User has option of searching for landmarks</td>
+</tr>
+<tr>
+<td>Decreased memory usage</td>
+<td>Recognition can be used</td>
+</tr>
+<tr>
+<td>Faster initialization</td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_search_pruning"></a>3. Search Pruning</h2></div></div></div>
+<p>
+    Search pruning provides a way to greatly improve execution speed by limiting the number of scales and detectors
+    that are needed to search an image.  When a search pruning aggressiveness of two or higher is used, small faces
+    may be missed as searching is discontinued after a high-confidence large face is found.
+  </p>
+<p>
+    Search pruning requires single-threaded detection calls.  <span>Multi-threaded recognition
+    calls may, and should, still be used</span>.  Use 
+    <code class="function"><a href="detection_reference.html#set_search_pruning_aggressiveness" title="ppr_set_search_pruning_aggressiveness">ppr_set_pruning_aggressiveness</a></code>
+    to specify the search pruning aggressiveness to use.
+  </p>
+<p>
+    See <a href="detection_users_guide.html#search_pruning" title="Search Pruning">Search Pruning</a> for more information.
+  </p>
+<div class="table">
+<a name="search_pruning_trade_offs"></a><p class="title"><b>Table 8.3. Search Pruning Trade-Offs</b></p>
+<div class="table-contents"><table summary="Search Pruning Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Disabled</th>
+<th>Enabled</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Exhaustively searches the image at all scales</td>
+<td>Much faster detection</td>
+</tr>
+<tr>
+<td>Internal multi-threading may be used</td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_num_threads"></a>4. Number of Threads</h2></div></div></div>
+<p>
+    Most functions within the FTR-SDK are threaded internally.  For processors with multiple cores or systems with
+    multiple processors, using threading allows the SDK functions to take full advantage of the available processing
+    power.  Unless threading is handled elsewhere in the application, setting the number of threads to the total number
+    of processing cores in the system provides better performance.  Setting the number of threads to less than the
+    number of processing cores prevents the SDK functions from taking advantage of the full processing power of the
+    system. Setting the number of threads to more than the number of processing cores degrades performance because of
+    unnecessary threading overhead.
+  </p>
+<p>
+    For the best performance, threading of the detection functions should be performed outside of the SDK.  This
+    allows the use of <a href="tuning_guide.html#tuning_search_pruning" title="3. Search Pruning">search pruning</a> which will result in the fastest
+    execution times. Also, single-threaded detection calls are more memory-efficient than multi-threaded detection
+    calls.
+  </p>
+<p>
+    Set the number of threads to the number of processing cores unless alternative threading schemes will be used.  Use
+    <code class="function"><a href="detection_reference.html#set_num_detection_threads" title="ppr_set_num_detection_threads">ppr_set_num_detection_threads</a></code> to indicate 
+    how many threads should be used by the detection functions <span> and
+    <code class="function"><a href="recognition_reference.html#set_num_recognition_threads" title="ppr_set_num_recognition_threads">ppr_set_num_recognition_threads</a></code> to 
+    indicate how many threads should be used by the recognition functions</span>.
+  </p>
+<p>
+    See <a href="detection_users_guide.html#detection_threading" title="Multi-Threaded Detection">Multi-Threaded Detection</a> 
+    <span>and <a href="recognition_users_guide.html#recognition_threading" title="Multi-Threaded Recognition">Multi-Threaded Recognition</a></span> 
+    for more information.
+  </p>
+<div class="table">
+<a name="num_threads_trade_offs"></a><p class="title"><b>Table 8.4. Number of Threads Trade-Offs</b></p>
+<div class="table-contents"><table summary="Number of Threads Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Single-Threaded</th>
+<th>Multi-Threaded</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>User has cores available for their own threading schemes</td>
+<td>SDK functions are automatically threaded internally</td>
+</tr>
+<tr>
+<td>Search pruning may be used<sup>*</sup>
+</td>
+<td>SDK functions can take advantage of all of the processing power</td>
+</tr>
+<tr>
+<td>Memory-efficient detection calls<sup>*</sup>
+</td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    <sup>*</sup>Only affected by number of detection threads, not number of recognition threads
+  </p>
+<p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning%20visual_attention"></a>5. Visual Attention</h2></div></div></div>
+<p>
+    Visual attention can be used to decrease tracking execution time.  When visual attention is enabled, only the 
+    parts of the image that change from frame-to-frame are searched.  The decrease in execution time is most apparent 
+    when the scene is relatively static.  There may be a minor accuracy penalty when using visual attention.
+  </p>
+<p>
+    Use visual attention unless tracking accuracy seems to be adversely affected by it.  Use
+    <code class="function"><a href="tracking_reference.html#enable_visual_attention" title="ppr_enable_visual_attention">ppr_enable_visual_attention</a></code> to enable
+    visual attention.
+  </p>
+<p>
+    See <a href="tracking_users_guide.html#visual_attention" title="Visual Attention">Visual Attention</a> for more information.
+  </p>
+<div class="table">
+<a name="visual_attention_trade_offs"></a><p class="title"><b>Table 8.5. Visual Attention Trade-Offs</b></p>
+<div class="table-contents"><table summary="Visual Attention Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Disabled</th>
+<th>Enabled</th>
+</tr></thead>
+<tbody><tr>
+<td>Accuracy not affected</td>
+<td>Decreased execution time, especially when scene is static</td>
+</tr></tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_visual_instances"></a>6. Visual Instances</h2></div></div></div>
+<p>
+    Visual instances are images of a tracked face taken from different points during the track sequence.  Do not set 
+    the number of visual instances greater than 0 unless they are truly necessary because there is a minor speed 
+    penalty associated with selecting visual instances as well as a slight increase in memory usage.  The desired 
+    number of visual instances can be set using
+    <code class="function"><a href="tracking_reference.html#set_num_visual_instances" title="ppr_set_num_visual_instances">ppr_set_num_visual_instances</a></code>.
+  </p>
+<p>
+    See <a href="tracking_users_guide.html#visual_instances" title="Visual Instances">Visual Instances</a> for more information.
+  </p>
+<div class="table">
+<a name="visual_instances_trade_offs"></a><p class="title"><b>Table 8.6. Visual Instances Trade-Offs</b></p>
+<div class="table-contents"><table summary="Visual Instances Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>No Visual Instances</th>
+<th>One or More Visual Instances</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>No speed penalty</td>
+<td>Automatically selected images of tracked faces are available</td>
+</tr>
+<tr>
+<td>Decreased memory usage</td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_min_size"></a>7. Minimum Size</h2></div></div></div>
+<p>
+    Increasing the minimum face size can provide large speed improvements and great reductions in memory usage.  The 
+    disadvantage of increasing the minimum size is that the smallest faces will not be detected.
+  </p>
+<p>
+    For the best computational performance, set the minimum size as high as possible without missing required faces.  
+  </p>
+<p>
+    A face with a size less than 4 is unlikely to get accurate results from the recognizer.  For applications that are 
+    strictly for recognition, setting the minimum size less than 4 is wasteful in terms of both memory and execution
+    cycles.
+  </p>
+<p>
+    Please read the section titled <a href="detection_users_guide.html#face_sizes" title="Face Sizes">Face Sizes</a> to determine how to choose the 
+    minimum size.  Use <code class="function"><a href="detection_reference.html#set_min_size" title="ppr_set_min_size">ppr_set_min_size</a></code> and/or
+    <code class="function"><a href="detection_reference.html#set_adaptive_min_size" title="ppr_set_adaptive_min_size">ppr_set_adaptive_min_size</a></code> to set the minimum 
+    face size.
+  </p>
+<div class="table">
+<a name="min_size_trade_offs"></a><p class="title"><b>Table 8.7. Minimum Size Trade-Offs</b></p>
+<div class="table-contents"><table summary="Minimum Size Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Low Minimum Size</th>
+<th>High Minimum Size</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Smaller faces can be detected</td>
+<td>Much faster detection</td>
+</tr>
+<tr>
+<td> </td>
+<td>Much less memory usage</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_max_size"></a>8. Maximum Size</h2></div></div></div>
+<p>
+    Decreasing the maximum face size can provide speed improvements and reductions in memory usage.  The 
+    disadvantage of decreasing the maximum size is that the largest faces will not be detected.
+  </p>
+<p>
+    For the best computational performance, set the maximum size as low as possible without missing required faces.  
+  </p>
+<p>
+    Please read the section titled <a href="detection_users_guide.html#face_sizes" title="Face Sizes">Face Sizes</a> to determine how to choose the 
+    maximum size.  Use <code class="function"><a href="detection_reference.html#set_max_size" title="ppr_set_max_size">ppr_set_max_size</a></code> and/or
+    <code class="function"><a href="detection_reference.html#set_adaptive_max_size" title="ppr_set_adaptive_max_size">ppr_set_adaptive_max_size</a></code> to set the maximum 
+    face size.
+  </p>
+<div class="table">
+<a name="max_size_trade_offs"></a><p class="title"><b>Table 8.8. Maximum Size Trade-Offs</b></p>
+<div class="table-contents"><table summary="Maximum Size Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Low Maximum Size</th>
+<th>High Maximum Size</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Faster detection</td>
+<td>Larger faces can be detected</td>
+</tr>
+<tr>
+<td>Less memory usage</td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_search_regions"></a>9. Search Regions</h2></div></div></div>
+<p>
+    For applications that do not require the entire image to be searched, a search region can be specified.  Since less 
+    of the image needs to be processed, the detector's execution time will be decreased, but faces outside of the 
+    search region will not be detected.
+  </p>
+<p>
+    If it is known that there are places in the image where faces will not appear, set a search region using
+    <code class="function"><a href="detection_reference.html#set_search_region" title="ppr_set_search_region">ppr_set_search_region</a></code>.
+  </p>
+<p>
+    See <a href="detection_users_guide.html#region_selection" title="Image Search Regions">Image Search Regions</a> for more information.
+  </p>
+<div class="table">
+<a name="search_region_trade_offs"></a><p class="title"><b>Table 8.9. Search Regions Trade-Offs</b></p>
+<div class="table-contents"><table summary="Search Regions Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>No Search Region</th>
+<th>Search Region Specified</th>
+</tr></thead>
+<tbody><tr>
+<td>Faces will be detected anywhere in the image</td>
+<td>Faster detection since only part of image is searched</td>
+</tr></tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_frontal_yaw_constraint"></a>10. Frontal Yaw Constraint</h2></div></div></div>
+<p>
+    The frontal yaw constraint indicates what range of yaw angles is acceptable to consider a face to be frontal.  
+    Since templates can only be extracted for frontal faces, using the restrictive frontal yaw constraint reduces the 
+    number of cases where templates can be extracted.  However, using the permissive setting can decrease overall 
+    recognition accuracy.  The decrease in accuracy is due to the fact that as the difference in yaw angle between two 
+    faces increases, the ability of the recognizer to successfully match the two faces decreases. An application's 
+    overall execution time and memory usage may also increase when using the permissive setting because more templates 
+    will be generated and more matching will occur.  Set the frontal yaw constraint using
+    <code class="function"><a href="detection_reference.html#set_frontal_yaw_constraint" title="ppr_set_frontal_yaw_constraint">ppr_set_frontal_yaw_constraint</a></code>.
+  </p>
+<div class="table">
+<a name="frontal_yaw_constraint_trade_offs"></a><p class="title"><b>Table 8.10. Frontal Yaw Constraint Trade-Offs</b></p>
+<div class="table-contents"><table summary="Frontal Yaw Constraint Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Restrictive</th>
+<th>Permissive</th>
+</tr></thead>
+<tbody><tr>
+<td>Better overall recognition accuracy</td>
+<td>Templates can be generated for more faces</td>
+</tr></tbody>
+<tbody><tr>
+<td>Potentially lower overall execution time</td>
+<td> </td>
+</tr></tbody>
+<tbody><tr>
+<td>Potentially lower memory usage</td>
+<td> </td>
+</tr></tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_recognition"></a>11. Recognition</h2></div></div></div>
+<p>
+    Enabling recognition increases the amount of memory used as well as initialization time, so recognition should 
+    only be enabled if it will be used.  Enable recognition using
+    <code class="function"><a href="recognition_reference.html#enable_recognition" title="ppr_enable_recognition">ppr_enable_recognition</a></code>.
+  </p>
+<div class="table">
+<a name="recognition_trade_offs"></a><p class="title"><b>Table 8.11. Recognition Trade-Offs</b></p>
+<div class="table-contents"><table summary="Recognition Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Disabled</th>
+<th>Enabled</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Decreased memory usage</td>
+<td>Face recognition can be performed</td>
+</tr>
+<tr>
+<td>Faster initialization</td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_template_extraction"></a>12. Template Extraction</h2></div></div></div>
+<p>
+    There are two different types of templates - single templates and double templates.  Single templates are faster 
+    and use less memory while double templates are more accurate but use twice the memory and take twice as long to
+    compare.  The type of template extraction can be set with 
+    <code class="function"><a href="recognition_reference.html#set_template_extraction_type" title="ppr_set_template_extraction_type">ppr_set_template_extraction_type</a></code>.
+  </p>
+<p>
+    See <a href="recognition_users_guide.html#template_extraction" title="Template Extraction">Template Extraction</a> for more information.
+  </p>
+<div class="table">
+<a name="template_extraction_trade_offs"></a><p class="title"><b>Table 8.12. Template Extraction Trade-Offs</b></p>
+<div class="table-contents"><table summary="Template Extraction Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Single</th>
+<th>Double</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Faster comparisons</td>
+<td>More accurate comparisons</td>
+</tr>
+<tr>
+<td>Less memory usage</td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_multi_gallery_clustering"></a>13. Multi-Gallery Clustering</h2></div></div></div>
+<p>
+    Clustering requires comparing every template in a gallery to every other template in the gallery, creating a 
+    squared dependence between the number of templates in the gallery and the number of comparisons that must be
+    performed.  As the gallery size increases, the number of required comparisons grows quickly.
+  </p>
+<p>
+    Multi-gallery clustering addresses this issue by using a two-stage clustering approach that greatly reduces the 
+    number of comparisons that must be performed.  This greatly reduces the time required to do clustering at the 
+    expense of potentially less accurate clustering.  It also reduces the amount of memory used because fewer
+    comparison results must be stored.
+  </p>
+<p>
+    See <a href="clustering_users_guide.html#multi_gallery_clustering" title="Multi-Gallery Clustering">Multi-Gallery Clustering</a> for more information.
+  </p>
+<div class="table">
+<a name="multi_gallery_trade_offs"></a><p class="title"><b>Table 8.13. Multi-Gallery Trade-Offs</b></p>
+<div class="table-contents"><table summary="Multi-Gallery Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Single-Gallery</th>
+<th>Multi-Gallery</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>More accurate clustering</td>
+<td>Faster clustering</td>
+</tr>
+<tr>
+<td> </td>
+<td>Less memory usage</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_representative_templates"></a>14. Representative Templates</h2></div></div></div>
+<p>
+    When using multi-gallery clustering, the number of representative templates indicates how many templates from each
+    stage one subject will be used to represent that subject in stage two.  A large number of representative templates
+    provides better accuracy at the expense of greater execution time and more memory usage.  The number of
+    representative templates can be set using
+    <code class="function"><a href="clustering_reference.html#set_num_representative_templates_per_subject" title="ppr_set_num_representative_templates_per_subject">ppr_set_num_representative_templates_per_subject</a></code>.
+  </p>
+<p>
+    See <a href="clustering_users_guide.html#representative_templates" title="Representative Templates">Representative Templates</a> for more information.
+  </p>
+<div class="table">
+<a name="representative_templates_trade_offs"></a><p class="title"><b>Table 8.14. Representative Templates Trade-Offs</b></p>
+<div class="table-contents"><table summary="Representative Templates Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Low Number</th>
+<th>High Number</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Faster clustering</td>
+<td>More accurate clustering</td>
+</tr>
+<tr>
+<td>Less memory usage</td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_straggler_cutoff"></a>15. Straggler Cutoff</h2></div></div></div>
+<p>
+    When using multi-gallery clustering, the straggler cutoff controls which stage one subjects are represented at
+    stage two.  If the number of templates in a stage one subject is less than or equal to the straggler cutoff, that
+    subject is not represented in stage two.  A lower cutoff provides better accuracy at the expense of greater
+    execution time and more memory usage.  The straggler cutoff can be set by calling
+    <code class="function"><a href="clustering_reference.html#set_straggler_cutoff" title="ppr_set_straggler_cutoff">ppr_set_straggler_cutoff</a></code>.
+  </p>
+<p>
+    See <a href="clustering_users_guide.html#stragglers" title="Stragglers">Stragglers</a> for more information.
+  </p>
+<div class="table">
+<a name="straggler_trade_offs"></a><p class="title"><b>Table 8.15. Straggler Trade-Offs</b></p>
+<div class="table-contents"><table summary="Straggler Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Low Cutoff</th>
+<th>High Cutoff</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>More accurate clustering</td>
+<td>Faster clustering</td>
+</tr>
+<tr>
+<td> </td>
+<td>Less memory usage</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_disk_gallery_groups"></a>16. Disk Gallery Groups</h2></div></div></div>
+<p>
+    When using multi-gallery clustering, the user has the option of using a disk gallery group.  A disk gallery group
+    stores the internal galleries on disk and only loads them when needed.  This saves memory because only one gallery
+    needs to be stored in memory at a time.  However, it increases execution time because of the disk I/O that is
+    needed.
+  </p>
+<p>
+    See <a href="clustering_users_guide.html#disk_gallery_groups" title="Disk Gallery Groups">Disk Gallery Groups</a> for more information.
+  </p>
+<div class="table">
+<a name="disk_gallery_group_trade_offs"></a><p class="title"><b>Table 8.16. Disk Gallery Group Trade-Offs</b></p>
+<div class="table-contents"><table summary="Disk Gallery Group Trade-Offs" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Regular Gallery Group</th>
+<th>Disk Gallery Group</th>
+</tr></thead>
+<tbody><tr>
+<td>Faster clustering</td>
+<td>Less memory usage</td>
+</tr></tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tuning_image_size"></a>17. Image Size</h2></div></div></div>
+<p>
+    The amount of memory needed by the detector increases greatly as image size increases.  Execution time also 
+    increases since a larger area must be searched.  Although there is often no way around this, keep this in mind 
+    when writing applications.  The detector is able to work on low-resolution images, so using downsized images may 
+    decrease detection time with little loss in accuracy.
+  </p>
+<p>
+    Back to <a href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">top</a>.
+  </p>
+</div>
+</div>
+<hr>
+<p class="copyright">© 2004-2010 Pittsburgh Pattern Recognition, Inc.</p>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="video_io_library.html">Prev</a> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right"> <a accesskey="n" href="migration_guide.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Chapter 7. PittPatt Video I/O Library Documentation </td>
+<td width="20%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="40%" align="right" valign="top"> Chapter 9. FTR-SDK v4.1: Migration Guide</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

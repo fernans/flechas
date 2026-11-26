@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Chapter 9. FTR-SDK v4.1: Migration Guide</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="up" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="prev" href="tuning_guide.html" title="Chapter 8. FTR-SDK: Tuning Guide">
+<link rel="next" href="detection_reference.html" title="Chapter 10. FTR-SDK: Detection Reference">
+<style type="text/css">
+      /* Document Structure */
+
+div.book, div.chapter, div.article, div.sect1 {
+    width: auto;
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+div.sect1, div.toc {
+    margin-left: 10px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+div.sect2 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect2 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+div.sect3 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect3 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+
+/* Type Conventions (e.g. parameter vs. structelement) */
+
+.type, .function, .symbol, .structfield, .parameter, .structname {
+    font-family: courier, monospace;
+    font-size: 10pt;
+}
+
+.type, .function {
+    font-weight: bold;
+}
+
+/* Table of Contents */
+
+div.toc {
+  background-color: #DDDDDD;
+  padding: 0.5em 20px;
+  margin: 0em auto;
+}
+
+div.toc dl {
+  margin-left: 10px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dt {
+  line-height: 1.1em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 30px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+
+/* Function Formatting */
+
+.programlisting, .funcsynopsis table {
+    background-color: #DDDDDD;
+    font-family: courier, monospace;
+    font-size: 10pt;
+    padding: 8px 10px;
+}
+
+.funcsynopsis table td {
+    vertical-align: bottom;
+    white-space: normal;
+}
+
+.funcsynopsis + .variablelist dt {
+    font-weight: bold;
+    font-size: 11pt;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+.funcsynopsis + .variablelist dd {
+    margin-left: 20px;
+}
+
+.funcsynopsis + .variablelist dd p {
+    margin: 0.25em 0px;
+}
+
+/* Compilation Examples */
+
+div.variablelist {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+div.variablelist .term {
+    margin-left: 15px;
+}
+
+div.variablelist .programlisting {
+    margin-bottom: 2em;
+}
+
+
+/* Callout Boxes (e.g. note/warning) */
+
+div.warning {
+    background-color: #FFDDDD;
+}
+
+div.note {
+    background-color: #FFFFCC;
+}
+
+div.warning, div.note {
+    margin-top: 1.0em;
+    margin-bottom: 2.0em;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+div.warning h3, div.note h3 {
+    margin: 0.25em 0px;
+}
+
+div.warning p, div.note p {
+    margin: 0.25em 10px;
+}
+
+/* Image */
+
+div.mediaobject {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+div.caption {
+    font-weight: bold;
+}
+
+
+/* Table Layout */
+
+div.table {
+    margin: 1em auto;
+    padding: 1em;
+    border: 1px solid;
+    width: auto;
+}
+
+div.table p {
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+div.table table {
+    border-spacing: 0px 0px;
+    border-collapse: collapse;
+    margin: 0em auto;
+}
+
+div.table table th {
+    margin: 0px;
+    padding: 3px 15px;
+    font-size: small;
+    text-align: center;
+    border-bottom: medium solid;
+}
+
+div.table table td {
+    margin: 0px;
+    padding: 3px 15px;
+    text-align: center;
+    border-top: thin dotted;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover {
+    color: blue;
+}
+
+/* Copyright Formatting */
+
+p.copyright {
+    margin-top: 3px;
+    text-align: right;
+    font-size: x-small;
+}
+    </style>
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">Chapter 9. FTR-SDK v4.1: Migration Guide</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="tuning_guide.html">Prev</a> </td>
+<td width="60%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="20%" align="right"> <a accesskey="n" href="detection_reference.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="chapter" lang="en">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="migration_guide"></a>Chapter 9. FTR-SDK v4.1: Migration Guide</h2></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1">1. <a href="migration_guide.html#changes_to_header_files">Changes to pittpatt_detection_tracking.h</a></span></dt>
+<dt><span class="sect1">2. <a href="migration_guide.html#moved_cluster_gallery">Moved ppr_cluster_gallery to pittpatt_clustering.h</a></span></dt>
+<dt><span class="sect1">3. <a href="migration_guide.html#get_context_change">New way to acquire contexts</a></span></dt>
+<dt><span class="sect1">4. <a href="migration_guide.html#rename_update_to_set">All 'ppr_update' prefixes renamed to 'ppr_set'</a></span></dt>
+<dt><span class="sect1">5. <a href="migration_guide.html#size_reporting_change">Change to how object size is reported</a></span></dt>
+<dt><span class="sect1">6. <a href="migration_guide.html#set_num_threads_change">Setting number of threads changed</a></span></dt>
+<dt><span class="sect1">7. <a href="migration_guide.html#enabling_shot_boundary_detection_changed">Enabling shot boundary detection changed</a></span></dt>
+<dt><span class="sect1">8. <a href="migration_guide.html#disable_template_compression_removed">Disable template compression removed</a></span></dt>
+<dt><span class="sect1">9. <a href="migration_guide.html#set_template_string_argument_order_changed">Argument order for ppr_set_template_string changed</a></span></dt>
+<dt><span class="sect1">10. <a href="migration_guide.html#object_suitable_for_recognition_renamed">Renamed ppr_object_suitable_for_recognition</a></span></dt>
+<dt><span class="sect1">11. <a href="migration_guide.html#get_ranked_subject_list_renamed">Renamed ppr_get_ranked_subject_list</a></span></dt>
+<dt><span class="sect1">12. <a href="migration_guide.html#copy_template_to_gallery_changed">Arguments passed to ppr_copy_template_to_gallery changed</a></span></dt>
+<dt><span class="sect1">13. <a href="migration_guide.html#prefix_added_to_constants">Prefix added to constants </a></span></dt>
+<dt><span class="sect1">14. <a href="migration_guide.html#sdk_utils_changes">SDK utils changes</a></span></dt>
+<dt><span class="sect1">15. <a href="migration_guide.html#video_io_lib_changes">Changes to Video I/O Library</a></span></dt>
+</dl>
+</div>
+<p>
+  Version 4.0 of the FTR-SDK introduced updates that require changes to code that uses the 3.x versions of the SDK.
+  This guide explains the updates that require code changes, including the reason for the updates and the steps that
+  must be taken to bring source code up to date.
+</p>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="changes_to_header_files"></a>1. Changes to pittpatt_detection_tracking.h</h2></div></div></div>
+<p>
+    The constants, types, and functions defined <code class="filename">pittpatt_detection_tracking.h</code> were split into
+    two files:  <code class="filename">pittpatt_detection.h</code> and <code class="filename">pittpatt_tracking.h</code>.  Constants,
+    types, and functions used exclusively for tracking can now be found in <code class="filename">pittpatt_tracking.h</code>.
+    Everything else is in <code class="filename">pittpatt_detection.h</code>.  The reason for this split was to better group 
+    similar functions together. 
+  </p>
+<p>
+    Back to <a href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="moved_cluster_gallery"></a>2. Moved ppr_cluster_gallery to pittpatt_clustering.h</h2></div></div></div>
+<p>
+    With the addition of multi-gallery clustering, a separate header file, <code class="filename">pittpatt_clustering.h</code>,
+    was created to keep <code class="filename">pittpatt_recognition.h</code> from becoming too large.  Therefore,
+    <code class="function"><a href="clustering_reference.html#cluster_gallery" title="ppr_cluster_gallery">ppr_cluster_gallery</a></code> was moved from
+    <code class="filename">pittpatt_recognition.h</code> to <code class="filename">pittpatt_clustering.h</code>.
+  </p>
+<p>
+    Back to <a href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="get_context_change"></a>3. New way to acquire contexts</h2></div></div></div>
+<p>
+    The <code class="function">ppr_get_detection_context</code> and <code class="function">ppr_get_tracking_context</code>
+    functions for getting a context for either detection or tracking have been replaced with a single function,
+    <a href="detection_reference.html#get_context" title="ppr_get_context"><code class="function">ppr_get_context</code></a>.  Calling
+    <a href="tracking_reference.html#enable_tracking" title="ppr_enable_tracking"><code class="function">ppr_enable_tracking</code></a> before initializing the context 
+    will enable the context to call the tracking functions. This mirrors the way that recognition gets enabled in a
+    context.
+  </p>
+<p>
+    Back to <a href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="rename_update_to_set"></a>4. All 'ppr_update' prefixes renamed to 'ppr_set'</h2></div></div></div>
+<p>
+    All of the <span class="parameter">ppr_update</span> function prefixes were renamed to <span class="parameter">ppr_set</span>.  
+    This change was made in order to eliminate possible confusion. Now all of the functions for changing parameters 
+    start with <span class="parameter">ppr_set</span>.
+  </p>
+<p>
+    Back to <a href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="size_reporting_change"></a>5. Change to how object size is reported</h2></div></div></div>
+<p>
+    The size of an object was reported as a <span class="parameter">scale_factor</span>, <span class="parameter">nominal_width</span>,
+    and <span class="parameter">nominal_height</span> where the actual width of an object was computed by multiplying the
+    <span class="parameter">scale_factor</span> by the <span class="parameter">nominal_width</span> (and similarly for the height).  
+    The size is now reported by the <a href="detection_reference.html#dimensions_type" title="ppr_dimensions_type"><span class="parameter">ppr_dimensions_type</span></a>
+    which contains the actual width and height of the object.  This change, and the addition of
+    <a href="detection_reference.html#get_size_from_pixels" title="ppr_get_size_from_pixels"><code class="function">ppr_get_size_from_pixels</code></a>, simplifies how object
+    sizes are reported and how min/max object sizes are specified. 
+  </p>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="changes_to_object_type"></a>Changes to ppr_object_type</h4></div></div></div>
+
+    Removed <span class="parameter">scale_factor</span>, <span class="parameter">nominal_width</span>, and 
+    <span class="parameter">nominal_height</span> and added 
+    <a href="detection_reference.html#dimensions_type" title="ppr_dimensions_type"><span class="parameter">dimensions</span></a>.
+    
+  </div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="changes_to_landmark_type"></a>Changes to ppr_landmark_type</h4></div></div></div>
+    
+    Removed <span class="parameter">scale_factor</span>, <span class="parameter">nominal_width</span>, and 
+    <span class="parameter">nominal_height</span> since landmarks should not have a size associated with them since they are
+    point-features.
+
+  </div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="changes_to_track_summary_type"></a>Changes to ppr_track_summary_type</h4></div></div></div>
+    
+    Replaced <span class="parameter">min_scale_factor</span>, <span class="parameter">max_scale_factor</span>, and
+    <span class="parameter">avg_scale_factor</span> with <span class="parameter">min_dimensions</span>, 
+    <span class="parameter">max_dimensions</span>, and <span class="parameter">avg_dimensions</span>.
+
+  </div>
+<p>
+    Back to <a href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="set_num_threads_change"></a>6. Setting number of threads changed</h2></div></div></div>
+<p>
+    The <code class="function">ppr_set_num_threads</code> function was split into two functions: 
+    <code class="function"><a href="detection_reference.html#set_num_detection_threads" title="ppr_set_num_detection_threads">ppr_set_num_detection_threads</a></code> and
+    <code class="function"><a href="recognition_reference.html#set_num_recognition_threads" title="ppr_set_num_recognition_threads">ppr_set_num_recognition_threads</a></code>
+    The <code class="function"><a href="detection_reference.html#set_num_detection_threads" title="ppr_set_num_detection_threads">ppr_set_num_detection_threads</a></code> function
+    sets the number of worker threads used for detection while the
+    <code class="function"><a href="recognition_reference.html#set_num_recognition_threads" title="ppr_set_num_recognition_threads">ppr_set_num_recognition_threads</a></code> function
+    sets the number of worker threads used for recognition.  This changed was made in order to give the end user more
+    control over how worker threads are allocated.
+  </p>
+<p>
+    Back to <a href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="enabling_shot_boundary_detection_changed"></a>7. Enabling shot boundary detection changed</h2></div></div></div>
+<p>
+    The <code class="function"><a href="tracking_reference.html#enable_shot_boundary_detection" title="ppr_enable_shot_boundary_detection">ppr_enable_shot_boundary_detection</a></code>
+    function used to take a <span class="parameter">threshold</span> as input.  Now it no longer takes the
+    <span class="parameter">threshold</span> as input, and
+    <a href="tracking_reference.html#set_shot_boundary_threshold" title="ppr_set_shot_boundary_threshold"><code class="function">ppr_set_shot_boundary_threshold</code></a> has been
+    added as the way to set the shot boundary threshold.  This change makes shot boundary detection more consistent
+    with the other functions in the SDK.
+  </p>
+<p>
+    Back to <a href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="disable_template_compression_removed"></a>8. Disable template compression removed</h2></div></div></div>
+<p>
+    The size of templates was drastically reduced in version 4.0 (when compared to version 3.1).  This allowed us to
+    remove the concept of template compression from the SDK.  As a result, the
+    <code class="function">ppr_disable_template_compression</code> function was removed.
+  </p>
+<p>
+    Back to <a href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="set_template_string_argument_order_changed"></a>9. Argument order for ppr_set_template_string changed</h2></div></div></div>
+<p>
+    The argument order for <a href="recognition_reference.html#set_template_string" title="ppr_set_template_string"><code class="function">ppr_set_template_string</code></a> was
+    changed.  Instead of context, string, template, it was changed to context, template, string.  This matches other
+    SDK functions where the parameter being modified comes before the setting that is being set.
+  </p>
+<p>
+    Back to <a href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="object_suitable_for_recognition_renamed"></a>10. Renamed ppr_object_suitable_for_recognition</h2></div></div></div>
+<p>
+    The <code class="function">ppr_object_suitable_for_recognition</code> function was renamed to 
+    <code class="function"><a href="recognition_reference.html#is_object_suitable_for_recognition" title="ppr_is_object_suitable_for_recognition">ppr_is_object_suitable_for_recognition</a></code>.
+    This change matches the prefix convention of the other query functions.
+  </p>
+<p>
+    Back to <a href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="get_ranked_subject_list_renamed"></a>11. Renamed ppr_get_ranked_subject_list</h2></div></div></div>
+<p>
+    The <code class="function">ppr_get_ranked_subject_list</code> function was renamed to 
+   <code class="function"><a href="recognition_reference.html#get_ranked_subject_list_for_subject" title="ppr_get_ranked_subject_list_for_subject">ppr_get_ranked_subject_list_for_subject</a></code>.
+   This change was made to clarify the behavior of this function and to make it consistent with the other ranked list
+   functions.
+  </p>
+<p>
+    Back to <a href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="copy_template_to_gallery_changed"></a>12. Arguments passed to ppr_copy_template_to_gallery changed</h2></div></div></div>
+<p>
+    When a template is copied to a gallery, its ID is now returned via a reference argument rather than by setting the
+    ID inside the template.  Therefore, the <span class="parameter">template</span> argument to the 
+    <a href="recognition_reference.html#copy_template_to_gallery" title="ppr_copy_template_to_gallery"><code class="function">ppr_copy_template_to_gallery</code></a> function
+    is now passed by copy.  Also, it now also takes a pointer to the ID that will be assigned to the template.
+    This change obsoletes the <code class="function">ppr_get_template_id</code>, and as a result, it has been removed 
+    from the SDK.
+  </p>
+<p>
+    Back to <a href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="prefix_added_to_constants"></a>13. Prefix added to constants </h2></div></div></div>
+<p>
+    The <span class="parameter">PPR_</span> prefix was added to 
+    <a href="clustering_reference.html#max_clustering_aggressiveness" title="PPR_MAX_CLUSTERING_AGGRESSIVENESS"><span class="parameter">PPR_MAX_CLUSTERING_AGGRESSIVENESS</span></a> and
+    <a href="recognition_reference.html#max_template_string_size" title="PPR_MAX_TEMPLATE_STRING_SIZE"><span class="parameter">PPR_MAX_TEMPLATE_STRING_SIZE</span></a>.  This
+    change was made to match all of the other constants which start with <span class="parameter">PPR_</span>. 
+  </p>
+<p>
+    Back to <a href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="sdk_utils_changes"></a>14. SDK utils changes</h2></div></div></div>
+<p>
+    The <code class="function">sdk_utils_copy_image_templates_to_gallery</code> function was removed because it was only
+    used by one example program, and it ended up masking the whole purpose of the example program.
+  </p>
+<p>
+    The <code class="function">sdk_utils_write_template_id_list_thumbnails</code> takes an extra argument, 
+    <span class="parameter">write_source_images</span>.  This parameter controls whether or not to write the
+    <code class="filename">source_image.txt</code> text file.
+  </p>
+<p>
+    The addition of text overlay drawing functions required splitting out the drawing functions into a separate file to
+    prevent <code class="filename">sdk_utils.c</code> from becoming too large.  The <code class="filename">sdk_draw_utils.c</code> file
+    was created for this purpose and it needs to be compiled and linked with any programs that use
+    <code class="filename">sdk_utils.c</code>.  The <code class="function">sdk_utils_draw_line</code>,
+    <code class="function">sdk_utils_draw_cross</code>, and <code class="function">sdk_utils_draw_polygon</code> functions were moved to
+    the new file and their prefixes were changed from <code class="function">sdk_utils_</code> to
+    <code class="function">sdk_draw_utils_</code>.
+  </p>
+<p>
+    The <span class="parameter">sdk_draw_utils_line_attributes</span> data structure was created to hold line attributes such
+    as the color, line type, and thickness.  This was done to keep the function argument lists from becoming too long.
+    Some overlay and drawing functions now take the line attributes structure in place of several arguments.
+  </p>
+<p>
+    With the addition of text overlays, the <code class="function">sdk_utils_overlay_object</code> function now takes an extra
+    argument that specifies a string to be written below the bounding box overlay.  An empty string can be passed if a
+    text overlay is not desired.
+  </p>
+<p>
+    The addition of text overlays also allows frame numbers to be overlaid on the output of tracking programs.  The
+    <code class="function">sdk_utils_overlay_completed_track_list_on_image_list</code> and
+    <code class="function">sdk_utils_overlay_completed_track_list_on_video</code> functions each take a flag that indicates
+    whether frame numbers should be overlaid on the output.
+  </p>
+<p>
+    Back to <a href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">top</a>.
+  </p>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="video_io_lib_changes"></a>15. Changes to Video I/O Library</h2></div></div></div>
+<p>
+    The <span class="parameter">ppr_video_</span> prefix for all functions and types was changed to 
+    <span class="parameter">ppr_video_io_</span> to reflect the addition of video encoding and the name of the library file.
+  </p>
+<p>
+    The <code class="function">ppr_video_initialize</code> function was replaced with 
+    <code class="function"><a href="video_io_library.html#video_io_set_logging_type" title="ppr_video_io_set_logging_type">ppr_video_io_set_logging_type</a></code> since this more
+    accurately describes the behavior of this function.
+  </p>
+<p>
+    The <code class="function">ppr_video_frame_available</code> function was renamed to 
+    <code class="function"><a href="video_io_library.html#video_io_is_frame_available" title="ppr_video_io_is_frame_available">ppr_video_io_is_frame_available</a></code> to be
+    consistent with the other SDK query functions.
+  </p>
+<p>
+    Back to <a href="migration_guide.html" title="Chapter 9. FTR-SDK v4.1: Migration Guide">top</a>.
+  </p>
+</div>
+</div>
+<hr>
+<p class="copyright">© 2004-2010 Pittsburgh Pattern Recognition, Inc.</p>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="tuning_guide.html">Prev</a> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right"> <a accesskey="n" href="detection_reference.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Chapter 8. FTR-SDK: Tuning Guide </td>
+<td width="20%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="40%" align="right" valign="top"> Chapter 10. FTR-SDK: Detection Reference</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

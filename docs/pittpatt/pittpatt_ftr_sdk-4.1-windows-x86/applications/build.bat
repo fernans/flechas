@@ -1,0 +1,31 @@
+@echo off
+
+del /Q detection.exe tracking-completed.exe tracking-current.exe recognition-create_gallery.exe recognition-create_subject_gallery.exe recognition-compare_gallery_templates.exe recognition-compare_gallery_subjects.exe recognition-across_tracks recognition-match_query_to_reference.exe recognition-rank_matching_faces.exe clustering-cluster_gallery.exe 2>nul
+
+cl ..\source\applications\detection\detection.c ..\source\applications\detection\parse_command_line.c ..\source\utilities\sdk_utils.c ..\source\utilities\sdk_draw_utils.c ..\source\utilities\sdk_cmd_line_utils.c ..\source\utilities\sdk_profile_timers.c -I..\include -I..\source\utilities -I..\source\common ..\lib\pittpatt_ftr_sdk.lib ..\lib\pittpatt_raw_image_io.lib ..\lib\pittpatt_video_io.lib ..\lib\pittpatt_raw_image.lib -nologo
+
+cl ..\source\applications\tracking-completed\tracking-completed.c ..\source\applications\tracking-completed\parse_command_line.c ..\source\utilities\sdk_utils.c ..\source\utilities\sdk_draw_utils.c ..\source\utilities\sdk_cmd_line_utils.c ..\source\utilities\sdk_profile_timers.c -I..\include -I..\source\utilities -I..\source\common ..\lib\pittpatt_ftr_sdk.lib ..\lib\pittpatt_raw_image_io.lib ..\lib\pittpatt_video_io.lib ..\lib\pittpatt_raw_image.lib -nologo
+
+cl ..\source\applications\tracking-current\tracking-current.c ..\source\applications\tracking-current\parse_command_line.c ..\source\utilities\sdk_utils.c ..\source\utilities\sdk_draw_utils.c ..\source\utilities\sdk_cmd_line_utils.c ..\source\utilities\sdk_profile_timers.c -I..\include -I..\source\utilities -I..\source\common ..\lib\pittpatt_ftr_sdk.lib ..\lib\pittpatt_raw_image_io.lib ..\lib\pittpatt_video_io.lib ..\lib\pittpatt_raw_image.lib -nologo
+
+cl ..\source\applications\recognition-create_gallery\recognition-create_gallery.c ..\source\applications\recognition-create_gallery\parse_command_line.c ..\source\utilities\sdk_utils.c ..\source\utilities\sdk_draw_utils.c ..\source\utilities\sdk_cmd_line_utils.c ..\source\utilities\sdk_profile_timers.c -I..\include -I..\source\utilities -I..\source\common ..\lib\pittpatt_ftr_sdk.lib ..\lib\pittpatt_raw_image_io.lib ..\lib\pittpatt_video_io.lib ..\lib\pittpatt_raw_image.lib -nologo
+
+cl ..\source\applications\recognition-create_subject_gallery\recognition-create_subject_gallery.c ..\source\applications\recognition-create_subject_gallery\parse_command_line.c ..\source\utilities\sdk_utils.c ..\source\utilities\sdk_draw_utils.c ..\source\utilities\sdk_cmd_line_utils.c ..\source\utilities\sdk_profile_timers.c -I..\include -I..\source\utilities -I..\source\common ..\lib\pittpatt_ftr_sdk.lib ..\lib\pittpatt_raw_image_io.lib ..\lib\pittpatt_video_io.lib ..\lib\pittpatt_raw_image.lib -nologo
+
+cl ..\source\applications\recognition-compare_gallery_templates\recognition-compare_gallery_templates.c ..\source\applications\recognition-compare_gallery_templates\parse_command_line.c ..\source\utilities\sdk_utils.c ..\source\utilities\sdk_draw_utils.c ..\source\utilities\sdk_cmd_line_utils.c ..\source\utilities\sdk_profile_timers.c -I..\include -I..\source\utilities -I..\source\common ..\lib\pittpatt_ftr_sdk.lib ..\lib\pittpatt_raw_image_io.lib ..\lib\pittpatt_video_io.lib ..\lib\pittpatt_raw_image.lib -nologo
+
+cl ..\source\applications\recognition-compare_gallery_subjects\recognition-compare_gallery_subjects.c ..\source\applications\recognition-compare_gallery_subjects\parse_command_line.c ..\source\utilities\sdk_utils.c ..\source\utilities\sdk_draw_utils.c ..\source\utilities\sdk_cmd_line_utils.c ..\source\utilities\sdk_profile_timers.c -I..\include -I..\source\utilities -I..\source\common ..\lib\pittpatt_ftr_sdk.lib ..\lib\pittpatt_raw_image_io.lib ..\lib\pittpatt_video_io.lib ..\lib\pittpatt_raw_image.lib -nologo
+
+cl ..\source\applications\recognition-across_tracks\recognition-across_tracks.c ..\source\applications\recognition-across_tracks\acquire_tracks.c ..\source\applications\recognition-across_tracks\final_gallery.c ..\source\applications\recognition-across_tracks\parse_command_line.c ..\source\applications\recognition-across_tracks\reduced_tracks.c ..\source\applications\recognition-across_tracks\results.c ..\source\utilities\sdk_utils.c ..\source\utilities\sdk_draw_utils.c ..\source\utilities\sdk_cmd_line_utils.c ..\source\utilities\sdk_profile_timers.c -I..\include -I..\source\utilities -I..\source\common ..\lib\pittpatt_ftr_sdk.lib ..\lib\pittpatt_raw_image_io.lib ..\lib\pittpatt_video_io.lib ..\lib\pittpatt_raw_image.lib -nologo
+
+cl ..\source\applications\recognition-match_query_to_reference\recognition-match_query_to_reference.c ..\source\applications\recognition-match_query_to_reference\parse_command_line.c ..\source\utilities\sdk_utils.c ..\source\utilities\sdk_draw_utils.c ..\source\utilities\sdk_cmd_line_utils.c ..\source\utilities\sdk_profile_timers.c -I..\include -I..\source\utilities -I..\source\common ..\lib\pittpatt_ftr_sdk.lib ..\lib\pittpatt_raw_image_io.lib ..\lib\pittpatt_video_io.lib ..\lib\pittpatt_raw_image.lib -nologo
+
+cl ..\source\applications\recognition-rank_matching_faces\recognition-rank_matching_faces.c ..\source\applications\recognition-rank_matching_faces\parse_command_line.c ..\source\utilities\sdk_utils.c ..\source\utilities\sdk_draw_utils.c ..\source\utilities\sdk_cmd_line_utils.c ..\source\utilities\sdk_profile_timers.c -I..\include -I..\source\utilities -I..\source\common ..\lib\pittpatt_ftr_sdk.lib ..\lib\pittpatt_raw_image_io.lib ..\lib\pittpatt_video_io.lib ..\lib\pittpatt_raw_image.lib -nologo
+
+cl ..\source\applications\clustering-cluster_gallery\clustering-cluster_gallery.c ..\source\applications\clustering-cluster_gallery\parse_command_line.c ..\source\utilities\sdk_utils.c ..\source\utilities\sdk_draw_utils.c ..\source\utilities\sdk_cmd_line_utils.c ..\source\utilities\sdk_profile_timers.c -I..\include -I..\source\utilities -I..\source\common ..\lib\pittpatt_ftr_sdk.lib ..\lib\pittpatt_raw_image_io.lib ..\lib\pittpatt_video_io.lib ..\lib\pittpatt_raw_image.lib -nologo
+
+del   /Q    *.obj
+xcopy /Q /Y ..\lib\pittpatt_ftr_sdk.dll .
+xcopy /Q /Y ..\lib\pittpatt_raw_image.dll .
+xcopy /Q /Y ..\lib\pittpatt_raw_image_io.dll .
+xcopy /Q /Y ..\lib\pittpatt_video_io.dll .

@@ -1,0 +1,786 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Chapter 2. FTR-SDK: Tracking User's Guide</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="up" href="../ftr_sdk.html" title="PittPatt FTR-SDK v4.1 Documentation">
+<link rel="prev" href="detection_users_guide.html" title="Chapter 1. FTR-SDK: Detection User's Guide">
+<link rel="next" href="recognition_users_guide.html" title="Chapter 3. FTR-SDK: Recognition User's Guide">
+<style type="text/css">
+      /* Document Structure */
+
+div.book, div.chapter, div.article, div.sect1 {
+    width: auto;
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+div.sect1, div.toc {
+    margin-left: 10px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+div.sect2 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect2 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+div.sect3 {
+    margin-left: 20px;
+    margin-bottom: 4em;
+}
+
+div.sect3 div.titlepage {
+    margin-left: -20px;
+    font-size: 12pt;
+}
+
+
+/* Type Conventions (e.g. parameter vs. structelement) */
+
+.type, .function, .symbol, .structfield, .parameter, .structname {
+    font-family: courier, monospace;
+    font-size: 10pt;
+}
+
+.type, .function {
+    font-weight: bold;
+}
+
+/* Table of Contents */
+
+div.toc {
+  background-color: #DDDDDD;
+  padding: 0.5em 20px;
+  margin: 0em auto;
+}
+
+div.toc dl {
+  margin-left: 10px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dt {
+  line-height: 1.1em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 30px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+div.toc > dl > dd > dl > dd {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+
+/* Function Formatting */
+
+.programlisting, .funcsynopsis table {
+    background-color: #DDDDDD;
+    font-family: courier, monospace;
+    font-size: 10pt;
+    padding: 8px 10px;
+}
+
+.funcsynopsis table td {
+    vertical-align: bottom;
+    white-space: normal;
+}
+
+.funcsynopsis + .variablelist dt {
+    font-weight: bold;
+    font-size: 11pt;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+.funcsynopsis + .variablelist dd {
+    margin-left: 20px;
+}
+
+.funcsynopsis + .variablelist dd p {
+    margin: 0.25em 0px;
+}
+
+/* Compilation Examples */
+
+div.variablelist {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+div.variablelist .term {
+    margin-left: 15px;
+}
+
+div.variablelist .programlisting {
+    margin-bottom: 2em;
+}
+
+
+/* Callout Boxes (e.g. note/warning) */
+
+div.warning {
+    background-color: #FFDDDD;
+}
+
+div.note {
+    background-color: #FFFFCC;
+}
+
+div.warning, div.note {
+    margin-top: 1.0em;
+    margin-bottom: 2.0em;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+div.warning h3, div.note h3 {
+    margin: 0.25em 0px;
+}
+
+div.warning p, div.note p {
+    margin: 0.25em 10px;
+}
+
+/* Image */
+
+div.mediaobject {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+div.caption {
+    font-weight: bold;
+}
+
+
+/* Table Layout */
+
+div.table {
+    margin: 1em auto;
+    padding: 1em;
+    border: 1px solid;
+    width: auto;
+}
+
+div.table p {
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+div.table table {
+    border-spacing: 0px 0px;
+    border-collapse: collapse;
+    margin: 0em auto;
+}
+
+div.table table th {
+    margin: 0px;
+    padding: 3px 15px;
+    font-size: small;
+    text-align: center;
+    border-bottom: medium solid;
+}
+
+div.table table td {
+    margin: 0px;
+    padding: 3px 15px;
+    text-align: center;
+    border-top: thin dotted;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover {
+    color: blue;
+}
+
+/* Copyright Formatting */
+
+p.copyright {
+    margin-top: 3px;
+    text-align: right;
+    font-size: x-small;
+}
+    </style>
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">Chapter 2. FTR-SDK: Tracking User's Guide</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="detection_users_guide.html">Prev</a> </td>
+<td width="60%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="20%" align="right"> <a accesskey="n" href="recognition_users_guide.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="chapter" lang="en">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="tracking_users_guide"></a>Chapter 2. FTR-SDK: Tracking User's Guide</h2></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1">1. <a href="tracking_users_guide.html#tracking_definitions">Definitions and Terminology</a></span></dt>
+<dd><dl><dt><span class="sect2"><a href="tracking_users_guide.html#face_tracking">Face Tracking</a></span></dt></dl></dd>
+<dt><span class="sect1">2. <a href="tracking_users_guide.html#tracking_introductory_topics">Introductory Topics</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="tracking_users_guide.html#enabling_tracking">Enabling and Configuring Tracking</a></span></dt>
+<dt><span class="sect2"><a href="tracking_users_guide.html#tracking_results">Results</a></span></dt>
+<dd><dl>
+<dt><span class="sect3"><a href="tracking_users_guide.html#completed_tracks">Completed Tracks</a></span></dt>
+<dt><span class="sect3"><a href="tracking_users_guide.html#current_tracks">Current Tracks</a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="sect1">3. <a href="tracking_users_guide.html#tracking_advanced_topics">Advanced Topics</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="tracking_users_guide.html#visual_instances">Visual Instances</a></span></dt>
+<dt><span class="sect2"><a href="tracking_users_guide.html#tracking_cutoff">Tracking Cutoff</a></span></dt>
+<dt><span class="sect2"><a href="tracking_users_guide.html#visual_attention">Visual Attention</a></span></dt>
+<dt><span class="sect2"><a href="tracking_users_guide.html#shot_boundaries">Shot Boundary Detection</a></span></dt>
+<dt><span class="sect2"><a href="tracking_users_guide.html#detect_and_track_calls">Detect and Track Calls</a></span></dt>
+</dl></dd>
+<dt><span class="sect1">4. <a href="tracking_users_guide.html#tracking_framework">Tracking Framework</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="tracking_users_guide.html#completed_track_framework">Tracking Using Completed Results</a></span></dt>
+<dt><span class="sect2"><a href="tracking_users_guide.html#current_track_framework">Tracking Using Current Results</a></span></dt>
+</dl></dd>
+<dt><span class="sect1">5. <a href="tracking_users_guide.html#tracking_example_programs">Example Applications</a></span></dt>
+</dl>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tracking_definitions"></a>1. Definitions and Terminology</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="face_tracking"></a>Face Tracking</h3></div></div></div>
+<p>
+  Face tracking extends <a href="detection_users_guide.html#face_detection" title="Face Detection">face detection</a> to video sequences.  Any individual who
+  appears in a video for any length of time generates a face track - that is, a sequence of face instances across time.
+  The goal of face tracking is to aggregate single-frame detection results into a collection of face tracks.
+</p>
+<p>
+  Back to <a href="tracking_users_guide.html" title="Chapter 2. FTR-SDK: Tracking User's Guide">top</a>.
+</p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tracking_introductory_topics"></a>2. Introductory Topics</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="enabling_tracking"></a>Enabling and Configuring Tracking</h3></div></div></div>
+<p>
+  If tracking will be used, it must be enabled by calling
+  <code class="function"><a href="tracking_reference.html#enable_tracking" title="ppr_enable_tracking">ppr_enable_tracking</a></code>
+  before initializing the <a href="detection_users_guide.html#contexts" title="Contexts">context</a>.  Tracking should not be enabled if it will not be
+  used because it may marginally increase memory usage.  After tracking is enabled, its context parameters can be
+  configured by calling the functions listed in
+  <a href="tracking_reference.html#tracking_initialize_and_configure_functions" title="Initialize and Configure Functions">Initialize and Configure Functions</a>.  Finally, the
+  context can be initialized by calling
+  <code class="function"><a href="detection_reference.html#initialize_context" title="ppr_initialize_context">ppr_initialize_context</a></code>.
+</p>
+<p>
+  Back to <a href="tracking_users_guide.html" title="Chapter 2. FTR-SDK: Tracking User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="tracking_results"></a>Results</h3></div></div></div>
+<p>
+  Detection returns a list of faces that have been found, along with a variety of meta-data on those faces.  Tracking
+  aggregates detected faces into face tracks from frame to frame.  Data is reported by the tracker in two distinct ways:
+  current tracks and completed tracks. The choice of which is best depends heavily on the application needs.
+</p>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="completed_tracks"></a>Completed Tracks</h4></div></div></div>
+<p>
+    Completed track data is the final, and best, estimate of the full track data and is returned to the user after the
+    track has been eliminated from possible future changes.  Tracks are only reported if, at some point in their
+    lifetime, they have met a variety of criteria. The one disadvantage of using completed track data is that the
+    tracks are only reported after they have come to completion.  For applications that do not require immediate
+    results as each frame is processed, the completed track data is the most appropriate.
+  </p>
+<p>
+    The primary data structure used for completed track results is
+    <span class="parameter"><a href="tracking_reference.html#completed_track_list_type" title="ppr_completed_track_list_type">ppr_completed_track_list_type</a></span>.  Completed
+    track results can be obtained by calling
+    <code class="function"><a href="tracking_reference.html#get_completed_tracks" title="ppr_get_completed_tracks">ppr_get_completed_tracks</a></code>.
+  </p>
+<p>
+    Back to <a href="tracking_users_guide.html" title="Chapter 2. FTR-SDK: Tracking User's Guide">top</a>.
+  </p>
+</div>
+<div class="sect3" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="current_tracks"></a>Current Tracks</h4></div></div></div>
+<p>
+    Current track data is the best immediate estimate of the tracked faces in the most recently submitted frame.  One
+    of the disadvantages of using current track data is that it is more susceptible to false alarms. This is because it
+    is fairly common for tracks to start but never reach the required threshold for acceptance. Therefore, some tracks
+    that appear (as low confidence) in this data will be rejected at a later time and will never make it to the
+    completed track data.  This can be partially remedied by ignoring the lowest confidence tracks in the current frame
+    results. Current track data is useful when results are needed immediately after each frame is processed.
+  </p>
+<p>
+    The primary data structure used for current track results is
+    <span class="parameter"><a href="tracking_reference.html#tracked_object_list_type" title="ppr_tracked_object_list_type">ppr_tracked_object_list_type</a></span>.  Current track
+    results can be obtained by calling
+    <code class="function"><a href="tracking_reference.html#get_current_frame_objects" title="ppr_get_current_frame_objects">ppr_get_current_frame_objects</a></code>.
+  </p>
+<p>
+    Since a track and its constituent faces are updated every frame, the current track data is rarely the same as the
+    eventual completed track data. 
+  </p>
+<p>
+    Back to <a href="tracking_users_guide.html" title="Chapter 2. FTR-SDK: Tracking User's Guide">top</a>.
+  </p>
+</div>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tracking_advanced_topics"></a>3. Advanced Topics</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="visual_instances"></a>Visual Instances</h3></div></div></div>
+<p>
+  Visual instances are cropped images containing the highest quality faces over the duration of a track. Larger faces
+  are preferred over smaller faces, and high confidence faces are preferred over low confidence faces.
+</p>
+<p>
+  Visual instances are only available for completed tracks.  The number of visual instances to store per track can be 
+  specified with the
+  <code class="function"><a href="tracking_reference.html#set_num_visual_instances" title="ppr_set_num_visual_instances">ppr_set_num_visual_instances</a></code> function.
+</p>
+<p>
+  Back to <a href="tracking_users_guide.html" title="Chapter 2. FTR-SDK: Tracking User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="tracking_cutoff"></a>Tracking Cutoff</h3></div></div></div>
+<p>
+  The trade-off between false alarms and misses is controlled by the tracking cutoff.  A lower cutoff is more
+  permissive, and therefore will result in a greater number of false alarms, but fewer misses.  A higher cutoff is more
+  restrictive, and therefore will result in fewer false alarms, but a greater number of misses.  The cutoff value must
+  be an integer between
+  <span class="parameter"><a href="tracking_reference.html#tracking_cutoff_min" title="PPR_TRACKING_CUTOFF_MIN">PPR_TRACKING_CUTOFF_MIN</a></span> and
+  <span class="parameter"><a href="tracking_reference.html#tracking_cutoff_max" title="PPR_TRACKING_CUTOFF_MAX">PPR_TRACKING_CUTOFF_MAX</a></span>.  A cutoff of zero is
+  standard and, on average, will result in the lowest overall error rate (sum of missed tracks and false alarm tracks).
+</p>
+<p>
+  Back to <a href="tracking_users_guide.html" title="Chapter 2. FTR-SDK: Tracking User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="visual_attention"></a>Visual Attention</h3></div></div></div>
+<p>
+  Visual attention is an algorithm implemented for tracking that can provide substantial speed improvements with little
+  to no loss in accuracy. This is accomplished by searching only regions of sufficient interest from frame to frame. 
+  
+  The algorithm respects custom <a href="detection_users_guide.html#region_selection" title="Image Search Regions">search regions</a> set with 
+  <code class="function"><a href="detection_reference.html#set_search_region" title="ppr_set_search_region">ppr_set_search_region</a></code> by ignoring areas outside of
+  the specified search region.
+
+  Speed improvements are most pronounced in highly static scenes.  The visual attention algorithm uses a key-framing
+  approach to minimize errors. Every fifteenth frame is processed fully and every intermediate frame is compared with
+  this key-frame to determine regions of interest.
+</p>
+<p>
+  In the extreme case of a completely static scene, the detector only processes 1 in 15 frames. The actual execution
+  speed up is likely to vary between 1x and 15x depending on the scene content. In most cases, the impact on accuracy is
+  minimal.
+</p>
+<p>
+  If tracking is enabled, the visual attention algorithm can be enabled by calling 
+  <code class="function"><a href="tracking_reference.html#enable_visual_attention" title="ppr_enable_visual_attention">ppr_enable_visual_attention</a></code>.
+</p>
+<p>
+  Back to <a href="tracking_users_guide.html" title="Chapter 2. FTR-SDK: Tracking User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="shot_boundaries"></a>Shot Boundary Detection</h3></div></div></div>
+<p>
+  A shot boundary is defined as a break of continuity in a camera shot.  The shot boundary algorithm determines when a
+  shot boundary has occurred and relays this information to the tracker.  The tracker finalizes active tracks when it
+  encounters a shot boundary.  This explicit finalization of active tracks keeps tracks from being falsely merged
+  across shot boundaries.  The additional execution time needed for shot boundary detection is negligible.
+</p>
+<p>
+  If tracking is enabled, shot boundary detection can be enabled by calling 
+  <code class="function"><a href="tracking_reference.html#enable_shot_boundary_detection" title="ppr_enable_shot_boundary_detection">ppr_enable_shot_boundary_detection</a></code>.
+</p>
+<p>
+  Call <code class="function"><a href="tracking_reference.html#set_shot_boundary_threshold" title="ppr_set_shot_boundary_threshold">ppr_set_shot_boundary_threshold</a></code> to set a
+  threshold that controls the sensitivity of shot boundary detection.  The shot boundary threshold is a floating point
+  number (greater than or equal to zero) that controls the sensitivity of the shot boundary algorithm.  The threshold
+  was normalized such that a threshold of 0.0 results in approximately 1 false alarm every 10,000 frames, and a
+  threshold of 1.0 results in approximately 1 false alarm every 20,000 frames on an internal data set.  The
+  disadvantage of higher thresholds is that shot boundaries are more likely to be missed.
+</p>
+<p>
+  Back to <a href="tracking_users_guide.html" title="Chapter 2. FTR-SDK: Tracking User's Guide">top</a>.
+</p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="detect_and_track_calls"></a>Detect and Track Calls</h3></div></div></div>
+<p>
+  The <code class="function"><a href="tracking_reference.html#detect_and_track_objects" title="ppr_detect_and_track_objects">ppr_detect_and_track_objects</a></code> function can be
+  used to do detection and tracking in one function call.  Alternatively, detection and tracking can be broken into two
+  steps by calling <code class="function"><a href="detection_reference.html#detect_objects" title="ppr_detect_objects">ppr_detect_objects</a></code> followed by
+  <code class="function"><a href="tracking_reference.html#track_objects" title="ppr_track_objects">ppr_track_objects</a></code>.  Making independent calls to detection
+  and tracking allows the user to <a href="detection_users_guide.html#detection_threading" title="Multi-Threaded Detection">thread</a> detection at the frame level, with
+  different threads processing different frames simultaneously.  If this threading technique is used, it is important
+  that objects are submitted to the tracking function in the proper frame order.  The
+  <code class="function"><a href="tracking_reference.html#detect_and_track_objects" title="ppr_detect_and_track_objects">ppr_detect_and_track_objects</a></code>
+  function uses threading at a low level, but maximum throughput can be achieved by threading at the frame level.
+</p>
+<p>
+  Back to <a href="tracking_users_guide.html" title="Chapter 2. FTR-SDK: Tracking User's Guide">top</a>.
+</p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tracking_framework"></a>4. Tracking Framework</h2></div></div></div>
+<p>
+  Frameworks for using the tracking portion of the FTR-SDK are described below.  The frameworks provide an
+  introduction to the order in which functions should be called, with links to each function's detailed description.
+</p>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="completed_track_framework"></a>Tracking Using Completed Results</h3></div></div></div>
+<p>
+    This framework should be used when tracking results are not needed immediately after a frame is processed.  Waiting
+    for a track to complete before getting results from the tracker is the most accurate method and should be used when
+    possible.  If results are needed after each frame is processed because immediate action needs to be taken (for
+    example, controlling a pan/tilt/zoom camera to track a person of interest), see
+    <a href="tracking_users_guide.html#current_track_framework" title="Tracking Using Current Results">Tracking Using Current Results</a>.
+  </p>
+<div class="orderedlist"><ol type="1">
+<li>
+<span><strong class="command">Get</strong></span> a new context
+      <p>
+	Call <code class="function"><a href="detection_reference.html#get_context" title="ppr_get_context">ppr_get_context</a></code> to get a new context with the
+	default parameters.  The returned context should be stored for submission to future function calls.
+      </p>
+</li>
+<li>
+<span><strong class="command">Enable</strong></span> tracking
+      <p>
+	Tracking must be enabled in the context before initialization since tracking functions will be used.  Call
+	<code class="function"><a href="tracking_reference.html#enable_tracking" title="ppr_enable_tracking">ppr_enable_tracking</a></code> to allow tracking functions to
+	be used in the context.
+      </p>
+</li>
+<li>
+<span><strong class="command">Configure</strong></span> the context
+      <p>
+	Certain parameters cannot be configured after the context is initialized.  Therefore, unless the default values
+	are desired, the parameters must be configured before the initialization step.  The function references indicate
+	which parameters must be set before initialization.
+      </p>
+</li>
+<li>
+<span><strong class="command">Initialize</strong></span> the context
+      <p>
+	After configuring the context,
+	<code class="function"><a href="detection_reference.html#initialize_context" title="ppr_initialize_context">ppr_initialize_context</a></code> must be called before the
+	context can be used.
+      </p>
+</li>
+<li>
+<span><strong class="command">Submit</strong></span> a frame to the tracker
+     <p>
+	Call
+       <code class="function"><a href="tracking_reference.html#detect_and_track_objects" title="ppr_detect_and_track_objects">ppr_detect_and_track_objects</a></code> to submit a
+	video frame to the tracker. Alternatively, detection and tracking can be performed in two separate calls using
+       <code class="function"><a href="detection_reference.html#detect_objects" title="ppr_detect_objects">ppr_detect_objects</a></code> followed by
+       <code class="function"><a href="tracking_reference.html#track_objects" title="ppr_track_objects">ppr_track_objects</a></code>.
+     </p>
+</li>
+<li>
+<span><strong class="command">Extract</strong></span> completed face tracks
+      <p>
+        Extract completed face tracks through the present time with
+	<code class="function"><a href="tracking_reference.html#get_completed_tracks" title="ppr_get_completed_tracks">ppr_get_completed_tracks</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Free</strong></span> allocated memory
+      <p>
+        After processing (or storing) the application's required track data, release memory allocated for the completed
+	track data structure with
+        <code class="function"><a href="tracking_reference.html#free_completed_track_list" title="ppr_free_completed_track_list">ppr_free_completed_track_list</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Repeat</strong></span> for all frames
+      <p>
+        Repeat steps 5 through 7 until the last frame in the video sequence has been processed.
+      </p>
+</li>
+<li>
+<span><strong class="command">Force</strong></span> completion of remaining tracks
+      <p>
+	After the last frame in the sequence has been processed, force completion of all remaining active tracks with
+	<code class="function"><a href="tracking_reference.html#finalize_current_tracks" title="ppr_finalize_current_tracks">ppr_finalize_current_tracks</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Extract</strong></span> remaining face tracks
+      <p>
+	Call
+        <code class="function"><a href="tracking_reference.html#get_completed_tracks" title="ppr_get_completed_tracks">ppr_get_completed_tracks</a></code> one last time to
+	extract any remaining face tracks.
+      </p>
+</li>
+<li>
+<span><strong class="command">Free</strong></span> allocated memory
+      <p>
+	Memory allocated for the track list data structure must be freed by calling
+	<code class="function"><a href="tracking_reference.html#free_completed_track_list" title="ppr_free_completed_track_list">ppr_free_completed_track_list</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Release</strong></span> the context
+      <p>
+	Call <code class="function"><a href="detection_reference.html#release_context" title="ppr_release_context">ppr_release_context</a></code> to inform the SDK that the
+	previously allocated context is no longer required.  Each context must be released to avoid memory leaks.
+      </p>
+</li>
+<li>
+<span><strong class="command">Finalize</strong></span> the SDK
+      <p>
+	Call <code class="function"><a href="detection_reference.html#finalize_sdk" title="ppr_finalize_sdk">ppr_finalize_sdk</a></code> to inform the SDK that it is no
+	longer needed. This function releases the SDK's internally managed memory buffers. It must be called before
+	exiting the program.
+      </p>
+</li>
+</ol></div>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+      Because the memory requirements for maintaining each stored track is relatively small, it is not necessary
+      to perform steps 6 and 7 after every frame (once every 100,000 frames should be sufficient, though applications
+      more sensitive to memory footprint may choose to do so more frequently). If performing off-line processing on a
+      small video, steps 6 and 7 may not be necessary at all, and all completed tracks can be extracted after the entire
+      video sequence has completed.
+    </p>
+</div>
+<p>
+    Back to <a href="tracking_users_guide.html" title="Chapter 2. FTR-SDK: Tracking User's Guide">top</a>.
+  </p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="current_track_framework"></a>Tracking Using Current Results</h3></div></div></div>
+<p>
+    This framework should be used when tracking results need to be acted upon frame-by-frame, as a video sequence 
+    is being processed. For this case, the framework outlined in
+    <a href="tracking_users_guide.html#completed_track_framework" title="Tracking Using Completed Results">Tracking Using Completed Results</a> is not suitable
+    since completed track results are only available after completion of face tracks. Because the tracking results after
+    each frame are not as accurate as the completed track results, only use this framework when the application requires
+    results to be processed before a track comes to completion.
+  </p>
+<div class="orderedlist"><ol type="1">
+<li>
+<span><strong class="command">Get</strong></span> a new context
+      <p>
+	Call <code class="function"><a href="detection_reference.html#get_context" title="ppr_get_context">ppr_get_context</a></code> to get a new context with the
+	default parameters.  The returned context should be stored for submission to future function calls.
+      </p>
+</li>
+<li>
+<span><strong class="command">Enable</strong></span> tracking
+      <p>
+	Tracking must be enabled in the context before initialization since tracking functions will be used.  Call
+	<code class="function"><a href="tracking_reference.html#enable_tracking" title="ppr_enable_tracking">ppr_enable_tracking</a></code> to allow tracking functions to
+	be used in the context.
+      </p>
+</li>
+<li>
+<span><strong class="command">Configure</strong></span> the context
+      <p>
+	Certain parameters cannot be configured after the context is initialized.  Therefore, unless the default values
+	are desired, the parameters must be configured before the initialization step.  The function references indicate
+	which parameters must be set before initialization.
+      </p>
+</li>
+<li>
+<span><strong class="command">Initialize</strong></span> the context
+      <p>
+	After configuring the context,
+	<code class="function"><a href="detection_reference.html#initialize_context" title="ppr_initialize_context">ppr_initialize_context</a></code> must be called before the
+	context can be used.
+      </p>
+</li>
+<li>
+<span><strong class="command">Submit</strong></span> a frame to the tracker
+      <p>
+	Call
+	<code class="function"><a href="tracking_reference.html#detect_and_track_objects" title="ppr_detect_and_track_objects">ppr_detect_and_track_objects</a></code> to submit a
+	video frame to the tracker. Alternatively, detection and tracking can be performed in two separate calls using
+	<code class="function"><a href="detection_reference.html#detect_objects" title="ppr_detect_objects">ppr_detect_objects</a></code> followed by
+	<code class="function"><a href="tracking_reference.html#track_objects" title="ppr_track_objects">ppr_track_objects</a></code>.
+      </p>
+</li>
+<li>
+<span><strong class="command">Extract</strong></span> best estimate of active tracks
+      <p>
+        Extract the best estimate of active faces in the current frame with 
+        <code class="function"><a href="tracking_reference.html#get_current_frame_objects" title="ppr_get_current_frame_objects">ppr_get_current_frame_objects</a></code>.
+      </p>
+<p>
+        This returns data pertaining to the faces in the current frame, but does not return data about entire tracks.
+        Entire track data is not available until a track has completed.  As with the previous scenario, call
+        <code class="function"><a href="tracking_reference.html#get_completed_tracks" title="ppr_get_completed_tracks">ppr_get_completed_tracks</a></code> to
+        get completed track data.
+      </p>
+</li>
+<li>
+<span><strong class="command">Free</strong></span> allocated memory
+      <p>
+        After acting on the current results, release memory for the tracked object list data structure 
+        with <code class="function"><a href="tracking_reference.html#free_tracked_object_list" title="ppr_free_tracked_object_list">ppr_free_tracked_object_list</a></code>.  
+      </p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+          Memory associated with completed tracks must still be freed by the calling application, whether the 
+          completed track results are relevant or not for that application. Suppose that for this scenario, 
+          one does not care about preserving the data associated with completed tracks. Then, the calling 
+          application should periodically invoke 
+          <code class="function"><a href="tracking_reference.html#discard_unreturned_completed_tracks" title="ppr_discard_unreturned_completed_tracks">ppr_discard_unreturned_completed_tracks</a></code>. 
+          Alternatively, to preserve completed tracks (e.g., save to disk), the calling application can follow 
+          the same procedure as for
+	  <a href="tracking_users_guide.html#completed_track_framework" title="Tracking Using Completed Results">Tracking Using Completed Results</a>.
+        </p>
+</div>
+</li>
+<li>
+<span><strong class="command">Repeat</strong></span> for all images
+      <p>
+        Repeat steps 5 through 7 until the last image in the sequence has been processed.
+      </p>
+</li>
+<li>
+<span><strong class="command">Release</strong></span> the tracker's internally allocated memory
+      <p>
+	Call
+        <code class="function"><a href="tracking_reference.html#discard_unreturned_completed_tracks" title="ppr_discard_unreturned_completed_tracks">ppr_discard_unreturned_completed_tracks</a></code>
+	one last time to free memory for any tracks remaining inside of the tracker.
+      </p>
+</li>
+<li>
+<span><strong class="command">Release</strong></span> the context
+      <p>
+	Call <code class="function"><a href="detection_reference.html#release_context" title="ppr_release_context">ppr_release_context</a></code> to inform the SDK that the
+	previously allocated context is no longer required.  Each context must be released to avoid memory leaks.
+      </p>
+</li>
+<li>
+<span><strong class="command">Finalize</strong></span> the SDK
+      <p>
+	Call <code class="function"><a href="detection_reference.html#finalize_sdk" title="ppr_finalize_sdk">ppr_finalize_sdk</a></code> to inform the SDK that it is no
+	longer needed. This function releases the SDK's internally managed memory buffers. It must be called before
+	exiting the program.
+      </p>
+</li>
+</ol></div>
+<p>
+    Back to <a href="tracking_users_guide.html" title="Chapter 2. FTR-SDK: Tracking User's Guide">top</a>.
+  </p>
+</div>
+</div>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="tracking_example_programs"></a>5. Example Applications</h2></div></div></div>
+<p>
+  The following applications are included to demonstrate usage of the tracking portion of the FTR-SDK and to provide
+  an easy way to evaluate the SDK.  A build script is provided to build all example applications.  The applications can
+  be passed a <span class="parameter">-help</span> flag to get usage information.
+</p>
+<div class="variablelist"><dl>
+<dt><span class="term"><code class="filename">tracking-completed</code></span></dt>
+<dd><p>
+        This application uses the tracker to process a video sequence where results are extracted after tracks have
+	come to completion.  It follows the
+        <a href="tracking_users_guide.html#completed_track_framework" title="Tracking Using Completed Results">Tracking Using Completed Results</a> framework.
+      </p></dd>
+<dt><span class="term"><code class="filename">tracking-current</code></span></dt>
+<dd><p>
+        This application demonstrates how to acquire frame-by-frame data from the tracker such that the results
+	are extracted after every frame.  It follows the
+	<a href="tracking_users_guide.html#current_track_framework" title="Tracking Using Current Results">Tracking Using Current Results</a> framework.
+      </p></dd>
+<dt><span class="term"><code class="filename">tracking-threaded</code></span></dt>
+<dd><p>
+	This application demonstrates using frame-level threading for a tracking scenario.  Instead of using the SDK's
+	internal threading, threading is performed manually at the image level using POSIX Threads
+	(<span class="parameter">pthreads</span>). Since Windows does not ship with the <span class="parameter">pthreads</span>
+	library, this example program is not built by default for Windows users.
+      </p></dd>
+</dl></div>
+<p>
+  Back to <a href="tracking_users_guide.html" title="Chapter 2. FTR-SDK: Tracking User's Guide">top</a>.
+</p>
+</div>
+</div>
+<hr>
+<p class="copyright">© 2004-2010 Pittsburgh Pattern Recognition, Inc.</p>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="detection_users_guide.html">Prev</a> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right"> <a accesskey="n" href="recognition_users_guide.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Chapter 1. FTR-SDK: Detection User's Guide </td>
+<td width="20%" align="center"><a accesskey="h" href="../ftr_sdk.html">Home</a></td>
+<td width="40%" align="right" valign="top"> Chapter 3. FTR-SDK: Recognition User's Guide</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

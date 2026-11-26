@@ -1,0 +1,27 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+Desktop.ini
+*.tmp
+*.log
+*.bak
+*~
+~$*
+
+dev/flechas/Debug Win32/
+dev/flechas/Release Win32/
+test1/Console/Debug Win32/
+test1/Console/Release Win32/
+*.depend
+*.layout
+
+docs/pittpatt/pittpatt_license.h
+
+Copia de */
+Backup_old/
+
+docs/pittpatt/pittpatt_ftr_sdk-4.1-windows-x86.zip
+docs/pittpatt/pittpatt_ftr_sdk-4.1-windows-x86_64.zip
+docs/pittpatt/pittpatt_ftr_sdk-4.1-mac_os_x-x86_64.tgz
+docs/faceapi/FaceTrackingAPI_NC-V3.2.0.zip
+docs/faceapi/FaceTrackingAPI_NC-V3.2.0/setup_FaceTrackingAPI_NC-V3.2.0.exe

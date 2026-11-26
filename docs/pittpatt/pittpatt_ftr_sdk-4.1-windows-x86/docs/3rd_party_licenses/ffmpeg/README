@@ -1,0 +1,9 @@
+The contents of this directory:
+1) object files for our component of the video library
+2) source code used to build the ffmpeg component of the video library
+
+NOTE: The primary video library is a shared library (.dll or .so) in the library directory. 
+In this directory we've provided the object files for our component of the video 
+library, as well as the source code for the FFMPEG library. This can be used to 
+seperately upgrade FFMPEG or to build with a static link (using libavcodec.a, libavutil.a,
+and libavutil.a).
